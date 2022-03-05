@@ -1,0 +1,171 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+ 	text-decoration: none;
+ 	color: black;
+}
+
+body {
+ 	background-color: #f2f2f2;
+ 	display: flex;
+ 	flex-direction: column;
+ 	max-width: 1920px;
+	width: 100%;
+ 	align-items: center;
+
+
+}
+.first-header {
+/*	background-color: #fafafa;*/
+	display: flex;
+	justify-content: center;
+	height: 39px;
+	align-items: center;
+}
+
+
+.first-header ul {
+	display: flex;
+	list-style: none;
+
+}
+
+.first-header ul li {
+	margin: 0 20px;
+}
+
+.first-header ul li a {
+	text-decoration: none;
+	color: black;
+	font-size: 15px;
+	opacity: 0.7;
+}
+
+header {
+	max-width: 1920px;
+	width: 100%;
+	display: flex;
+	height: 96px;
+ 	background-color: #fafafa;
+ 	align-items: center;
+ 	justify-content: center;
+ 	margin-bottom: 30px;
+}
+
+.header-problem {
+	display: flex;
+	align-items: flex-end;
+	margin: 0px;
+	justify-content: space-between;
+	width: 1150px;
+}
+
+.logo {
+	font-size: 50px;
+	padding: 0 50px;
+	color: red;
+	margin-right: ;
+}
+
+.search{
+	display: flex;
+
+}
+
+
+.search input {
+	height: 25px;
+	width: 700px;
+	border-radius: 20px;
+	border: 2px red solid;
+}
+
+.search button {
+	height: 25px;
+	width: 50px;
+	background-color: red;
+	border-radius: 20px;
+}
+
+.container {
+	width: 70%;
+}
+
+.kategorii {
+	background-color: #fafafa;
+	margin: 0px 50px 0 0 ;
+	border-radius: 20px ;
+ 	float: left;
+	width: 26%;
+}
+.kategorii h2 {
+	padding: 10px 25px;
+}
+
+.kategorii ul {
+	margin: 0 20px;
+}
+
+.kategorii ul li{
+	height: 37px;
+	padding: 0 5px ;
+	font-size: 15px;
+	border-radius: 20px ;
+	display: flex;
+	align-items: center;
+}
+
+.kategorii ul li a {
+	font-size: 19px;
+}
+
+.kategorii li:hover{
+	font-size: 22px;
+	color: red;
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+
+.kategorii ul i {
+	padding: 0 10px 0 0 ;
+}
+
+.pod-kategorii {
+	position: absolute;
+	left: 550px;
+	top: 165px;
+	background-color: green;
+	border-radius: 20px;
+	width: ;
+	height: 500px;
+}
+
+.pod-kategorii li {
+	padding: 10px 15px;
+}
+
+.slayder {
+	background-color: red;
+	width: 70%;
+	height: 500px;
+	margin-left: 350px;
+	border-radius: 20px;
+}
+
+.mini-container {
+	background-color: #fafafa;
+	width: 100%;
+	background-color: grey;
+	height: 200px;
+	margin: 20px 0;
+	border-radius: 20px;
+
+}
