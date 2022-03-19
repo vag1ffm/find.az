@@ -12,6 +12,7 @@ a {
 li {
 	list-style: none;
 }
+
 h4 {
 	font-size: 11px;
 	text-transform: uppercase;
@@ -23,7 +24,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 3000px;
+	height: 5000px;
 }
 
 .main-menu {
@@ -170,6 +171,7 @@ body {
 	background-color: #fff;
 	display: flex;
 	border-right: 50px;
+	border-radius: 10px;
 }
 
 .first-s {
@@ -248,4 +250,154 @@ body {
 .third-s select {
 	border-radius: 20px ;
 	border: none;
+}
+
+main {
+	width: 1170px;
+	display: flex;
+}
+
+.filter {
+	display: flex;
+	flex-direction: column;
+}
+
+.first-filter, .second-filter, .third-filter, .fourth-filter {
+	width: 270px;
+	background-color: #fff;
+	margin-top: 30px;
+	border-radius: 10px;
+}
+
+.first-filter li {
+	height: 40px;
+	border-bottom: 1px #DCDCDC solid;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;	
+	cursor: pointer;
+}
+
+.first-filter p {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.fa-angle-down {
+	color: grey;
+}
+
+.second-filter li {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	padding: 0 20px;
+	font-weight: 700;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.border {
+	border-top: 1px #DCDCDC solid;
+	border-bottom: 1px #DCDCDC solid;
+	text-transform: uppercase;
+}
+
+.second-filter p {
+	margin-left: 7px;
+	font-weight: 700;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.second-filter input {
+	margin: 0 15px 0 0  ;
+}
+
+.num {
+	opacity: .2;
+}
+
+.third-filter p {
+	margin: 0 20px;
+
+	
+}
+
+.third-filter li {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	font-weight: 700;
+	justify-content: space-between;
+}
+
+.third-filter input {
+	margin: 0 15px 0 0 ;
+}
+
+.fourth-filter  li{
+	display: flex;	
+	font-size: 13px;
+	height: 40px;
+	align-items: center;
+	text-transform: uppercase;
+	justify-content: space-between;
+	font-weight: 700;
+
+}
+
+.fourth-filter p {
+	padding: 0 50px 0 20px;
+
+}
+
+.fourth-filter input {
+	margin-right: 15px;
+}
+
+
+.tovari {
+	width: 900px;
+	height: 3000px;
+}
+
+.tovar {
+	width: 270px;
+	height: 380px;
+	background-color: #fff;
+	border-radius: 10px;
+	float: left;
+	margin: 30px 0  0 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.img {
+	width: 95$;
+	
+}
+
+.img img {
+	width: 100%;
+}
+
+.tovar h5 {
+	font-size: 16px;
+	text-align: center;
+}
+
+.tovar p {
+	font-size: 12px;
+}
+
+.tovar h3 {
+	font-size: 14px;
+	margin-bottom: 15px;
 }
