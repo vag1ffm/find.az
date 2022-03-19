@@ -12,13 +12,18 @@ a {
 li {
 	list-style: none;
 }
+h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	opacity: .3;
+}
 
 body {
 	background-color: #DCDCDC;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	height: 3000px;
 }
 
 .main-menu {
@@ -164,21 +169,83 @@ body {
 	height: 60px;
 	background-color: #fff;
 	display: flex;
+	border-right: 50px;
 }
 
 .first-s {
 	width: 250px;
 	height: 60px;
-	border: 1px #f2f2f2 solid ;
+	border-right: 1px #DCDCDC solid ;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+.first-s select {
+	width: 120px;
+	border: none;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+.first-s option {
+	font-size: 15px;
 }
 
 .second-s {
 	width: 705px;
 	height: 60px;
+	border-right: 1px #DCDCDC solid ;
+	display: flex;
+	justify-content: space-around;
+}
+
+.lsecond-s {
+	display: flex;
+	align-items: center;
+
+}
+
+.lsecond-s input, .rsecond-s input {
+	width: 200px;
+	height: 20px;
+	border-radius: 20px;
+	background-color: #DCDCDC;
+	border: 1px #dcdcdc solid;
+	margin: 10px;
+	line-height: 1.5;
+} 
+
+.lsecond-s input:focus, .rsecond-s input:focus {
+	border: 1px #dcdcdc solid;
+	outline: 0;
+}
+
+.lsecond-s input[type="text"], .rsecond-s input[type='text']{
+	padding: 12px;
+}
+
+.rsecond-s {
+	display: flex;
+	align-items: center;
+}
+
+.rsecond-s input {
+	width: 65px;
+	border-radius: 20px;
+	margin: 10px;
 }
 
 .third-s {
 	width: 230px;
 	height: 60px;
-	border: 1px #f2f2f2 solid;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;	
+}
+
+.third-s select {
+	border-radius: 20px ;
+	border: none;
 }
