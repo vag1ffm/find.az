@@ -1,0 +1,435 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+a {
+	color: black;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+h4 {
+	font-size: 11px;
+	text-transform: uppercase;
+	opacity: .3;
+}
+
+body {
+	background-color: #DCDCDC;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 5000px;
+}
+
+.main-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 140px;
+	background-color: #fff;
+}
+
+.upper-menu	{
+	height: 100px;
+	display: flex;
+	width: 1400px;
+	align-items: center;
+	border: 1px #f3f3f3 solid;
+}
+
+.first-um {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu {
+	margin-left: 100px;
+	margin-right: 80px ;
+}
+
+.logo {
+	margin-right: 150px;
+}
+
+.nav {
+	margin-right: 140px;
+}
+
+.nav ul {
+	display: flex;
+
+
+}
+
+.nav ul li {
+	margin: 0 15px ;
+}
+
+
+.nav ul li a {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.second-um {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart  a {
+	display: flex;
+}
+.cart {
+	margin-right: 30px;
+}
+
+.cart p {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.singin {
+	font-weight: bold;
+	margin-right: px;
+}
+
+.singin p {
+	padding: 10px 25px;
+	font-size: 14px;
+}
+
+.button-menu {
+	display: flex;
+	justify-content: space-between;
+	width: 1400px;
+	align-items: centers;
+	height: 40px;
+	border: 1px #f2f2f2 solid;
+}
+.left-bm {
+	display: flex;
+	align-items: center;
+
+}
+
+.left-bm ul {
+	display: flex;
+	margin-left: 120px;
+
+}
+
+.left-bm li {
+	margin-right: 40px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.right-bm {
+	display: flex;
+	margin-right: 120px;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.right-bm p {
+	font-size: 13px;
+	margin-right: 30px;
+	cursor: pointer;
+}
+.right-bm input {
+	border: 1px #f2f2f2 solid;
+	height: 40px;
+}
+
+.banner {
+	width: 1400px;
+	height: 500px;
+	background-color: black;
+	background-image: url(https://topkhabre.com/wp-content/uploads/2020/10/fsdsdfsfdsdf-1536x758.png);
+	background-position: top;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	font-weight: 700;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.sort {
+	margin-top: 50px;
+	width: 1170px;
+	height: 60px;
+	background-color: #fff;
+	display: flex;
+	border-right: 50px;
+	border-radius: 10px;
+}
+
+.first-s {
+	width: 250px;
+	height: 60px;
+	border-right: 1px #DCDCDC solid ;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+}
+.first-s select {
+	width: 120px;
+	border: none;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+.first-s option {
+	font-size: 15px;
+}
+
+
+.second-s {
+	width: 705px;
+	height: 60px;
+	border-right: 1px #DCDCDC solid ;
+	display: flex;
+	justify-content: space-around;
+}
+
+.lsecond-s {
+	display: flex;
+	align-items: center;
+
+}
+
+.lsecond-s input, .rsecond-s input {
+	width: 200px;
+	height: 20px;
+	border-radius: 20px;
+	background-color: #DCDCDC;
+	border: 1px #dcdcdc solid;
+	margin: 10px;
+	line-height: 1.5;
+} 
+
+.lsecond-s input:focus, .rsecond-s input:focus {
+	border: 1px #dcdcdc solid;
+	outline: 0;
+}
+
+.lsecond-s input[type="text"], .rsecond-s input[type='text']{
+	padding: 12px;
+}
+
+.rsecond-s {
+	display: flex;
+	align-items: center;
+}
+
+.rsecond-s input {
+	width: 65px;
+	border-radius: 20px;
+	margin: 10px;
+}
+
+.third-s {
+	width: 230px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;	
+}
+
+.third-s select {
+	border-radius: 20px ;
+	border: none;
+}
+
+main {
+	width: 1170px;
+	display: flex;
+}
+
+.filter {
+	display: flex;
+	flex-direction: column;
+}
+
+.first-filter, .second-filter, .third-filter, .fourth-filter {
+	width: 270px;
+	background-color: #fff;
+	margin-top: 30px;
+	border-radius: 10px;
+	z-index: 5;
+	
+}
+
+.top-filter {
+	height: px;
+	border-bottom: 1px #DCDCDC solid;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 11px 20px;	
+	cursor: pointer;
+	z-index: 10;
+	transition: .3s;
+
+}
+
+.first-filter p {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.fa-angle-down {
+	color: grey;
+}
+
+.sub-filter {
+	width: 270px;
+	z-index: -10;
+	position: relative;
+	display: none;
+	transition: .3s;
+	
+}
+.sub-filter li{
+	background-color: #f0f2f7;
+	border-bottom: 1px #dfe4ee solid;
+	display: flex;
+	flex-direction: column;
+	text-transform: uppercase;
+	font-size: 11px;
+	padding: 11px 20px;	
+	cursor: pointer;
+}
+
+.first-filter li:hover .sub-filter{
+	display: block;
+	position: relative;
+	
+}
+.second-filter li {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	padding: 0 20px;
+	font-weight: 700;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.border {
+	border-top: 1px #DCDCDC solid;
+	border-bottom: 1px #DCDCDC solid;
+	text-transform: uppercase;
+}
+
+.second-filter p {
+	margin-left: 7px;
+	font-weight: 700;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.second-filter input {
+	margin: 0 15px 0 0  ;
+}
+
+.num {
+	opacity: .2;
+}
+
+.third-filter p {
+	margin: 0 20px;
+
+	
+}
+
+.third-filter li {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	font-weight: 700;
+	justify-content: space-between;
+}
+
+.third-filter input {
+	margin: 0 15px 0 0 ;
+}
+
+.fourth-filter  li{
+	display: flex;	
+	font-size: 13px;
+	height: 40px;
+	align-items: center;
+	text-transform: uppercase;
+	justify-content: space-between;
+	font-weight: 700;
+
+}
+
+.fourth-filter p {
+	padding: 0 50px 0 20px;
+
+}
+
+.fourth-filter input {
+	margin-right: 15px;
+}
+
+
+.tovari {
+	width: 900px;
+	height: 3000px;
+}
+
+.tovar {
+	width: 270px;
+	height: 380px;
+	background-color: #fff;
+	border-radius: 10px;
+	float: left;
+	margin: 30px 0  0 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.img {
+	width: 95$;
+	
+}
+
+.img img {
+	width: 100%;
+}
+
+.tovar h5 {
+	font-size: 16px;
+	text-align: center;
+}
+
+.tovar p {
+	font-size: 12px;
+}
+
+.tovar h3 {
+	font-size: 14px;
+	margin-bottom: 15px;
+}
