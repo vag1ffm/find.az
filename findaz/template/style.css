@@ -315,7 +315,7 @@ main {
 	cursor: pointer;
 }
 
-.first-filter li:hovers .sub-filter{
+.first-filter li:hover .sub-filter{
 	display: block;
 	position: relative;
 	
