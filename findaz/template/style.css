@@ -162,6 +162,8 @@ body {
 	justify-content: center;
 	font-size: 30px;
 	font-weight: 700;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 }
 
 .sort {
@@ -194,6 +196,7 @@ body {
 .first-s option {
 	font-size: 15px;
 }
+
 
 .second-s {
 	width: 705px;
@@ -267,16 +270,21 @@ main {
 	background-color: #fff;
 	margin-top: 30px;
 	border-radius: 10px;
+	z-index: 5;
+	
 }
 
-.first-filter li {
-	height: 40px;
+.top-filter {
+	height: px;
 	border-bottom: 1px #DCDCDC solid;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 20px;	
+	padding: 11px 20px;	
 	cursor: pointer;
+	z-index: 10;
+	transition: .3s;
+
 }
 
 .first-filter p {
@@ -288,6 +296,30 @@ main {
 	color: grey;
 }
 
+.sub-filter {
+	width: 270px;
+	z-index: -10;
+	position: relative;
+	display: none;
+	transition: .3s;
+	
+}
+.sub-filter li{
+	background-color: #f0f2f7;
+	border-bottom: 1px #dfe4ee solid;
+	display: flex;
+	flex-direction: column;
+	text-transform: uppercase;
+	font-size: 11px;
+	padding: 11px 20px;	
+	cursor: pointer;
+}
+
+.first-filter li:hovers .sub-filter{
+	display: block;
+	position: relative;
+	
+}
 .second-filter li {
 	height: 40px;
 	display: flex;
