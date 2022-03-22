@@ -22,3 +22,15 @@ function pshowfilter() {
 	let a = document.querySelector('.psf')
 	a.classList.toggle('aaa')
 }
+
+
+function showallbrands() {
+	let a = document.querySelectorAll('#brands')
+	for (let i of a) {
+		if (i.checked == true) {
+			i.checked = false
+		} else {
+			i.checked = true
+		}
+	}
+}	
