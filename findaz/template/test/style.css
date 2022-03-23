@@ -1,0 +1,344 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+i {
+	font-size: 20px;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 1440px;
+
+
+}
+
+.pervaya-stupen {
+	display: flex;
+	width: 100%;
+	max-width: 1440px;
+	align-items: center;
+	justify-content: center;
+	height: 72px;
+	z-index: 7;
+	background-color: #fff;
+}
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 167px;
+	height: 72px;
+	margin: 0 32px 0 0;
+}
+
+.logo-ikon {
+	font-size: 32px;
+}
+
+.logo-text {
+	font-size: 32px;
+	font-weight: 700;
+}
+
+.katalog {
+	display: flex;
+	justify-content: center;	
+	align-items: center;
+	height: 44px;
+	background-color: #FFCC00;
+	padding: 12px 16px 12px 14px;
+	border-radius: 5px;
+	margin: 0 12px 0 0;
+	cursor: pointer;
+	transition: all 0.3s  ease;
+}
+
+.katalog:active {
+	background-color: #e1b70c;
+	transform: scale(0.95);
+
+
+}
+
+.katalog-text {
+	font-size: 16px;
+	padding: 12px;
+	font-weight: 700;
+}
+
+.katalogi {
+	display: flex;
+	position:absolute;
+	top: -100%;
+	z-index: 5;
+	background-color: #fff;
+	transition: 0.5s;
+	background-clip: padding-box;
+}
+.listi-kategori {
+	padding: 20px 10px 20px 10px;
+	border-right: 1px #d9d9d9 solid;
+
+}
+
+.listi-kategori li{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 8px 0 11px ;
+	height: 36px;
+	width: 245px;
+	cursor: pointer;
+	border-radius: 10px ;
+	transition: all 0.2s linear;
+}
+/*.listi-kategori li:hover {*/
+/*	background-color: #f3f3f3;*/
+/*}*/
+.list-katalog-left {
+	display: flex;
+	align-items: center;
+}
+
+
+.list-katalog-left-icon {
+	margin-right: 8px;
+	font-size: 20px;
+}
+
+.list-katalog-left-icon i {
+	width: 25px;
+}
+.list-katalog-left-text {
+	font-size: 14px;
+}
+
+.infa-list-katalogax {
+	width: 1173px;
+
+}
+
+.list-katalog-list {
+	position: absolute;
+	top: 20px;
+	left: 266px;
+	width: 1173px;
+	height: 100px;
+	display: none;
+	margin:  0 20px;
+}
+
+.list-katalog-list {
+	font-size: 35px;
+	font-weight: 700;
+}
+
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
+/*.listi-kategori li:hover .list-katalog-list {*/
+/*	display: block;*/
+/*}*/
+
+.poiskovik label{
+	display: flex;
+	margin: 0 32px 0 0;
+}
+
+.poiskovik input:first-child {
+	width: 587.41px;
+	height: 44px;
+	border: 4px #FFCC00 solid;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.poiskovik input:first-child[type='text'] {
+	padding: 0 36px 0 12px;
+}
+
+.poiskovik input:last-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 16px;
+	background-color: #FFCC00;
+	border: none;
+	font-weight: 700;
+	border-top-right-radius: 10px ;
+	border-bottom-right-radius: 10px ;
+}
+
+.zakazi, .izbrannoe, .korzina {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 72px;
+	margin: 0 10px;
+}
+
+.zakazi-text, .izbranoe-text, .korzina-text{
+	font-size: 12px;
+	padding-top: 4px;
+
+}
+
+.voyti {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 16px;
+	height: 44px;
+	background-color: #E3E3E3;
+	border-radius: 10px;
+	margin-left: 30px;
+}
+
+.voyti-text {
+	font-size: 16px;
+}
+
+.ftoraya-stupen {
+	display: flex;
+	align-items: center;
+	
+	height: 48px;	
+}
+
+.mesopolojeniye {
+	display: flex;
+	align-items: center;
+	width: 198px;
+}
+.mesopolojeniye-icon i{
+	font-size: 24px;
+}
+.mesopolojeniye-qorod {
+	font-size: 14px;
+	margin-left: 10px;
+}
+.top-kateqorii {
+
+}
+.spisok-kateqoriy {
+	display: flex;
+}
+.spisok-kateqoriy li {
+	list-style: none;
+	padding: 0 12px;
+	font-size: 14px;
+}
+.translacii {
+	font-size: 14px;
+	padding: 0 10px 0 80px;
+	margin: 0 10px;
+}
+.priqlasheniye {
+	font-size: 14px;
+}
+
+.slayder {
+	height: 300px;
+	width: 1440px;
+	background-color: #ffd4fd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 100px;
+}
+
+main {
+	width: 1440px;
+	height: 1000px;
+}
+
+.razdel-razdela {
+	margin-top: 10px;
+	border-radius: 10px;
+	background-color: #F3f3f3;
+}
+.razdel-razdela h2 {
+	font-size: 28px;
+	padding: 20px 40px 10px 40px;
+
+}
+.razdel-razdel-tovari {
+	display: flex;
+}
+.razdel-razdel-tovar {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	justify-content: space-around;
+	align-content: center;
+	width: 171px;
+	height: 200px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin: 7px;
+}
+.razdel-razdel-tovar:first-child {
+	margin-left: 30px;
+}
+.img img{
+	height: 117px;
+	padding-top: 10px;
+
+}
+
+.razdel-razdel-name {
+	font-size: 16px;
+
+}
+
+.qlavniye-tovati {
+	height: 550px;
+}
+
+.name-razdela-tovarov {
+	font-size: 28px;
+}
+
+.ryad-tovarov {
+	display: flex;
+}
+
+
+
+
+@keyframes show-katalog {
+	0% {
+		top: -70px;
+	}
+	100% {
+		top: 70px;
+	}
+}
+
+@keyframes hide-katalog {
+	0% {
+		
+	}
+	100% {
+		
+	}
+}
