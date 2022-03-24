@@ -462,9 +462,15 @@ main {
 }
 
 .reklama {
-	width: 100px;
+	width: 280px;
 	height: 500px;
 	background-color: red;
+	margin: 95px 0 0 50px;
+	font-size: 45px;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
 
 
