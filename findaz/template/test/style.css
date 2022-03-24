@@ -8,6 +8,13 @@
 i {
 	font-size: 20px;
 }
+a {
+	text-decoration: none;
+	color: #000;
+}
+li {
+	list-style: none;
+}
 body {
 	display: flex;
 	flex-direction: column;
@@ -163,7 +170,7 @@ header {
 }
 
 .poiskovik input:first-child {
-	width: 587.41px;
+	width: 588px;
 	height: 44px;
 	border: 4px #FFCC00 solid;
 	border-top-left-radius: 10px;
@@ -244,7 +251,14 @@ header {
 .spisok-kateqoriy li {
 	list-style: none;
 	padding: 0 12px;
+}
+.spisok-kateqoriy a {
+	text-decoration: none;
+	transition: 0.2s;
 	font-size: 14px;
+}
+.spisok-kateqoriy li a:hover {
+	color: red;
 }
 .translacii {
 	font-size: 14px;
@@ -264,7 +278,10 @@ header {
 	justify-content: center;
 	font-size: 100px;
 }
-
+.content {
+	width: 1440px;
+	display: flex;
+}
 main {
 	width: 1440px;
 	height: 1000px;
@@ -273,17 +290,22 @@ main {
 .razdel-razdela {
 	margin-top: 10px;
 	border-radius: 10px;
-	background-color: #F3f3f3;
+
 }
 .razdel-razdela h2 {
 	font-size: 28px;
-	padding: 20px 40px 10px 40px;
+	padding: 20px 40px 10px 0px;
 
 }
 .razdel-razdel-tovari {
 	display: flex;
+	background-color: #F3f3f3;
+	border-radius: 10px;
+	margin: 20px 0;
+	width: 1115px;
+
 }
-.razdel-razdel-tovar {
+.razdel-razdel-tovar a{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -291,36 +313,197 @@ main {
 	justify-content: space-around;
 	align-content: center;
 	width: 171px;
-	height: 200px;
+	height: 171px;
 	background-color: #ffffff;
 	border-radius: 10px;
-	margin: 7px;
+	margin: 10px 7px;
 }
-.razdel-razdel-tovar:first-child {
-	margin-left: 30px;
+.razdel-razdel-tovar a:hover{
+	color: red;
 }
 .img img{
-	height: 117px;
+	width: 55%;
 	padding-top: 10px;
-
 }
 
 .razdel-razdel-name {
 	font-size: 16px;
 
 }
-
-.qlavniye-tovati {
-	height: 550px;
-}
-
 .name-razdela-tovarov {
 	font-size: 28px;
+	font-weight: 700;
 }
 
 .ryad-tovarov {
 	display: flex;
+	align-items: center;
+	width: 1120px;
+	height: 500px;
+
+	overflow: hidden;
+	justify-content: space-between;
+
 }
+
+.p-slayder-tovarov, .v-slayder-tovarov {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: #ffffff;
+	border: 1px rgba(0,0,0,0.2) solid;
+	box-shadow: 1px 1px #000;
+	z-index: 5;
+
+}
+
+.p-slayder-tovarov:active {
+	transform: scale(0.95);
+}
+
+.v-slayder-tovarov:active {
+	transform: scale(0.95);
+}
+
+.slayd-tovarov {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	transition: all 0.3s ease;
+	width: 1110px;
+	overflow: hidden;
+
+}
+.slayd {
+	 display: flex;
+	 position: relative;
+	 left: 20px;
+	 transition: .5s;
+
+ }
+.qlavniy-tovar a{
+	width: 187px;
+	height: 478px;
+	display: flex;
+	flex-direction: column;
+	margin: 20px 10px;
+	border-radius: 10px;
+	transition: 300ms;
+}
+.qlavniy-tovar a:hover {
+	transform: scale(1.02);
+
+}
+
+.izbranniy-tovar {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 5px;
+}
+.izbranniy-tovar i {
+	width: 16px;
+	transition: all .3s linear;
+}
+.izbranniy-tovar i:hover {
+	color: red;
+}
+.qlavniy-tovar-img {
+	width: 183px;
+	height: 219px;
+	background-color: grey;
+	border-radius: 5px;
+	margin: 5px 0px;
+}
+.chena {
+	font-weight: 700;
+	font-size: 18px;
+	margin: 5px 0;
+}
+.reyting {
+	display: flex;
+	align-items: flex-end;
+	margin: 5px 0;
+}
+.zvezda {
+
+}
+.chislo-ochenik {
+	font-size: 14px;
+	color: #878787;
+}
+.tovar-name {
+	font-size: 14px;
+	color: #212121;
+	margin: 5px 0;
+	height: 70px;
+	overflow: hidden;
+}
+.rekomenduyemost {
+	color: #2aad2e;
+	font-size: 12px;
+	margin: 5px 0;
+}
+
+.button button {
+	width: 183px;
+	background-color: #FFCC00;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	margin: 20px 0  5px 0;
+}
+.button button:hover {
+	background-color: #e1b70c;
+}
+
+.reklama {
+	width: 100px;
+	height: 500px;
+	background-color: red;
+}
+
+
+
+
+footer {
+	height: 500px;
+	background-color: #878787;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.footer-content {
+	display: flex;
+
+}
+.o-nas {
+	width: 400px;
+}
+.for-salers {
+	margin-left: 300px;
+}
+.for-salers li {
+	padding: 5px 0;
+}
+.for-salers li:first-child {
+	margin-top: 20px;
+}
+.for-salers a{
+	color: #FFF;
+}
+
+.for-salers a:hover {
+	color: red;
+}
+
 
 
 

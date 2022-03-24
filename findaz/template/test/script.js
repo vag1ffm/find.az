@@ -26,10 +26,45 @@ function showkatalog(i) {
 	a.parentElement.style.backgroundColor = '#d3d3d3'
 }
 
-// function showklistkataloglist() {
-// 	let a = document.querySelector('.list-katalog-list')
-//
-//
-// }
+function moveqlavniytovarleft() {
+	let a = document.querySelector('.slayd')
+	let b = a.style.left.split('px')
+	b = b.join('')
+	b = +b
+	if (b === 0) {
+		b = b -130
+		a.style.left = `${b}px`
+	} else if (b === -1180) {
+	} else if (b === -1030) {
+		b-=150
+		a.style.left = `${b}px`
+	} else {
+		b = b -210
+		a.style.left = `${b}px`
+	}
+}
 
+function moveqlavniytovarright() {
+	let a = document.querySelector('.slayd')
+	let b = a.style.left.split('px')
+	b = b.join('')
+	b = +b
+	if (b==20) {
 
+	} else if (b === 0) {
+
+	}  else if (b === -130) {
+		b = b + 150
+		a.style.left = `${b}px`
+	} else if (b === -340) {
+		b+= 150
+		a.style.left = `${b}px`
+	} else {
+		b += +210
+		a.style.left = `${b}px`
+	}
+}
+
+function makered() {
+
+}
