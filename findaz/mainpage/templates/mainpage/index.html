@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{% static 'mainpage/css/style.css' %}">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,14 +100,14 @@ C - COOL
 		<div class="filter">
 			<div class="first-filter">
 				<ul>
-					<li onclick="fshowfilter()">
+					<li onmouseenter="showfilter()">
 						<div class="top-filter">
 							<p>
 							Top Sales
 							</p>
 							<i class="fa-solid fa-angle-down"></i>
 						</div>
-						<ul class="sub-filter fsf">
+						<ul class="sub-filter">
 							<li>cell phones</li>
 							<li>cameras</li>
 							<li>Computers</li>
@@ -114,14 +115,14 @@ C - COOL
 							<li>Video games</li>
 						</ul>
 					</li>
-					<li onclick="vshowfilter()">
+					<li onmouseenter="showfilter()">
 						<div class="top-filter">
 							<p>
 							Brand Focus
 							</p>
 							<i class="fa-solid fa-angle-down"></i>
 						</div>
-						<ul class="sub-filter vsf">
+						<ul class="sub-filter">
 							<li>cell phones</li>
 							<li>cameras</li>
 							<li>Computers</li>
@@ -129,14 +130,14 @@ C - COOL
 							<li>Video games</li>
 						</ul>
 					</li>
-					<li onclick="tshowfilter()">
+					<li onmouseenter="showfilter()">
 						<div class="top-filter">
 							<p>
 							Hi-Tech
 							</p>
 							<i class="fa-solid fa-angle-down"></i>
 						</div>
-						<ul class="sub-filter tsf">
+						<ul class="sub-filter">
 							<li>cell phones</li>
 							<li>cameras</li>
 							<li>Computers</li>
@@ -144,14 +145,14 @@ C - COOL
 							<li>Video games</li>
 						</ul>
 </li>
-					<li onclick="cshowfilter()">
+					<li onmouseenter="showfilter()">
 						<div class="top-filter">
 							<p>
 							Home
 							</p>
 							<i class="fa-solid fa-angle-down"></i>
 						</div>
-						<ul class="sub-filter csf">
+						<ul class="sub-filter">
 							<li>cell phones</li>
 							<li>cameras</li>
 							<li>Computers</li>
@@ -159,14 +160,14 @@ C - COOL
 							<li>Video games</li>
 						</ul>
 					</li>
-					<li onclick="pshowfilter()">
+					<li onmouseenter="showfilter()">
 						<div class="top-filter">
 							<p>
 							Sale
 							</p>
 							<i class="fa-solid fa-angle-down"></i>
 						</div>
-						<ul class="sub-filter psf">
+						<ul class="sub-filter">
 							<li>cell phones</li>
 							<li>cameras</li>
 							<li>Computers</li>
@@ -181,13 +182,12 @@ C - COOL
 					<li class="border"><p>Available</p></li>
 					<li><p><input type="radio">In Srotage</p><p class="num">45</p></li>
 					<li><p><input type="radio">In Online-Shop</p><p class="num">12</p></li>
-					<li class="border forall"><p>Brands</p><p onclick="showallbrands()">All</p></li>
-					<div class="brands">
-						<li><p><input type="checkbox" id="brands">Apple</p><p class="num">32</p></li>
-						<li><p><input type="checkbox" id="brands">JBL</p><p class="num">14</p></li>
-						<li><p><input type="checkbox" id="brands">Bose</p><p class="num">3</p></li>
-						<li><p><input type="checkbox" id="brands">Nest</p><p class="num">5</p></li>
-					 </div>
+					<li class="border"><p>Brands</p><p>All</p></li>
+					<li><p><input type="checkbox" name="">Apple</p><p class="num">32</p></li>
+					<li><p><input type="checkbox" name="">JBL</p><p class="num">14</p></li>
+					<li><p><input type="checkbox" name="">Bose</p><p class="num">3</p></li>
+					<li><p><input type="checkbox" name="">Nest</p><p class="num">5</p></li>
+					
 
 				</ul>
 			</div>
@@ -247,6 +247,6 @@ C - COOL
 
 
 
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="{% static 'mainpage/js/script.js' %}"></script>
 </body>
 </html>

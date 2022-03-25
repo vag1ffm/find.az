@@ -275,13 +275,14 @@ main {
 }
 
 .top-filter {
-	height: 40px;
+	height: px;
 	border-bottom: 1px #DCDCDC solid;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 20px;	
+	padding: 11px 20px;	
 	cursor: pointer;
+	z-index: 10;
 	transition: .3s;
 
 }
@@ -314,18 +315,17 @@ main {
 	cursor: pointer;
 }
 
-.aaa{
+.first-filter li:hover .sub-filter{
 	display: block;
 	position: relative;
 	
 }
-
 .second-filter li {
 	height: 40px;
 	display: flex;
 	align-items: center;
 	font-size: 13px;
-	padding: 0 20px ;
+	padding: 0 20px;
 	font-weight: 700;
 	display: flex;
 	justify-content: space-between;
@@ -338,11 +338,6 @@ main {
 	text-transform: uppercase;
 }
 
-.forall p:last-child {
-	cursor: pointer;
-	padding: 12px 0 12px 12px;
-	margin: 0;
-}
 .second-filter p {
 	margin-left: 7px;
 	font-weight: 700;
