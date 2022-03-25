@@ -1,4 +1,4 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'mainpage/index.html')
+def shop(request):
+    return render(request, 'mainpage/shop.html')
