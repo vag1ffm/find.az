@@ -1,15 +1,15 @@
 function movekatalog() {
 	let a = document.querySelector('.katalogi')
 	if (a.style.top === '62px') {
-		a.style.top = '-100%'
-		a.style.border = '1px rgba(225,225,225,0.3) solid';
-		a.style.borderTop= '0.1px rgba(0,0,0,0.3) solid';
-		a.style.borderBottom = '1px rgba(0,0,0,0.3) solid';
+		a.style.top = '-130%'
+		// a.style.border = '1px rgba(225,225,225,0.3) solid';
+		// a.style.borderTop= '0.1px rgba(0,0,0,0.3) solid';
+		// a.style.borderBottom = '1px rgba(0,0,0,0.3) solid';
 	} else {
 		a.style.top = '62px'
-		a.style.border = '240px #FFF solid';
-		a.style.borderTop= '10px #FFF solid';
-		a.style.borderBottom = '200px #FFF solid';
+		// a.style.border = '240px #FFF solid';
+		// a.style.borderTop= '10px #FFF solid';
+		// a.style.borderBottom = '200px #FFF solid';
 	}
 }
 
@@ -65,3 +65,11 @@ function moveqlavniytovarright() {
 	}
 }
 
+// function moveqlavniytovarright() {
+// 	let slayd = document.querySelector('.slayd')
+// 	let a = getComputedStyle(slayd).width.split('px')
+// 	a = a.join('')
+// 	console.log(a)
+// 	let b = document.querySelectorAll('.qlavniy-tovar').length
+// 	console.log(a/b)
+// }

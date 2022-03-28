@@ -26,11 +26,8 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	width: 95%;
 	max-width: 1440px;
-
-
-
 }
 
 .pervaya-stupen {
@@ -38,7 +35,7 @@ header {
 	width: 100%;
 	max-width: 1440px;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	height: 72px;
 	z-index: 10;
 	background-color: #fff;
@@ -59,6 +56,14 @@ header {
 	color: #03ce97;
 }
 
+.poiskovoy-div {
+	display: flex;
+	align-items: center;
+}
+.knopochniy-div {
+	display: flex;
+	align-items: center;
+}
 .katalog {
 	display: flex;
 	justify-content: center;
@@ -75,8 +80,6 @@ header {
 .katalog:active {
 	background-color: #e1b70c;
 	transform: scale(0.95);
-
-
 }
 
 .katalog-text {
@@ -89,15 +92,20 @@ header {
 .katalogi {
 	display: flex;
 	position:absolute;
-	top: -100%;
+	top: -130%;
 	z-index: 7;
 	background-color: #fff;
-	transition: 0.5s;
+	transition: 1s;
 	background-clip: padding-box;
+	width: 92vw;
+	max-width: 1440px;
+
 }
+
 .listi-kategori {
 	padding: 20px 10px 20px 10px;
 	border-right: 1px #d9d9d9 solid;
+
 
 }
 
@@ -132,7 +140,7 @@ header {
 }
 
 .infa-list-katalogax {
-	width: 1173px;
+	width: 100%;
 
 }
 
@@ -158,14 +166,19 @@ header {
 	display: block;
 }
 
+.poiskovoy-div {
+	min-width: 350px;
+}
+
 .poiskovik label{
 	display: flex;
 	margin: 0 32px 0 0;
+
 }
 
 .poiskovik input:first-child {
 	max-width: 588px;
-	width: 30.5vw;
+	width: 100%;
 	height: 44px;
 	border: 4px #03ce97 solid;
 	border-top-left-radius: 10px;
@@ -224,14 +237,17 @@ header {
 .ftoraya-stupen {
 	display: flex;
 	align-items: center;
-
+	justify-content: space-between;
 	height: 48px;
+	width: 99%;
+	max-width: 1440px;
 }
 
 .mesopolojeniye {
 	display: flex;
 	align-items: center;
-	width: 198px;
+	justify-content: center;
+	margin-right: 60px;
 }
 .mesopolojeniye-icon i{
 	font-size: 24px;
@@ -240,15 +256,13 @@ header {
 	font-size: 14px;
 	margin-left: 10px;
 }
-.top-kateqorii {
 
-}
 .spisok-kateqoriy {
 	display: flex;
 }
 .spisok-kateqoriy li {
 	list-style: none;
-	padding: 0 12px;
+	padding: 0 10px;
 }
 .spisok-kateqoriy a {
 	text-decoration: none;
@@ -258,19 +272,17 @@ header {
 .spisok-kateqoriy li a:hover {
 	color: red;
 }
-.translacii {
-	font-size: 14px;
-	padding: 0 10px 0 80px;
-	margin: 0 10px;
-}
 .priqlasheniye {
 	font-size: 14px;
+
+	margin: 0 0 0 50px;
 }
+
 
 .slayder {
 	height: 300px;
 	max-width: 1440px;
-	width: 100%;
+	width: 95%;
 	background-color: #ffd4fd;
 	display: flex;
 	align-items: center;
@@ -281,30 +293,21 @@ header {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .content {
-	width: 1440px;
+	max-width: 1440px;
+	width: 95%;
 	display: flex;
 }
 main {
-	width: 1440px;
+	max-width: 1440px;
 
+	width: 78%;
 }
 
 .razdel-razdela {
 	margin-top: 10px;
 	border-radius: 10px;
-
+	width: 100%;
 }
 .razdel-razdela h2 {
 	font-size: 28px;
@@ -316,7 +319,7 @@ main {
 	background-color: #dde1ed;
 	border-radius: 10px;
 	margin: 20px 0;
-	width: 1115px;
+	width: 100%;
 }
 .razdel-razdel-tovar a{
 	display: flex;
@@ -325,11 +328,13 @@ main {
 	text-align: center;
 	justify-content: space-around;
 	align-content: center;
-	width: 171px;
-	height: 171px;
+	width: 93%;
+	max-height: 190px;
+	height: 11vw;
 	background-color: #ffffff;
 	border-radius: 10px;
 	margin: 10px 7px;
+	float: left;
 }
 .razdel-razdel-tovar a:hover{
 	color: red;
@@ -351,9 +356,9 @@ main {
 .ryad-tovarov {
 	display: flex;
 	align-items: center;
-	width: 1120px;
+	max-width: 1120px;
+	/*width: 99%;*/
 	height: 500px;
-
 	overflow: hidden;
 	justify-content: space-between;
 
@@ -383,7 +388,8 @@ main {
 	align-items: center;
 	position: absolute;
 	transition: all 0.3s ease;
-	width: 1110px;
+	max-width: 1100px;
+	width: 73%;
 	overflow: hidden;
 
 }
@@ -399,9 +405,10 @@ main {
 	flex-direction: column;
 	align-items: center;
 	transition: 300ms;
+
 }
 .qlavniy-tovar a{
-	width: 187px;
+
 	height: 393px;
 	display: flex;
 	flex-direction: column;
@@ -485,12 +492,20 @@ main {
 .button button:active {
 	transform: scale(0.95);
 }
+.reklami {
+	margin: 65px 0 0 0;
+	width: 22%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .reklama {
-	width: 280px;
-	height: 320px;
+	width: 90%;
+	max-height: 320px;
+	height: 21vw;
 	background-color: red;
-	margin: 95px 0 0 5px;
-	font-size: 45px;
+	margin: 25px 0 0 5px;
+	font-size: 40px;
 	display: flex;
 	text-align: center;
 	align-items: center;
@@ -511,14 +526,13 @@ footer {
 
 .footer-content {
 	display: flex;
+	justify-content: space-around;
 
 }
 .o-nas {
 	width: 400px;
 }
-.for-salers {
-	margin-left: 300px;
-}
+
 .for-salers li {
 	padding: 5px 0;
 }
@@ -598,20 +612,20 @@ footer {
 	width: 110px;
 
 }
-
+/*
 @media (max-width: 1460px) {
 	body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		overflow-x: hidden ;
 	}
-	.ftoraya-stupen {
-		display: ;
-	}
+
 	.slayder {
 		width: 100%;
-		width: 1240px;
+		max-width: 1200px;
 		margin: 0px;
+		font-size: 90px;
 	}
 	.translacii {
 		display: none;
@@ -619,7 +633,7 @@ footer {
 	.priqlasheniye {
 		display: none;
 	}
-	.content {
+	.content, main {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -628,7 +642,223 @@ footer {
 	.razdel-razdela {
 		max-width: 1240px;
 	}
+	.katalogi {
+	}
+	/*.infa-list-katalogax {*/
+	/*	width: 72vw;*/
+	/*}
+	.reklami {
+		display: flex;
+	}
+	.reklama {
+		margin: 100px 1vw 50px;
+
+	}
+	footer {
+		margin-top: 0px;
+	}
 }
+
+@media (max-width: 1220px) {
+	.logo {
+		margin-right: 20px;
+	}
+	.katalog {
+		width: 130px;
+	}
+	.zakazi {
+		display: none;
+	}
+	.slayder {
+		width: 90vw;
+	}
+}*/
+
+
+
+
+/* tablet */
+@media (min-width: 1024px) and (max-width: 1240px)  {
+	.slayder {
+		font-size: 90px;
+	}
+	.razdel-razdel-name {
+		font-size: 14px;
+	}
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.logo-text {
+		font-size: 25px;
+	}
+	.logo {
+		margin-right: 20px;
+	}
+	.fa-bars {
+		font-size: 15px;
+	}
+
+	/*.izbrannoe {*/
+	/*	margin: 0;*/
+	/*}*/
+	/*.korzina {*/
+	/*	margin: 0;*/
+	/*}*/
+	.voyti {
+		margin-left: 10px;
+	}
+
+	.spisok-kateqoriy li {
+		padding: 0 6px;
+	}
+	.katalog-text {
+		display: none;
+	}
+	.zakazi {
+		display: none;
+	}
+
+	.mesopolojeniye {
+		display: none;
+	}
+	.priqlasheniye {
+		display: none;
+	}
+	.ftoraya-stupen {
+		display: flex;
+		justify-content: center;
+	}
+
+	.slayder {
+		font-size: 60px;
+	}
+	.content, main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 95%;
+	}
+	.slayd-tovarov {
+		width: 90%;
+
+	}
+	.ryad-tovarov {
+	}
+	.qlavniye-tovari {
+		width: 100%;
+	}
+	.razdel-razdel-tovari {
+		flex-wrap: wrap;
+		width: 99%;
+	}
+	.razdel-razdel-tovar {
+		width: 33.333333333%;
+
+	}
+	.razdel-razdel-tovar a {
+		height: 200px;
+	}
+	.razdel-razdel-name {
+		font-size: 16px;
+	}
+	.reklami {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
+
+}
+
+/* mobile */
+@media (max-width: 768px) {}
+
+/* iPad in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px)  {}
+
+/* iPad in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {}
+
+/* iPad in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {}
+
+/* Retina iPad in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Retina iPad in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Retina iPad in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* iPad 1 & 2 in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1){}
+
+/* iPad 1 & 2 in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad 1 & 2 in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {}
+
+/* iPad mini in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad mini in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad mini in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPhone 5 in portrait & landscape */
+@media (min-device-width: 320px) and (max-device-width: 568px) {}
+
+/* iPhone 5 in landscape */
+@media (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {}
+
+/* iPhone 5 in portrait */
+@media (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
