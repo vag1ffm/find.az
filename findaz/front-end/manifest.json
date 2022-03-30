@@ -1,0 +1,15 @@
+{
+  "name": "Калькулятор",
+  "short_url": "/index.html",
+  "display": "standalone",
+  "background": "#fff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "img/1.png",
+      "type": "image/png",
+      "size": "128x128"
+    }
+  ]
+
+}
