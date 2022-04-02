@@ -3,47 +3,51 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css"  href="{% static 'mainpage/css/style.css' %}">
-
-	<link rel="icon" type="image/png" href="https://img.icons8.com/external-flatart-icons-outline-flatarticons/344/external-cart-black-friday-flatart-icons-outline-flatarticons.png">
+	<link rel="icon" href="img/icon-of-site.png">
+	<link rel="stylesheet" type="text/css"  href="style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% block title %}{% endblock %}</title>
+	<title>Интернет магазин Vaga</title>
 </head>
 <body>
-	<header>
+		<header class="desktop-header">
 		<div class="pervaya-stupen">
 			<div class="logo">
 				<div class="logo-icon"></div>
 				<div class="logo-text">Find.az</div>
 			</div>
-			<div class="katalog" onclick="movekatalog()">
-				<div class="katalog-icon"><i class="fa-solid fa-bars"></i></div>
-				<div class="katalog-text">Каталог</div>
+			<div class="poiskovoy-div">
+				<div class="katalog" onclick="movekatalog()">
+					<div class="katalog-icon"><i class="fa-solid fa-bars"></i></div>
+					<div class="katalog-text">Каталог</div>
+				</div>
+				<div class="poiskovik">
+					<label>
+						<input type="text" placeholder="Искать товары">
+						<input type="button" value="Найти">
+					</label>
+				</div>
 			</div>
-			<div class="poiskovik">
-				<label>
-				<input type="text" placeholder="Искать товары">
-				<input type="button" value="Найти"></label>
-			</div>
-			<div class="zakazi">
-				<div class="zakazi-icon"><i class="fa-solid fa-box"></i></div>
-				<div class="zakazi-text">Заказы</div>
-			</div>
-			<div class="izbrannoe">
-				<div class="izbranoe-icon"><i class="fa-solid fa-heart"></i></div>
-				<div class="izbranoe-text">Избранные</div>
-			</div>
-			<div class="korzina">
-				<div class="korzina-icon"><i class="fa-solid fa-basket-shopping"></i></div>
-				<div class="korzina-text">Корзина</div>
-			</div>
-			<div class="voyti">
-				<div class="voyti-knopka">
-					<div class="voyti-text"><a href="filter-index.html">Войти</a></div>
+			<div class="knopochniy-div">
+				<div class="zakazi">
+					<div class="zakazi-icon"><i class="fa-solid fa-box"></i></div>
+					<div class="zakazi-text">Заказы</div>
+				</div>
+				<div class="izbrannoe">
+					<div class="izbranoe-icon"><i class="fa-solid fa-heart"></i></div>
+					<div class="izbranoe-text">Избранные</div>
+				</div>
+				<div class="korzina">
+					<div class="korzina-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+					<div class="korzina-text">Корзина</div>
+				</div>
+				<div class="voyti">
+					<div class="voyti-knopka">
+						<div class="voyti-text">Войти</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -51,14 +55,14 @@
 			<div class="listi-kategori">
 				<ul>
 					<li onmouseenter="showkatalog('electronika')">
-						<div class="list-katalog-left">
+						<div class="list-katalog-left ">
 							<div class="list-katalog-left-icon"><i class="fas fa-mobile-alt"></i></div>
 							<div class="list-katalog-left-text">Электроника</div>
 						</div>
 						<div class="list-katalog-right">
 							<div class="list-katalog-right-icon"><i class="fa-solid fa-angle-right"></i></div>
 						</div>
-						<div class="list-katalog-list electronika" >
+						<div class="list-katalog-list electronika show" >
 							Электроника
 						</div>
 					</li>
@@ -376,7 +380,6 @@
 					<li><a href="">81</a></li>
 				</ul>
 			</div>
-			<div class="translacii">Трансляции</div>
 			<div class="priqlasheniye">Продавайте с нами</div>
 		</div>
 	</header>

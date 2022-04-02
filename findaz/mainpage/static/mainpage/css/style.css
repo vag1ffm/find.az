@@ -19,26 +19,25 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+
 }
 
-header {
+.desktop-header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	width: 95%;
 	max-width: 1440px;
-
-
-
 }
-
+.mobile-header {
+	display: none;
+}
 .pervaya-stupen {
 	display: flex;
 	width: 100%;
 	max-width: 1440px;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	height: 72px;
 	z-index: 10;
 	background-color: #fff;
@@ -52,9 +51,6 @@ header {
 	margin: 0 32px 0 0;
 }
 
-.logo-ikon {
-	font-size: 32px;
-}
 
 .logo-text {
 	font-size: 32px;
@@ -62,6 +58,11 @@ header {
 	color: #03ce97;
 }
 
+
+.knopochniy-div {
+	display: flex;
+	align-items: center;
+}
 .katalog {
 	display: flex;
 	justify-content: center;
@@ -78,8 +79,6 @@ header {
 .katalog:active {
 	background-color: #e1b70c;
 	transform: scale(0.95);
-
-
 }
 
 .katalog-text {
@@ -92,15 +91,20 @@ header {
 .katalogi {
 	display: flex;
 	position:absolute;
-	top: -100%;
+	top: -130%;
 	z-index: 7;
 	background-color: #fff;
-	transition: 0.5s;
+	transition: 1s;
 	background-clip: padding-box;
+	width: 92vw;
+	max-width: 1440px;
+
 }
+
 .listi-kategori {
 	padding: 20px 10px 20px 10px;
 	border-right: 1px #d9d9d9 solid;
+
 
 }
 
@@ -115,9 +119,7 @@ header {
 	border-radius: 10px ;
 	transition: all 0.2s linear;
 }
-/*.listi-kategori li:hover {*/
-/*	background-color: #f3f3f3;*/
-/*}*/
+
 .list-katalog-left {
 	display: flex;
 	align-items: center;
@@ -137,7 +139,7 @@ header {
 }
 
 .infa-list-katalogax {
-	width: 1173px;
+	width: 100%;
 
 }
 
@@ -162,17 +164,26 @@ header {
 .show {
 	display: block;
 }
-/*.listi-kategori li:hover .list-katalog-list {*/
-/*	display: block;*/
-/*}*/
 
+.poiskovoy-div {
+	display: flex;
+	align-items: center;
+	min-width: 350px;
+	width: 50%;
+}
+.poiskovik {
+	width: 80%;
+}
 .poiskovik label{
 	display: flex;
 	margin: 0 32px 0 0;
+	width: 100%;
+
 }
 
 .poiskovik input:first-child {
-	width: 588px;
+	max-width: 688px;
+	width: 100%;
 	height: 44px;
 	border: 4px #03ce97 solid;
 	border-top-left-radius: 10px;
@@ -220,9 +231,10 @@ header {
 	background-color: #03ce97;
 	border-radius: 10px;
 	margin-left: 30px;
+	cursor: pointer;
 }
 
-.voyti-text a{
+.voyti-text {
 	color: #FFF;
 	font-size: 16px;
 }
@@ -230,14 +242,17 @@ header {
 .ftoraya-stupen {
 	display: flex;
 	align-items: center;
-
+	justify-content: space-between;
 	height: 48px;
+	width: 99%;
+	max-width: 1440px;
 }
 
 .mesopolojeniye {
 	display: flex;
 	align-items: center;
-	width: 198px;
+	justify-content: center;
+	margin-right: 60px;
 }
 .mesopolojeniye-icon i{
 	font-size: 24px;
@@ -246,15 +261,13 @@ header {
 	font-size: 14px;
 	margin-left: 10px;
 }
-.top-kateqorii {
 
-}
 .spisok-kateqoriy {
 	display: flex;
 }
 .spisok-kateqoriy li {
 	list-style: none;
-	padding: 0 12px;
+	padding: 0 10px;
 }
 .spisok-kateqoriy a {
 	text-decoration: none;
@@ -264,18 +277,17 @@ header {
 .spisok-kateqoriy li a:hover {
 	color: red;
 }
-.translacii {
-	font-size: 14px;
-	padding: 0 10px 0 80px;
-	margin: 0 10px;
-}
 .priqlasheniye {
 	font-size: 14px;
+
+	margin: 0 0 0 50px;
 }
+
 
 .slayder {
 	height: 300px;
-	width: 1440px;
+	max-width: 1440px;
+	width: 95%;
 	background-color: #ffd4fd;
 	display: flex;
 	align-items: center;
@@ -285,19 +297,22 @@ header {
 	color: #000;
 
 }
+
 .content {
-	width: 1440px;
+	max-width: 1440px;
+	width: 95%;
 	display: flex;
 }
 main {
-	width: 1440px;
-	height: 1000px;
+	max-width: 1440px;
+
+	width: 78%;
 }
 
 .razdel-razdela {
 	margin-top: 10px;
 	border-radius: 10px;
-
+	width: 100%;
 }
 .razdel-razdela h2 {
 	font-size: 28px;
@@ -309,7 +324,7 @@ main {
 	background-color: #dde1ed;
 	border-radius: 10px;
 	margin: 20px 0;
-	width: 1115px;
+	width: 100%;
 }
 .razdel-razdel-tovar a{
 	display: flex;
@@ -318,11 +333,13 @@ main {
 	text-align: center;
 	justify-content: space-around;
 	align-content: center;
-	width: 171px;
-	height: 171px;
+	width: 93%;
+	max-height: 290px;
+	height: 13vw;
 	background-color: #ffffff;
 	border-radius: 10px;
 	margin: 10px 7px;
+	float: left;
 }
 .razdel-razdel-tovar a:hover{
 	color: red;
@@ -344,9 +361,9 @@ main {
 .ryad-tovarov {
 	display: flex;
 	align-items: center;
-	width: 1120px;
+	max-width: 1120px;
+	/*width: 99%;*/
 	height: 500px;
-
 	overflow: hidden;
 	justify-content: space-between;
 
@@ -376,7 +393,8 @@ main {
 	align-items: center;
 	position: absolute;
 	transition: all 0.3s ease;
-	width: 1110px;
+	max-width: 1100px;
+	width: 73%;
 	overflow: hidden;
 
 }
@@ -392,9 +410,10 @@ main {
 	flex-direction: column;
 	align-items: center;
 	transition: 300ms;
+
 }
 .qlavniy-tovar a{
-	width: 187px;
+
 	height: 393px;
 	display: flex;
 	flex-direction: column;
@@ -478,12 +497,20 @@ main {
 .button button:active {
 	transform: scale(0.95);
 }
+.reklami {
+	margin: 65px 0 0 0;
+	width: 22%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .reklama {
-	width: 280px;
-	height: 320px;
+	width: 90%;
+	max-height: 320px;
+	height: 21vw;
 	background-color: red;
-	margin: 95px 0 0 5px;
-	font-size: 45px;
+	margin: 25px 0 0 5px;
+	font-size: 40px;
 	display: flex;
 	text-align: center;
 	align-items: center;
@@ -492,6 +519,7 @@ main {
 
 
 footer {
+	margin-top: 150px;
 	height: 500px;
 	background-color: #AFB5C5;
 	width: 100%;
@@ -503,19 +531,16 @@ footer {
 
 .footer-content {
 	display: flex;
+	justify-content: space-around;
+	width: 70%;
 
 }
 .o-nas {
-	width: 400px;
-}
-.for-salers {
-	margin-left: 300px;
-}
-.for-salers li {
-	padding: 5px 0;
+	width: 40%;
+	float: left;
 }
 .for-salers li:first-child {
-	margin-top: 20px;
+	margin-top: 5px;
 }
 .for-salers a{
 	color: #FFF;
@@ -590,6 +615,380 @@ footer {
 	width: 110px;
 
 }
+/*
+@media (max-width: 1460px) {
+	body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow-x: hidden ;
+	}
+
+	.slayder {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0px;
+		font-size: 90px;
+	}
+	.translacii {
+		display: none;
+	}
+	.priqlasheniye {
+		display: none;
+	}
+	.content, main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 1240px;
+	}
+	.razdel-razdela {
+		max-width: 1240px;
+	}
+	.katalogi {
+	}
+	/*.infa-list-katalogax {*/
+	/*	width: 72vw;*/
+	/*}
+	.reklami {
+		display: flex;
+	}
+	.reklama {
+		margin: 100px 1vw 50px;
+
+	}
+	footer {
+		margin-top: 0px;
+	}
+}
+
+@media (max-width: 1220px) {
+	.logo {
+		margin-right: 20px;
+	}
+	.katalog {
+		width: 130px;
+	}
+	.zakazi {
+		display: none;
+	}
+	.slayder {
+		width: 90vw;
+	}
+}*/
+
+
+
+
+/* tablet */
+@media  (max-width: 1240px)  {
+	.razdel-razdel-tovar:last-child {
+		display: none;
+	}
+	.priqlasheniye {
+		display: none;
+	}
+	.zakazi-icon, .izbranoe-icon, .korzina-icon {
+		margin:  0 0 0 5px;
+	}
+	.zakazi-text {
+		display: none;
+	}
+	.izbranoe-text {
+		display: none;
+	}
+	.korzina-text {
+		display: none;
+	}
+	.slayder {
+		font-size: 90px;
+	}
+	.razdel-razdel-name {
+		font-size: 14px;
+	}
+
+}
+
+
+@media (max-width: 1024px) {
+
+	.logo {
+		margin-right: 20px;
+	}
+	/*.fa-bars {*/
+	/*	font-size: 15px;*/
+	/*}*/
+
+	/*.izbrannoe {*/
+	/*	margin: 0;*/
+	/*}*/
+	/*.korzina {*/
+	/*	margin: 0;*/
+	/*}*/
+	.voyti {
+		margin-left: 10px;
+	}
+
+	.spisok-kateqoriy li {
+		padding: 0 6px;
+	}
+	.katalog-text {
+		display: none;
+	}
+	/*.zakazi {*/
+	/*	display: none;*/
+	/*}*/
+
+	.mesopolojeniye {
+		display: none;
+	}
+	.priqlasheniye {
+		display: none;
+	}
+	.ftoraya-stupen {
+		display: flex;
+		justify-content: center;
+	}
+
+	.slayder {
+		font-size: 60px;
+	}
+	.content, main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 95%;
+	}
+	.slayd-tovarov {
+		width: 90%;
+
+	}
+	.ryad-tovarov {
+	}
+	.qlavniye-tovari {
+		width: 100%;
+	}
+	.razdel-razdel-tovari {
+		flex-wrap: wrap;
+		width: 99%;
+	}
+	.razdel-razdel-tovar {
+		width: 33.333333333%;
+		height: 50%;
+	}
+	.razdel-razdel-tovar:last-child {
+		display: block;
+	}
+	.razdel-razdel-tovar a {
+		height: 80%;
+		padding: 10px;
+	}
+	.razdel-razdel-name {
+		font-size: 2vw;
+	}
+	.reklami {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
+
+}
+
+/* mobile */
+@media (max-width: 768px) {
+	.desktop-header {
+		display: none;
+	}
+	.mobile-header {
+		display: flex;
+		width: 90%;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.mobile-petviy-stupen {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.mobile-poiskovik {
+		width: 100%;
+	}
+	.mobile-poiskovik .poiskovik {
+		width: 100%;
+	}
+
+	.slayder {
+		width: 90%;
+		font-size: 190%;
+		margin-top: 20px;
+	}
+	.reklami {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.razdel-razdela h2 {
+		font-size: 20px;
+	}
+	.razdel-razdel-tovari {
+		height: 50%;
+	}
+	.razdel-razdel-tovar {
+		width: 33%;
+		height: 50%;
+	}
+	.o-nas {
+		width: 100%;
+	}
+	.o-nas h2 {
+		font-size: 16px;
+	}
+	.o-nas p {
+		font-size: 14px;
+	}
+	.for-salers {
+		width: 100%;
+	}
+	.for-salers h2{
+		font-size: 16px;
+	}
+	.for-salers li {
+		font-size: 14px;
+	}
+	/*.logo {*/
+	/*	position: absolute;*/
+	/*	left: 38%;*/
+	/*	margin: 0;*/
+	/*}*/
+	/*.katalog {*/
+	/*	position: absolute;*/
+	/*	left: 20px;*/
+	/*	top: 20px;*/
+	/*}*/
+	/*.poiskovik {*/
+	/*	display: none;*/
+	/*}*/
+	/*.izbrannoe  {*/
+	/*	display: none;*/
+	/*}*/
+	/*.zakazi {*/
+	/*	display: none;*/
+	/*}*/
+	/*.top-kateqorii {*/
+	/*	margin-left: 20px;*/
+
+	/*	overflow: hidden;*/
+	/*}*/
+	/*.voyti {*/
+	/*	display: none;*/
+	/*}*/
+	.reklami {
+		flex-wrap: wrap;
+	}
+	.reklama {
+		float: left;
+		min-height: 350px;
+	}
+	.footer-content {
+		float: left;
+		flex-direction: column;
+		justify-content: center;
+
+		flex-wrap: wrap;
+	}
+	.for-salers {
+		margin-top: 20px;
+	}
+	.for-salers h2 {
+
+	}
+}
+
+/* iPad in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px)  {}
+
+/* iPad in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {}
+
+/* iPad in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {}
+
+/* Retina iPad in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Retina iPad in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* Retina iPad in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* iPad 1 & 2 in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1){}
+
+/* iPad 1 & 2 in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad 1 & 2 in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {}
+
+/* iPad mini in portrait & landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad mini in landscape */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPad mini in portrait */
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1)  {}
+
+/* iPhone 5 in portrait & landscape */
+@media (min-device-width: 320px) and (max-device-width: 568px) {}
+
+/* iPhone 5 in landscape */
+@media (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {}
+
+/* iPhone 5 in portrait */
+@media (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -614,3 +1013,7 @@ footer {
 
 	}
 }
+
+
+
+
