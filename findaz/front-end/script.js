@@ -101,11 +101,17 @@ function backtokatalog(i) {
 }
 
 
-
-
-
-
-
+function movingofregist() {
+	let a = document.querySelector('.krujok')
+	let b = document.querySelector('.main-voyti-content')
+	if (a.style.animationName === 'voytimoveright'){
+		a.style.animationName = 'voytimoveleft'
+		b.style.animationName = 'voyti-180'
+	} else {
+		a.style.animationName = 'voytimoveright'
+		b.style.animationName = 'voyti180'
+	}
+}
 
 
 // function moveqlavniytovarright() {
