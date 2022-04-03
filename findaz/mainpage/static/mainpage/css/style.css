@@ -19,6 +19,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	overflow-x: hidden;
 
 }
 
@@ -46,7 +47,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 167px;
 	height: 72px;
 	margin: 0 32px 0 0;
 }
@@ -234,7 +234,7 @@ body {
 	cursor: pointer;
 }
 
-.voyti-text {
+.voyti-text a{
 	color: #FFF;
 	font-size: 16px;
 }
@@ -423,6 +423,7 @@ main {
 }
 .qlavniy-tovar:hover {
 	transform: scale(1.02);
+
 }
 
 .izbranniy-tovar {
@@ -615,67 +616,322 @@ footer {
 	width: 110px;
 
 }
-/*
-@media (max-width: 1460px) {
-	body {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		overflow-x: hidden ;
-	}
 
-	.slayder {
-		width: 100%;
-		max-width: 1200px;
-		margin: 0px;
-		font-size: 90px;
-	}
-	.translacii {
-		display: none;
-	}
-	.priqlasheniye {
-		display: none;
-	}
-	.content, main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 1240px;
-	}
-	.razdel-razdela {
-		max-width: 1240px;
-	}
-	.katalogi {
-	}
-	/*.infa-list-katalogax {*/
-	/*	width: 72vw;*/
-	/*}
-	.reklami {
-		display: flex;
-	}
-	.reklama {
-		margin: 100px 1vw 50px;
+.mobile-menu {
+	width: 500px;
+	height: 500px;
+	background-color: red;
+	position: absolute;
+}
+.voyti-body {
+	height: 100vh;
+	background: linear-gradient(rgba(3,206,151,1), rgba(175,181,197,1)  90%);
+	position: relative;
+}
+.voyti-header {
+	width: 100%;
+	height: 5px;
+	background-color: #03ce97;
+}
 
+.main-of-voyti {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+
+}
+
+.voyti-content {
+	border-radius: 10px;
+	width: 500px;
+	height: 650px;
+	background-color: #1f2029;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.voyli-login-words {
+	margin-top: 20px;
+	display: flex;
+	width: 180px;
+	justify-content: space-between;
+	align-items: center;
+	color: #fff;
+}
+
+.voyti-krujok {
+	margin-top: 20px;
+	width: 80px;
+	border-radius: 20px ;
+	height: 20px;
+	background-color: grey;
+	display: flex;
+	align-items: center;
+
+}
+.krujok {
+	width: 30px;
+	height: 30px;
+	background-color: #03ce97;
+	border-radius: 20px;
+	transition: 0.5s;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.main-voyti-content {
+	width: 400px;
+	height: 450px;
+	margin-top: 40px;
+	transition: 0.5s;
+	animation-duration: 0.9s;
+	animation-fill-mode: forwards;
+	background-color: #2a2b38;
+	border-radius: 10px;
+	transform-style: preserve-3d;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.log-in {
+	position: absolute;
+	transform: rotateY(0deg);
+	backface-visibility: hidden;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+.log-in h4, .sign-up h4 {
+	color: #fff;
+	margin-bottom: 20px;
+	font-size: 25px;
+}
+.log-in-label, .sign-up-label {
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.log-in-label input, .sign-up-label input, .sign-up-label button {
+	width: 360px;
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: -30px;
+	border-radius: 5px;
+	border: none;
+}
+input {outline:none;}
+
+.log-in-label input[type='text'],
+.log-in-label input[type='password'],
+.sign-up-label input[type='text'],
+.sign-up-label input[type='password'],
+.sign-up-label input[type='email'],
+.sign-up-label input[type="date"]{
+	padding-left: 55px;
+	font-size: 20px;
+	color: #c4c3ca;
+	background-color: #1f2029;
+}
+
+.log-in-label input[type='button'],
+.sign-up-label button[type='submit']{
+	width: 119px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #AFB5C5;
+	transition: all 0.5s ease-in-out;
+}
+
+
+.log-in-label input[type='button']:hover,
+.sign-up-label button[type='submit']:hover{
+	background-color: #03ce97;
+
+}
+.log-in-label p {
+	margin-top: 10px;
+}
+.log-in-label a:hover {
+	color: #FFFFFF;
+}
+.log-in-label a {
+	color: #AFB5C5;
+	transition: .3s;
+}
+
+
+
+
+.sign-up-label i, .log-in-label i {
+	position: relative;
+	top: -8px;
+	right: 155px;
+	width: 20px;
+	font-size: 30px;
+	color: #c4c3ca;
+}
+
+.icon-of-voyti i {
+	display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sign-up {
+	position: absolute;
+	backface-visibility: hidden;
+	transform: rotateY(180deg);
+	width: 100%;
+	height: 100%;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+@keyframes voytimoveright {
+	0% {
+		transform: translate(0px);
 	}
-	footer {
-		margin-top: 0px;
+	100% {
+		transform: translate(50px, 0);
 	}
 }
 
-@media (max-width: 1220px) {
-	.logo {
-		margin-right: 20px;
+@keyframes voytimoveleft {
+	0% {
+		transform: translate(50px, 0);
 	}
-	.katalog {
-		width: 130px;
+	100% {
+		transform: translate(0px);
 	}
-	.zakazi {
-		display: none;
+}
+
+@keyframes voyti180 {
+	0% {
+
 	}
-	.slayder {
-		width: 90vw;
+	100% {
+		transform: rotateY(180deg);
 	}
-}*/
+}
+@keyframes voyti-180 {
+	0% {
+		transform: rotateY(180deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}
+
+.voyti-footer {
+	position: absolute;
+	bottom: 0;
+	height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes showingvoyti {
+	0% {
+		transform: scale(1.0);
+	}
+	100% {
+		transform: scale(1.2);
+	}
+}
+
+
+
 
 
 
@@ -712,19 +968,6 @@ footer {
 
 @media (max-width: 1024px) {
 
-	.logo {
-		margin-right: 20px;
-	}
-	/*.fa-bars {*/
-	/*	font-size: 15px;*/
-	/*}*/
-
-	/*.izbrannoe {*/
-	/*	margin: 0;*/
-	/*}*/
-	/*.korzina {*/
-	/*	margin: 0;*/
-	/*}*/
 	.voyti {
 		margin-left: 10px;
 	}
@@ -735,9 +978,6 @@ footer {
 	.katalog-text {
 		display: none;
 	}
-	/*.zakazi {*/
-	/*	display: none;*/
-	/*}*/
 
 	.mesopolojeniye {
 		display: none;
@@ -801,22 +1041,147 @@ footer {
 	}
 	.mobile-header {
 		display: flex;
-		width: 90%;
+		width: 95%;
 		flex-direction: column;
 		justify-content: space-between;
+		align-items: center;
 	}
 	.mobile-petviy-stupen {
 		display: flex;
-		width: 100%;
+		width: 98%;
 		align-items: center;
 		justify-content: space-between;
 	}
+	.logo {
+		margin: 0;
+	}
+	.right-size-of-mhead {
+		display: flex;
+		align-items: center;
+	}
+	.right-size-of-mhead i {
+
+	}
+	.katalog {
+		margin: 0;
+	}
+	.mobile-vtoraya-stupen {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+	.mobile-katalog-tovarov {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 20px;
+		width: 98%;
+		border-radius: 5px;
+		height: 40px;
+		background-color: #03ce97;
+	}
 	.mobile-poiskovik {
+		display: none;
+		margin-top: 10px;
 		width: 100%;
+
+		justify-content: center;
+		align-items: center;
 	}
-	.mobile-poiskovik .poiskovik {
+	.show-poisk {
+		display: block;
+	}
+	.poiskovik {
 		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
+	.poiskovik label {
+		margin: 0;
+		width: 98%;
+
+	}
+	.mobile-list-katalog-tovarov {
+		width: 100%;
+		margin-top: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 100px;
+		transition: all 0.5s;
+
+
+
+	}
+	.mobile-list-katalog-tovarov ul {
+		background-color: #ffffff;
+		width: 93%;
+		padding:  10px 0;
+		border: 2px #03ce97 solid;
+		border-radius: 5px;
+		height: 500px;
+		overflow-y: scroll ;
+
+	}
+	.mobile-list-katalog-tovarov ul li {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 95%;
+		cursor: pointer;
+		margin: 5px 5px;
+		padding: 5px;
+		border-radius: 5px;
+
+	}
+	.mobile-list-katalog-tovarov ul li:hover {
+		background-color: rgb(211, 211, 211);;
+	}
+	.mobile-list-katalog-left {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.mobile-list-katalog-left-icon {
+		width: 35px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.praviy-katalog {
+		position: absolute;
+		background-color: #FFFFFF;
+		border: 2px #03ce97 solid;
+		border-radius: 5px;
+		top: 120px;
+		right:-100%;
+		/*right: 25px;*/
+		width: 93%;
+		height: 400px;
+		transition: all .5s;
+	}
+	.mobil-list-kataloga {
+		padding: 10px;
+	}
+	.nazad {
+		padding: 5px;
+		display: flex;
+		width: 80px;
+		align-items: center;
+		justify-content: space-between;
+		opacity: 0.4;
+		cursor: pointer;
+	}
+
+	.showmlk {
+		display: none;
+	}
+
 
 	.slayder {
 		width: 90%;
@@ -856,33 +1221,6 @@ footer {
 	.for-salers li {
 		font-size: 14px;
 	}
-	/*.logo {*/
-	/*	position: absolute;*/
-	/*	left: 38%;*/
-	/*	margin: 0;*/
-	/*}*/
-	/*.katalog {*/
-	/*	position: absolute;*/
-	/*	left: 20px;*/
-	/*	top: 20px;*/
-	/*}*/
-	/*.poiskovik {*/
-	/*	display: none;*/
-	/*}*/
-	/*.izbrannoe  {*/
-	/*	display: none;*/
-	/*}*/
-	/*.zakazi {*/
-	/*	display: none;*/
-	/*}*/
-	/*.top-kateqorii {*/
-	/*	margin-left: 20px;*/
-
-	/*	overflow: hidden;*/
-	/*}*/
-	/*.voyti {*/
-	/*	display: none;*/
-	/*}*/
 	.reklami {
 		flex-wrap: wrap;
 	}
@@ -903,6 +1241,63 @@ footer {
 	.for-salers h2 {
 
 	}
+	/*Войти*/
+	.voyti-content {
+		width: 370px;
+		height: 500px;
+	}
+	.voyli-login-words {
+		font-size: 15px;
+	}
+	.voyti-krujok {
+		height: 10px;
+		width: 65px;
+	}
+	.krujok {
+		width: 20px;
+		height: 20px;
+	}
+	.sign-up {
+		width: 95%;
+	}
+	.log-in-label input, .sign-up-label input {
+		width: 270px;
+		height: 30px;
+	}
+	.main-voyti-content {
+		width: 340px;
+		height: 350px;
+	}
+	.log-in-label i, .sign-up-label i {
+		font-size: 16px;
+		right: 115px;
+		top: 6px;
+	}
+
+	.log-in-label input[type='text'],
+	.log-in-label input[type='password'],
+	.sign-up-label input[type='text'],
+	.sign-up-label input[type='password'],
+	.sign-up-label input[type="date"]{
+		padding-left: 35px;
+		font-size: 16px;
+
+	}
+
+	.log-in-label input[type='button'],
+	.sign-up-label input[type='button']{
+		width: 80px;
+		font-size: 14px;
+		font-weight: bold;
+		background-color: #AFB5C5;
+		transition: all 0.5s ease-in-out;
+		margin-top: 30px;
+	}
+
+	.log-in-label p {
+		margin-top: 30px;
+	}
+
 }
 
 /* iPad in portrait & landscape */

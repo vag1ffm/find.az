@@ -65,6 +65,55 @@ function moveqlavniytovarright() {
 	}
 }
 
+function showpoiskovik() {
+	let a = document.querySelector('.mobile-poiskovik')
+	a.classList.toggle('show-poisk')
+}
+
+function mobileshowkatalog() {
+	let a = document.querySelector('.mobile-list-katalog-tovarov')
+	let b =document.querySelectorAll('.praviy-katalog')
+	a.classList.toggle('showmlk')
+	if ('showmlk' === a.className.split(' ')[1]) {
+		for(let i = 0; i<b.length; i++) {
+			let pkatalog = b[i]
+			pkatalog.style.right = '-100%'
+
+		}
+		a.style.left = '0'
+	}
+
+
+}
+
+function showpraviykatalog(i) {
+	let a = document.querySelector(".mobile-list-katalog-tovarov")
+	let b = document.querySelector(`.${i}`)
+	a.style.left = '-100%'
+	b.style.right = '14px'
+}
+
+function backtokatalog(i) {
+	let a = document.querySelector(".mobile-list-katalog-tovarov")
+	let b = document.querySelector(`.${i}`)
+	b.style.right = '-100%'
+	a.style.left = '0'
+}
+
+
+function movingofregist() {
+	let a = document.querySelector('.krujok')
+	let b = document.querySelector('.main-voyti-content')
+	if (a.style.animationName === 'voytimoveright'){
+		a.style.animationName = 'voytimoveleft'
+		b.style.animationName = 'voyti-180'
+	} else {
+		a.style.animationName = 'voytimoveright'
+		b.style.animationName = 'voyti180'
+	}
+}
+
+
 // function moveqlavniytovarright() {
 // 	let slayd = document.querySelector('.slayd')
 // 	let a = getComputedStyle(slayd).width.split('px')

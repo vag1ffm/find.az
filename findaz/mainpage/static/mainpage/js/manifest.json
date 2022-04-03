@@ -1,12 +1,12 @@
 {
-  "name": "Интернет магазин",
-  "short_url": "../../../templates/mainpage/index.html",
+  "name": "Калькулятор",
+  "short_url": "/index.html",
   "display": "standalone",
   "background": "#fff",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "../img/icon-of-site.png",
+      "src": "img/1.png",
       "type": "image/png",
       "size": "128x128"
     }
