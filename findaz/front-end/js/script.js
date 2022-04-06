@@ -64,6 +64,43 @@ function moveqlavniytovarright() {
 		a.style.left = `${b}px`
 	}
 }
+function showleftbar() {
+	let a = document.querySelector('.left-bar')
+	a.classList.toggle('show-bar')
+}
+
+// var b = 0
+// function moveqlavniytovarright() {
+// 	let a = document.querySelectorAll('.qlavniy-tovar')
+// 	let c = document.querySelector('.slayd')
+//
+// 	b -= 203
+// 	c.style.left = `${b}px`
+// 	console.log(b)
+// }
+//
+// function moveqlavniytovarleft() {
+// 	let a = document.querySelectorAll('.qlavniy-tovar')
+// 	let c = document.querySelector('.slayd')
+//
+// 	b += 203
+// 	c.style.left = `${b}px`
+// 	console.log(b)
+// }
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function showpoiskovik() {
 	let a = document.querySelector('.mobile-poiskovik')
@@ -82,7 +119,6 @@ function mobileshowkatalog() {
 		}
 		a.style.left = '0'
 	}
-
 
 }
 
