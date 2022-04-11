@@ -29,6 +29,7 @@ body {
   align-items: center;
   width: 95%;
   max-width: 1440px;
+  border-bottom: 2px #03ce97 solid;
 }
 .mobile-header {
   display: none;
@@ -207,18 +208,34 @@ body {
   color: #FFF;
 }
 
-.zakazi, .izbrannoe, .korzina {
+.zakazi a, .izbrannoe a, .korzina a {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 72px;
   margin: 0 10px;
+  cursor: pointer;
 }
+
+.zakazi:hover .zakazi-icon,.zakazi:hover  .zakazi-text,
+.izbrannoe:hover .izbranoe-icon, .izbrannoe:hover .izbranoe-text,
+.korzina:hover .korzina-icon, .korzina:hover .korzina-text{
+  color: #03ce97;
+  transition: .5s;
+}
+
+//.zakazi-text:hover,
+//.izbranoe-text:hover,
+//.korzina-text:hover,
+//.zakazi-icon:hover{
+//
+//}
 
 .zakazi-text, .izbranoe-text, .korzina-text{
   font-size: 12px;
   padding-top: 4px;
+  transition: .5s;
 
 }
 
@@ -246,6 +263,7 @@ body {
   height: 48px;
   width: 99%;
   max-width: 1440px;
+
 }
 
 .mesopolojeniye {
@@ -429,6 +447,7 @@ main {
   flex-direction: column;
   align-items: center;
   transition: 300ms;
+
 
 }
 .qlavniy-tovar a{
@@ -825,8 +844,9 @@ input {outline:none;}
 
 
 .filter-content {
-  width: 1474.9px;
+  max-width: 1474.9px;
   margin-top: 50px;
+  width: 78%;
 }
 
 .filter-and-content {
@@ -836,7 +856,8 @@ input {outline:none;}
 .filter-filter {
   width: 21%;
   height: 1000px;
-  border: 3px #03ce97 solid;
+  border-radius: 5px;
+  border: 2px #03ce97 solid;
   margin-top: 60px;
 }
 .filter-main-content {
@@ -875,12 +896,14 @@ input {outline:none;}
 
 }
 .filter-tovari {
+  transition: .5s;
+  border-radius: 5px;
   border: 1px #03ce97 solid;
   margin: 10px 0;
   background-color: #fff;
   display: flex;
   align-items: center;
-  width: 1150px;
+  width: 98%;
   height: 253px;
   .photo {
     width: 229px;
@@ -929,10 +952,19 @@ input {outline:none;}
   }
   .prise {
     padding: 25px 20px 16px 0px;
-    width: 256px;
+    width: 356px;
     height: 253px;
     display: flex;
     flex-direction: column;
+    .contaner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i {
+        opacity: 0.0;
+        transition: 0.7s;
+      }
+    }
     .chena {
       font-size: 18px;
     }
@@ -951,6 +983,57 @@ input {outline:none;}
 
   }
 }
+
+.filter-tovari:hover {
+  background-color: #f3f3f3;
+}
+.filter-tovari:hover .contaner>i {
+  opacity: 1;
+}
+
+.izbranniy-main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.izbranniy-main h2 {
+  font-size: 30px;
+}
+.izbranniy-content {
+  width: 80%;
+}
+
+.izbranniye-tovari {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1112,6 +1195,9 @@ input {outline:none;}
   .razdel-razdel-name {
     font-size: 14px;
   }
+  .filter-content {
+    width: 95%;
+  }
 
 }
 
@@ -1182,12 +1268,15 @@ input {outline:none;}
     width: 100%;
   }
 
+
 }
 
 /* mobile */
 @media (max-width: 768px) {
   body {
     max-width: 768px;
+    overflow-x: hidden;
+
   }
   .desktop-header {
     display: none;
@@ -1218,15 +1307,22 @@ input {outline:none;}
   .katalog {
     margin: 0;
   }
+  .left-bar-content {
+    width: 93%;
 
+  }
   .left-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 20;
     position: absolute;
     min-width: 375px;
-    height: 600px;
-    background-color: #f3f3f3;
-    left: -375px;
-    top:00px;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    left: -100%;
+    top:120px;
     transition: all .5s ease;
     .first-line {
       display: flex;
@@ -1247,7 +1343,10 @@ input {outline:none;}
       }
     }
     .voyti {
-      width: 100px;
+      margin: 0;
+      width: 100%;
+      border-radius: 5px;
+      max-width: 300px;
     }
     ul {
       display: flex;
@@ -1303,7 +1402,16 @@ input {outline:none;}
   .poiskovik label {
     margin: 0;
     width: 98%;
-
+  }
+  .poiskovik button {
+    width: 90px;
+    background-color: #03ce97;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 0px #000000 solid;
+  }
+  .poiskovik button:active {
+    background-color: #e1b75c;
   }
   .mobile-list-katalog-tovarov {
     width: 100%;
@@ -1315,6 +1423,7 @@ input {outline:none;}
     position: absolute;
     top: 100px;
     transition: all 0.5s;
+    overflow: hidden;
 
 
 
@@ -1327,6 +1436,8 @@ input {outline:none;}
     border-radius: 5px;
     height: 500px;
     overflow-y: scroll ;
+    position: relative;
+    transition: all .5s ease;
 
   }
   .mobile-list-katalog-tovarov ul li {
@@ -1359,20 +1470,21 @@ input {outline:none;}
     background-color: #FFFFFF;
     border: 2px #03ce97 solid;
     border-radius: 5px;
-    top: 120px;
+    top: 0px;
     right:-100%;
     /*right: 25px;*/
     width: 93%;
     height: 400px;
     transition: all .5s;
+    z-index: 10;
   }
   .mobil-list-kataloga {
     padding: 10px;
   }
   .nazad {
-    padding: 5px;
+    padding: 5px 87% 5px 5px;
     display: flex;
-    width: 80px;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     opacity: 0.4;
@@ -1385,9 +1497,11 @@ input {outline:none;}
 
 
   .slayder {
-    width: 90%;
+    width: 93%;
+    height: 100px;
     font-size: 190%;
     margin-top: 20px;
+    border-radius: 5px;
   }
   .reklami {
     display: flex;
@@ -1395,14 +1509,24 @@ input {outline:none;}
     align-items: center;
   }
   .razdel-razdela h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .razdel-razdel-tovari {
     height: 50%;
   }
   .razdel-razdel-tovar {
-    width: 33%;
-    height: 50%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    h4 {
+      font-size: 13px;
+    }
+    a {
+     min-height: 150px;
+    }
   }
   .o-nas {
     width: 100%;

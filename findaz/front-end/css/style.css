@@ -47,6 +47,7 @@ body {
           align-items: center;
   width: 95%;
   max-width: 1440px;
+  border-bottom: 2px #03ce97 solid;
 }
 
 .mobile-header {
@@ -275,7 +276,7 @@ body {
   color: #FFF;
 }
 
-.zakazi, .izbrannoe, .korzina {
+.zakazi a, .izbrannoe a, .korzina a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -291,11 +292,22 @@ body {
           justify-content: center;
   height: 72px;
   margin: 0 10px;
+  cursor: pointer;
+}
+
+.zakazi:hover .zakazi-icon, .zakazi:hover .zakazi-text,
+.izbrannoe:hover .izbranoe-icon, .izbrannoe:hover .izbranoe-text,
+.korzina:hover .korzina-icon, .korzina:hover .korzina-text {
+  color: #03ce97;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .zakazi-text, .izbranoe-text, .korzina-text {
   font-size: 12px;
   padding-top: 4px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .voyti {
@@ -1118,8 +1130,9 @@ input {
 }
 
 .filter-content {
-  width: 1474.9px;
+  max-width: 1474.9px;
   margin-top: 50px;
+  width: 78%;
 }
 
 .filter-and-content {
@@ -1134,7 +1147,8 @@ input {
 .filter-filter {
   width: 21%;
   height: 1000px;
-  border: 3px #03ce97 solid;
+  border-radius: 5px;
+  border: 2px #03ce97 solid;
   margin-top: 60px;
 }
 
@@ -1187,6 +1201,9 @@ input {
 }
 
 .filter-tovari {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 5px;
   border: 1px #03ce97 solid;
   margin: 10px 0;
   background-color: #fff;
@@ -1196,7 +1213,7 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1150px;
+  width: 98%;
   height: 253px;
 }
 .filter-tovari .photo {
@@ -1260,7 +1277,7 @@ input {
 }
 .filter-tovari .prise {
   padding: 25px 20px 16px 0px;
-  width: 256px;
+  width: 356px;
   height: 253px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1269,6 +1286,22 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.filter-tovari .prise .contaner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.filter-tovari .prise .contaner i {
+  opacity: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
 }
 .filter-tovari .prise .chena {
   font-size: 18px;
@@ -1287,6 +1320,51 @@ input {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.filter-tovari:hover {
+  background-color: #f3f3f3;
+}
+
+.filter-tovari:hover .contaner > i {
+  opacity: 1;
+}
+
+.izbranniy-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.izbranniy-main h2 {
+  font-size: 30px;
+}
+
+.izbranniy-content {
+  width: 80%;
+}
+
+.izbranniye-tovari {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 
 @-webkit-keyframes voytimoveright {
@@ -1422,6 +1500,10 @@ input {
   .razdel-razdel-name {
     font-size: 14px;
   }
+
+  .filter-content {
+    width: 95%;
+  }
 }
 @media (max-width: 1024px) {
   .voyti {
@@ -1518,6 +1600,7 @@ input {
 @media (max-width: 768px) {
   body {
     max-width: 768px;
+    overflow-x: hidden;
   }
 
   .desktop-header {
@@ -1571,14 +1654,29 @@ input {
     margin: 0;
   }
 
+  .left-bar-content {
+    width: 93%;
+  }
+
   .left-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     z-index: 20;
     position: absolute;
     min-width: 375px;
-    height: 600px;
-    background-color: #f3f3f3;
-    left: -375px;
-    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    left: -100%;
+    top: 120px;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
@@ -1613,7 +1711,10 @@ input {
     border-radius: 5px;
   }
   .left-bar .voyti {
-    width: 100px;
+    margin: 0;
+    width: 100%;
+    border-radius: 5px;
+    max-width: 300px;
   }
   .left-bar ul {
     display: -webkit-box;
@@ -1704,6 +1805,18 @@ input {
     width: 98%;
   }
 
+  .poiskovik button {
+    width: 90px;
+    background-color: #03ce97;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 0px #000000 solid;
+  }
+
+  .poiskovik button:active {
+    background-color: #e1b75c;
+  }
+
   .mobile-list-katalog-tovarov {
     width: 100%;
     margin-top: 20px;
@@ -1724,6 +1837,7 @@ input {
     top: 100px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    overflow: hidden;
   }
 
   .mobile-list-katalog-tovarov ul {
@@ -1734,6 +1848,9 @@ input {
     border-radius: 5px;
     height: 500px;
     overflow-y: scroll;
+    position: relative;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
   }
 
   .mobile-list-katalog-tovarov ul li {
@@ -1787,13 +1904,14 @@ input {
     background-color: #FFFFFF;
     border: 2px #03ce97 solid;
     border-radius: 5px;
-    top: 120px;
+    top: 0px;
     right: -100%;
     /*right: 25px;*/
     width: 93%;
     height: 400px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    z-index: 10;
   }
 
   .mobil-list-kataloga {
@@ -1801,11 +1919,11 @@ input {
   }
 
   .nazad {
-    padding: 5px;
+    padding: 5px 87% 5px 5px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 80px;
+    width: 100%;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1821,9 +1939,11 @@ input {
   }
 
   .slayder {
-    width: 90%;
+    width: 93%;
+    height: 100px;
     font-size: 190%;
     margin-top: 20px;
+    border-radius: 5px;
   }
 
   .reklami {
@@ -1840,7 +1960,7 @@ input {
   }
 
   .razdel-razdela h2 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .razdel-razdel-tovari {
@@ -1848,8 +1968,22 @@ input {
   }
 
   .razdel-razdel-tovar {
-    width: 33%;
-    height: 50%;
+    width: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .razdel-razdel-tovar h4 {
+    font-size: 13px;
+  }
+  .razdel-razdel-tovar a {
+    min-height: 150px;
   }
 
   .o-nas {

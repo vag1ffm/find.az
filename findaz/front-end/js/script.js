@@ -64,10 +64,41 @@ function moveqlavniytovarright() {
 		a.style.left = `${b}px`
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function showleftbar() {
 	let a = document.querySelector('.left-bar')
 	a.classList.toggle('show-bar')
+	let b = document.querySelector('.mobile-petviy-stupen  .katalog')
+	let c = document.querySelector('.close-bar')
+	if (b.style.display === 'block') {
+		b.style.display = 'none'
+		c.style.display = 'block'
+	} else {
+		b.style.display = 'block'
+		c.style.display = 'none'
+	}
 }
+
 
 // var b = 0
 // function moveqlavniytovarright() {
@@ -109,28 +140,29 @@ function showpoiskovik() {
 
 function mobileshowkatalog() {
 	let a = document.querySelector('.mobile-list-katalog-tovarov')
+	let c = document.querySelector('.mobile-list-katalog-tovarov ul')
 	let b =document.querySelectorAll('.praviy-katalog')
 	a.classList.toggle('showmlk')
 	if ('showmlk' === a.className.split(' ')[1]) {
 		for(let i = 0; i<b.length; i++) {
 			let pkatalog = b[i]
 			pkatalog.style.right = '-100%'
-
 		}
+		c.style.left = '0'
 		a.style.left = '0'
 	}
 
 }
 
 function showpraviykatalog(i) {
-	let a = document.querySelector(".mobile-list-katalog-tovarov")
+	let a = document.querySelector(".mobile-list-katalog-tovarov ul")
 	let b = document.querySelector(`.${i}`)
 	a.style.left = '-100%'
-	b.style.right = '14px'
+	b.style.right = '3.8vw'
 }
 
 function backtokatalog(i) {
-	let a = document.querySelector(".mobile-list-katalog-tovarov")
+	let a = document.querySelector(".mobile-list-katalog-tovarov ul")
 	let b = document.querySelector(`.${i}`)
 	b.style.right = '-100%'
 	a.style.left = '0'
