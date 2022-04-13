@@ -33,6 +33,7 @@ body {
 }
 .mobile-header {
   display: none;
+  z-index: 20;
 }
 .pervaya-stupen {
   display: flex;
@@ -97,7 +98,7 @@ body {
   background-color: #fff;
   transition: 1s;
   background-clip: padding-box;
-  width: 92vw;
+  width: 98%;
   max-width: 1440px;
 
 }
@@ -674,7 +675,7 @@ footer {
 }
 
 .main-of-voyti {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -1091,14 +1092,16 @@ input {outline:none;}
 }
 
 
-
-
-
-
-
-
-
-
+.prostranstvo {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-color: #1f2029;
+  opacity: 0.0;
+  z-index: 15;
+  transition: .5s
+}
 
 
 
@@ -1293,9 +1296,17 @@ input {outline:none;}
     width: 98%;
     align-items: center;
     justify-content: space-between;
+    background-color: #fff;
   }
   .logo {
     margin: 0;
+  }
+  .right-size-of-mhead .poiskovoy-icon {
+    margin: 0 5px;
+    transition: 0.5s;
+  }
+  .right-size-of-mhead .poiskovoy-icon:hover {
+    color: #03ce97;
   }
   .right-size-of-mhead {
     display: flex;
@@ -1386,7 +1397,7 @@ input {outline:none;}
     display: none;
     margin-top: 10px;
     width: 100%;
-
+    z-index:-2;
     justify-content: center;
     align-items: center;
   }
@@ -1398,6 +1409,7 @@ input {outline:none;}
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
   .poiskovik label {
     margin: 0;
@@ -1422,8 +1434,9 @@ input {outline:none;}
     justify-content: center;
     position: absolute;
     top: 100px;
-    transition: all 0.5s;
+    transition: all 0.7s ease-in-out;
     overflow: hidden;
+    z-index: -1;
 
 
 
@@ -1492,7 +1505,7 @@ input {outline:none;}
   }
 
   .showmlk {
-    display: none;
+    top: -49%;
   }
 
 
@@ -1502,6 +1515,11 @@ input {outline:none;}
     font-size: 190%;
     margin-top: 20px;
     border-radius: 5px;
+  }
+
+  .razdel-razdel-tovar:first-child,
+  .razdel-razdel-tovar:last-child{
+    display: none;
   }
   .reklami {
     display: flex;
@@ -1574,6 +1592,9 @@ input {outline:none;}
   }
   .voyli-login-words {
     font-size: 15px;
+    .i i {
+      color: #000;
+    }
   }
   .voyti-krujok {
     height: 10px;

@@ -68,23 +68,6 @@ function moveqlavniytovarright() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function showleftbar() {
 	let a = document.querySelector('.left-bar')
 	a.classList.toggle('show-bar')
@@ -120,17 +103,29 @@ function showleftbar() {
 // }
 //
 
+function hidevotiiprotr() {
+	let b = document.querySelector('.prostranstvo')
+	b.style.opacity ='0.0'
+	b.style.display ='none'
+	let a = document.querySelector('.main-of-voyti')
+	a.style.display = 'none'
+}
 
-
-
-
-
-
-
-
-
-
-
+function showprostranstvo() {
+	let b = document.querySelector('.prostranstvo')
+	if (b.style.opacity ==='0.5') {
+		b.style.opacity ='0.0'
+	} else {
+		b.style.opacity ='0.5'
+	}
+}
+function showvoyti(){
+	let a = document.querySelector('.main-of-voyti')
+	a.style.display = 'flex'
+	let b = document.querySelector('.prostranstvo')
+	b.style.display='block'
+	setTimeout(showprostranstvo,0 )
+}
 
 
 function showpoiskovik() {
@@ -149,7 +144,7 @@ function mobileshowkatalog() {
 			pkatalog.style.right = '-100%'
 		}
 		c.style.left = '0'
-		a.style.left = '0'
+
 	}
 
 }
@@ -181,6 +176,15 @@ function movingofregist() {
 	}
 }
 
+
+
+
+
+
+
+
+
+
 // function moveqlavniytovarright() {
 // 	let slayd = document.querySelector('.slayd')
 // 	let a = getComputedStyle(slayd).width.split('px')
@@ -189,3 +193,5 @@ function movingofregist() {
 // 	let b = document.querySelectorAll('.qlavniy-tovar').length
 // 	console.log(a/b)
 // }
+
+
