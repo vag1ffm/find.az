@@ -102,28 +102,34 @@ function showleftbar() {
 // 	console.log(b)
 // }
 //
-
+const prostranstvo = document.querySelector('.prostranstvo')
+const c = document.querySelector('.voyti-content')
 function hidevotiiprotr() {
-	let b = document.querySelector('.prostranstvo')
-	b.style.opacity ='0.0'
-	b.style.display ='none'
 	let a = document.querySelector('.main-of-voyti')
-	a.style.display = 'none'
+	prostranstvo.style.opacity ='0.0'
+	c.style.top = '-50px'
+	a.style.opacity = '0.0'
+	setTimeout(()=>{
+		prostranstvo.style.display ='none'
+		a.style.display = 'none'
+	},500)
 }
 
 function showprostranstvo() {
-	let b = document.querySelector('.prostranstvo')
-	if (b.style.opacity ==='0.5') {
-		b.style.opacity ='0.0'
+	if (prostranstvo.style.opacity ==='0.5') {
+		prostranstvo.style.opacity ='0.0'
 	} else {
-		b.style.opacity ='0.5'
+		prostranstvo.style.opacity ='0.5'
 	}
 }
 function showvoyti(){
 	let a = document.querySelector('.main-of-voyti')
+	prostranstvo.style.display='block'
 	a.style.display = 'flex'
-	let b = document.querySelector('.prostranstvo')
-	b.style.display='block'
+	setTimeout(()=> {
+		a.style.opacity = '1'
+		c.style.top = '0'
+	},00)
 	setTimeout(showprostranstvo,0 )
 }
 

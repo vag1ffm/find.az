@@ -593,6 +593,7 @@ main {
           align-items: center;
   -webkit-transition: 300ms;
   transition: 300ms;
+    max-width: 203px;
 }
 
 .qlavniy-tovar a {
@@ -640,8 +641,10 @@ main {
   border-radius: 5px;
   margin: 5px 0px;
 }
-
-.chena {
+.qlavniy-tovar-img img {
+    width: 100%;
+}
+.qlavniy-tovar .chena {
   font-weight: 700;
   font-size: 18px;
   margin: 5px 0;
@@ -788,86 +791,6 @@ footer {
   color: red;
 }
 
-.filter-direktoriya {
-  font-size: 13px;
-  color: #222222;
-  margin: 40px 0;
-}
-
-.filter-slayder {
-  width: 1192px;
-  height: 142px;
-}
-
-.filter-slayder h2 {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.filter-katalog-tovarov {
-  height: 122px;
-  width: 1208px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 2px #000 solid;
-  z-index: 5;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: absolute;
-}
-
-.filer-slayder-button {
-  width: 40px;
-  height: 40px;
-  z-index: 5;
-  border-radius: 50px;
-}
-
-.filter-katalog-tovari {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  z-index: 2;
-}
-
-.filter-katalog-tovar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #f3f3f3;
-  width: 232px;
-  height: 92px;
-  border-radius: 10px;
-  margin: 0 8px;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.filter-katalog-tovar .img {
-  width: 60px;
-  height: 60px;
-  background-color: #2aad2e;
-  border-radius: 10px;
-}
-
-.filter-katalog-tovarov-name {
-  font-size: 16px;
-  color: #212121;
-  width: 110px;
-}
 
 .mobile-menu {
   width: 500px;
@@ -889,12 +812,16 @@ footer {
     position:absolute;
     width: 100%;
     height: 100vh;
-    opacity: .97;
 
+    transition: .5s;
     z-index: 50;
+    opacity: 1;
 }
 
 .voyti-content {
+    position: relative;
+    top: -50px;
+    transition: 1s;
   border-radius: 10px;
   width: 500px;
   height: 650px;
@@ -1078,8 +1005,8 @@ input {
     background-color: #fff;
 }
 
-.log-in-label input[type=button],
-.sign-up-label input[type=button] {
+.log-in-label input[type=submit],
+.sign-up-label input[type=submit] {
   width: 119px;
   font-size: 18px;
   font-weight: bold;
@@ -1146,8 +1073,8 @@ input {
 
 .filter-content {
   max-width: 1474.9px;
-  margin-top: 50px;
-  width: 78%;
+  width: 95%;
+    margin: 20px 20px;
 }
 
 .filter-and-content {
@@ -1160,7 +1087,8 @@ input {
 }
 
 .filter-filter {
-  width: 21%;
+  width: 20%;
+
   height: 1000px;
   border-radius: 5px;
   border: 2px #03ce97 solid;
@@ -1182,7 +1110,8 @@ input {
 }
 
 .filter-content-header {
-  width: 100%;
+
+  width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1194,41 +1123,34 @@ input {
           justify-content: space-between;
   height: 50px;
 }
-.filter-content-header ul:first-child {
+.filter-content-header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 50px;
+    justify-content: space-between;
+
+    width: 100%;
+
 }
-.filter-content-header ul:first-child li {
-  margin: 0 20px;
-  cursor: pointer;
-}
-.filter-content-header ul:last-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 50px;
-}
-.filter-content-header ul:last-child li {
-  margin: 0 5px;
+.filter-content-header ul li {
   cursor: pointer;
 }
 
 .filter-tovari {
-    width: 100%;
+
     display: flex;
-    align-items: start;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
+    align-items: start;
+    margin-left: 20px;
 }
 .filter-tovar {
     float: left;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   border-radius: 5px;
-  border: 1px #03ce97 solid;
-  margin: 10px 0;
+  border: 2px #03ce97 solid;
+  margin: 10px 5px;
   background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1237,17 +1159,21 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 30%;
+  max-width: 275px;
+    width: 25%;
 
+}
+.filter-tovar a {
+    width: 100%;
 }
 .filter-tovar .photo {
   width: 100%;
-  height: 253px;
-  padding: 20px ;
+
+  padding: 10px ;
 }
 .filter-tovar .photo .img {
   width: 100%;
-  height: 209px;
+  height: 259px;
   background-color: gray;
 }
 .filter-tovar .opisaniye {
@@ -1280,7 +1206,12 @@ input {
   margin-bottom: 12px;
 }
 .filter-tovar .opisaniye .ochenka .rating {
-  background-color: #03ce97;
+  background-color: #00ff08;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .filter-tovar .opisaniye .ochenka .otzivi {
   font-size: 12.8px;
@@ -1301,7 +1232,7 @@ input {
 .filter-tovar .prise {
 
   width:100%;
-    paddin: 0 20px;
+    padding: 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1322,16 +1253,24 @@ input {
           align-items: center;
 }
 .filter-tovar .prise .contaner i {
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+    position: relative;
+    /*top: -455px;*/
 }
 .filter-tovar .prise .chena {
   font-size: 18px;
+    font-weight: bold;
+}
+.filter-tovar .prise .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .filter-tovar .prise .button button {
-  padding: 12px 0;
-  width: 88px;
+  width: 100%;
   height: 36px;
   background-color: #03ce97;
   display: -webkit-box;
@@ -1523,6 +1462,26 @@ input {
             transform: scale(1.2);
   }
 }
+
+
+
+
+
+@media (max-width: 1570px) {
+    .filter-tovar {
+        max-width: 500px;
+        width: 30%;
+    }
+}
+
+@media (max-width: 1040px) {
+    .filter-tovar {
+        max-width: 500px;
+        width: 45%;
+    }
+}
+
+
 /* tablet */
 @media (max-width: 1240px) {
   .razdel-razdel-tovar:last-child {
@@ -1560,6 +1519,27 @@ input {
   .filter-content {
     width: 95%;
   }
+  .filter-and-content {
+      width: 100%;
+
+  }
+  .filter-main-content {
+      width: 100%;
+  }
+  .filter-tovari {
+      width: 100%;
+      margin: 0;
+  }
+    .filter-tovar {
+        width: 32%;
+    }
+    .filter-filter {
+        position: absolute;
+        display: none;
+    }
+    .filter-tovar .prise .contaner i {
+        /*top: -435px;*/
+    }
 }
 @media (max-width: 1024px) {
   .voyti {
@@ -1651,6 +1631,12 @@ input {
             flex-direction: row;
     width: 100%;
   }
+}
+
+@media  (max-width: 850px) {
+    .filter-tovar {
+        width: 48%;
+    }
 }
 /* mobile */
 @media (max-width: 768px) {
@@ -2172,8 +2158,8 @@ input {
     font-size: 16px;
   }
 
-  .log-in-label input[type=button],
-.sign-up-label input[type=button] {
+  .log-in-label input[type=submit],
+.sign-up-label input[type=submit] {
     width: 80px;
     font-size: 14px;
     font-weight: bold;
@@ -2186,7 +2172,43 @@ input {
   .log-in-label p {
     margin-top: 30px;
   }
+    
 }
+@media (max-width: 550px ) {
+    .filter-content-header {
+        display: none;
+    }
+    .filter-tovar {
+        width: 47%;
+    }
+    .filter-tovar .photo .img {
+        height: 45vw;
+    }
+    .filter-tovar .opisaniye {
+        padding: 0;
+        margin: 0 10px;
+    }
+    .filter-tovar .opisaniye h4{
+        font-size: 16px;
+    }
+    .opisaniye-tovara li{
+        font-size: 14px;
+    }
+    .filter-tovar .prise .chena {
+        font-size: 16px;
+    }
+    .prise:last-child {
+        padding: 10px;
+    }
+    .prise .button button {
+        margin: 0;
+    }
+    .prise .fa-heart {
+
+    }
+  }
+
+
 
 @-webkit-keyframes show-katalog {
   0% {
