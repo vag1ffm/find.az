@@ -103,34 +103,18 @@ function showleftbar() {
 // }
 //
 const prostranstvo = document.querySelector('.prostranstvo')
+const body = document.querySelector('body')
 const c = document.querySelector('.voyti-content')
 function hidevotiiprotr() {
 	let a = document.querySelector('.main-of-voyti')
 	prostranstvo.style.opacity ='0.0'
 	c.style.top = '-50px'
 	a.style.opacity = '0.0'
+	body.style.overflow ='scroll'
 	setTimeout(()=>{
 		prostranstvo.style.display ='none'
 		a.style.display = 'none'
 	},500)
-}
-
-function showprostranstvo() {
-	if (prostranstvo.style.opacity ==='0.5') {
-		prostranstvo.style.opacity ='0.0'
-	} else {
-		prostranstvo.style.opacity ='0.5'
-	}
-}
-function showvoyti(){
-	let a = document.querySelector('.main-of-voyti')
-	prostranstvo.style.display='block'
-	a.style.display = 'flex'
-	setTimeout(()=> {
-		a.style.opacity = '1'
-		c.style.top = '0'
-	},00)
-	setTimeout(showprostranstvo,0 )
 }
 
 
@@ -169,18 +153,6 @@ function backtokatalog(i) {
 	a.style.left = '0'
 }
 
-
-function movingofregist() {
-	let a = document.querySelector('.krujok')
-	let b = document.querySelector('.main-voyti-content')
-	if (a.style.animationName === 'voytimoveright'){
-		a.style.animationName = 'voytimoveleft'
-		b.style.animationName = 'voyti-180'
-	} else {
-		a.style.animationName = 'voytimoveright'
-		b.style.animationName = 'voyti180'
-	}
-}
 
 
 

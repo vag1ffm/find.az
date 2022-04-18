@@ -32,6 +32,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow-x: hidden;
+
 }
 
 .desktop-header {
@@ -47,7 +48,7 @@ body {
           align-items: center;
   width: 95%;
   max-width: 1440px;
-  border-bottom: 2px #03ce97 solid;
+
 }
 
 .mobile-header {
@@ -329,7 +330,7 @@ body {
   cursor: pointer;
 }
 
-.voyti-text a {
+.voyti-text {
   color: #FFF;
   font-size: 16px;
 }
@@ -399,10 +400,10 @@ body {
 }
 
 .slayder {
-  height: 300px;
+
   max-width: 1440px;
   width: 95%;
-  background-color: #ffd4fd;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -416,7 +417,9 @@ body {
   background-position: center;
   color: #000;
 }
-
+.slayder img {
+    width: 100%;
+}
 .content {
   max-width: 1440px;
   width: 95%;
@@ -445,11 +448,11 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #dde1ed;
   border-radius: 10px;
   margin: 20px 0;
   width: 100%;
 }
+
 
 .razdel-razdel-tovar a {
   display: -webkit-box;
@@ -468,12 +471,14 @@ main {
   -ms-flex-line-pack: center;
       align-content: center;
   width: 93%;
+    min-height: 225px;
   max-height: 290px;
   height: 13vw;
   background-color: #ffffff;
   border-radius: 10px;
   margin: 10px 7px;
   float: left;
+    border: 2px #03ce97 solid;
 }
 
 .razdel-razdel-tovar a:hover {
@@ -636,13 +641,19 @@ main {
 
 .qlavniy-tovar-img {
   width: 183px;
-  height: 219px;
-  background-color: grey;
+  min-height: 229px;
+
   border-radius: 5px;
   margin: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
 }
 .qlavniy-tovar-img img {
     width: 100%;
+
 }
 .qlavniy-tovar .chena {
   font-weight: 700;
@@ -731,9 +742,6 @@ main {
 
 .reklama {
   width: 90%;
-  max-height: 320px;
-  height: 21vw;
-  background-color: red;
   margin: 25px 0 0 5px;
   font-size: 40px;
   display: -webkit-box;
@@ -747,7 +755,9 @@ main {
       -ms-flex-pack: center;
           justify-content: center;
 }
-
+.reklama img {
+    width: 100%;
+}
 footer {
   margin-top: 150px;
   height: 500px;
@@ -801,21 +811,19 @@ footer {
 
 
 .main-of-voyti {
-  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-
-    position:absolute;
     width: 100%;
     height: 100vh;
-
+    display: flex;
     transition: .5s;
     z-index: 50;
     opacity: 1;
+    background-color: #03ce97;
 }
 
 .voyti-content {
@@ -825,7 +833,7 @@ footer {
   border-radius: 10px;
   width: 500px;
   height: 650px;
-  background-color: #1f2029;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -841,36 +849,7 @@ footer {
           justify-content: flex-start;
 }
 
-.voyli-login-words {
-  margin-top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 180px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #fff;
-}
-.voyti-login-signup .i {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: -120px;
-    top: 20px;
-    cursor: pointer;
-}
-.voyti-login-signup i {
-    color: #000;
-    font-size: 20px;
 
-}
 
 .voyli-login-words h3 {
     cursor: pointer;
@@ -880,48 +859,14 @@ footer {
     margin-left: 15px;
 }
 
-.voyti-krujok {
-  margin-top: 20px;
-    cursor: pointer;
-  width: 80px;
-  border-radius: 20px;
-  height: 20px;
-  background-color: grey;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.krujok {
-  width: 30px;
-  height: 30px;
-  background-color: #03ce97;
-  border-radius: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
 
 .main-voyti-content {
   width: 450px;
-  height: 450px;
+
   margin-top: 40px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  -webkit-animation-duration: 0.9s;
-          animation-duration: 0.9s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  background-color: #2a2b38;
-  border-radius: 10px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -935,14 +880,11 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+
 }
 
 .log-in {
   position: absolute;
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
   margin: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -986,6 +928,7 @@ footer {
   border-radius: 5px;
   border: none;
   overflow: hidden;
+    transition: .3s;
 }
 
 input {
@@ -1011,21 +954,30 @@ input {
   font-size: 18px;
   font-weight: bold;
   background-color: #AFB5C5;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+    transition: .3s;
 }
 
 .log-in-label input[type=button]:hover,
 .sign-up-label input[type=button]:hover {
-  background-color: #03ce97;
+  background-color: #878787;
+    color: #fff;
+
 }
 
 .log-in-label p {
-  margin-top: 10px;
+    margin-top: 50px;
+    text-align:center;
+
+}
+.log-in-label p a{
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 .log-in-label a:hover {
-  color: #FFFFFF;
+
+    border-radius: 5px;
+    color: #ffd93f;
 }
 
 .log-in-label a {
@@ -1432,7 +1384,7 @@ input {
 .prostranstvo {
   display: none;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   background-color: #1f2029;
   opacity: 0;
@@ -1470,7 +1422,7 @@ input {
 @media (max-width: 1570px) {
     .filter-tovar {
         max-width: 500px;
-        width: 30%;
+        width: 32%;
     }
 }
 
@@ -1573,6 +1525,8 @@ input {
 
   .slayder {
     font-size: 60px;
+      margin-top: 10px;
+
   }
 
   .content, main {
@@ -1613,7 +1567,7 @@ input {
   }
 
   .razdel-razdel-tovar a {
-    height: 80%;
+    height: 25vw;
     padding: 10px;
   }
 
@@ -1996,9 +1950,9 @@ input {
 
   .slayder {
     width: 93%;
-    height: 100px;
+
     font-size: 190%;
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 5px;
   }
 
@@ -2171,7 +2125,11 @@ input {
 
   .log-in-label p {
     margin-top: 30px;
+
   }
+    .log-in-label p a{
+        color: #FFFFFF;
+    }
     
 }
 @media (max-width: 550px ) {
