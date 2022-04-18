@@ -817,6 +817,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+    max-width: 100%;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -824,6 +825,7 @@ footer {
     z-index: 50;
     opacity: 1;
     background-color: #03ce97;
+
 }
 
 .voyti-content {
@@ -964,14 +966,15 @@ input {
 
 }
 
-.log-in-label p {
+.log-in-label p, .sign-up-label p  {
     margin-top: 50px;
     text-align:center;
 
 }
-.log-in-label p a{
+.log-in-label p a, .sign-up-label p a{
     color: #FFFFFF;
     font-weight: bold;
+
 }
 
 .log-in-label a:hover {
@@ -985,6 +988,7 @@ input {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+
 
 .sign-up-label i, .log-in-label i {
   position: relative;
@@ -1000,11 +1004,6 @@ input {
 }
 
 .sign-up {
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
   width: 100%;
   height: 100%;
   margin: 20px;
@@ -2072,15 +2071,6 @@ input {
 
     }
 
-  .voyti-krujok {
-    height: 10px;
-    width: 65px;
-  }
-
-  .krujok {
-    width: 20px;
-    height: 20px;
-  }
 
   .sign-up {
     width: 95%;
@@ -2123,14 +2113,7 @@ input {
     margin-top: 30px;
   }
 
-  .log-in-label p {
-    margin-top: 30px;
-
-  }
-    .log-in-label p a{
-        color: #FFFFFF;
-    }
-    
+  
 }
 @media (max-width: 550px ) {
     .filter-content-header {
