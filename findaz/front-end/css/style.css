@@ -391,7 +391,7 @@ body {
 }
 
 .spisok-kateqoriy li a:hover {
-  color: red;
+  color: #03ce97;
 }
 
 .priqlasheniye {
@@ -441,7 +441,7 @@ main {
 
 .razdel-razdela h2 {
   font-size: 28px;
-  padding: 20px 40px 10px 0px;
+  padding: 20px 40px 10px 0;
 }
 
 .razdel-razdel-tovari {
@@ -451,6 +451,7 @@ main {
   border-radius: 10px;
   margin: 20px 0;
   width: 100%;
+
 }
 
 
@@ -472,17 +473,19 @@ main {
       align-content: center;
   width: 93%;
     min-height: 225px;
-  max-height: 290px;
+  max-height: 230px;
   height: 13vw;
   background-color: #ffffff;
   border-radius: 10px;
   margin: 10px 7px;
   float: left;
     border: 2px #03ce97 solid;
+    transition: all .3s;
 }
 
 .razdel-razdel-tovar a:hover {
-  color: red;
+  color: #03ce97;
+    transform: scale(1.03);
 }
 
 .img img {
@@ -644,7 +647,7 @@ main {
   min-height: 229px;
 
   border-radius: 5px;
-  margin: 5px 0px;
+  margin: 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -835,7 +838,6 @@ footer {
   border-radius: 10px;
   width: 500px;
   height: 650px;
-
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -952,15 +954,15 @@ input {
 
 .log-in-label input[type=submit],
 .sign-up-label input[type=submit] {
-  width: 119px;
+  width: 100%;
   font-size: 18px;
   font-weight: bold;
-  background-color: #AFB5C5;
+  background-color: #fff;
     transition: .3s;
 }
 
-.log-in-label input[type=button]:hover,
-.sign-up-label input[type=button]:hover {
+.log-in-label input[type=submit]:hover,
+.sign-up-label input[type=submit]:hover {
   background-color: #878787;
     color: #fff;
 
@@ -1285,95 +1287,6 @@ input {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@-webkit-keyframes voytimoveright {
-  0% {
-    -webkit-transform: translate(0px);
-            transform: translate(0px);
-  }
-  100% {
-    -webkit-transform: translate(50px, 0);
-            transform: translate(50px, 0);
-  }
-}
-
-@keyframes voytimoveright {
-  0% {
-    -webkit-transform: translate(0px);
-            transform: translate(0px);
-  }
-  100% {
-    -webkit-transform: translate(50px, 0);
-            transform: translate(50px, 0);
-  }
-}
-@-webkit-keyframes voytimoveleft {
-  0% {
-    -webkit-transform: translate(50px, 0);
-            transform: translate(50px, 0);
-  }
-  100% {
-    -webkit-transform: translate(0px);
-            transform: translate(0px);
-  }
-}
-@keyframes voytimoveleft {
-  0% {
-    -webkit-transform: translate(50px, 0);
-            transform: translate(50px, 0);
-  }
-  100% {
-    -webkit-transform: translate(0px);
-            transform: translate(0px);
-  }
-}
-@-webkit-keyframes voyti180 {
-  100% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-}
-@keyframes voyti180 {
-  100% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-}
-@-webkit-keyframes voyti-180 {
-  0% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-@keyframes voyti-180 {
-  0% {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
 .voyti-footer {
   position: absolute;
   bottom: 0;
@@ -1392,27 +1305,218 @@ input {
   transition: 0.5s;
 }
 
-@-webkit-keyframes showingvoyti {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  }
+.logo-of-profile-in-mainpg {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    top: 0;
 }
 
-@keyframes showingvoyti {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  }
+.logo-of-profile-in-mainpg .img {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #03ce97;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.logo-of-profile-in-mainpg img {
+    width: 100%;
+}
+
+.perexodi-iz-mainpg{
+    flex-direction: column;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 46px;
+    border: 2px #03ce97 solid;
+    border-radius: 10px ;
+    transition: all 0.5s;
+    transform: rotateX(90deg) ;
+    transform-origin: top;
+}
+
+.perexodi-iz-mainpg h4 {
+    margin: 10px 0  0 25px;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+}
+.logo-of-profile-in-mainpg:hover .perexodi-iz-mainpg {
+    display: flex;
+    transform: rotateX(0deg) ;
+
+}
+
+.perexodi-iz-mainpg ul {
+    padding: 5px;
+}
+.perexodi-iz-mainpg ul li {
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 10px;
+    transition: all .2s;
+}
+.perexodi-iz-mainpg ul li:hover {
+    background-color: #03ce97;
+}
+.perexodi-iz-mainpg > li:hover .perexodi-iz-mainpg > a {
+    color: #FFFFFF;
+}
+.mobile-logo-in-mainpg {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0 0 ;
+}
+.mobile-logo-in-mainpg .logo {
+    width: 50px;
+    height: 50px;
+    background-color: #03ce97;
+    border-radius: 20px;
+    margin: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-of-profile {
+    height: 206px;
+    width: 100%;
+    background-color: #788E9E;
+}
+
+
+.profile-infa {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 46px 76px 0 76px;
+}
+.logo-and-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.profile-logo {
+    width: 80px;
+    height: 80px;
+    background-color: #e1b70c;
+    margin-right: 12px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.profile-namw h2{
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.profile-rating {
+    width: 68px;
+    height: 32px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.prfile-razdeli ul {
+    width: 360px;
+    height: 32px;
+    display: flex;
+    border: 1px #FFFFFF solid;
+    border-radius: 20px;
+}
+.prfile-razdeli ul li{
+    width: 120px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.prfile-razdeli ul li:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.profile-content {
+    width: 100%;
+    height: 1000px;
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1422,6 +1526,9 @@ input {
     .filter-tovar {
         max-width: 500px;
         width: 32%;
+    }
+    .perexodi-iz-mainpg {
+        right: -25px;
     }
 }
 
@@ -1681,10 +1788,10 @@ input {
     width: 100%;
     height: 100vh;
     background-color: #fff;
-    left: -100%;
+    left: -122%;
     top: 112px;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
   }
   .left-bar .first-line {
     display: -webkit-box;
@@ -1734,10 +1841,19 @@ input {
     margin: 20px 10px;
   }
   .left-bar ul li {
-    margin: 3px 0;
-    padding: 10px 20px 10px 0px;
+    display: flex;
+      align-items: center;
+
+    padding: 10px;
+      margin: 0 20px 10px 0;
     font-size: 20px;
+      border-radius: 10px;
+      transition: all .2s;
   }
+    .left-bar ul li:hover {
+        background-color: #03ce97;
+
+    }
 
   .show-bar {
     left: 0;
@@ -1818,7 +1934,7 @@ input {
     background-color: #03ce97;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    border: 0px #000000 solid;
+    border: 0 #000000 solid;
   }
 
   .poiskovik button:active {
@@ -1913,7 +2029,7 @@ input {
     background-color: #FFFFFF;
     border: 2px #03ce97 solid;
     border-radius: 5px;
-    top: 0px;
+    top: 0;
     right: -100%;
     /*right: 25px;*/
     width: 93%;
@@ -1944,7 +2060,7 @@ input {
   }
 
   .showmlk {
-    top: -49%;
+    top: -65%;
   }
 
   .slayder {
@@ -2104,16 +2220,20 @@ input {
 
   .log-in-label input[type=submit],
 .sign-up-label input[type=submit] {
-    width: 80px;
+    width: 100%;
     font-size: 14px;
     font-weight: bold;
-    background-color: #AFB5C5;
+    background-color: #fff;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     margin-top: 30px;
   }
+    .log-in-label input[type=submit] {
+       width: 90%;
+   }
 
-  
+
+
 }
 @media (max-width: 550px ) {
     .filter-content-header {

@@ -102,20 +102,7 @@ function showleftbar() {
 // 	console.log(b)
 // }
 //
-const prostranstvo = document.querySelector('.prostranstvo')
-const body = document.querySelector('body')
-const c = document.querySelector('.voyti-content')
-function hidevotiiprotr() {
-	let a = document.querySelector('.main-of-voyti')
-	prostranstvo.style.opacity ='0.0'
-	c.style.top = '-50px'
-	a.style.opacity = '0.0'
-	body.style.overflow ='scroll'
-	setTimeout(()=>{
-		prostranstvo.style.display ='none'
-		a.style.display = 'none'
-	},500)
-}
+
 
 
 function showpoiskovik() {
@@ -153,8 +140,11 @@ function backtokatalog(i) {
 	a.style.left = '0'
 }
 
-
-
+const perexodi = document.querySelector('.perexodi-iz-mainpg')
+function showperexodi() {
+	alert(5)
+	perexodi.style.display = 'flex'
+}
 
 
 
