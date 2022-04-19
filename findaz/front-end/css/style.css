@@ -1341,17 +1341,24 @@ input {
     transition: all 0.5s;
     transform: rotateX(90deg) ;
     transform-origin: top;
+    width: 190px;
 }
 
-.perexodi-iz-mainpg h4 {
-    margin: 10px 0  0 25px;
-    font-size: 14px;
-    width: 100%;
+.perexodi-iz-mainpg > h4 {
     display: flex;
+    background-color: red;
     justify-content: start;
+    font-size: 14px;
+    width: 80%;
+    padding: 5px;
+    margin-top: 5px;
     align-items: center;
     overflow: hidden;
 }
+.perexodi-iz-mainpg > h4 a {
+    width: 100%;
+}
+
 .logo-of-profile-in-mainpg:hover .perexodi-iz-mainpg {
     display: flex;
     transform: rotateX(0deg) ;
@@ -1370,8 +1377,6 @@ input {
 }
 .perexodi-iz-mainpg ul li:hover {
     background-color: #03ce97;
-}
-.perexodi-iz-mainpg > li:hover .perexodi-iz-mainpg > a {
     color: #FFFFFF;
 }
 .mobile-logo-in-mainpg {
@@ -1414,16 +1419,25 @@ input {
 .header-of-profile {
     height: 206px;
     width: 100%;
-    background-color: #788E9E;
+    border-radius: 5px;
+    background-color: #03ce97;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 46px 76px 0 76px;
+}
+.dobavit-tovar {
+    width: auto;
+    display: flex;
+    align-items: center;
 }
 
-
 .profile-infa {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding: 46px 76px 0 76px;
+
 }
 .logo-and-rating {
     display: flex;
@@ -1487,8 +1501,33 @@ input {
 
 .profile-content {
     width: 100%;
-    height: 1000px;
-    background-color: red;
+
+    margin-top: 20px;
+}
+
+.profile-sdiv {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.div-of-ul {
+    margin: 20px;
+}
+.div-of-ul li {
+    padding: 3px;
+}
+.div-of-ul li:hover {
+    background-color: #03ce97;
+    color: #FFFFFF;
+}
+.profile-tdiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-tovari {
+    margin-left: 60px;
 }
 
 
@@ -1500,16 +1539,9 @@ input {
 
 
 
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 1710px) {
+    .profile-tovari
+}
 
 
 
@@ -1691,6 +1723,7 @@ input {
             flex-direction: row;
     width: 100%;
   }
+
 }
 
 @media  (max-width: 850px) {
@@ -2231,10 +2264,13 @@ input {
     .log-in-label input[type=submit] {
        width: 90%;
    }
+    .header-of-profile {
+        width: 98%;
+    }
 
 
 
-}
+    }
 @media (max-width: 550px ) {
     .filter-content-header {
         display: none;
@@ -2267,7 +2303,43 @@ input {
     .prise .fa-heart {
 
     }
-  }
+    .header-of-profile {
+        height: 150px;
+    }
+    .profile-infa {
+        padding: 20px 0;
+    }
+    .profile-infa {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin: 0 ;
+    }
+    .profile-rating {
+        margin-left: 5px;
+        width: 60px;
+    }
+    .profile-namw h2{
+        font-size: 30px;
+    }
+    .prfile-razdeli {
+        width: auto;
+    }
+
+    .prfile-razdeli ul{
+        width: auto;
+    }
+    .prfile-razdeli ul li {
+        padding: 0 13.5px;
+        width: auto;
+    }
+
+}
 
 
 
