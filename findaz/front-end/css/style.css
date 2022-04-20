@@ -1127,7 +1127,13 @@ input {
 .filter-tovar .photo .img {
   width: 100%;
   height: 259px;
-  background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.filter-tovar .photo .img img{
+    width: 100%;
 }
 .filter-tovar .opisaniye {
 
@@ -1346,7 +1352,6 @@ input {
 
 .perexodi-iz-mainpg > h4 {
     display: flex;
-    background-color: red;
     justify-content: start;
     font-size: 14px;
     width: 80%;
