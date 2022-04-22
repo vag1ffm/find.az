@@ -1,0 +1,118 @@
+{% extends 'homepage/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+
+	<div class="slayder">
+		<img src="{% static 'homepage/img/reklama1.jpg' %}" alt="">
+	</div>
+	<div class="content">
+		<main>
+			<div class="razdel-razdela">
+				<h2>Компьютеры и комплектующие AMD</h2>
+				<div class="razdel-razdel-tovari">
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/prochesor.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Процессоры</h4>
+						</a>
+					</div>
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/videocart.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Видеокарты</h4>
+						</a>
+					</div>
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/noutbuki.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Ноутбуки</h4>
+						</a>
+					</div>
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/pc.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Настольные Компьютеры</h4>
+						</a>
+					</div>
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/pamyat.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Модули памяти</h4>
+						</a>
+					</div>
+					<div class="razdel-razdel-tovar">
+						<a href="">
+							<div class="img">
+								<img src="{% static 'homepage/img/ssd.webp' %}" alt="">
+							</div>
+							<h4 class="razdel-razdel-name">Внутренние твердотельные</h4>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			{% for c in categorii %}
+
+				<div class="qlavniye-tovari">
+					<div class="name-razdela-tovarov"><p>{{ c.0.cat }}</p> <p><a href="{{ c.0.cat.get_absolute_url }}">Еще товары</a></p></div>
+					<div class="ryad-tovarov">
+
+						<button onclick="moveqlavniytovarright()" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+						<div class="slayd-tovarov">
+							<div class="slayd">
+
+								{% for tovar in c %}
+
+									<div class="qlavniy-tovar">
+									<a href="">
+										<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+										<div class="qlavniy-tovar-img"><img src="{{ tovar.photo.url }}" alt=""></div>
+										<div class="chena">{{ tovar.price }} ₼</div>
+										<div class="reyting">
+											<div class="zvezda">звезды</div>
+											<div class="chislo-ochenik">50</div>
+										</div>
+										<div class="tovar-name">{{ tovar.title|truncatewords:10 }}</div>
+										<div class="rekomenduyemost">86% рекомендуют</div>
+									</a>
+									<div class="button"><button>В корзину</button></div>
+
+								</div>
+
+								{% endfor %}
+
+							</div>
+						</div>
+						<button onclick="moveqlavniytovarleft()" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
+
+					</div>
+				</div>
+
+			{% endfor %}
+
+		</main>
+
+		<div class="reklami">
+			<div class="reklama">
+				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">
+			</div>
+			<div class="reklama">
+				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}

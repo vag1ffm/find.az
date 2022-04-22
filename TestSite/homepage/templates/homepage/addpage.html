@@ -1,0 +1,20 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+        <h1>{{ title }}</h1>
+
+        <form action="{% url 'addpage' %}" method="post" enctype="multipart/form-data">
+                <div>{{ form.non_field_errors }}</div>
+
+                {% csrf_token %}
+
+                {% for f in form %}
+                        <div>{{f.errors}}</div>
+                        <p>{{f.label}} {{f}}</p>
+                {% endfor %}
+<!--                <button type="submit">Добавить</button>-->
+                <input type="submit" value="Добавить">
+        </form>
+{% endblock %}
