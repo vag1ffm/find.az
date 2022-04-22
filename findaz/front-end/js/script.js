@@ -25,45 +25,107 @@ function showkatalog(i) {
 	a.classList.add('show');
 	a.parentElement.style.backgroundColor = '#d3d3d3'
 }
-
-function moveqlavniytovarleft() {
-	let a = document.querySelector('.slayd')
-	let b = a.style.left.split('px')
-	b = b.join('')
-	b = +b
-	if (b === 0) {
-		b = b -130
-		a.style.left = `${b}px`
-	} else if (b === -1180) {
-	} else if (b === -1030) {
-		b-=150
-		a.style.left = `${b}px`
-	} else {
-		b = b -210
-		a.style.left = `${b}px`
+//
+// function moveqlavniytovarleft() {
+// 	let a = document.querySelector('.slayd')
+// 	let b = a.style.left.split('px')
+// 	b = b.join('')
+// 	b = +b
+// 	if (b === 0) {
+// 		b = b -130
+// 		a.style.left = `${b}px`
+// 	} else if (b === -1180) {
+// 	} else if (b === -1030) {
+// 		b-=150
+// 		a.style.left = `${b}px`
+// 	} else {
+// 		b = b -210
+// 		a.style.left = `${b}px`
+// 	}
+// }
+//
+// function moveqlavniytovarright() {
+// 	let a = document.querySelector('.slayd')
+// 	let b = a.style.left.split('px')
+// 	b = b.join('')
+// 	b = +b
+// 	if (b===20) {
+//
+// 	} else if (b === 0) {
+//
+// 	}  else if (b === -130) {
+// 		b = b + 150
+// 		a.style.left = `${b}px`
+// 	} else if (b === -340) {
+// 		b+= 150
+// 		a.style.left = `${b}px`
+// 	} else {
+// 		b += +210
+// 		a.style.left = `${b}px`
+// 	}
+// }
+let count;
+function screensize() {
+	let a = document.documentElement.scrollWidth
+	if (a<500) {
+		count = 1;
+	} else if (a<702) {
+		count = 2;
+	} else if (a<904) {
+		count = 3;
+	} else if (a<99999) {
+		count = 4;
 	}
 }
+screensize()
 
-function moveqlavniytovarright() {
-	let a = document.querySelector('.slayd')
-	let b = a.style.left.split('px')
-	b = b.join('')
-	b = +b
-	if (b===20) {
+/* конфигурация */
+let width = 203;
 
-	} else if (b === 0) {
+let list = document.querySelector('.slayd-tovarov .slayd');
+let listElems = document.querySelectorAll('.qlavniy-tovar');
+let position = 0; // положение ленты прокрутки
+document.querySelector('.p-slayder-tovarov').onclick = function() {
+	// сдвиг влево
+	position += width * count;
+	// последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
+	position = Math.min(position, 0)
+	list.style.marginLeft = position + 'px';
+};
+document.querySelector('.v-slayder-tovarov').onclick = function() {
+	// сдвиг вправо
+	position -= width * count;
+	// последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+	position = Math.max(position, -width * (listElems.length-3 - count));
+	list.style.marginLeft = position + 'px';
+};
 
-	}  else if (b === -130) {
-		b = b + 150
-		a.style.left = `${b}px`
-	} else if (b === -340) {
-		b+= 150
-		a.style.left = `${b}px`
-	} else {
-		b += +210
-		a.style.left = `${b}px`
-	}
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

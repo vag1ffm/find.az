@@ -584,8 +584,8 @@ main {
   display: flex;
   position: relative;
   left: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .qlavniy-tovar {
@@ -1041,8 +1041,6 @@ input {
 
 .filter-filter {
   width: 20%;
-
-  height: 1000px;
   border-radius: 5px;
   border: 2px #03ce97 solid;
   margin-top: 60px;
@@ -1397,11 +1395,46 @@ input {
     margin: 0 10px;
 }
 
+.reset-body {
+    height: 100vh;
+}
+.p-5, .p-4 {
+    margin: 20px;
+}
+.p-5 hr, .p-4 hr {
+    display: none;
+}
+.p-5 p, .p-4 p {
+    margin: 20px 0;
+}
 
+.filter-filter div{
+    margin: 10px;
+}
+.filter-filter p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 0 10px;
+}
+.filter-filter label{
+    display: flex;
+    align-items: center;
+}
 
+.filter-filter input[type='number'] {
+    width: 108px;
+    height: 40px;
+    margin: 10px 5px;
+}
+.filter-filter input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+}
 
-
-
+.filter-filter span {
+    padding-left: 8px;
+    font-size: 14px;
+}
 
 
 
