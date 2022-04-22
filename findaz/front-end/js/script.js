@@ -215,6 +215,17 @@ function showperexodi() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 // function moveqlavniytovarright() {
 // 	let slayd = document.querySelector('.slayd')
 // 	let a = getComputedStyle(slayd).width.split('px')

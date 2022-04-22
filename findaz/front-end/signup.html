@@ -21,7 +21,7 @@
         <div class="main-voyti-content">
             <div class="sign-up">
                 <h4>Зарегистрироваться</h4>
-                <label class="sign-up-label">
+                <form method="POST" class="sign-up-label">
                     <input type="text" placeholder="Your Full Name">
                     <i class="fas fa-user"></i>
                     <input type="email" placeholder="Log in">
@@ -31,15 +31,45 @@
                     <input type="date">
                     <i class="fas fa-calendar-alt"></i>
                     <input type="submit" value="Войти">
-                    <p>
-                        Есть аккаунта? <a href="login.html">Войти</a></p>
-                </label>
+                    <p>Есть аккаунта? <a href="login.html">Войти</a></p>
+                </form>
             </div>
         </div>
     </div>
 </main>
 <footer class="voyti-footer">
 </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+    $(document).ready(function () {
+        // отслеживаем событие отправки формы
+        $('#id_username').keyup(function () {
+            // создаем AJAX-вызов
+            $.ajax({
+                data: $(this).serialize(), // получаяем данные формы
+                url: "{% url 'validate_username' %}",
+                // если успешно, то
+                success: function (response) {
+                    if (response.is_taken == true) {
+                        $('#id_username').removeClass('is-valid').addClass('is-invalid');
+                        $('#id_username').after('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
+                    }
+                    else {
+                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        $('#usernameError').remove();
+
+                    }
+                },
+                // если ошибка, то
+                error: function (response) {
+                    // предупредим об ошибке
+                    console.log(response.responseJSON.errors)
+                }
+            });
+            return false;
+        });
+    })
+</script>
 </body>
 </html>
