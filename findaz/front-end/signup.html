@@ -22,15 +22,30 @@
             <div class="sign-up">
                 <h4>Зарегистрироваться</h4>
                 <form method="POST" class="sign-up-label">
-                    <input type="text" placeholder="Your Full Name">
-                    <i class="fas fa-user"></i>
-                    <input type="email" placeholder="Log in">
-                    <i class="fas fa-at"></i>
-                    <input type="password" placeholder="password">
-                    <i class="fas fa-unlock"></i>
-                    <input type="date">
-                    <i class="fas fa-calendar-alt"></i>
-                    <input type="submit" value="Войти">
+                    <div class="log-in-contaner">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Your Full Name">
+                    </div>
+                    <div class="log-in-contaner">
+                        <i class="fas fa-at"></i>
+                        <input type="email" placeholder="Log in">
+                    </div>
+                    <div class="password-contaner">
+                        <i class="fas fa-unlock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="password-contaner">
+                        <i class="fas fa-unlock"></i>
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <div class="checkbox-prodavech">
+                        <input type="checkbox"><p><a href="">Соогласен(a) с условием</a></p>
+                    </div>
+                    <div class="checkbox-prodavech">
+                        <input type="checkbox"><p>Зарегистрироваться как продовец</p>
+                    </div>
+
+                    <input class='zareq-button' type="submit" value="Войти">
                     <p>Есть аккаунта? <a href="login.html">Войти</a></p>
                 </form>
             </div>
@@ -39,37 +54,8 @@
 </main>
 <footer class="voyti-footer">
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="js/script.js"></script>
-<script>
-    $(document).ready(function () {
-        // отслеживаем событие отправки формы
-        $('#id_username').keyup(function () {
-            // создаем AJAX-вызов
-            $.ajax({
-                data: $(this).serialize(), // получаяем данные формы
-                url: "{% url 'validate_username' %}",
-                // если успешно, то
-                success: function (response) {
-                    if (response.is_taken == true) {
-                        $('#id_username').removeClass('is-valid').addClass('is-invalid');
-                        $('#id_username').after('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
-                    }
-                    else {
-                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
-                        $('#usernameError').remove();
 
-                    }
-                },
-                // если ошибка, то
-                error: function (response) {
-                    // предупредим об ошибке
-                    console.log(response.responseJSON.errors)
-                }
-            });
-            return false;
-        });
-    })
-</script>
+<script src="js/script.js"></script>
+
 </body>
 </html>

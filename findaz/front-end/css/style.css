@@ -697,7 +697,7 @@ main {
   width: 90%;
 }
 
-.button button {
+.button button, .btn-primary {
   width: 100%;
   background-color: #03ce97;
   height: 40px;
@@ -887,6 +887,12 @@ footer {
 
 }
 
+.log-in-contaner, .password-contaner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .log-in {
   position: absolute;
   margin: 20px;
@@ -922,13 +928,13 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+    max-width: 390px;
 }
 
 .log-in-label input, .sign-up-label input {
-  width: 380px;
+  width: 350px;
   height: 50px;
-  margin-top: 20px;
-  margin-bottom: -30px;
+    margin: 5px;
   border-radius: 5px;
   border: none;
   overflow: hidden;
@@ -945,7 +951,7 @@ input {
 .sign-up-label input[type=text],
 .sign-up-label input[type=password],
 .sign-up-label input[type=date] {
-    padding-left: 55px;
+    padding-left: 20px;
     padding-right: 20px;
     font-size: 20px;
     color: #000000;
@@ -969,7 +975,7 @@ input {
 }
 
 .log-in-label p, .sign-up-label p  {
-    margin-top: 50px;
+    margin-top: 20px;
     text-align:center;
 
 }
@@ -980,7 +986,6 @@ input {
 }
 
 .log-in-label a:hover {
-
     border-radius: 5px;
     color: #ffd93f;
 }
@@ -993,14 +998,27 @@ input {
 
 
 .sign-up-label i, .log-in-label i {
-  position: relative;
-  top: -8px;
-  right: 167px;
   width: 20px;
   font-size: 30px;
-  color: #c4c3ca;
+  color: #FFFFFF;
+    margin-right: 10px;
 }
+.checkbox-prodavech {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+.checkbox-prodavech p {
+    margin: 0;
+    color: #FFFFFF;
+    padding-left: 15px;
+}
+.sign-up-label input[type='checkbox'] {
+    width: 20px;
 
+}
 .icon-of-voyti i {
   display: inline;
 }
@@ -1399,7 +1417,10 @@ input {
     height: 100vh;
 }
 .p-5, .p-4 {
+    padding: 40px;
+    background-color: #FFFFFF;
     margin: 20px;
+    border-radius: 10px;
 }
 .p-5 hr, .p-4 hr {
     display: none;
@@ -1566,7 +1587,6 @@ input {
 .profile-tovari {
     margin-left: 60px;
 }
-
 
 
 
@@ -2239,7 +2259,7 @@ input {
 
   /*Войти*/
   .voyti-content {
-    width: 370px;
+    width: 100%;
     height: 500px;
   }
 
@@ -2258,6 +2278,8 @@ input {
     }
 
 
+
+
   .sign-up {
     width: 95%;
   }
@@ -2267,24 +2289,20 @@ input {
     height: 30px;
   }
 
-  .main-voyti-content {
-    width: 340px;
-    height: 350px;
-  }
-
   .log-in-label i, .sign-up-label i {
-    font-size: 16px;
-    right: 115px;
-    top: 6px;
+    font-size: 19px;
+      margin-right: 5px;
   }
 
   .log-in-label input[type=text],
-.log-in-label input[type=password],
-.sign-up-label input[type=text],
-  .sign-up-label input[type=email],
-.sign-up-label input[type=password],
-.sign-up-label input[type=date] {
-    padding-left: 35px;
+    .log-in-label input[type=password],
+    .sign-up-label input[type=text],
+    .sign-up-label input[type=email],
+    .sign-up-label input[type=password],
+    .sign-up-label input[type=date] {
+    width: 100%;
+    height: 33px;
+    padding-right: 35px;
     font-size: 16px;
   }
 
@@ -2296,14 +2314,29 @@ input {
     background-color: #fff;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    margin-top: 30px;
+    margin-top: 10px;
   }
     .log-in-label input[type=submit] {
-       width: 90%;
+       width: 93%;
+
    }
     .header-of-profile {
         width: 98%;
     }
+    .checkbox-prodavech {
+        width: 100%;
+    }
+    .checkbox-prodavech input[type='checkbox'] {
+        width: 15px;
+    }
+    .checkbox-prodavech p {
+        text-align: start;
+        font-size: 14px;
+    }
+    .sign-up-label input[type='checkbox'] {
+        margin: 0;
+    }
+
 
 
 
