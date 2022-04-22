@@ -29,12 +29,12 @@
                     <div>{{ form.non_field_errors }}</div>
 
                     {{ form.username }}
-                    <i class="fas fa-user"></i>
-                    <div>{{ form.username.errors }}</div>
+                    <i id="username-logo" class="fas fa-user"></i>
+                    <div  id="error-of-username">{{ form.username.errors }}</div>
 
                     {{ form.email }}
                     <i class="fas fa-at"></i>
-                    <div>{{ form.email.errors }}</div>
+                    <div id="error-of-email">{{ form.email.errors }}</div>
 
                     {{ form.password1 }}
                     <i class="fas fa-unlock"></i>
@@ -54,27 +54,59 @@
 </main>
 <footer class="voyti-footer">
 </footer>
-<script src="{% static 'homepage/js/script.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'homepage/js/script.js' %}"></script>
 <script>
     $(document).ready(function () {
         // отслеживаем событие отправки формы
-        $('#id_username').keyup(function () {
+        $('#id_username').focusout(function () {
             // создаем AJAX-вызов
             $.ajax({
                 data: $(this).serialize(), // получаяем данные формы
                 url: "{% url 'validate_username' %}",
                 // если успешно, то
                 success: function (response) {
+                    console.log(response)
                     if (response.is_taken == true) {
                         $('#id_username').removeClass('is-valid').addClass('is-invalid');
-                        $('#id_username').after('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
+                        $('#usernameError').remove();
+                        $('#error-of-username').append('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
                     }
                     else {
-                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        // $('#id_username').removeClass('is-invalid').addClass('is-valid');
                         $('#usernameError').remove();
-
                     }
+
+                },
+                // если ошибка, то
+                error: function (response) {
+                    // предупредим об ошибке
+                    console.log(response.responseJSON.errors)
+                }
+            });
+            return false;
+        });
+    })
+    $(document).ready(function () {
+        // отслеживаем событие отправки формы
+        $('#id_email').focusout(function () {
+            // создаем AJAX-вызов
+            $.ajax({
+                data: $(this).serialize(), // получаяем данные формы
+                url: "{% url 'validate_username' %}",
+                // если успешно, то
+                success: function (response) {
+                    console.log(response)
+                    if (response.is_email == true) {
+                        $('#id_email').removeClass('is-valid').addClass('is-invalid');
+                        $('#emailError').remove();
+                        $('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
+                    }
+                    else {
+                            // $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        $('#emailError').remove();
+                    }
+
                 },
                 // если ошибка, то
                 error: function (response) {

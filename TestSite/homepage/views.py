@@ -222,6 +222,5 @@ def validate_username(request):
         'is_taken': User.objects.filter(username__iexact=username).exists(),
         'is_email': User.objects.filter(email__iexact=email).exists()
     }
-    print(response)
     return JsonResponse(response)
 
