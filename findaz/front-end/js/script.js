@@ -104,32 +104,6 @@ let position = 0; // положение ленты прокрутки
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function showleftbar() {
 	let a = document.querySelector('.left-bar')
 	a.classList.toggle('show-bar')
@@ -210,22 +184,6 @@ function showperexodi() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function moveqlavniytovarright() {
 // 	let slayd = document.querySelector('.slayd')
 // 	let a = getComputedStyle(slayd).width.split('px')
@@ -234,5 +192,28 @@ function showperexodi() {
 // 	let b = document.querySelectorAll('.qlavniy-tovar').length
 // 	console.log(a/b)
 // }
+
+
+
+function  usloviye() {
+	let UsloviyeInput = document.querySelector('.checkbox-uslov input[type="checkbox"]')
+	if (UsloviyeInput.checked === true) {
+		document.querySelector('.zareq-button').removeAttribute('disabled' )
+	} else {
+		document.querySelector('.zareq-button').setAttribute('disabled', true)
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 

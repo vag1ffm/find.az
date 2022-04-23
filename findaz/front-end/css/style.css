@@ -1003,14 +1003,14 @@ input {
   color: #FFFFFF;
     margin-right: 10px;
 }
-.checkbox-prodavech {
+.checkbox-prodavech, .checkbox-uslov {
     display: flex;
     justify-content: start;
     align-items: center;
     height: 30px;
     width: 100%;
 }
-.checkbox-prodavech p {
+.checkbox-prodavech p, .checkbox-uslov p {
     margin: 0;
     color: #FFFFFF;
     padding-left: 15px;
@@ -2323,13 +2323,13 @@ input {
     .header-of-profile {
         width: 98%;
     }
-    .checkbox-prodavech {
+    .checkbox-prodavech, .checkbox-uslov {
         width: 100%;
     }
-    .checkbox-prodavech input[type='checkbox'] {
+    .checkbox-prodavech input[type='checkbox'], .checkbox-uslov input[type='checkbox']{
         width: 15px;
     }
-    .checkbox-prodavech p {
+    .checkbox-prodavech p, .checkbox-uslov p {
         text-align: start;
         font-size: 14px;
     }
