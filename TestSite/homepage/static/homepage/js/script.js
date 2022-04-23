@@ -65,9 +65,6 @@ function moveqlavniytovarright() {
 	}
 }
 
-
-
-
 function showleftbar() {
 	let a = document.querySelector('.left-bar')
 	a.classList.toggle('show-bar')
@@ -147,12 +144,6 @@ function showperexodi() {
 }
 
 
-
-
-
-
-
-
 // function moveqlavniytovarright() {
 // 	let slayd = document.querySelector('.slayd')
 // 	let a = getComputedStyle(slayd).width.split('px')
@@ -161,5 +152,4 @@ function showperexodi() {
 // 	let b = document.querySelectorAll('.qlavniy-tovar').length
 // 	console.log(a/b)
 // }
-
 

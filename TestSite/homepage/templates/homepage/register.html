@@ -38,11 +38,11 @@
 
                     {{ form.password1 }}
                     <i class="fas fa-unlock"></i>
-                    <div>{{ form.password1.errors }}</div>
+                    <div id="error-of-password1">{{ form.password1.errors }}</div>
 
                     {{ form.password2 }}
                     <i class="fas fa-unlock"></i>
-                    <div>{{ form.password2.errors }}</div>
+                    <div id="error-of-password2">{{ form.password2.errors }}</div>
 
                     <input type="submit" value="Sign Up">
                     <p>
@@ -66,15 +66,75 @@
                 url: "{% url 'validate_username' %}",
                 // если успешно, то
                 success: function (response) {
-                    console.log(response)
-                    if (response.is_taken == true) {
+                    let username = document.getElementById('id_username')
+                    let a = document.getElementById('error-of-username')
+                    if (response.is_taken === true) {
                         $('#id_username').removeClass('is-valid').addClass('is-invalid');
+                        username.style.border = '2px red solid'
                         $('#usernameError').remove();
                         $('#error-of-username').append('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
                     }
                     else {
+                        //
                         // $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        // username.style.border ='2px green solid'
                         $('#usernameError').remove();
+
+                        if (username.value.length===0) {
+                            a.innerHTML = ''
+                        }else if (username.value.length<5) {
+                            a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This username is so short!</div>'
+                            $('#id_username').removeClass('is-valid').addClass('is-invalid');
+                            username.style.border = '2px red solid'
+                        } else {
+                            a.innerHTML = ''
+                            $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                            username.style.border ='2px green solid'
+                        }
+                    }
+                },
+                // если ошибка, то
+                error: function (response) {
+                    // предупредим об ошибке
+                    console.log(response.responseJSON.errors)
+                }
+            });
+            return false;
+        });
+    });
+    $(document).ready(function () {
+        // отслеживаем событие отправки формы
+        $('#id_email').focusout(function () {
+            // создаем AJAX-вызов
+            $.ajax({
+                data: $(this).serialize(), // получаяем данные формы
+                url: "{% url 'validate_username' %}",
+                // если успешно, то
+                success: function (response) {
+                    let email= document.getElementById('id_email')
+                    let a = document.getElementById('error-of-email')
+
+                    console.log(response)
+                    if (response.is_email === true && id_email.value.length) {
+                        $('#id_email').removeClass('is-valid').addClass('is-invalid');
+                        username.style.border = '2px red solid'
+                        $('#emailError').remove();
+                        $('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
+                    }
+                    else {
+                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        $('#emailError').remove();
+
+
+                        if (email.value.length===0) {
+                            a.innerHTML = ' '
+                        }else if (email.value.indexOf('@')===-1) {
+                            a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This email is no email!</div>'
+                            email.style.border = '2px red solid'
+                        } else {
+                            a.innerHTML = ' '
+                            email.style.border ='2px green solid'
+                        }
                     }
 
                 },
@@ -88,35 +148,37 @@
         });
     })
     $(document).ready(function () {
-        // отслеживаем событие отправки формы
-        $('#id_email').focusout(function () {
-            // создаем AJAX-вызов
-            $.ajax({
-                data: $(this).serialize(), // получаяем данные формы
-                url: "{% url 'validate_username' %}",
-                // если успешно, то
-                success: function (response) {
-                    console.log(response)
-                    if (response.is_email == true) {
-                        $('#id_email').removeClass('is-valid').addClass('is-invalid');
-                        $('#emailError').remove();
-                        $('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
-                    }
-                    else {
-                            // $('#id_username').removeClass('is-invalid').addClass('is-valid');
-                        $('#emailError').remove();
-                    }
-
-                },
-                // если ошибка, то
-                error: function (response) {
-                    // предупредим об ошибке
-                    console.log(response.responseJSON.errors)
-                }
-            });
+        $('#id_password1').focusout(function () {
+            let password = document.querySelector('#id_password1')
+            let a = document.getElementById('error-of-password1')
+            if (password && password.value.length < 8) {
+                a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This password is so short!</div>'
+                password.style.border = '2px red solid'
+            } else {
+                a.innerHTML = ''
+                password.style.border ='2px green solid'
+            }
             return false;
         });
     })
+    $(document).ready(function () {
+        $('#id_password2').focusout(function () {
+            let password2 = document.querySelector('#id_password2')
+            let password1 = document.querySelector('#id_password1')
+            let a = document.getElementById('error-of-password2')
+            if (password1 && password2 && password1 !== password2) {
+                a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This password is no same!</div>'
+                password2.style.border = '2px red solid'
+            } else {
+                a.innerHTML = ''
+                password2.style.border ='2px green solid'
+            }
+            return false;
+        });
+    })
+
+
+
 </script>
 </body>
 </html>

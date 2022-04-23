@@ -1545,6 +1545,7 @@ input {
 
 
 
+
 @media (max-width: 1710px) {
     .profile-tovari
 }
@@ -2345,10 +2346,6 @@ input {
         width: auto;
     }
 
-}
-
-.is-invalid {
-    border: 2px red solid!important;
 }
 
 @-webkit-keyframes show-katalog {
