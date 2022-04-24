@@ -8,6 +8,8 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--		<link type="text/css" rel="stylesheet" href="css/lightslider.css" />-->
 		<!--	<link rel="manifest" href="manifest.json">-->
 		<title>Интернет магазин Vaga</title>
 	</head>
@@ -932,9 +934,9 @@
 			<div class="qlavniye-tovari">
 				<div class="name-razdela-tovarov"><p>Киберспорт</p> <p><a href="filter-index.html">Еще товары</a></p></div>
 				<div class="ryad-tovarov">
-					<button onclick="moveqlavniytovarright()" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+					<button id="btnMoveRight" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
 					<div class="slayd-tovarov">
-						<div class="slayd">
+						<div class="slayd ">
 							<div class="qlavniy-tovar">
 								<a href="">
 									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
@@ -948,7 +950,6 @@
 									<div class="rekomenduyemost">86% рекомендуют</div>
 								</a>
 								<div class="button"><button>В корзину</button></div>
-
 							</div>
 							<div class="qlavniy-tovar">
 								<a href="">
@@ -1023,7 +1024,6 @@
 									<div class="rekomenduyemost">86% рекомендуют</div>
 								</a>
 								<div class="button"><button>В корзину</button></div>
-
 							</div>
 							<div class="qlavniy-tovar">
 								<a href="">
@@ -1086,20 +1086,19 @@
 
 							</div>
 							<div class="qlavniy-tovar">
-							<a href="">
-								<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-								<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
-								<div class="chena">	142 000p</div>
-								<div class="reyting">
-									<div class="zvezda">звезды</div>
-									<div class="chislo-ochenik">50</div>
-								</div>
-								<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-								<div class="rekomenduyemost">86% рекомендуют</div>
-							</a>
-							<div class="button"><button>В корзину</button></div>
-
-						</div>
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
 							<div class="qlavniy-tovar">
 								<a href="">
 									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
@@ -1134,36 +1133,6 @@
 								<a href="">
 									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
 									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
-									<div class="chena">	142 000p</div>
-									<div class="reyting">
-										<div class="zvezda">звезды</div>
-										<div class="chislo-ochenik">50</div>
-									</div>
-									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-									<div class="rekomenduyemost">86% рекомендуют</div>
-								</a>
-								<div class="button"><button>В корзину</button></div>
-
-							</div>
-							<div class="qlavniy-tovar">
-								<a href="">
-									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
-									<div class="chena">	142 000p</div>
-									<div class="reyting">
-										<div class="zvezda">звезды</div>
-										<div class="chislo-ochenik">50</div>
-									</div>
-									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-									<div class="rekomenduyemost">86% рекомендуют</div>
-								</a>
-								<div class="button"><button>В корзину</button></div>
-
-							</div>
-							<div class="qlavniy-tovar">
-								<a href="">
-									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
 									<div class="chena">	142 000p</div>
 									<div class="reyting">
 										<div class="zvezda">звезды</div>
@@ -1192,12 +1161,471 @@
 							</div>
 						</div>
 					</div>
-					<button onclick="moveqlavniytovarleft()" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
+					<button id='btnMoveLeft' class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
+				</div>
+				<div class="ryad-tovarov">
+					<button id="btnMoveRight" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+					<div class="slayd-tovarov">
+						<div class="slayd ">
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+						</div>
+					</div>
+					<button id='btnMoveLeft' class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
+				</div>
+				<div class="ryad-tovarov">
+					<button id="btnMoveRight" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+					<div class="slayd-tovarov">
+						<div class="slayd ">
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+							<div class="qlavniy-tovar">
+								<a href="">
+									<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+									<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
+									<div class="chena">	142 000p</div>
+									<div class="reyting">
+										<div class="zvezda">звезды</div>
+										<div class="chislo-ochenik">50</div>
+									</div>
+									<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+									<div class="rekomenduyemost">86% рекомендуют</div>
+								</a>
+								<div class="button"><button>В корзину</button></div>
+
+							</div>
+						</div>
+					</div>
+					<button id='btnMoveLeft' class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
 				</div>
 			</div>
-
 		</main>
-
+<!--	onclick="moveqlavniytovarright()"	-->
 		<div class="reklami">
 			<div class="reklama">
 				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">

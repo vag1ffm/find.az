@@ -64,44 +64,57 @@ function showkatalog(i) {
 // 		a.style.left = `${b}px`
 // 	}
 // }
-let count;
-function screensize() {
-	let a = document.documentElement.scrollWidth
-	if (a<500) {
-		count = 1;
-	} else if (a<702) {
-		count = 2;
-	} else if (a<904) {
-		count = 3;
-	} else if (a<99999) {
-		count = 4;
-	}
-}
-screensize()
+
 
 /* конфигурация */
 let width = 203;
-
-let list = document.querySelector('.slayd-tovarov .slayd');
-let listElems = document.querySelectorAll('.qlavniy-tovar');
+let count = 1;
+// let list = document.querySelector('.slayd-tovarov .slayd');
+// let listElems = document.querySelectorAll('.qlavniy-tovar');
 let position = 0; // положение ленты прокрутки
-// document.querySelector('.p-slayder-tovarov').onclick = function() {
+
+// function moveqlavniytovarleft() {
 // 	// сдвиг влево
 // 	position += width * count;
 // 	// последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
 // 	position = Math.min(position, 0)
 // 	list.style.marginLeft = position + 'px';
-// };
-// document.querySelector('.v-slayder-tovarov').onclick = function() {
-// 	// сдвиг вправо
+// }
+//
+// function moveqlavniytovarright() {
+// 	//сдвиг вправо
 // 	position -= width * count;
 // 	// последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-// 	position = Math.max(position, -width * (listElems.length-3 - count));
+// 	position = Math.max(position, -width * (listElems.length-4 - count));
 // 	list.style.marginLeft = position + 'px';
-// };
-//
-//
+// }
 
+// let width = 203;
+// let count = 1;
+// let position = 0;
+
+
+let btnMoveLefts = document.querySelectorAll('#btnMoveLeft')
+btnMoveLefts.forEach(btnMoveLeft => btnMoveLeft.addEventListener("click", (event)=>{
+	let a = event.target
+	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
+	let listElems = list.querySelectorAll('.qlavniy-tovar')
+	position = list.style.marginLeft.split('px').join('')
+	position -= width * count;
+	position = Math.max(position, -width * (listElems.length-4 - count));
+	list.style.marginLeft = position + 'px';
+}))
+
+let btnMoveRights = document.querySelectorAll('#btnMoveRight')
+btnMoveRights.forEach(btnMoveRight => btnMoveRight.addEventListener("click", (event)=>{
+	let a = event.target
+	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
+	position = list.style.marginLeft.split('px').join('')
+	position =+position+ width * count;
+	position = Math.min(position, 0)
+	list.style.marginLeft = position +'px';
+
+}))
 
 
 function showleftbar() {
