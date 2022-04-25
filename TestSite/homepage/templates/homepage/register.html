@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'homepage/css/style-new.css' %}">
-    <link rel="icon" href="{% static 'homepage/img/icon-of-site.png' %}">
+    <link rel="icon" href="{% static 'homepage/img/icon-of-site.webp' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -22,38 +22,64 @@
     <div class="voyti-content">
         <div class="main-voyti-content">
             <div class="sign-up">
+
                 <h4>Зарегистрироваться</h4>
-                <form method="post" class="sign-up-label">
+
+                <form method="POST" class="sign-up-label">
+
                     {% csrf_token %}
 
                     <div>{{ form.non_field_errors }}</div>
 
-                    {{ form.username }}
-                    <i id="username-logo" class="fas fa-user"></i>
-                    <div  id="error-of-username">{{ form.username.errors }}</div>
+                    <div class="log-in-contaner">
+                        <i class="fas fa-user"></i>
+                        {{ form.username }}
+                        <div  id="error-of-username">{{ form.username.errors }}</div>
+<!--                        <input type="text" placeholder="Your Full Name">-->
+                    </div>
 
-                    {{ form.email }}
-                    <i class="fas fa-at"></i>
-                    <div id="error-of-email">{{ form.email.errors }}</div>
+                    <div class="log-in-contaner">
+                        <i class="fas fa-at"></i>
+                        {{ form.email }}
+                        <div id="error-of-email">{{ form.email.errors }}</div>
+<!--                        <input type="email" placeholder="Log in">-->
+                    </div>
 
-                    {{ form.password1 }}
-                    <i class="fas fa-unlock"></i>
-                    <div id="error-of-password1">{{ form.password1.errors }}</div>
+                    <div class="password-contaner">
+                        <i class="fas fa-unlock"></i>
+                        {{ form.password1 }}
+                        <div id="error-of-password1">{{ form.password1.errors }}</div>
+<!--                        <input type="password" placeholder="Password">-->
+                    </div>
 
-                    {{ form.password2 }}
-                    <i class="fas fa-unlock"></i>
-                    <div id="error-of-password2">{{ form.password2.errors }}</div>
+                    <div class="password-contaner">
+                        <i class="fas fa-unlock"></i>
+                        {{ form.password2 }}
+                        <div id="error-of-password2">{{ form.password2.errors }}</div>
+<!--                        <input type="password" placeholder="Password">-->
+                    </div>
 
-                    <input type="submit" value="Sign Up">
-                    <p>
-                        Есть аккаунта? <a href="{% url 'login' %}">Войти</a></p>
+                    <div class="checkbox-uslov">
+                        <input onclick="usloviye()" type="checkbox"><p><a href="">Согласен(a) с условием</a></p>
+                    </div>
+
+                    <div class="checkbox-prodavech">
+                        <input type="checkbox"><p>Зарегистрироваться как продовец</p>
+                    </div>
+
+                    <input disabled class='zareq-button' type="submit" value="Войти">
+
+                    <p>Есть аккаунта? <a href="{% url 'login' %}">Войти</a></p>
+
                 </form>
+
             </div>
         </div>
     </div>
 </main>
 <footer class="voyti-footer">
 </footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'homepage/js/script.js' %}"></script>
 <script>
@@ -176,9 +202,7 @@
             return false;
         });
     })
-
-
-
 </script>
+
 </body>
 </html>

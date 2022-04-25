@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
 
@@ -29,6 +31,8 @@ class Tovar(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Категории")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
+    icon = models.CharField(max_length=255, verbose_name="Класс иконки")
+    topic = models.CharField(max_length=255, verbose_name="Класс категориии")
 
     def __str__(self):
         return self.name
@@ -39,3 +43,14 @@ class Category(models.Model):
     class Meta:
         verbose_name = "Категория"
         verbose_name_plural = "Категории"
+        ordering = ['id']
+
+
+class User(AbstractUser):
+    email = models.EmailField(
+        _("email address"),
+        unique=True,
+    )
+
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username"]

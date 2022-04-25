@@ -15,7 +15,8 @@ class DataMixin():
 
     def get_user_context(self, **kwargs):
         context = kwargs
-        cats = Category.objects.annotate(Count('tovar'))
+        # cats = Category.objects.annotate(Count('tovar'))
+        cats = Category.objects.order_by('id')
 
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:

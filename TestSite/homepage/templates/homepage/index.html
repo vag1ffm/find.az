@@ -70,7 +70,8 @@
 					<div class="name-razdela-tovarov"><p>{{ c.0.cat }}</p> <p><a href="{{ c.0.cat.get_absolute_url }}">Еще товары</a></p></div>
 					<div class="ryad-tovarov">
 
-						<button onclick="moveqlavniytovarright()" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+						<button id="btnMoveRight" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+
 						<div class="slayd-tovarov">
 							<div class="slayd">
 
@@ -96,7 +97,8 @@
 
 							</div>
 						</div>
-						<button onclick="moveqlavniytovarleft()" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
+
+						<button id="btnMoveLeft" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
 
 					</div>
 				</div>

@@ -5,6 +5,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+
 }
 
 i {
@@ -573,9 +574,11 @@ main {
   position: absolute;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  max-width: 1100px;
+  max-width: 1025px;
   width: 73%;
   overflow: hidden;
+    margin-left: 40px;
+
 }
 
 .slayd {
@@ -583,9 +586,9 @@ main {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  left: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .qlavniy-tovar {
@@ -697,7 +700,7 @@ main {
   width: 90%;
 }
 
-.button button {
+.button button, .btn-primary {
   width: 100%;
   background-color: #03ce97;
   height: 40px;
@@ -813,7 +816,7 @@ footer {
 }
 
 
-.main-of-voyti {
+.main-of-voyti, .main-of-zareg-for-salers {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -887,6 +890,12 @@ footer {
 
 }
 
+.log-in-contaner, .password-contaner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .log-in {
   position: absolute;
   margin: 20px;
@@ -922,15 +931,15 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+    max-width: 390px;
 }
 
 .log-in-label input, .sign-up-label input {
-  width: 380px;
+  width: 350px;
   height: 50px;
-  margin-top: 20px;
-  margin-bottom: -30px;
+    margin: 5px;
   border-radius: 5px;
-    border: 2px  #ffffff solid;
+  border: none;
   overflow: hidden;
     transition: .3s;
 }
@@ -945,7 +954,7 @@ input {
 .sign-up-label input[type=text],
 .sign-up-label input[type=password],
 .sign-up-label input[type=date] {
-    padding-left: 55px;
+    padding-left: 20px;
     padding-right: 20px;
     font-size: 20px;
     color: #000000;
@@ -969,7 +978,7 @@ input {
 }
 
 .log-in-label p, .sign-up-label p  {
-    margin-top: 50px;
+    margin-top: 20px;
     text-align:center;
 
 }
@@ -980,7 +989,6 @@ input {
 }
 
 .log-in-label a:hover {
-
     border-radius: 5px;
     color: #ffd93f;
 }
@@ -993,14 +1001,27 @@ input {
 
 
 .sign-up-label i, .log-in-label i {
-  position: relative;
-  top: -8px;
-  right: 167px;
   width: 20px;
   font-size: 30px;
-  color: #c4c3ca;
+  color: #FFFFFF;
+    margin-right: 10px;
 }
+.checkbox-prodavech, .checkbox-uslov {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+}
+.checkbox-prodavech p, .checkbox-uslov p {
+    margin: 0;
+    color: #FFFFFF;
+    padding-left: 15px;
+}
+.sign-up-label input[type='checkbox'] {
+    width: 20px;
 
+}
 .icon-of-voyti i {
   display: inline;
 }
@@ -1041,8 +1062,6 @@ input {
 
 .filter-filter {
   width: 20%;
-
-  height: 1000px;
   border-radius: 5px;
   border: 2px #03ce97 solid;
   margin-top: 60px;
@@ -1397,11 +1416,49 @@ input {
     margin: 0 10px;
 }
 
+.reset-body {
+    height: 100vh;
+}
+.p-5, .p-4 {
+    padding: 40px;
+    background-color: #FFFFFF;
+    margin: 20px;
+    border-radius: 10px;
+}
+.p-5 hr, .p-4 hr {
+    display: none;
+}
+.p-5 p, .p-4 p {
+    margin: 20px 0;
+}
 
+.filter-filter div{
+    margin: 10px;
+}
+.filter-filter p {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 0 10px;
+}
+.filter-filter label{
+    display: flex;
+    align-items: center;
+}
 
+.filter-filter input[type='number'] {
+    width: 108px;
+    height: 40px;
+    margin: 10px 5px;
+}
+.filter-filter input[type='checkbox'] {
+    width: 16px;
+    height: 16px;
+}
 
-
-
+.filter-filter span {
+    padding-left: 8px;
+    font-size: 14px;
+}
 
 
 
@@ -1533,14 +1590,176 @@ input {
 .profile-tovari {
     margin-left: 60px;
 }
+.voyti-body {
+    height: 100vh;
+}
+.main-of-zareg-for-salers {
+    overflow: hidden;
+}
 
-#usernameError, #emailError {
-    position: static;
-    margin-top: 20px;
+.main-of-salers{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    background-color: #fff;
 }
-.is-invalid {
-    background-color: red;
+.main-of-salers .header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
 }
+.main-of-salers .header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #03ce97;
+}
+.main-of-salers form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.main-of-salers form .form{
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+
+.main-of-salers form .title{
+    display: block;
+
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.main-of-salers form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input-field input :focus,
+.input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-field select,
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+.main-of-salers form button, .backBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #03ce97;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+.main-of-salers form .btnText{
+    font-size: 14px;
+    font-weight: 400;
+
+}
+form button:hover{
+    background-color: #e1b70c;
+}
+form button i,
+form .backBtn i{
+    margin: 0 6px;
+}
+form .backBtn i{
+    transform: rotate(180deg);
+}
+form .buttons{
+    display: flex;
+    align-items: center;
+}
+form .buttons button , .backBtn{
+    margin-right: 14px;
+}
+
+@media (max-width: 750px) {
+    .main-of-salers form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2209,7 +2428,7 @@ input {
 
   /*Войти*/
   .voyti-content {
-    width: 370px;
+    width: 100%;
     height: 500px;
   }
 
@@ -2228,6 +2447,8 @@ input {
     }
 
 
+
+
   .sign-up {
     width: 95%;
   }
@@ -2237,24 +2458,20 @@ input {
     height: 30px;
   }
 
-  .main-voyti-content {
-    width: 340px;
-    height: 350px;
-  }
-
   .log-in-label i, .sign-up-label i {
-    font-size: 16px;
-    right: 115px;
-    top: 6px;
+    font-size: 19px;
+      margin-right: 5px;
   }
 
   .log-in-label input[type=text],
-.log-in-label input[type=password],
-.sign-up-label input[type=text],
-  .sign-up-label input[type=email],
-.sign-up-label input[type=password],
-.sign-up-label input[type=date] {
-    padding-left: 35px;
+    .log-in-label input[type=password],
+    .sign-up-label input[type=text],
+    .sign-up-label input[type=email],
+    .sign-up-label input[type=password],
+    .sign-up-label input[type=date] {
+    width: 100%;
+    height: 33px;
+    padding-right: 35px;
     font-size: 16px;
   }
 
@@ -2266,14 +2483,29 @@ input {
     background-color: #fff;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-    margin-top: 30px;
+    margin-top: 10px;
   }
     .log-in-label input[type=submit] {
-       width: 90%;
+       width: 93%;
+
    }
     .header-of-profile {
         width: 98%;
     }
+    .checkbox-prodavech, .checkbox-uslov {
+        width: 100%;
+    }
+    .checkbox-prodavech input[type='checkbox'], .checkbox-uslov input[type='checkbox']{
+        width: 15px;
+    }
+    .checkbox-prodavech p, .checkbox-uslov p {
+        text-align: start;
+        font-size: 14px;
+    }
+    .sign-up-label input[type='checkbox'] {
+        margin: 0;
+    }
+
 
 
 
@@ -2348,6 +2580,8 @@ input {
 
 }
 
+
+
 @-webkit-keyframes show-katalog {
   0% {
     top: -70px;
@@ -2366,3 +2600,5 @@ input {
 }
 @-webkit-keyframes hide-katalog {}
 @keyframes hide-katalog {}
+
+

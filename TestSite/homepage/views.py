@@ -181,7 +181,7 @@ def logout_user(request):
 
 
 def pageNotFound(request, exception):
-    return HttpResponseNotFound("Нет блять такого адреса, пиздуй обратно")
+    return HttpResponseNotFound("Нет такой страницы")
 
 
 def password_reset_request(request):
@@ -215,12 +215,13 @@ def password_reset_request(request):
 
 
 def validate_username(request):
-    """Проверка доступности логина"""
+    # Проверка доступности и валидности и заполняемой формы
     username = request.GET.get('username', None)
     email = request.GET.get("email", None)
+
     response = {
         'is_taken': User.objects.filter(username__iexact=username).exists(),
-        'is_email': User.objects.filter(email__iexact=email).exists()
+        'is_email': User.objects.filter(email__iexact=email).exists(),
     }
-    return JsonResponse(response)
 
+    return JsonResponse(response)
