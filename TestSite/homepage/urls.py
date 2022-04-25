@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import TemplateView
 from .views import *
 
 urlpatterns = [
@@ -9,6 +10,9 @@ urlpatterns = [
     path('register/', RegisterUser.as_view(), name="register"),
     path('post-tovar/<slug:tovarslug>/', ShowTovar.as_view(), name='showtovar'),
     path('category/<slug:catslug>/', HomeCategory.as_view(), name='category'),
-    path("password_reset", password_reset_request, name="password_reset"),
-    path('validate_username', validate_username, name='validate_username')
+    path("password_reset/", password_reset_request, name="password_reset"),
+    path('validate_username/', validate_username, name='validate_username'),
+    path('confirm_email/', TemplateView.as_view(template_name='homepage/confirm_email.html'), name='confirm_email'),
+    path('verify_email/<uidb64>/<token>/', EmailVerify.as_view(), name='verify_email'),
+    path('invalid_verify/', TemplateView.as_view(template_name='homepage/invalid_verify.html'), name='invalid_verify'),
 ]
