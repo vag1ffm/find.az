@@ -239,7 +239,7 @@ body {
   width: 80%;
 }
 
-.poiskovik label {
+.poiskovik form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -734,6 +734,7 @@ main {
 .reklami {
   margin: 65px 0 0 0;
   width: 22%;
+    height: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -744,6 +745,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+    position: sticky;
+    top: 30px;
 }
 
 .reklama {
@@ -760,7 +763,9 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+    cursor: pointer;
 }
+
 .reklama img {
     width: 100%;
 }
@@ -1742,27 +1747,222 @@ form .buttons button , .backBtn{
 
 
 
+.tovar-nazvaniye-tovara h1{
+    font-size: 28px;
+    margin-right: 14px;
+}
+.tovar-ochenka {
+    display: flex;
+    align-items: center;
 
+}
+.tovar-ochenka .rating{
+    width: 27px;
+    height: 21px;
+    font-size: 13px;
+    background-color: #03ce97;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tovar-ochenka .otzivi{
+    font-size: 13px;
+    margin-left: 5px;
+}
 
+.tovar-first-row {
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+}
+.tovar-photos {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    max-width: 629px ;
+    max-height: 319px;
+}
+.tovari-left-photos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+.tovari-left-photos  .photo{
+    width: 38px;
+    height: 38px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .1s;
+    border: 1px #fff solid;
+}
+.tovari-left-photos  .photo:hover {
+    border: 1px #03ce97 solid;
+}
+.tovari-left-photos  .photo img {
+    width: 100%;
+}
+.tovar-right-photo {
+    width: 563px;
+    height: 319px;
+}
+.tovar-right-photo .main-photo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tovar-right-photo .main-photo img {
+    width: 100%;
+    max-height: 319px;
+}
+.tovar-infa {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    margin-left: 16px;
+    width: 356px;
+}
+.vid-tovarov {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.vid-tovarov h4 {
+    font-size: 13px;
+    display: flex;
 
+}
+.vid-tovarov h4 p {
+    margin-left: 5px;
+}
 
+.vid-tovarov .photos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vid-tovarov .photos .photo {
+    width: 50px;
+    height: 50px;
+    margin: 4px 8px 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px #FFFFFF solid;
+    transition: 0.3s;
+}
+.vid-tovarov .photos .photo:hover {
+    border: 1px #03ce97 solid;
+}
+.vid-tovarov .photos .photo img {
+    width: 100%;
+}
+.korotko-o-tovare {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    margin-top: 20px;
+}
 
+.korotko-o-tovare ul li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 1px #d9d9d9 dashed;
+}
 
+.korotko-o-tovare li div:first-child {
+    padding: 6px 24px 0 0;
+    font-size: 13px;
+}
+.korotko-o-tovare li div:last-child {
+    font-size: 13px;
+    width: 140px;
+}
 
+.mesta-prodaji {
+    margin-left: 48px;
+    width: 390px;
+}
 
+.mesto-prodaji-infa {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    border: 1px #AFB5C5 solid;
+    border-radius: 5px ;
+    padding: 16px;
 
+}
 
+.skidka {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+}
 
+.skidka-chena {
+    font-size: 14px;
+    color: #878787;
+}
+.prochent-skidki {
+    padding: 2px 2px 2px 10px;
+    background-color: red;
+    color: #FFFFFF;
+    margin-left: 10px;
+    display: flex;
+    align-items: end;
+    border-radius: 10px;
+}
 
+.mesto-prodaji-infa .chena {
+    font-size: 32px;
+    margin: 7px 0;
+}
 
+.adress, .karta {
+    font-size: 15px;
+    margin: 5px 0;
+}
+.karta a{
+    color: #0015FF;
+}
+.maqazin-prodovcha-infa {
+    display: flex;
+    width: 100%;
+}
+.name {
+    margin: 0 5px;
+}
+.rating-and-otziv {
+    display: flex;
+}
 
+.rating-and-otziv .rating {
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.rating .fa-star {
+    font-size: 14px;
+}
 
-
-
-
-
-
+.mesto-prodaji-infa button{
+    margin: 10px 0;
+}
 
 
 @media (max-width: 1710px) {
@@ -2183,7 +2383,7 @@ form .buttons button , .backBtn{
             justify-content: center;
   }
 
-  .poiskovik label {
+  .poiskovik form {
     margin: 0;
     width: 98%;
   }

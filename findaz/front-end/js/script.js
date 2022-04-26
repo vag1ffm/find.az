@@ -25,76 +25,15 @@ function showkatalog(i) {
 	a.classList.add('show');
 	a.parentElement.style.backgroundColor = '#d3d3d3'
 }
-//
-// function moveqlavniytovarleft() {
-// 	let a = document.querySelector('.slayd')
-// 	let b = a.style.left.split('px')
-// 	b = b.join('')
-// 	b = +b
-// 	if (b === 0) {
-// 		b = b -130
-// 		a.style.left = `${b}px`
-// 	} else if (b === -1180) {
-// 	} else if (b === -1030) {
-// 		b-=150
-// 		a.style.left = `${b}px`
-// 	} else {
-// 		b = b -210
-// 		a.style.left = `${b}px`
-// 	}
-// }
-//
-// function moveqlavniytovarright() {
-// 	let a = document.querySelector('.slayd')
-// 	let b = a.style.left.split('px')
-// 	b = b.join('')
-// 	b = +b
-// 	if (b===20) {
-//
-// 	} else if (b === 0) {
-//
-// 	}  else if (b === -130) {
-// 		b = b + 150
-// 		a.style.left = `${b}px`
-// 	} else if (b === -340) {
-// 		b+= 150
-// 		a.style.left = `${b}px`
-// 	} else {
-// 		b += +210
-// 		a.style.left = `${b}px`
-// 	}
-// }
 
 
 /* конфигурация */
 let width = 203;
 let count = 1;
-// let list = document.querySelector('.slayd-tovarov .slayd');
-// let listElems = document.querySelectorAll('.qlavniy-tovar');
-let position = 0; // положение ленты прокрутки
-
-// function moveqlavniytovarleft() {
-// 	// сдвиг влево
-// 	position += width * count;
-// 	// последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-// 	position = Math.min(position, 0)
-// 	list.style.marginLeft = position + 'px';
-// }
-//
-// function moveqlavniytovarright() {
-// 	//сдвиг вправо
-// 	position -= width * count;
-// 	// последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-// 	position = Math.max(position, -width * (listElems.length-4 - count));
-// 	list.style.marginLeft = position + 'px';
-// }
-
-// let width = 203;
-// let count = 1;
-// let position = 0;
+let position = 0;
 
 
-let btnMoveLefts = document.querySelectorAll('#btnMoveLeft')
+let btnMoveLefts = document.querySelectorAll('.v-slayder-tovarov')
 btnMoveLefts.forEach(btnMoveLeft => btnMoveLeft.addEventListener("click", (event)=>{
 	let a = event.target
 	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
@@ -105,7 +44,7 @@ btnMoveLefts.forEach(btnMoveLeft => btnMoveLeft.addEventListener("click", (event
 	list.style.marginLeft = position + 'px';
 }))
 
-let btnMoveRights = document.querySelectorAll('#btnMoveRight')
+let btnMoveRights = document.querySelectorAll('.p-slayder-tovarov')
 btnMoveRights.forEach(btnMoveRight => btnMoveRight.addEventListener("click", (event)=>{
 	let a = event.target
 	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
@@ -217,11 +156,19 @@ function  usloviye() {
 	}
 }
 
+const tovarLeftPhotos = document.querySelectorAll('.tovar-photo-change')
+tovarLeftPhotos.forEach(tovarLeftPhoto => tovarLeftPhoto.addEventListener('click', (event) => {
+	let a = event.target
+	let imgSrc = a.src
+	let mainPhoto = a.closest('.tovar-photos').querySelector('.main-photo img')
+	mainPhoto.style.opacity = '0'
+	mainPhoto.style.transition = '0.4s'
+	setTimeout(()=>{
+		mainPhoto.src = imgSrc
+		mainPhoto.style.opacity = '1'
+	},400)
 
-
-
-
-
+}))
 
 
 

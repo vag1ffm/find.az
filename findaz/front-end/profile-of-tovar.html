@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="img/icon-of-site.png">
+    <link rel="icon" href="img/icon-of-site.webp">
     <link rel="stylesheet" type="text/css"  href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--		<link type="text/css" rel="stylesheet" href="css/lightslider.css" />-->
     <!--	<link rel="manifest" href="manifest.json">-->
     <title>Интернет магазин Vaga</title>
 </head>
@@ -25,10 +26,11 @@
                     <div class="katalog-text">Каталог</div>
                 </div>
                 <div class="poiskovik">
-                    <label>
+                    <form>
                         <input type="text" placeholder="Искать товары">
-                        <input type="button" value="Найти">
-                    </label>
+                        <input type="submit" value="Найти">
+                    </form>
+
                 </div>
             </div>
             <div class="knopochniy-div">
@@ -50,10 +52,36 @@
                         <div class="korzina-text">Корзина</div>
                     </a>
                 </div>
-                <div onclick="showvoyti()" class="voyti">
-                    <div class="voyti-knopka">
-                        <div class="voyti-text">Войти</div>
-                    </div>
+                <!--				<div  class="voyti">-->
+                <!--					<a href="login.html">-->
+                <!--						<div class="voyti-knopka">-->
+                <!--							<div class="voyti-text">Войти</div>-->
+                <!--						</div>-->
+                <!--					</a>-->
+                <!--				</div>-->
+
+            </div>
+            <!--							<div  class="voyti">-->
+            <!--								<a href="login.html">-->
+            <!--									<div class="voyti-knopka">-->
+            <!--										<div class="voyti-text">Войти</div>-->
+            <!--									</div>-->
+            <!--								</a>-->
+            <!--							</div>-->
+
+            <div  class="logo-of-profile-in-mainpg">
+                <div class="img">
+
+                </div>
+                <div class="perexodi-iz-mainpg">
+                    <h4><a href="">vagamed2002</a></h4>
+                    <ul>
+                        <li><a href="">Профиль</a></li>
+                        <li><a href="">Настройки</a></li>
+                        <li><a href="">Добавить товар</a></li>
+                        <li><a href="">Выход</a></li>
+
+                    </ul>
                 </div>
             </div>
         </div>
@@ -422,18 +450,24 @@
         <div class="mobile-vtoraya-stupen">
             <div class="left-bar">
                 <div class="left-bar-content">
-                    <div class="voyti" onclick="showvoyti()">
-                        <div class="voyti-knopka">
-                            <div class="voyti-text">Войти/Зарегистрироваться</div>
-                        </div>
+                    <!--					<div class="voyti" >-->
+                    <!--						<a href="login.html">-->
+                    <!--						<div class="voyti-knopka">-->
+                    <!--							<div class="voyti-text">Войти/Зарегистрироваться</div>-->
+                    <!--						</div>-->
+                    <!--						</a>-->
+                    <!--					</div>-->
+                    <div class="mobile-logo-in-mainpg">
+                        <div class="logo"><img src="" alt="logo"></div>
+                        <div class="nikname"><h4>vagamed</h4></div>
                     </div>
                     <ul>
-                        <li>Что то очень важное</li>
-                        <li>Что то очень важное</li>
-                        <li>Что то очень важное</li>
-                        <li>Что то очень важное</li>
-                        <li>Что то очень важное</li>
+                        <li><a href="">Профиль</a></li>
+                        <li><a href="">Настройки</a></li>
+                        <li><a href="">Выход</a></li>
+                        <li><a href="">Добавить товар</a></li>
                     </ul>
+
                 </div>
             </div>
             <div class="mobile-katalog-tovarov" onclick="mobileshowkatalog()">
@@ -441,10 +475,10 @@
             </div>
             <div class="mobile-poiskovik">
                 <div class="poiskovik">
-                    <label>
+                    <form>
                         <input type="text" placeholder="Искать товары">
                         <button type="button">Найти</button>
-                    </label>
+                    </form>
                 </div>
             </div>
         </div>
@@ -839,523 +873,72 @@
 
     </header>
 
-    <div class="filter-content">
-        <h2>Любителям Apple</h2>
-        <div class="filter-and-content">
-            <div class="filter-filter">
-                <div class="ilter-chena">
-                    <p>Цена</p>
-                    <label>
-                        <input type="number">
-                        <input type="number">
-                    </label>
+    <main class="main-of-tovar">
+        <div class="tovar-nazvaniye-tovara">
+            <h1>13.3" Ноутбук Apple MacBook Air 13 Late 2020 (2560x1600, Apple M1 3.2 ГГц, RAM 8 ГБ, SSD 256 ГБ, Apple graphics 7-core), MGN93LL/A, серебристый</h1>
+        </div>
+        <div class="tovar-ochenka">
+            <div class="rating">4.8</div>
+            <div class="otzivi">450 отзывов</div>
+        </div>
+        <div class="tovar-first-row">
+            <div class="tovar-photos">
+                <div class="tovari-left-photos">
+                    <div class="photo tovar-photo-change"><img src="//avatars.mds.yandex.net/get-mpic/5235334/img_id8847419463258322949.jpeg/orig"></div>
+                    <div class="photo tovar-photo-change"><img src="//avatars.mds.yandex.net/get-mpic/5281727/img_id2096692238450946022.jpeg/orig" alt=""></div>
+                    <div class="photo tovar-photo-change"><img src="//avatars.mds.yandex.net/get-mpic/5278457/img_id7710717354687966480.jpeg/orig" alt=""></div>
+                    <div class="photo tovar-photo-change"><img src="//avatars.mds.yandex.net/get-mpic/5235334/img_id4518378085320161187.jpeg/orig" alt=""></div>
                 </div>
-                <div class="filter-proizvodstvo">
-                    <p>Производитель</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"><span>xiaomi</span>
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">xiaomi
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">xiaomi
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">xiaomi
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">xiaomi
-                        </label>
-                    </div>
+                <div class="tovar-right-photo">
+                    <div class="main-photo"><img src="//avatars.mds.yandex.net/get-mpic/5235334/img_id8847419463258322949.jpeg/orig" alt=""></div>
                 </div>
-                <div class="filter-sostoyanie">
-                    <p>Состояние</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">Новый
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Б/у
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-sostoyanie-tovara">
-                    <p>Состояние товара</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">Идеальное
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Отличное
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Хорошее
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-lineyka">
-                    <p>Линейка</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">Galaxy A
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">iphone 13
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Iphone 15
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Redmi
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-platforma">
-                    <p>Платформа</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">Android
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">IOS
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-diaqonal-ekrana">
-                    <p>Диагональ экрана</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">до 3,4''
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">3,5-4,9
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">5,0-5,4
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">5,5-5,9
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">6,0-6,4
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-diaqonal-ekrana-tochno">
-                    <input type="number">
-                    <input type="number">
-                </div>
-                <div class="filter-format-razresheniye-ekrana">
-                    <p>Формат разрешения экрана</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">2R
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Full hd
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">HD
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-razresheniye-ekrana">
-                    <p>Разрешение экрана</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 320x240
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">1440x720
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">1600x720
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-chastota-obnov-ekrana">
-                    <p>Частота обновления экрана</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 60Гц
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">90Гц
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">120Гц
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-operativ-pamyat">
-                    <p>Оперативная память</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 2Гб
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">3Гб
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">10Гб
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-besprovod-interfeysi">
-                    <p>Беспроводные интерфейсы</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> Bluetooth
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">NFC
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Fi-Wi
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-standart-svyazi">
-                    <p>Частота обновления экрана</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 2g
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">3g
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">5g
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-razresheniye-osnov-kameri">
-                    <p>Разрешение основной камеры</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> до 5Мпикс
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">10 Мпикс
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">13 Мпикс
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-kolvo-osnov-kamer">
-                    <p>Количество основных камер</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 1
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">2
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">100
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-kolvo-osnov-kamer-tochno">
-                    <p>Разрешение фронтальной камеры, Мпикс</p>
-                    <div>
-                        <label>
-                            <input type="number">
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="number">
-                        </label>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-                <div class="filter-tip-sim-karti">
-                    <p>Тип SIM-карты</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 2x nanon Sim
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Micro Sim
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">Nano Sim
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-kolvo-sim-karti">
-                    <p>Количество SIM-карт</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 1
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">3
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">100
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-emkost-akkum">
-                    <p>Емкость аккумулятора</p>
-                    <div>
-                        <label>
-                            <input type="checkbox"> 1000-1999 мА ч
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">2000-3000 мА ч
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">3000-4999 мА ч
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-prochessori">
-                    <p>Процессор</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">A14
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">a15
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">a20
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-stepen-zashiti">
-                    <p>Степень защиты</p>
-                    <div>
-                        <label>
-                            <input type="checkbox">IP53
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">IP67
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox">IP68
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-chveta">
-                    <p>Цвет</p>
-                    <div>
-                        <label class="red">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="white">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="bleu">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-reyting-maqazina">
-                    <p>Рейтинг магазина</p>
-                    <div>
-                        <label class="red">
-                            <input type="checkbox"> от 0-2
-                        </label>
-                    </div>
-                    <div>
-                        <label class="white">
-                            <input type="checkbox">от 3-4
-                        </label>
-                    </div>
-                    <div>
-                        <label class="bleu">
-                            <input type="checkbox"> от4-5
-                        </label>
-                    </div>
-                </div>
-                <div class="filter-chveta">
-                    <p>Цвет</p>
-                    <div>
-                        <label class="red">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="white">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                    <div>
-                        <label class="bleu">
-                            <input type="checkbox">
-                        </label>
-                    </div>
-                </div>
-
             </div>
-            <div class="filter-main-content">
-                <div class="filter-content-header">
-                    <ul>
-                        <li>По популярности</li>
-                        <li>по цене</li>
-                        <li>по рейтингу</li>
-                        <li>по скидке</li>
-                    </ul>
-
+            <div class="tovar-infa">
+                <div class="vid-tovarov">
+                    <h4>Цвета товара: <p>серебристый</p></h4>
+                    <div class="photos">
+                        <div class="photo"></div>
+                        <div class="photo"><img src="//avatars.mds.yandex.net/get-mpic/4365206/img_id4987343171402429230.png/orig" alt=""></div>
+                        <div class="photo"></div>
+                    </div>
                 </div>
-                <div class="filter-tovari">
-                    <div class="filter-tovar">
-                        <a href="">
-                            <div class="photo">
-                                <div class="img"><img src="img/noutbuki.webp"></div>
-                            </div>
-                            <div class="opisaniye">
-                                <h4>Iphone 15 pro max pox chik chik</h4>
-                                <div class="ochenka">
-                                    <div class="rating">4.8</div>
-                                    <div class="otzivi">388 отзивов</div>
-                                </div>
-                                <div class="opisaniye-tovara">
-                                    <ul>
-                                        <li>13 часов работы</li>
-                                        <li>25 чаосов зарятки</li>
-                                        <li>Найдет илона маска</li>
-<!--                                        <li>Умеет летать на марс</li>-->
-<!--                                        <li>Умеет летать на луту</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="prise">
-                                <div class="contaner">
-                                    <div class="chena">99,999,999rub</div>
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="prise">
-                            <div class="button">
-                                <button>В корзину</button>
-                            </div>
+                <div class="korotko-o-tovare">
+                    <h4>Коротко о товаре</h4>
+                    <ul>
+                        <li><div>Экран</div> <div class="ekran">13.3" (2560x1600) IPS</div></li>
+                        <li><div>Процессор</div> <div class="prochessor">Apple M1 (8x3.20 ГГц)</div></li>
+                        <li><div>Память</div> <div class="pamyat">	RAM 8 ГБ, SSD 256 ГБ</div></li>
+                        <li><div>Видеокарта</div> <div class="videocart">встроенная, Apple graphics 7-core</div></li>
+                        <li><div>Время работы от аккумулятора</div> <div class="vremya-ravot">18</div></li>
+                        <li><div>Операционная система</div> <div class="operach-sistema">macOS</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mesta-prodaji">
+                <div class="mesto-prodaji-infa">
+
+                    <div class="skidka"><div class="skidka-chena">129 900</div> <div class="prochent-skidki">-18%</div></div>
+                    <div class="chena">107 000</div>
+                    <div class="adress">парк им. Гусейна Джавида</div>
+                    <div class="karta"><a href="">на карте</a></div>
+                    <div class="button"> <button>Добавить в корзину</button></div>
+                    <div class="maqazin-prodovcha-infa">
+                        <div class="name"><a href="">Pro-store</a></div>
+                        <div class="rating-and-otziv">
+                            <div class="rating"><i class="fas fa-star"></i>4.9 /</div>
+                            <div class="otzivi">2862отзыва</div>
                         </div>
                     </div>
-
-
-                </div>
             </div>
         </div>
-    </div>
-    <footer>
-    <div class="footer-content">
-        <div class="o-nas">
-            <h2>О нас</h2>
-            <p>Сайт был разработан с 23.02.2022 двумя Web разработчиками для упрощение продажи компаний в Азербайджане.
-                <br>Разработчики:
-            <ul>
-                <li>Fron-end: Вагиф Мамедов</li>
-                <li>Back-end: Амир Гасанов</li>
-            </ul>
-            Спасибо за поддержку!</p>
         </div>
-        <div class="for-salers">
-            <h2>Для продавцов</h2>
-            <ul>
-                <li><a href="">Личный кабинет продавцам</a></li>
-                <li><a href="">Документация для партнеров</a></li>
-                <li><a href="">Сайт для партнеров</a></li>
-            </ul>
-        </div>
-    </div>
-</footer>
+    </main>
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
