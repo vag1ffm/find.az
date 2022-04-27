@@ -894,6 +894,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5px 0;
+    position: relative;
+
+
+
 }
 
 .log-in {
@@ -1740,45 +1745,27 @@ form .buttons button , .backBtn{
     }
 }
 
-
-#error-of-username {
-    position: absolute;
-    right: -100px;
-    top: 120px;
-    width: 150px;
-
+.container form input {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px #b4b4b4 solid;
+    background-color: #fff;
+    margin-top: 10px;
 }
 
-#error-of-email {
+#error-of-email, #error-of-username,
+#error-of-password2, #error-of-password1{
+    background-color: red;
     position: absolute;
-    right: -100px;
-    top: 180px;
-    width: 150px;
+    top: -10px;
+    right: 0;
+    color: #fff;
+    border-top-right-radius: 5px ;
+    border-top-left-radius: 5px ;
+    padding: 0 5px;
+    overflow: hidden;
 }
-
-#error-of-password1 {
-    position: absolute;
-    right: -100px;
-    top: 240px;
-    width: 150px;
-}
-#error-of-password2 {
-    position: absolute;
-    right: -100px;
-    top: 300px;
-    width: 150px;
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2491,14 +2478,17 @@ form .buttons button , .backBtn{
     .sign-up-label input[type=password],
     .sign-up-label input[type=date] {
     width: 100%;
+      min-width: 270px;
     height: 33px;
     padding-right: 35px;
     font-size: 16px;
+
   }
 
   .log-in-label input[type=submit],
 .sign-up-label input[type=submit] {
     width: 100%;
+      max-width: 305px;
     font-size: 14px;
     font-weight: bold;
     background-color: #fff;
@@ -2515,6 +2505,7 @@ form .buttons button , .backBtn{
     }
     .checkbox-prodavech, .checkbox-uslov {
         width: 100%;
+        max-width: 305px;
     }
     .checkbox-prodavech input[type='checkbox'], .checkbox-uslov input[type='checkbox']{
         width: 15px;
@@ -2526,6 +2517,30 @@ form .buttons button , .backBtn{
     .sign-up-label input[type='checkbox'] {
         margin: 0;
     }
+    /*#error-of-username {*/
+    /*    position: absolute;*/
+    /*    right: 90px;*/
+    /*    top: 115px;*/
+    /*    width: 150px;*/
+
+    /*}*/
+
+    /*#error-of-email {*/
+
+    /*}*/
+
+    /*#error-of-password1 {*/
+    /*    position: absolute;*/
+    /*    right: 90px;*/
+    /*    top: 245px;*/
+    /*    width: 150px;*/
+    /*}*/
+    /*#error-of-password2 {*/
+    /*    position: absolute;*/
+    /*    right: 90px;*/
+    /*    top: 280px;*/
+    /*    width: 150px;*/
+    /*}*/
 
 
 
@@ -2598,6 +2613,35 @@ form .buttons button , .backBtn{
         padding: 0 13.5px;
         width: auto;
     }
+   /* #error-of-username {*/
+   /*     position: absolute;*/
+   /*left: 100px;*/
+   /*     top: 152px;*/
+   /*     width: 250px;*/
+
+   /* }*/
+
+   /* !*#error-of-email {*!*/
+   /* !*    position: absolute;*!*/
+   /* !*    left: 100px;*!*/
+   /* !*    top: 205px;*!*/
+   /* !*    width: 200px;*!*/
+   /* !*}*!*/
+
+   /* #error-of-password1 {*/
+   /*     position: absolute;*/
+   /*     left: 100px;*/
+   /*     top: 259px;*/
+   /*     width: 220px;*/
+   /* }*/
+   /* #error-of-password2 {*/
+   /*     position: absolute;*/
+   /*     left: 100px;*/
+   /*     top: 259px;*/
+   /*     width: 220px;*/
+
+   /* }*/
+
 
 }
 

@@ -102,9 +102,10 @@
                     }
                     else {
                         //
-                        // $('#id_username').removeClass('is-invalid').addClass('is-valid');
-                        // username.style.border ='2px green solid'
+                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        username.style.border ='2px green solid'
                         $('#usernameError').remove();
+
 
 
                     }
@@ -132,7 +133,7 @@
 
                     if (response.is_email === true && id_email.value.length) {
                         $('#id_email').removeClass('is-valid').addClass('is-invalid');
-                        username.style.border = '2px red solid'
+                        email.style.border = '2px red solid'
                         $('#emailError').remove();
                         $('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
                     }
@@ -181,9 +182,11 @@
             let password2 = document.querySelector('#id_password2')
             let password1 = document.querySelector('#id_password1')
             let a = document.getElementById('error-of-password2')
-            if (password1.value & password2.value && password1.value !== password2.value) {
+            if (password1.value && password2.value && password1.value !== password2.value) {
                 a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This password is no same!</div>'
                 password2.style.border = '2px red solid'
+            } else if (password1.value=== '' || password2.value==='') {
+
             } else {
                 a.innerHTML = ''
                 password2.style.border ='2px green solid'
