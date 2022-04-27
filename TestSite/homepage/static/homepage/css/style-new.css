@@ -239,7 +239,7 @@ body {
   width: 80%;
 }
 
-.poiskovik form {
+.poiskovik label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2464,7 +2464,7 @@ form .buttons button , .backBtn{
             justify-content: center;
   }
 
-  .poiskovik form {
+  .poiskovik label {
     margin: 0;
     width: 98%;
   }
