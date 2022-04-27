@@ -181,7 +181,6 @@
             let password2 = document.querySelector('#id_password2')
             let password1 = document.querySelector('#id_password1')
             let a = document.getElementById('error-of-password2')
-            console.log(password1 === password2)
             if (password1.value & password2.value && password1.value !== password2.value) {
                 a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This password is no same!</div>'
                 password2.style.border = '2px red solid'
@@ -192,6 +191,7 @@
             return false;
         });
     })
+
 </script>
 
 </body>

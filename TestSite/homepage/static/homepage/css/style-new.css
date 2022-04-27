@@ -1741,12 +1741,33 @@ form .buttons button , .backBtn{
 }
 
 
+#error-of-username {
+    position: absolute;
+    right: -100px;
+    top: 120px;
+    width: 150px;
 
+}
 
+#error-of-email {
+    position: absolute;
+    right: -100px;
+    top: 180px;
+    width: 150px;
+}
 
-
-
-
+#error-of-password1 {
+    position: absolute;
+    right: -100px;
+    top: 240px;
+    width: 150px;
+}
+#error-of-password2 {
+    position: absolute;
+    right: -100px;
+    top: 300px;
+    width: 150px;
+}
 
 
 

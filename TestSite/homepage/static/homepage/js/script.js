@@ -210,11 +210,16 @@ function showperexodi() {
 
 function  usloviye() {
 	let UsloviyeInput = document.querySelector('.checkbox-uslov input[type="checkbox"]')
-	if (UsloviyeInput.checked === true) {
+	let email = document.querySelector('#id_email').style.border
+	let password2 = document.querySelector('#id_password2').style.border
+	let password1 = document.querySelector('#id_password1').style.border
+
+	if (UsloviyeInput.checked === true && email===password1 && password1===password2) {
 		document.querySelector('.zareq-button').removeAttribute('disabled' )
 	} else {
 		document.querySelector('.zareq-button').setAttribute('disabled', true)
 	}
+
 }
 
 
