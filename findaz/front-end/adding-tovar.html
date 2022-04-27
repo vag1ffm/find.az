@@ -48,10 +48,22 @@
                 <input type="checkbox">
                 <label>Категория в вашем магазине</label>
                 <select>
-
+                    <option disabled value="Chocolate">
+                    <option value="Coconut">
+                    <option value="Mint">
+                    <option value="Strawberry">
+                    <option value="Vanilla">
                 </select>
                 <label>Особый тип товара</label>
-                <select></select>
+                <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
+
+                <datalist id="ice-cream-flavors">
+                    <option value="Chocolate">
+                    <option value="Coconut">
+                    <option value="Mint">
+                    <option value="Strawberry">
+                    <option value="Vanilla">
+                </datalist>
                 <hr>
                 <h2>Вес и габариты с упаковкой</h2>
                 <p>Заполните эти поля, чтобы мы могли правильно рассчитать условия хранения или доставки.</p>
