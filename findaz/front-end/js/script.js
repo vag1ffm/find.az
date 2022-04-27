@@ -172,8 +172,38 @@ tovarLeftPhotos.forEach(tovarLeftPhoto => tovarLeftPhoto.addEventListener('click
 
 
 
+function showAddBar() {
+	let leftAddBar = document.querySelector('.add-left-bar')
+	let divTexts = document.querySelectorAll('.add-left-bar>ul>li>.left>div')
+	let leftIconOfAngels = document.querySelectorAll('.add-left-bar>ul>li>i')
+	divTexts.forEach(divText => {
+		if (divText.style.display !== 'none') {
+			divText.style.display = 'none';
+			divText.style.opacity = '0';
+		} else {
+			divText.style.display = 'block';
+			divText.style.opacity = '1';
+		}
+	})
+	leftIconOfAngels.forEach(leftIconOfAngel => {
+		if (leftIconOfAngel.style.display !== 'none') {
+			leftIconOfAngel.style.display = 'none';
+			leftAddBar.style.width = '60px';
+		} else {
+			leftIconOfAngel.style.display = 'block';
+			leftIconOfAngel.style.opacity = '1';
+			leftAddBar.style.width = '213px';
+		}
+	})
+}
 
 
 
-
-
+// window.addEventListener('click', (event)=>{
+// 	console.log(event.view.innerWidth)
+// 	if (event.view.innerWidth <=700) {
+// 		showAddBar()
+// 	}
+// 	console.log(event.view.innerWidth)
+// })
+//

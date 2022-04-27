@@ -14,7 +14,7 @@
 <body>
     <header class="add-header">
         <div class="add-left">
-            <div class="add-bar"><i class="fas fa-bars"></i></div>
+            <div onclick="showAddBar()" class="add-bar"><i class="fas fa-bars"></i></div>
             <div class="logo-market">Find.Az</div>
         </div>
         <div class="add-right">
@@ -24,58 +24,59 @@
     <div class="add-main">
         <div class="add-left-bar">
             <ul>
-                <li>Товары</li>
-                <li>Заказы</li>
-                <li>Продвижение</li>
-                <li>Отчеты</li>
-                <li>Поддержка</li>
-                <li>Настройки</li>
+                <li><div class="left"><i class="fas fa-box"></i> <div>Товары</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fab fa-opencart"></i> <div>Заказы</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-angle-double-up"></i><div>Продвижение</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="far fa-list-alt"></i><div>Отчеты</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-comment-dots"></i><div>Поддержка</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fa-solid fa-gear"></i><div>Настройки</div></div><i class="fas fa-angle-right"></i></li>
             </ul>
         </div>
         <div class="adding-of-tovar">
             <h2>Главное отоваре</h2>
-            <р3>Основная информация</р3>
+            <h3>Основная информация</h3>
             <form class="add-form">
                 <label>Название товара</label>
-                <input type="text">
+                <input placeholder="Название товара" type="text">
                 <label>Штрихкод</label>
                 <input type="text">
                 <label>Бренд или производитель</label>
                 <input type="text">
                 <label>Описание товара, до 3 000 символов</label>
-                <input type="text">
+                <textarea class="opisaniye-add-tovara"></textarea>
                 <label>Товар для взрослых</label>
                 <input type="checkbox">
                 <label>Категория в вашем магазине</label>
                 <select>
-                    <option disabled value="Chocolate">
-                    <option value="Coconut">
-                    <option value="Mint">
-                    <option value="Strawberry">
-                    <option value="Vanilla">
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
                 </select>
-                <label>Особый тип товара</label>
-                <input list="ice-cream-flavors" id="ice-cream-choice" name="ice-cream-choice" />
-
-                <datalist id="ice-cream-flavors">
-                    <option value="Chocolate">
-                    <option value="Coconut">
-                    <option value="Mint">
-                    <option value="Strawberry">
-                    <option value="Vanilla">
-                </datalist>
                 <hr>
                 <h2>Вес и габариты с упаковкой</h2>
                 <p>Заполните эти поля, чтобы мы могли правильно рассчитать условия хранения или доставки.</p>
                 <label>Товар занимает больше одного места</label>
-                <label>Вес, кг</label>
-                <input type="text">
-                <label>Ширина, см</label>
-                <input type="text">
-                <label>Высота, см</label>
-                <input type="text">
-                <label>Длина, см</label>
-                <input type="text">
+                <div class="ves-i-gabariti">
+                    <div>
+                        <label>Вес, кг</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>Ширина, см</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>Высота, см</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>Длина, см</label>
+                        <input type="text">
+                    </div>
+                </div>
                 <hr>
                 <h2>Дополнительная информация</h2>
                 <p>Чем больше полей вы заполните, тем легче покупателям будет найти ваш товар.</p>
@@ -98,6 +99,8 @@
                 <h2>Изображения</h2>
                 <p>Добавьте хотя бы одно изображение товара, а лучше несколько. Тогда мы сможем быстро проверить товар и создать карточку, если её ещё нет на Маркете. Изображения должны соответствовать требованиям.</p>
 
+                <h2>Характеристики в категории</h2>
+
 
 
 
@@ -105,6 +108,8 @@
 
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>
