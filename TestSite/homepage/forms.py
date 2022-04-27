@@ -40,7 +40,7 @@ class AddTovarForm(forms.ModelForm):
 
     class Meta:
         model = Tovar
-        fields = ["title", "slug", "content", "photo", "price", "is_published", "cat"]
+        fields = ["title", "content", "photo", "price", "is_published", "cat"]
         widgets = {
             "title": forms.TextInput(attrs={"class": "tovar-form"}),
             "slug": forms.TextInput(attrs={"class": "tovar-form"}),

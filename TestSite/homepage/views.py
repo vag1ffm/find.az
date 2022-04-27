@@ -8,7 +8,6 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
@@ -18,10 +17,26 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 
+from unidecode import unidecode
+from django.template import defaultfilters
+
+# from transliterate import slugify
+
 from TestSite import settings
 from .forms import *
 from .models import *
 from .utils import *
+
+
+az_to_en_for_slug = {
+    'ə': 'e',
+    'ğ': 'g',
+    'ö': 'o',
+    'ş': 'sh',
+    'ç': 'c',
+    'ı': 'i',
+    'ü': 'u'
+}
 
 
 class MainHome(DataMixin, ListView):
@@ -65,6 +80,21 @@ class AddTovar(LoginRequiredMixin, DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title="Добавление Товара")
         return dict(list(context.items()) + list(c_def.items()))
+
+    def form_valid(self, form):
+        text = str(self.request.POST.get('title')).lower()
+
+        for letter in az_to_en_for_slug:
+            if letter in text:
+                text = text.replace(letter, az_to_en_for_slug[letter])
+
+        temp_slug = text + "-pk" + str(Tovar.objects.latest('pk').id + 1)
+        temp_slug2 = unidecode(temp_slug)
+
+        form.instance.slug = defaultfilters.slugify(temp_slug2)
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
 
 # def addpage(request):
 #     if request.method == "POST":
@@ -149,6 +179,23 @@ class RegisterUser(DataMixin, CreateView):
         return redirect('confirm_email')
 
 
+class RegisterSeller(DataMixin, CreateView):
+    model = User
+    fields = ['username', 'email', 'birth_day', 'phone_number', 'gender', 'occupation', 'address_type', 'city', 'place', 'block_number']
+    template_name = 'homepage/for-salers.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title="Регистрация Продавца")
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def form_valid(self, form):
+        user = form.save()
+        # login(self.request, user)
+        # return redirect('home')
+        send_email_for_verify(self.request, user)
+        return redirect('confirm_email')
 # def RegisterUser(request):
 #     form = RegisterUserForm()
 #

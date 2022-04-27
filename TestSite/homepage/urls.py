@@ -8,6 +8,7 @@ urlpatterns = [
     path('login/', LoginUser.as_view(), name="login"),
     path('logout/', logout_user, name="logout"),
     path('register/', RegisterUser.as_view(), name="register"),
+    path('seller_register/', RegisterSeller.as_view(), name="register_seller"),
     path('post-tovar/<slug:tovarslug>/', ShowTovar.as_view(), name='showtovar'),
     path('category/<slug:catslug>/', HomeCategory.as_view(), name='category'),
     path("password_reset/", password_reset_request, name="password_reset"),

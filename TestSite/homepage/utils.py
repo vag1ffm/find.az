@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from .models import *
 
+
 menu = [
     {"title": "HOME", "url_name": "home"},
     {"title": "ADD PAGE", "url_name": "addpage"},

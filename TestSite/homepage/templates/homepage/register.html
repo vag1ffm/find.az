@@ -63,13 +63,11 @@
                         <input onclick="usloviye()" type="checkbox"><p><a href="">Согласен(a) с условием</a></p>
                     </div>
 
-                    <div class="checkbox-prodavech">
-                        <input type="checkbox"><p>Зарегистрироваться как продовец</p>
-                    </div>
 
                     <input disabled class='zareq-button' type="submit" value="Войти">
 
-                    <p>Есть аккаунта? <a href="{% url 'login' %}">Войти</a></p>
+                    <p>Есть аккаунта? <a href="{% url 'login' %}">Войти</a><br>
+                    <a href="{% url 'register_seller' %}">Зарегистрироваться как продовец</a></p>
 
                 </form>
 
