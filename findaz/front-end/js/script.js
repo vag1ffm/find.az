@@ -146,6 +146,52 @@ function showperexodi() {
 // }
 
 
+const secondForm = document.querySelector('.main-of-salers .second')
+const firstForm = document.querySelector('.main-of-salers .first')
+
+console.log(firstForm, secondForm)
+function nextForm() {
+	let name = document.querySelector('.main-of-salers .name input'),
+		surname = document.querySelector('.main-of-salers .surname input'),
+		dataOfBirth = document.querySelector('.main-of-salers .data-of-birth'),
+		email = document.querySelector('.main-of-salers .email'),
+		mobilNumber = document.querySelector('.main-of-salers .mobil-numb'),
+		occumation = document.querySelector('.main-of-salers .occupation'),
+		address = document.querySelector('.main-of-salers .address')
+	if(name.value === '' && surname.value ==='' && dataOfBirth.value ==='' && email.value ==='' && mobilNumber.value ==='' && occumation.value ==='' && address.value ==='') {
+		name.style.border = '2px red solid'
+	} else {
+		firstForm.style.left = '-100%'
+		secondForm.style.right = '0'
+	}
+	console.log(name.value  === '', surname.value === '')
+
+
+}
+function backForm() {
+	firstForm.style.left = '0'
+	secondForm.style.right = '-100%'
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function  usloviye() {
 	let UsloviyeInput = document.querySelector('.checkbox-uslov input[type="checkbox"]')
@@ -196,6 +242,14 @@ function showAddBar() {
 		}
 	})
 }
+
+
+
+
+
+
+
+
 
 
 

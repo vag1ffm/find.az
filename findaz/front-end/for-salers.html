@@ -30,24 +30,27 @@
                 <div class="form first">
                     <div class="details personal">
                         <span class="title">Personal Details</span>
-
                         <div class="fields">
-                            <div class="input-field">
-                                <label>Full Name</label>
+                            <div class="input-field name">
+                                <label>Name</label>
                                 <input type="text" placeholder="Enter your name" required>
                             </div>
+                            <div class="input-field surname">
+                                <label>Surname</label>
+                                <input type="text" placeholder="Enter your surname" required>
+                            </div>
 
-                            <div class="input-field">
+                            <div class="input-field data-of-birth">
                                 <label>Date of Birth</label>
                                 <input type="date" placeholder="Enter birth date" required>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field email">
                                 <label>Email</label>
                                 <input type="text" placeholder="Enter your email" required>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field mobil-numb">
                                 <label>Mobile Number</label>
                                 <input type="number" placeholder="Enter mobile number" required>
                             </div>
@@ -61,40 +64,57 @@
                                     <option>Others</option>
                                 </select>
                             </div>
-
-                            <div class="input-field">
-                                <label>Occupation</label>
-                                <input type="text" placeholder="Enter your ccupation" required>
-                            </div>
                         </div>
                     </div>
                     <span class="title">Corporation Details</span>
                     <div class="fields">
-                        <div class="input-field">
-                            <label>Address Type</label>
-                            <input type="text" placeholder="Permanent or Temporary" required>
+                        <div class="input-field occupation">
+                            <label>Occupation</label>
+                            <input type="text" placeholder="Enter your ccupation" required>
                         </div>
 
-                        <div class="input-field">
+                        <div class="input-field city">
                             <label>City</label>
                             <input type="text" placeholder="Enter your state" required>
                         </div>
 
-                        <div class="input-field">
-                            <label>place</label>
-                            <input type="text" placeholder="Enter your district" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Block Number</label>
-                            <input type="number" placeholder="Enter block number" required>
+                        <div class="input-field address">
+                            <label>Address</label>
+                            <input type="text" placeholder="Permanent or Temporary" required>
                         </div>
                     </div>
 
-                    <button class="nextBtn">
+
+                    <button  onclick="nextForm()" class="nextBtn">
                         <span class="btnText">Next</span>
                         <i class="uil uil-navigator"></i>
                     </button>
+                </div>
+                <div class="form second">
+                    <div class="infa-of-registration">
+
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Repeat password</label>
+                            <input type="password" placeholder="Repeat password" required>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button onclick="backForm()"  class="nextBtn">
+                            <span class="btnText">Back</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                        <button class="nextBtn">
+                            <span class="btnText">Register</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -105,7 +125,9 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
 
+    </script>
 
 </body>
 </html>

@@ -1603,6 +1603,32 @@ input {
     overflow: hidden;
 }
 
+.main-of-salers form  {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.main-of-salers form .first {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+}
+.main-of-salers form  .second {
+    position: absolute;
+    width: 100%;
+    right: -100%;
+
+
+}
+
+.main-of-salers form  .second .input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .main-of-salers{
     position: relative;
     max-width: 900px;
@@ -1743,6 +1769,10 @@ form .buttons button , .backBtn{
 @media (max-width: 550px) {
     form .fields .input-field{
         width: 100%;
+    }
+    .main-of-salers {
+        height: 570px;
+        overflow: hidden;
     }
 }
 
