@@ -276,7 +276,7 @@ function showAddBar() {
 	leftIconOfAngels.forEach(leftIconOfAngel => {
 		if (leftIconOfAngel.style.display !== 'none') {
 			leftIconOfAngel.style.display = 'none';
-			leftAddBar.style.width = '60px';
+			leftAddBar.style.width = '55px';
 		} else {
 			leftIconOfAngel.style.display = 'block';
 			leftIconOfAngel.style.opacity = '1';

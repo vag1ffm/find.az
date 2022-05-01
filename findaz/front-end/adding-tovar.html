@@ -22,14 +22,14 @@
         </div>
     </header>
     <div class="add-main">
-        <div class="add-left-bar">
+        <div class="add-left-bar" style="width: 55px;">
             <ul>
-                <li><div class="left"><i class="fas fa-box"></i> <div>Товары</div></div><i class="fas fa-angle-right"></i></li>
-                <li><div class="left"><i class="fab fa-opencart"></i> <div>Заказы</div></div><i class="fas fa-angle-right"></i></li>
-                <li><div class="left"><i class="fas fa-angle-double-up"></i><div>Продвижение</div></div><i class="fas fa-angle-right"></i></li>
-                <li><div class="left"><i class="far fa-list-alt"></i><div>Отчеты</div></div><i class="fas fa-angle-right"></i></li>
-                <li><div class="left"><i class="fas fa-comment-dots"></i><div>Поддержка</div></div><i class="fas fa-angle-right"></i></li>
-                <li><div class="left"><i class="fa-solid fa-gear"></i><div>Настройки</div></div><i class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-box"></i> <div style="display: none;">Товары</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fab fa-opencart"></i> <div style="display: none;">Заказы</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-angle-double-up"></i><div style="display: none;">Продвижение</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="far fa-list-alt"></i><div style="display: none;">Отчеты</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-comment-dots"></i><div style="display: none;">Поддержка</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fa-solid fa-gear"></i><div style="display: none;">Настройки</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
             </ul>
         </div>
         <div class="adding-of-tovar">
@@ -37,24 +37,46 @@
             <h3>Основная информация</h3>
             <form class="add-form">
                 <label>Название товара</label>
-                <input placeholder="Название товара" type="text">
+                <input class="name-of-tovar" placeholder="Название товара" type="text">
                 <label>Штрихкод</label>
-                <input type="text">
+                <input class="shtrixkod" type="text">
                 <label>Бренд или производитель</label>
-                <input type="text">
+                <input class="brend-tovara" type="text">
                 <label>Описание товара, до 3 000 символов</label>
                 <textarea class="opisaniye-add-tovara"></textarea>
-                <label>Товар для взрослых</label>
-                <input type="checkbox">
+                <div class="tovar-dla-vzros-qalochka">
+                    <p>Товар для взрослых</p>
+                    <input class="tovar-dla-vzros" type="checkbox">
+                </div>
+
                 <label>Категория в вашем магазине</label>
-                <select>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="hamster">Hamster</option>
-                    <option value="parrot">Parrot</option>
-                    <option value="spider">Spider</option>
-                    <option value="goldfish">Goldfish</option>
-                </select>
+                <input class="vibor-kataloga" type="text" list="katalogs">
+                <datalist id="katalogs">
+                    <option value="Электроника">
+                    <option value="Компьютеры">
+                    <option value="Бытовая техника">
+                    <option value="Одежда и обувь">
+                    <option value="Красота и гигиена">
+                    <option value="Детские товары">
+                    <option value="Дом">
+                    <option value="Дача и сад">
+                    <option value="Строительство и ремонт">
+                    <option value="Мебель">
+                    <option value="Продукты питание">
+                    <option value="Аптека">
+                    <option value="Зоотовары">
+                    <option value="Бытовая химия">
+                    <option value="Спорт и отдах">
+                    <option value="Авто">
+                    <option value="Хобби и творчество">
+                    <option value="Книги">
+                    <option value="Для школы и офиса">
+                    <option value="Ювелирные украшения">
+                    <option value="Цветы">
+                    <option value="Товары для взослых">
+                    <option value="Цифровые товары">
+                    <option value="Оборудование">
+                </datalist>
                 <hr>
                 <h2>Вес и габариты с упаковкой</h2>
                 <p>Заполните эти поля, чтобы мы могли правильно рассчитать условия хранения или доставки.</p>
@@ -62,43 +84,52 @@
                 <div class="ves-i-gabariti">
                     <div>
                         <label>Вес, кг</label>
-                        <input type="text">
+                        <input class="ves-tovara" type="text">
                     </div>
                     <div>
                         <label>Ширина, см</label>
-                        <input type="text">
+                        <input class="shirina-tovara" type="text">
                     </div>
                     <div>
                         <label>Высота, см</label>
-                        <input type="text">
+                        <input class="visota-tovara" type="text">
                     </div>
                     <div>
                         <label>Длина, см</label>
-                        <input type="text">
+                        <input class="dlina-tovara" type="text">
                     </div>
                 </div>
                 <hr>
                 <h2>Дополнительная информация</h2>
                 <p>Чем больше полей вы заполните, тем легче покупателям будет найти ваш товар.</p>
                 <label>Страна производства</label>
-               <select></select>
+                <input class="strana-izqotovleniye-tovara" type="text">
                 <label>Изготовитель</label>
-                <select></select>
-
-                <label>С какого возраста пользоваться
-                </label>
-                <input type="text">
+                <input class="izqotovitel-tovara" type="text">
+                <label>С какого возраста пользоваться</label>
+                <input class="vozrostnoye-oqranicheniye" type="text">
                 <label>Срок годности</label>
-                <input type="text">
+                <input class="srok-qodnosti-tovara" type="text">
                 <p>Обязательно заполните, если у товара есть срок годности</p>
+                <br>
                 <label>Срок службы</label>
-                <input type="text">
+                <input class="srok-slujbi-tovara" type="text">
                 <label>Срок гарантии</label>
-                <input type="text">
+                <input class="srok-qarantii" type="text">
                 <hr>
                 <h2>Изображения</h2>
                 <p>Добавьте хотя бы одно изображение товара, а лучше несколько. Тогда мы сможем быстро проверить товар и создать карточку, если её ещё нет на Маркете. Изображения должны соответствовать требованиям.</p>
-
+                <strong>Мы принимаем:</strong>
+                <ul>
+                    <li>чёткие цветные фотографии</li>
+                    <li>отрисованные макеты</li>
+                    <li>видео</li>
+                    <li>3D-модели</li>
+                </ul>
+                <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
+                <br>
+                <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
+                <input type="file" accept="/image" >
                 <h2>Характеристики в категории</h2>
 
 

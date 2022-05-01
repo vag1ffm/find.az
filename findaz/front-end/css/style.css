@@ -2099,7 +2099,7 @@ form .buttons button , .backBtn{
     background-color: black;
     position: sticky;
     top: 0;
-    width: 214px;
+    width: 55px;
 }
 .add-left-bar ul {
     margin-top: 20px;
@@ -2122,8 +2122,9 @@ form .buttons button , .backBtn{
     align-items: center;
     justify-content: left;
 }
-.add-left-bar ul li i {
+.add-left-bar > ul > li >i {
     margin-left: 20px;
+    display: none;
 }
 .add-left-bar ul li .left i{
     font-size: 16px;
@@ -2132,6 +2133,7 @@ form .buttons button , .backBtn{
 }
 .add-left-bar ul li .left div{
     font-size: 16px;
+    display: none;
 }
 .add-left-bar ul li:hover {
     background-color: #FFFFFF;
@@ -2217,7 +2219,11 @@ form .buttons button , .backBtn{
     width: 95%;
 }
 
+.tovar-dla-vzros-qalochka {
+    display: flex;
+    align-items: center;
 
+}
 
 
 
@@ -2976,6 +2982,10 @@ form .buttons button , .backBtn{
     }
     .sign-up-label input[type='checkbox'] {
         margin: 0;
+    }
+
+    .adding-of-tovar {
+        padding: 5px 10px 5px 10px;
     }
 
 
