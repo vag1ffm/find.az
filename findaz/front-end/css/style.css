@@ -1619,8 +1619,11 @@ input {
     position: absolute;
     width: 100%;
     right: -100%;
-
-
+}
+.main-of-salers form  .second .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .main-of-salers form  .second .input-field {
@@ -1754,6 +1757,28 @@ form .buttons button , .backBtn{
     margin-right: 14px;
 }
 
+.infa-of-registration {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.infa-of-registration .infa{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.infa-of-registration .infa .address,
+.infa-of-registration .infa .name,
+.infa-of-registration .infa .surname,
+.infa-of-registration .infa .data-of-birth,
+.infa-of-registration .infa .email,
+.infa-of-registration .infa .mobil-numb,
+.infa-of-registration .infa .occupation,
+.infa-of-registration .infa .city{
+    padding-left: 0px;
+}
 @media (max-width: 750px) {
     .main-of-salers form{
         overflow-y: scroll;

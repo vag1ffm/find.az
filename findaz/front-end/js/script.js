@@ -149,24 +149,56 @@ function showperexodi() {
 const secondForm = document.querySelector('.main-of-salers .second')
 const firstForm = document.querySelector('.main-of-salers .first')
 
+const name = document.querySelector('.main-of-salers .name input'),
+	surname = document.querySelector('.main-of-salers .surname input'),
+	dataOfBirth = document.querySelector('.main-of-salers .data-of-birth input'),
+	email = document.querySelector('.main-of-salers .email input'),
+	mobilNumber = document.querySelector('.main-of-salers .mobil-numb input'),
+	occumation = document.querySelector('.main-of-salers .occupation input'),
+	address = document.querySelector('.main-of-salers .address input')
+let formInputs = document.querySelectorAll('.main-of-salers input')
+console.log(formInputs)
+formInputs.forEach(formInput => formInput.addEventListener('blur', (event) => {
+	if (formInput.value === '') {
+		formInput.style.border = '2px red solid'
+	} else {
+		formInput.style.border = '2px green solid'
+	}
+}))
+
 console.log(firstForm, secondForm)
 function nextForm() {
-	let name = document.querySelector('.main-of-salers .name input'),
-		surname = document.querySelector('.main-of-salers .surname input'),
-		dataOfBirth = document.querySelector('.main-of-salers .data-of-birth'),
-		email = document.querySelector('.main-of-salers .email'),
-		mobilNumber = document.querySelector('.main-of-salers .mobil-numb'),
-		occumation = document.querySelector('.main-of-salers .occupation'),
-		address = document.querySelector('.main-of-salers .address')
-	if(name.value === '' && surname.value ==='' && dataOfBirth.value ==='' && email.value ==='' && mobilNumber.value ==='' && occumation.value ==='' && address.value ==='') {
-		name.style.border = '2px red solid'
-	} else {
-		firstForm.style.left = '-100%'
-		secondForm.style.right = '0'
-	}
-	console.log(name.value  === '', surname.value === '')
+	let name = document.querySelector('.main-of-salers .name input').value,
+		surname = document.querySelector('.main-of-salers .surname input').value,
+		dataOfBirth = document.querySelector('.main-of-salers .data-of-birth input').value,
+		email = document.querySelector('.main-of-salers .email input').value,
+		mobilNumber = document.querySelector('.main-of-salers .mobil-numb input').value,
+		occumation = document.querySelector('.main-of-salers .occupation input').value,
+		address = document.querySelector('.main-of-salers .address input').value;
+
+	document.querySelector('.infa .name').innerHTML = name;
+	document.querySelector('.infa  .surname').innerHTML = surname;
+	document.querySelector('.infa  .data-of-birth').innerHTML = dataOfBirth;
+	document.querySelector('.infa  .email').innerHTML = email;
+	document.querySelector('.infa .mobil-numb').innerHTML = mobilNumber;
+	document.querySelector('.infa .occupation').innerHTML = occumation;
+	document.querySelector('.infa .address').innerHTML = address;
 
 
+	let formInputs = document.querySelectorAll('.main-of-salers  .first  input')
+	let count = 0
+	formInputs.forEach(formInput => {
+		if (formInput.value === '') {
+			formInput.style.border = '2px red solid'
+		} else if (formInput.value !== '') {
+			formInput.style.border = '2px green solid'
+			count +=1
+		}
+		if (count >=8) {
+			firstForm.style.left = '-100%'
+			secondForm.style.right = '0'
+		}
+	})
 }
 function backForm() {
 	firstForm.style.left = '0'
@@ -174,10 +206,20 @@ function backForm() {
 }
 
 
-
-
-
-
+// function nextForm() {
+// 	let count = 0
+// 	let formInputs = document.querySelectorAll('.main-of-salers input')
+// 	formInputs.forEach(formInput => {
+// 		if (formInput.value === '') {
+// 			count +=1
+// 			formInput.style.border = '2px red solid'
+// 		} else if (count === 7) {
+// 			formInput.style.border = '2px green solid'
+// 			firstForm.style.left = '-100%'
+// 			secondForm.style.right = '0'
+// 		}
+// 	})
+// }
 
 
 
