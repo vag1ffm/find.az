@@ -157,7 +157,6 @@ const name = document.querySelector('.main-of-salers .name input'),
 	occumation = document.querySelector('.main-of-salers .occupation input'),
 	address = document.querySelector('.main-of-salers .address input')
 let formInputs = document.querySelectorAll('.main-of-salers input')
-console.log(formInputs)
 formInputs.forEach(formInput => formInput.addEventListener('blur', (event) => {
 	if (formInput.value === '') {
 		formInput.style.border = '2px red solid'
@@ -166,7 +165,6 @@ formInputs.forEach(formInput => formInput.addEventListener('blur', (event) => {
 	}
 }))
 
-console.log(firstForm, secondForm)
 function nextForm() {
 	let name = document.querySelector('.main-of-salers .name input').value,
 		surname = document.querySelector('.main-of-salers .surname input').value,
@@ -287,9 +285,81 @@ function showAddBar() {
 
 
 
+// function previewFile() {
+// 	var preview = document.querySelector('img');
+// 	var files = document.querySelector('input[type=file]').files[0];
+// 	var reader = new FileReader();
+// 	console.log(reader.readAsDataURL(files))
+// 	// files.forEach(file => {
+// 	// 	let img = document.createElement('img')
+// 	// 	img.src = reader.result
+// 	// 	img.append('.tovar-imgs')
+// 	// 	if (file) {
+// 	// 			reader.readAsDataURL(file);
+// 	// 		} else {
+// 	// 			preview.src = "";
+// 	// 		}
+// 	// })
+// 	// reader.onloadend = function () {
+// 	// 	preview.src = reader.result;
+// 	// }
+// 	//
+// 	// if (file) {
+// 	// 	reader.readAsDataURL(file);
+// 	// } else {
+// 	// 	preview.src = "";
+// 	// }
+// }
+var imgs = {}
+let a = [1,2,3]
+function previewFile() {
+	var preview = document.querySelector('img');
+	var files    = document.querySelector('.main-input input[type=file]').files;
+	console.log(files, a)
+	for (let i of files) {
+		let reader  = new FileReader();
+		reader.readAsDataURL(i);
+		reader.onload = function () {
+			let img = document.createElement('img');
+			img.src = reader.result
+			document.querySelector('.tovar-imgs').append(img)
+		}
+	for (let i in files) {
+		imgs[i] = files[i]
+	}
+	for (let i in imgs) {
+		document.querySelector('.vtoroy-input').files[i] = imgs[i]
+	}
+
+	}
 
 
 
+	//
+	// files.forEach(file => {
+	// 	var reader  = new FileReader();
+	// 	reader.readAsDataURL(file);
+	// 	console.log(file)
+	// })
+
+
+
+	// reader.onloadend = function () {
+	// 	let img = document.createElement('img');
+	// 	img.src = reader.result
+	// 	console.log()
+	// 	document.querySelector('.tovar-imgs').append(img)
+	// }
+	// let img = document.createElement('img');
+	// img.src = reader.result
+	// document.querySelector('.tovar-imgs').append(img)
+
+	// if (file) {
+	// 	reader.readAsDataURL(file);
+	// } else {
+	// 	preview.src = "";
+	// }
+}
 
 
 

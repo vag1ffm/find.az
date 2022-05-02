@@ -2047,7 +2047,6 @@ form .buttons button , .backBtn{
 .add-header {
     background-color: #fff;
     border-bottom: 2px black solid;
-    max-width: 1920px;
     width: 100%;
     height: 70px;
     padding: 0 24px;
@@ -2090,7 +2089,6 @@ form .buttons button , .backBtn{
     justify-content: start;
     align-items: start;
     width: 100%;
-    max-width: 1920px;
     height: 100%;
 }
 .add-left-bar {
@@ -2224,10 +2222,19 @@ form .buttons button , .backBtn{
     align-items: center;
 
 }
+.tovar-imgs {
+    width: 100%;
+}
+.tovar-imgs img {
+    width: 200px;
+}
+form ul {
+    margin-left: 20px;
+}
+form ul li {
+    list-style: square;
 
-
-
-
+}
 
 
 

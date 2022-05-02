@@ -129,12 +129,57 @@
                 <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
                 <br>
                 <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
-                <input type="file" accept="/image" >
+                <div class="main-input">
+                    <input type="file" multiple onchange="previewFile()">
+                </div>
+                <br>
+
+                <div class="tovar-imgs">
+
+                </div>
                 <h2>Характеристики в категории</h2>
+                <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
+                <div class="dobavleniye-xarakteristiki">
+                    <div class="row">
+                        <div>
+                            <label>Название</label>
+                            <input class="nazvaniye-dovaleniye-tovara" type="text">
+                        </div>
+                        <div>
+                            <label>Значение</label>
+                            <input class="znacheniye-dovaleniye-tovara" type="text">
+                        </div>
+                        <div>
+                            <label>Единицы измерения</label>
+                            <input class="edin-izmereniye-dovaleniye-tovara" type="text">
+                        </div>
+
+                    </div>
+                    <div onclick="delRow()" class="icon"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="button">
+                    <button onclick="btnAddXarakter()" class="btn-add-xarakret">
+                        <span class="icon"><i class="fas fa-plus"></i></span>
+                        <span class="text-brn-add-xarakter">Добавить характеристику</span>
+                    </button>
+                </div>
+
+                <h2>Размещение в магазинах</h2>
+                <p>Для каждого магазина передайте цену, доступный остаток и другие параметры, которые нужны для организации поставки на склад или доставки покупателю.</p>
+                <label>Цена</label>
+                <input class="chena" type="text">
+                <label>Цена до скидки</label>
+                <input class="chena-so-skidkoy" type="text">
+                <label>Валюта</label>
+                <input class="valyuta" type="text" list="valyuta">
+                <datalist id="valyuta">
+                    <option value="Манат">
+                    <option value="Рубль">
+                    <option value="Доллар">
+                </datalist>
 
 
-
-
+                <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
             </form>
 
         </div>
