@@ -129,14 +129,59 @@
                 <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
                 <br>
                 <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
-                <div class="main-input">
-                    <input type="file" multiple onchange="previewFile()">
+                <div class="tovar-imgs">
+                    <div class="main-img">
+                        <div class="img">
+                            <label for="forfile"><i class="fas fa-plus"></i></label>
+                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+
+
+                    </div>
+                    <div class="imgs">
+                        <div class="img">
+                            <label for="forfile1"><i class="fas fa-plus"></i></label>
+                            <input id="forfile1"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile2"><i class="fas fa-plus"></i></label>
+                            <input id="forfile2"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile3"><i class="fas fa-plus"></i></label>
+                            <input id="forfile3"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile4"><i class="fas fa-plus"></i></label>
+                            <input id="forfile4"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile5"><i class="fas fa-plus"></i></label>
+                            <input id="forfile5"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile6"><i class="fas fa-plus"></i></label>
+                            <input id="forfile6"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile7"><i class="fas fa-plus"></i></label>
+                            <input id="forfile7"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+                        <div class="img">
+                            <label for="forfile8"><i class="fas fa-plus"></i></label>
+                            <input id="forfile8"  type="file" multiple onchange="previewFile(this)">
+                        </div>
+
+
+                    </div>
                 </div>
+<!--                <div class="main-input">-->
+<!--                    <label for="forfile">Добавить фото</label>-->
+<!--                    <input id="forfile"  type="file" multiple onchange="previewFile()">-->
+<!--                </div>-->
                 <br>
 
-                <div class="tovar-imgs">
 
-                </div>
                 <h2>Характеристики в категории</h2>
                 <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
                 <div class="dobavleniye-xarakteristiki">
@@ -154,8 +199,8 @@
                             <input class="edin-izmereniye-dovaleniye-tovara" type="text">
                         </div>
 
+                        <div onclick="delRow()" class="icon"><i class="fas fa-times"></i></div>
                     </div>
-                    <div onclick="delRow()" class="icon"><i class="fas fa-times"></i></div>
                 </div>
                 <div class="button">
                     <button onclick="btnAddXarakter()" class="btn-add-xarakret">

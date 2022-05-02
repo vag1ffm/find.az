@@ -310,28 +310,46 @@ function showAddBar() {
 // 	// 	preview.src = "";
 // 	// }
 // }
-var imgs = {}
-let a = [1,2,3]
-function previewFile() {
-	var preview = document.querySelector('img');
-	var files    = document.querySelector('.main-input input[type=file]').files;
-	console.log(files, a)
-	for (let i of files) {
-		let reader  = new FileReader();
-		reader.readAsDataURL(i);
-		reader.onload = function () {
-			let img = document.createElement('img');
-			img.src = reader.result
-			document.querySelector('.tovar-imgs').append(img)
-		}
-	for (let i in files) {
-		imgs[i] = files[i]
-	}
-	for (let i in imgs) {
-		document.querySelector('.vtoroy-input').files[i] = imgs[i]
+
+function previewFile(file) {
+	// var preview = document.querySelector('img');
+	// var files = document.querySelector('.input[type=file]');
+	// let mainImg = document.querySelectorAll('.main-img img')
+	console.log(file.parentElement)
+	let img = file.parentElement
+	try {
+		img.querySelector('i').remove()
+	} catch  {
 	}
 
+	let reader = new FileReader();
+	reader.readAsDataURL(file.files[0]);
+	reader.onload = function () {
+		img.style.backgroundImage = `url("${reader.result}")`
+		img.style.border = 'none'
 	}
+
+	// for (let i of files) {
+	// 	if (mainImg.length === 0) {
+	// 		let reader = new FileReader();
+	// 		reader.readAsDataURL(i);
+	// 		reader.onload = function () {
+	// 			let img = document.createElement('img');
+	// 			img.src = reader.result
+	// 			document.querySelector('.main-img').append(img)
+	// 		}
+	// 	} else {
+	// 		let reader = new FileReader();
+	// 		reader.readAsDataURL(i);
+	// 		reader.onload = function () {
+	// 			let img = document.createElement('img');
+	// 			img.src = reader.result
+	// 			document.querySelector('.tovar-imgs .imgs').append(img)
+	// 		}
+	//
+	// 	}
+	// }
+}
 
 
 
@@ -359,7 +377,7 @@ function previewFile() {
 	// } else {
 	// 	preview.src = "";
 	// }
-}
+
 
 
 
