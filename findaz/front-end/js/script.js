@@ -391,3 +391,58 @@ function previewFile(file) {
 // 	console.log(event.view.innerWidth)
 // })
 //
+
+
+
+const kategoriya = document.querySelector('#kategoriya')
+
+const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
+const podkategoriya = document.querySelector('#podkategoriya')
+kategoriya.addEventListener('click', (event)=> {
+	if (kategoriya.value==='Электроника') {
+		podkategoriya.innerHTML = ''
+		podkategoriya.removeAttribute('disabled')
+		for (let i of podkategotii) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podkategoriya.append(option)
+		}
+	} else {
+		podkategoriya.setAttribute('disabled', '')
+	}
+})
+
+const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']
+const podpodkategoriya = document.querySelector('#podpodkategoriya')
+
+podkategoriya.addEventListener('click', (event)=> {
+	if (podkategoriya.value==='Смартфоны и гаджеты') {
+		podpodkategoriya.innerHTML = ''
+		podpodkategoriya.removeAttribute('disabled')
+		for (let i of podpodkategotii) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podpodkategoriya.append(option)
+		}
+	} else {
+		podpodkategoriya.setAttribute('disabled', '')
+	}
+})
+
+podpodkategoriya.addEventListener('click', (event)=> {
+	if (podkategoriya.value==='Смартфоны') {
+		podpodkategoriya.innerHTML = ''
+		podpodkategoriya.removeAttribute('disabled')
+		for (let i of podpodkategotii) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podpodkategoriya.append(option)
+		}
+	} else {
+		podpodkategoriya.setAttribute('disabled', '')
+	}
+})
+
