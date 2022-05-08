@@ -25,10 +25,10 @@
 					<div class="katalog-text">Каталог</div>
 				</div>
 				<div class="poiskovik">
-					<label>
+					<form>
 						<input type="text" placeholder="Искать товары">
 						<input type="button" value="Найти">
-					</label>
+					</form>
 				</div>
 			</div>
 			<div class="knopochniy-div">
@@ -59,13 +59,14 @@
 						<img src="">
 					</div>
 					<div class="perexodi-iz-mainpg">
-						<h4><a href="">{{ user.username }}</a></h4>
+						<h4><a href="">{{ user.last_name }} {{ user.first_name }}</a></h4>
 						<ul>
 							<li><a href="">Профиль</a></li>
 							<li><a href="">Настройки</a></li>
-							<li><a href="">Добавить товар</a></li>
-							<li><a href="{% url 'logout' %}">Выход</a></li>
-
+                            {% if user.is_seller == True %}
+							    <li><a href="{% url 'addtovar' %}">Добавить товар</a></li>
+                            {%  endif %}
+                            <li><a href="{% url 'logout' %}">Выход</a></li>
 						</ul>
 					</div>
 				</div>
@@ -472,7 +473,7 @@
 
 						<div class="mobile-logo-in-mainpg">
 							<div class="logo"><img src=""></div>
-							<div class="nikname"><h4>{{ user.username }}</h4></div>
+							<div class="nikname"><h4>{{ user.last_name }} {{ user.first_name }}</h4></div>
 						</div>
 
 					{% else %}
@@ -490,7 +491,9 @@
 					<ul>
 						<li><a href="{% if request.user.is_authenticated %}{# url 'profil' #}{% else %}{% url 'login' %}{% endif %}">Профиль</a></li>
 						<li><a href="{% if request.user.is_authenticated %}{# url 'nastroyki' #}{% else %}{% url 'login' %}{% endif %}">Настройки</a></li>
-						<li><a href="{% if request.user.is_authenticated %}{# url 'addtovar' #}{% else %}{% url 'login' %}{% endif %}">Добавить товар</a></li>
+                        {% if user.is_seller == True %}
+						    <li><a href="{% if request.user.is_authenticated %}{% url 'addtovar' %}{% else %}{% url 'login' %}{% endif %}">Добавить товар</a></li>
+                        {% endif %}
 						{% if request.user.is_authenticated %}
 							<li><a href="{% url 'logout' %}">Выход</a></li>
 						{% endif %}
@@ -503,10 +506,10 @@
 			</div>
 			<div class="mobile-poiskovik">
 				<div class="poiskovik">
-					<label>
+					<form>
 						<input type="text" placeholder="Искать товары">
 						<button type="button">Найти</button>
-					</label>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'homepage/css/style-new.css' %}">
@@ -28,38 +28,44 @@
     <div class="main-of-zareg-for-salers">
         <div class="main-of-salers">
             <div class="header">Registration</div>
-
-            <form method="post">
-
+            <form action="#" method="post">
+                {% csrf_token %}
                 <div class="form first">
                     <div class="details personal">
                         <span class="title">Personal Details</span>
-
-                        {% csrf_token %}
-
                         <div class="fields">
-                            <div class="input-field">
-                                <label>Full Name</label>
+                            <div class="input-field name">
+                                <label>Name</label>
 {#                                <input type="text" placeholder="Enter your name" required>#}
-                                {{ form.username }}
+                                {{ form.first_name }}
+                                <div  id="error-of-username">{{ form.first_name.errors }}</div>
+                            </div>
+                            <div class="input-field surname">
+                                <label>Surname</label>
+{#                                <input type="text" placeholder="Enter your surname" required>#}
+                                {{ form.last_name }}
+                                <div  id="error-of-username">{{ form.last_name.errors }}</div>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field data-of-birth">
                                 <label>Date of Birth</label>
 {#                                <input type="date" placeholder="Enter birth date" required>#}
                                 {{ form.birth_day }}
+                                <div  id="error-of-username">{{ form.birth_day.errors }}</div>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field email">
                                 <label>Email</label>
 {#                                <input type="text" placeholder="Enter your email" required>#}
                                 {{ form.email }}
+                                <div  id="error-of-username">{{ form.email.errors }}</div>
                             </div>
 
-                            <div class="input-field">
+                            <div class="input-field mobil-numb">
                                 <label>Mobile Number</label>
 {#                                <input type="number" placeholder="Enter mobile number" required>#}
                                 {{ form.phone_number }}
+                                <div  id="error-of-username">{{ form.phone_number.errors }}</div>
                             </div>
 
                             <div class="input-field">
@@ -71,47 +77,76 @@
 {#                                    <option>Others</option>#}
 {#                                </select>#}
                                 {{ form.gender }}
-                            </div>
-
-                            <div class="input-field">
-                                <label>Name of company</label>
-{#                                <input type="text" placeholder="Enter your ccupation" required>#}
-                                {{ form.occupation }}
+                                <div  id="error-of-username">{{ form.gender.errors }}</div>
                             </div>
                         </div>
                     </div>
                     <span class="title">Corporation Details</span>
                     <div class="fields">
+                        <div class="input-field occupation">
+                            <label>Occupation</label>
+{#                            <input type="text" placeholder="Enter your ccupation" required>#}
+                            {{ form.occupation }}
+                            <div  id="error-of-username">{{ form.occupation.errors }}</div>
+                        </div>
 
-                        <div class="input-field">
+                        <div class="input-field city">
                             <label>City</label>
 {#                            <input type="text" placeholder="Enter your state" required>#}
                             {{ form.city }}
+                            <div  id="error-of-usernam">{{ form.city.errors }}</div>
                         </div>
 
-                        <div class="input-field">
+                        <div class="input-field address">
                             <label>Address</label>
 {#                            <input type="text" placeholder="Permanent or Temporary" required>#}
                             {{ form.address_type }}
-                        </div>
-
-                        <div class="input-field">
-                            <label>place</label>
-{#                            <input type="text" placeholder="Enter your district" required>#}
-                            {{ form.place }}
-                        </div>
-
-                        <div class="input-field">
-                            <label>Block Number</label>
-{#                            <input type="number" placeholder="Enter block number" required>#}
-                            {{ form.block_number }}
+                            <div  id="error-of-username">{{ form.address_type.errors }}</div>
                         </div>
                     </div>
 
-                    <button class="nextBtn">
+
+                    <button  onclick="nextForm()" class="nextBtn">
                         <span class="btnText">Next</span>
                         <i class="uil uil-navigator"></i>
                     </button>
+                </div>
+                <div class="form second">
+                    <div class="infa-of-registration">
+                        <div class="infa"><pre>Name: </pre><div class="text name"></div></div>
+                        <div class="infa"><pre>Surname:  </pre><div class="text surname"></div></div>
+                        <div class="infa"><pre>Date of Birth:  </pre><div class="text data-of-birth"></div></div>
+                        <div class="infa"><pre>Email:  </pre><div class="text email"></div></div>
+                        <div class="infa"><pre>Mobile Number:  </pre><div class="text mobil-numb"></div></div>
+                        <div class="infa"><pre>Occupation:  </pre><div class="text occupation"></div></div>
+                        <div class="infa"><pre>City:  </pre>Baku<div class="text city"></div></div>
+                        <div class="infa"><pre>Address: </pre><div class="text address"></div></div>
+                    </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Password</label>
+{#                            <input type="password" placeholder="Password" required>#}
+                            {{ form.password1 }}
+                            <div  id="error-of-username">{{ form.password1.errors }}</div>
+                        </div>
+                        <div class="input-field">
+                            <label>Repeat password</label>
+{#                            <input type="password" placeholder="Repeat password" required>#}
+                            {{ form.password2 }}
+                            <div  id="error-of-username">{{ form.password2.errors }}</div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button onclick="backForm()"  class="nextBtn">
+                            <span class="btnText">Back</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                        <button class="nextBtn" type="submit">
+                            <span class="btnText">Register</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -122,7 +157,9 @@
     </footer>
 
     <script src="{% static 'homepage/js/script.js' %}"></script>
+    <script>
 
+    </script>
 
 </body>
 </html>

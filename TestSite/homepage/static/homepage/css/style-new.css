@@ -239,7 +239,7 @@ body {
   width: 80%;
 }
 
-.poiskovik label {
+.poiskovik form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1603,6 +1603,35 @@ input {
     overflow: hidden;
 }
 
+.main-of-salers form  {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.main-of-salers form .first {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+}
+.main-of-salers form  .second {
+    position: absolute;
+    width: 100%;
+    right: -100%;
+}
+.main-of-salers form  .second .fields {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-of-salers form  .second .input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .main-of-salers{
     position: relative;
     max-width: 900px;
@@ -1728,6 +1757,28 @@ form .buttons button , .backBtn{
     margin-right: 14px;
 }
 
+.infa-of-registration {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.infa-of-registration .infa{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.infa-of-registration .infa .address,
+.infa-of-registration .infa .name,
+.infa-of-registration .infa .surname,
+.infa-of-registration .infa .data-of-birth,
+.infa-of-registration .infa .email,
+.infa-of-registration .infa .mobil-numb,
+.infa-of-registration .infa .occupation,
+.infa-of-registration .infa .city{
+    padding-left: 0px;
+}
 @media (max-width: 750px) {
     .main-of-salers form{
         overflow-y: scroll;
@@ -1743,6 +1794,10 @@ form .buttons button , .backBtn{
 @media (max-width: 550px) {
     form .fields .input-field{
         width: 100%;
+    }
+    .main-of-salers {
+        height: 570px;
+        overflow: hidden;
     }
 }
 
@@ -1990,8 +2045,8 @@ form .buttons button , .backBtn{
 }
 
 .add-header {
-    background-color: #878787;
-    max-width: 1920px;
+    background-color: #fff;
+    border-bottom: 2px black solid;
     width: 100%;
     height: 70px;
     padding: 0 24px;
@@ -2009,6 +2064,13 @@ form .buttons button , .backBtn{
 .add-bar {
     font-size: 24px;
     margin: 0 20px 0 0;
+    padding: 0 5px;
+    transition: .3s;
+    border-radius: 10px
+}
+.add-bar:hover {
+    background-color: black;
+    color: #FFFFFF;
 }
 .logo-market {
     font-size: 25px;
@@ -2027,37 +2089,285 @@ form .buttons button , .backBtn{
     justify-content: start;
     align-items: start;
     width: 100%;
-    max-width: 1920px;
     height: 100%;
 }
 .add-left-bar {
-    height: 100%;
-    width: 196px;
+    transition: .3s;
+    height: 100vh;
     background-color: black;
+    position: sticky;
+    top: 0;
+    width: 55px;
+}
+.add-left-bar ul {
+    margin-top: 20px;
+    transition: .3s;
 }
 .add-left-bar ul li{
     height: 44px;
     color: #FFFFFF;
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
     font-size: 16px;
-    width: 100%;
+    transition: .3s;
     margin: 4px 8px;
     padding: 12px;
+    border-radius: 5px;
+}
+.add-left-bar ul li .left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.add-left-bar > ul > li >i {
+    margin-left: 20px;
+    display: none;
+}
+.add-left-bar ul li .left i{
+    font-size: 16px;
+    width: 25px;
+    margin: 0;
+}
+.add-left-bar ul li .left div{
+    font-size: 16px;
+    display: none;
+}
+.add-left-bar ul li:hover {
+    background-color: #FFFFFF;
+    color: black;
+
 }
 
 .adding-of-tovar {
     height: 100%;
     width: 100%;
-    background-color: #e1b70c;
+    padding: 32px;
+}
+.adding-of-tovar h2,.adding-of-tovar h3  {
+    padding: 10px 0;
 }
 
 .add-form {
     display: flex;
     flex-direction: column;
-    width: auto;
+    max-width: 798px;
+    width: 100%;
 }
+.add-form label {
+    margin: 10px 0 5px 0;
+    font-size: 14px;
+    opacity: 0.7;
+}
+.add-form input {
+    color: #212121;
+    font-family: inherit;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    resize: none;
+    font-size: inherit;
+    line-height: inherit;
+    padding: 0;
+    background: transparent;
+    text-align: left;
+    border: 2px #d3d3d3 solid;
+}
+
+.add-form  input[type=text] {
+    padding: 8px 12px;
+    border-radius: 5px;
+    height: 32px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    font-size: 14px;
+}
+.add-form input:focus {
+    border: 2px #03ce97 solid;
+}
+.add-form textarea {
+    min-height: 116px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.add-form textarea  :focus {
+    border: 2px #03ce97 solid;
+
+}
+.add-form select {
+    width: 200px;
+}
+.add-form hr {
+    margin: 20px 0;
+}
+
+.ves-i-gabariti {
+    max-width: 798px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.ves-i-gabariti div {
+    width: 50%;
+}
+.ves-i-gabariti div input {
+    width: 95%;
+}
+
+.tovar-dla-vzros-qalochka {
+    display: flex;
+    align-items: center;
+
+}
+form .main-input label {
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #03ce97;
+    border-radius: 5px ;
+    opacity: 1;
+}
+
+
+.main-input input[type=file] {
+    padding: 20px 230px;
+    display: none;
+}
+.tovar-imgs {
+    max-width: 670px;
+    width: 100%;
+    display: flex;
+    border: 2px #000000 solid;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+}
+.tovar-imgs input[type=file] {
+    display: none;
+}
+.main-img .img {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    border: 5px #000 dashed;
+    background-size: 320px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main-img .img label {
+    padding: 55px;
+}
+.main-img .img:hover,
+.tovar-imgs  .imgs .img:hover{
+    transform: scale(1.05);
+}
+
+.main-img label, .imgs label {
+    padding: 40px;
+    display: block;
+    margin: 0;
+}
+.tovar-imgs .imgs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tovar-imgs .imgs .img {
+    width: 90px;
+    height: 90px;
+    margin: 0 8px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    border: 5px #000 dashed;
+    background-size: 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+
+
+
+.adding-of-tovar form .button button {
+    width: 33%;
+}
+
+
+
+
+
+
+
+
+
+
+
+form ul {
+    margin-left: 20px;
+}
+form ul li {
+    list-style: square;
+
+}
+.dobavleniye-xarakteristiki {
+    display: flex;
+    flex-direction: column;
+}
+.dobavleniye-xarakteristiki .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.row div {
+    width: 100%;
+}
+.row div input{
+    width: 90%;
+}
+.row .icon {
+    margin-top: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+оу
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2464,7 +2774,7 @@ form .buttons button , .backBtn{
             justify-content: center;
   }
 
-  .poiskovik label {
+  .poiskovik form {
     margin: 0;
     width: 98%;
   }
@@ -2785,6 +3095,10 @@ form .buttons button , .backBtn{
     }
     .sign-up-label input[type='checkbox'] {
         margin: 0;
+    }
+
+    .adding-of-tovar {
+        padding: 5px 10px 5px 10px;
     }
 
 

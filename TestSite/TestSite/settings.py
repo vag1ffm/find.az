@@ -132,4 +132,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'find.az.team@gmail.com'
-EMAIL_HOST_PASSWORD = 'FindAz2022'
+EMAIL_HOST_PASSWORD = 'afmtls3S23ev-ZOr'

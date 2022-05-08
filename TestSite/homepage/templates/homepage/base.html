@@ -10,7 +10,7 @@
 <body>
     <ul>
         {% for el in menu %}
-            <li><a href="{% url el.url_name %}">{{ el.title }}</a></li>
+            <li><a href="">{{ el.title }}</a></li>
         {% endfor %}
         {% if request.user.is_authenticated %}
             <li>{{ user.username }}<a href="{% url 'logout' %}">Выйти</a></li>

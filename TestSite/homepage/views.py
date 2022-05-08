@@ -70,42 +70,72 @@ class MainHome(DataMixin, ListView):
 #     return render(request, 'homepage/home.html', context=context)
 
 
-class AddTovar(LoginRequiredMixin, DataMixin, CreateView):
-    form_class = AddTovarForm
-    template_name = 'homepage/addpage.html'
-    login_url = reverse_lazy('home')
-    raise_exception = True
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title="Добавление Товара")
-        return dict(list(context.items()) + list(c_def.items()))
-
-    def form_valid(self, form):
-        text = str(self.request.POST.get('title')).lower()
-
-        for letter in az_to_en_for_slug:
-            if letter in text:
-                text = text.replace(letter, az_to_en_for_slug[letter])
-
-        temp_slug = text + "-pk" + str(Tovar.objects.latest('pk').id + 1)
-        temp_slug2 = unidecode(temp_slug)
-
-        form.instance.slug = defaultfilters.slugify(temp_slug2)
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
-
-
-# def addpage(request):
-#     if request.method == "POST":
-#         form = AddTovarForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("home")
-#     else:
-#         form = AddTovarForm()
+# class AddTovar(LoginRequiredMixin, DataMixin, CreateView):
+#     form_class = AddTovarForm
+#     template_name = 'homepage/adding-tovar.html'
+#     login_url = reverse_lazy('home')
+#     raise_exception = True
 #
-#     return render(request, 'homepage/addpage.html', {'form': form, 'menu': menu, "title": "Добавление статьи"})
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         c_def = self.get_user_context(title="Добавление Товара")
+#         return dict(list(context.items()) + list(c_def.items()))
+#
+#     def form_valid(self, form):
+#         text = str(self.request.POST.get('title')).lower()
+#
+#         for letter in az_to_en_for_slug:
+#             if letter in text:
+#                 text = text.replace(letter, az_to_en_for_slug[letter])
+#
+#         try:
+#             temp_slug = text + "-pk" + str(Tovar.objects.latest('pk').id + 1)
+#         except:
+#             temp_slug = text + "-pk0"
+#
+#         temp_slug2 = unidecode(temp_slug)
+#
+#         form.instance.slug = defaultfilters.slugify(temp_slug2)
+#         form.instance.created_by = self.request.user
+#         return super().form_valid(form)
+
+
+def addtovar(request):
+    if request.method == "POST":
+        form = AddTovarForm(request.POST, request.FILES)
+        cats = Category.objects.all()
+        if form.is_valid():
+
+            text = str(request.POST.get('title')).lower()
+
+            for letter in az_to_en_for_slug:
+                if letter in text:
+                    text = text.replace(letter, az_to_en_for_slug[letter])
+
+            try:
+                temp_slug = text + "-pk" + str(Tovar.objects.latest('pk').id + 1)
+            except:
+                temp_slug = text + "-pk0"
+
+            temp_slug2 = unidecode(temp_slug)
+
+            form.instance.slug = defaultfilters.slugify(temp_slug2)
+            form.instance.created_by = request.user
+
+            form.save()
+            return redirect("home")
+    else:
+        form = AddTovarForm()
+
+    data = {
+        'form': form,
+        'cat': Category.objects.all(),
+        'podcat': PodCat.objects.all(),
+        'podpodcat': PodPodCat.objects.all(),
+        "title": "Добавление статьи"
+    }
+
+    return render(request, 'homepage/adding-tovar.html', data)
 
 
 class ShowTovar(DataMixin, DetailView):
@@ -180,8 +210,7 @@ class RegisterUser(DataMixin, CreateView):
 
 
 class RegisterSeller(DataMixin, CreateView):
-    model = User
-    fields = ['username', 'email', 'birth_day', 'phone_number', 'gender', 'occupation', 'address_type', 'city', 'place', 'block_number']
+    form_class = RegisterSellerForm
     template_name = 'homepage/for-salers.html'
     success_url = reverse_lazy('home')
 
@@ -191,6 +220,8 @@ class RegisterSeller(DataMixin, CreateView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def form_valid(self, form):
+        form.instance.is_seller = True
+        form.instance.city = "Baku"
         user = form.save()
         # login(self.request, user)
         # return redirect('home')
@@ -265,11 +296,9 @@ def password_reset_request(request):
 
 def validate_username(request):
     # Проверка доступности и валидности и заполняемой формы
-    username = request.GET.get('username', None)
     email = request.GET.get("email", None)
 
     response = {
-        'is_taken': User.objects.filter(username__iexact=username).exists(),
         'is_email': User.objects.filter(email__iexact=email).exists(),
     }
 

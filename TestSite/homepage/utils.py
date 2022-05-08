@@ -8,14 +8,6 @@ from django.core.mail import EmailMessage
 from .models import *
 
 
-menu = [
-    {"title": "HOME", "url_name": "home"},
-    {"title": "ADD PAGE", "url_name": "addpage"},
-    # {"title": "SIGN IN", "url_name": "login"},
-    # {"title": "SIGN UP", "url_name": "register"},
-]
-
-
 def send_email_for_verify(request, user):
     current_site = get_current_site(request)
     domain = current_site.domain
@@ -41,12 +33,6 @@ class DataMixin():
         context = kwargs
         # cats = Category.objects.annotate(Count('tovar'))
         cats = Category.objects.order_by('id')
-
-        user_menu = menu.copy()
-        if not self.request.user.is_authenticated:
-            user_menu.pop(1)
-
-        context['menu'] = user_menu
 
         context['cats'] = cats
         if 'cat_selected' not in context:

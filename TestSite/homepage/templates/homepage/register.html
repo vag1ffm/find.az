@@ -33,8 +33,15 @@
 
                     <div class="log-in-contaner">
                         <i class="fas fa-user"></i>
-                        {{ form.username }}
-                        <div  id="error-of-username">{{ form.username.errors }}</div>
+                        {{ form.first_name }}
+                        <div  id="error-of-username">{{ form.first_name.errors }}</div>
+<!--                        <input type="text" placeholder="Your Full Name">-->
+                    </div>
+
+                    <div class="log-in-contaner">
+                        <i class="fas fa-user"></i>
+                        {{ form.last_name }}
+                        <div  id="error-of-username">{{ form.last_name.errors }}</div>
 <!--                        <input type="text" placeholder="Your Full Name">-->
                     </div>
 
@@ -81,42 +88,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'homepage/js/script.js' %}"></script>
 <script>
-    $(document).ready(function () {
-        // отслеживаем событие отправки формы
-        $('#id_username').focusout(function () {
-            // создаем AJAX-вызов
-            $.ajax({
-                data: $(this).serialize(), // получаяем данные формы
-                url: "{% url 'validate_username' %}",
-                // если успешно, то
-                success: function (response) {
-                    let username = document.getElementById('id_username')
-                    let a = document.getElementById('error-of-username')
-                    if (response.is_taken === true) {
-                        $('#id_username').removeClass('is-valid').addClass('is-invalid');
-                        username.style.border = '2px red solid'
-                        $('#usernameError').remove();
-                        $('#error-of-username').append('<div class="invalid-feedback d-block" id="usernameError">This username is not available!</div>')
-                    }
-                    else {
-                        //
-                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
-                        username.style.border ='2px green solid'
-                        $('#usernameError').remove();
-
-
-
-                    }
-                },
-                // если ошибка, то
-                error: function (response) {
-                    // предупредим об ошибке
-                    console.log(response.responseJSON.errors)
-                }
-            });
-            return false;
-        });
-    });
     $(document).ready(function () {
         // отслеживаем событие отправки формы
         $('#id_email').focusout(function () {
