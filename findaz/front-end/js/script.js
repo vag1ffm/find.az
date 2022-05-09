@@ -393,56 +393,171 @@ function previewFile(file) {
 //
 
 
-
+const kategorii = ['Электроника', 'Компьютеры', 'Бытовая техника', 'Одежда и обувь', "Красота и гигиена"]
 const kategoriya = document.querySelector('#kategoriya')
+for (let i of kategorii) {
+	let option = document.createElement('option')
+	option.value = i
+	option.innerText = i
+	kategoriya.append(option)
+}
 
-const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
+// const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
+// const podkategoriya = document.querySelector('#podkategoriya')
+// kategoriya.addEventListener('click', (event)=> {
+// 	if (kategoriya.value==='Электроника') {
+// 		podkategoriya.innerHTML = ''
+// 		podkategoriya.removeAttribute('disabled')
+// 		for (let i of podkategotii) {
+// 			let option = document.createElement('option')
+// 			option.value = i
+// 			option.innerText = i
+// 			podkategoriya.append(option)
+// 		}
+// 	} else {
+// 		podkategoriya.setAttribute('disabled', '')
+// 	}
+// })
+//
+// const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']
+// const podpodkategoriya = document.querySelector('#podpodkategoriya')
+//
+// podkategoriya.addEventListener('click', (event)=> {
+// 	if (podkategoriya.value==='Смартфоны и гаджеты') {
+// 		podpodkategoriya.innerHTML = ''
+// 		podpodkategoriya.removeAttribute('disabled')
+// 		for (let i of podpodkategotii) {
+// 			let option = document.createElement('option')
+// 			option.value = i
+// 			option.innerText = i
+// 			podpodkategoriya.append(option)
+// 		}
+// 	} else {
+// 		podpodkategoriya.setAttribute('disabled', '')
+// 	}
+// })
+//
+//
+// const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
+//
+// podpodkategoriya.addEventListener('click', (event)=> {
+// 	let inputPlace = document.querySelector('form .inputs')
+// 	inputPlace.innerHTML = ''
+// 	if (podpodkategoriya.value === 'Смартфоны') {
+// 		for (let i of xarakteristika) {
+// 			let input = document.createElement('input')
+// 			let label = document.createElement("label")
+// 			label.innerText = i
+// 			input.type = 'text'
+// 			inputPlace.append(label)
+// 			inputPlace.append(input)
+// 		}
+// 	}
+// })
+
+//
+// const kategoriya = document.querySelector('#kategoriya')
 const podkategoriya = document.querySelector('#podkategoriya')
+const podpodkategoriya = document.querySelector('#podpodkategoriya')
+
+
+
+const podkategotii1 = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника']
 kategoriya.addEventListener('click', (event)=> {
+	console.log(kategoriya.value)
 	if (kategoriya.value==='Электроника') {
 		podkategoriya.innerHTML = ''
 		podkategoriya.removeAttribute('disabled')
-		for (let i of podkategotii) {
+		for (let i of podkategotii1) {
 			let option = document.createElement('option')
 			option.value = i
 			option.innerText = i
 			podkategoriya.append(option)
 		}
-	} else {
-		podkategoriya.setAttribute('disabled', '')
 	}
 })
 
-const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']
-const podpodkategoriya = document.querySelector('#podpodkategoriya')
+
+const podkategotii2 = ['Настольные ПК и моноблоки']
+kategoriya.addEventListener('click', (event)=> {
+	console.log(kategoriya.value)
+	if (kategoriya.value==='2') {
+		podkategoriya.innerHTML = ''
+		podkategoriya.removeAttribute('disabled')
+		for (let i of podkategotii2) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podkategoriya.append(option)
+		}
+		}
+})
+
+
+
+
+const podpodkategotii1 = ['Смартфоны']
 
 podkategoriya.addEventListener('click', (event)=> {
 	if (podkategoriya.value==='Смартфоны и гаджеты') {
 		podpodkategoriya.innerHTML = ''
 		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii) {
+		for (let i of podpodkategotii1) {
 			let option = document.createElement('option')
 			option.value = i
 			option.innerText = i
 			podpodkategoriya.append(option)
 		}
-	} else {
-		podpodkategoriya.setAttribute('disabled', '')
 	}
 })
 
-podpodkategoriya.addEventListener('click', (event)=> {
-	if (podkategoriya.value==='Смартфоны') {
+
+const podpodkategotii2 = []
+
+podkategoriya.addEventListener('click', (event)=> {
+	if (podkategoriya.value==='Видеотехника') {
 		podpodkategoriya.innerHTML = ''
 		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii) {
+		for (let i of podpodkategotii2) {
 			let option = document.createElement('option')
 			option.value = i
 			option.innerText = i
 			podpodkategoriya.append(option)
 		}
-	} else {
-		podpodkategoriya.setAttribute('disabled', '')
 	}
 })
+
+
+const podpodkategotii3 = []
+
+podkategoriya.addEventListener('click', (event)=> {
+	if (podkategoriya.value==='3') {
+		podpodkategoriya.innerHTML = ''
+		podpodkategoriya.removeAttribute('disabled')
+		for (let i of podpodkategotii3) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podpodkategoriya.append(option)
+		}
+	}
+})
+
+
+const podpodkategotii4 = ['Настольные компьютеры','Моноблоки']
+
+podkategoriya.addEventListener('click', (event)=> {
+	if (podkategoriya.value==='4') {
+		podpodkategoriya.innerHTML = ''
+		podpodkategoriya.removeAttribute('disabled')
+		for (let i of podpodkategotii4) {
+			let option = document.createElement('option')
+			option.value = i
+			option.innerText = i
+			podpodkategoriya.append(option)
+		}
+	}
+})
+
+
 
