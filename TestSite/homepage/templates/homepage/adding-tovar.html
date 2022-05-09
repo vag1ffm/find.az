@@ -301,7 +301,7 @@
             const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}'{{ i.name }}',{% endif %}{% endfor %}]
             kategoriya.addEventListener('blur', (event)=> {
                 console.log(kategoriya.value)
-                if (kategoriya.value==='{{ c.pk }}') {
+                if (kategoriya.value==='{{ c.name }}') {
                     podkategoriya.innerHTML = ''
                     podkategoriya.removeAttribute('disabled')
                     for (let i of podkategotii{{ c.id }}) {
