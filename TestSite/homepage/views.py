@@ -126,7 +126,6 @@ def addtovar(request):
             return redirect("home")
     else:
         form = AddTovarForm()
-
     data = {
         'form': form,
         'cat': Category.objects.all(),

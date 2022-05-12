@@ -292,16 +292,16 @@
         </div>
     </div>
     <script>
-            const kategoriya = document.querySelector('#kategoriya')
-            const podkategoriya = document.querySelector('#podkategoriya')
-            const podpodkategoriya = document.querySelector('#podpodkategoriya')
+        const kategoriya = document.querySelector('#kategoriya')
+        const podkategoriya = document.querySelector('#podkategoriya')
+        const podpodkategoriya = document.querySelector('#podpodkategoriya')
 
-        {% for c in cat %}
+        {% for c in cat %}const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}'{{ i.name }}',{% endif %}{% endfor %}];{% endfor %}{% for pc in podcat %}const podpodkategotii{{ pc.id }} = [{% for i in podpodcat %}{% if pc.id == i.mainpodcat.id %}'{{ i.name }}',{% endif %}{% endfor %}];{% endfor %}
 
-            const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}'{{ i.name }}',{% endif %}{% endfor %}]
-            kategoriya.addEventListener('blur', (event)=> {
-                console.log(kategoriya.value)
-                if (kategoriya.value==='{{ c.name }}') {
+        kategoriya.addEventListener('blur', (event)=> {
+            console.log(kategoriya.value)
+            {% for c in cat %}
+                if (kategoriya.value==='{{ c.pk }}') {
                     podkategoriya.innerHTML = ''
                     podkategoriya.removeAttribute('disabled')
                     for (let i of podkategotii{{ c.id }}) {
@@ -310,16 +310,13 @@
                         option.innerText = i
                         podkategoriya.append(option)
                     }
-                }
-            })
-        {% endfor %}
+                } else
+            {% endfor %}{}
+        })
 
-        {% for pc in podcat %}
-            {#const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']#}
-            const podpodkategotii{{ pc.id }} = [{% for i in podpodcat %}{% if pc.id == i.mainpodcat.id %}'{{ i.name }}',{% endif %}{% endfor %}]
-
-            podkategoriya.addEventListener('blur', (event)=> {
-                if (podkategoriya.value==='{{ pc.pk }}') {
+        podkategoriya.addEventListener('blur', (event)=> {
+            {% for pc in podcat %}
+                if (podkategoriya.value==='{{ pc.name }}') {
                     podpodkategoriya.innerHTML = ''
                     podpodkategoriya.removeAttribute('disabled')
                     for (let i of podpodkategotii{{ pc.id }}) {
@@ -328,12 +325,11 @@
                         option.innerText = i
                         podpodkategoriya.append(option)
                     }
-                }
-            })
-        {% endfor %}
+                } else
+            {% endfor %}{}
+        })
 
         const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
-
         podpodkategoriya.addEventListener('click', (event)=> {
             let inputPlace = document.querySelector('form .inputs')
             inputPlace.innerHTML = ''
@@ -348,10 +344,8 @@
                 }
             }
          })
-
     </script>
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'homepage/js/script.js' %}"></script>
-
 </body>
 </html>
