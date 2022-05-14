@@ -400,6 +400,53 @@ body {
   margin: 0 0 0 50px;
 }
 
+
+.swiper {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+.swiper-wrapper {
+    display: flex;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    height: 500px;
+    min-width: 203px;
+    background-color: red;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
 .slayder {
 
   max-width: 1440px;
@@ -578,6 +625,7 @@ main {
   width: 73%;
   overflow: hidden;
     margin-left: 40px;
+    margin-right: 40px;
 
 }
 
@@ -734,7 +782,6 @@ main {
 .reklami {
   margin: 65px 0 0 0;
   width: 22%;
-    height: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -745,7 +792,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-    position: sticky;
+
     top: 30px;
 }
 
@@ -2486,10 +2533,10 @@ form ul li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+      flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -2537,6 +2584,7 @@ form ul li {
         -ms-flex-direction: row;
             flex-direction: row;
     width: 100%;
+      margin-top: 100px;
   }
 
 }

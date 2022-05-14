@@ -392,16 +392,16 @@ function previewFile(file) {
 // })
 //
 
-
-const kategorii = ['Электроника', 'Компьютеры', 'Бытовая техника', 'Одежда и обувь', "Красота и гигиена"]
-const kategoriya = document.querySelector('#kategoriya')
-for (let i of kategorii) {
-	let option = document.createElement('option')
-	option.value = i
-	option.innerText = i
-	kategoriya.append(option)
-}
-
+//
+// const kategorii = ['Электроника', 'Компьютеры', 'Бытовая техника', 'Одежда и обувь', "Красота и гигиена"]
+// const kategoriya = document.querySelector('#kategoriya')
+// for (let i of kategorii) {
+// 	let option = document.createElement('option')
+// 	option.value = i
+// 	option.innerText = i
+// 	kategoriya.append(option)
+// }
+//
 // const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
 // const podkategoriya = document.querySelector('#podkategoriya')
 // kategoriya.addEventListener('click', (event)=> {
@@ -454,110 +454,5 @@ for (let i of kategorii) {
 // 		}
 // 	}
 // })
-
-//
-// const kategoriya = document.querySelector('#kategoriya')
-const podkategoriya = document.querySelector('#podkategoriya')
-const podpodkategoriya = document.querySelector('#podpodkategoriya')
-
-
-
-const podkategotii1 = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника']
-kategoriya.addEventListener('click', (event)=> {
-	console.log(kategoriya.value)
-	if (kategoriya.value==='Электроника') {
-		podkategoriya.innerHTML = ''
-		podkategoriya.removeAttribute('disabled')
-		for (let i of podkategotii1) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podkategoriya.append(option)
-		}
-	}
-})
-
-
-const podkategotii2 = ['Настольные ПК и моноблоки']
-kategoriya.addEventListener('click', (event)=> {
-	console.log(kategoriya.value)
-	if (kategoriya.value==='2') {
-		podkategoriya.innerHTML = ''
-		podkategoriya.removeAttribute('disabled')
-		for (let i of podkategotii2) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podkategoriya.append(option)
-		}
-		}
-})
-
-
-
-
-const podpodkategotii1 = ['Смартфоны']
-
-podkategoriya.addEventListener('click', (event)=> {
-	if (podkategoriya.value==='Смартфоны и гаджеты') {
-		podpodkategoriya.innerHTML = ''
-		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii1) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podpodkategoriya.append(option)
-		}
-	}
-})
-
-
-const podpodkategotii2 = []
-
-podkategoriya.addEventListener('click', (event)=> {
-	if (podkategoriya.value==='Видеотехника') {
-		podpodkategoriya.innerHTML = ''
-		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii2) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podpodkategoriya.append(option)
-		}
-	}
-})
-
-
-const podpodkategotii3 = []
-
-podkategoriya.addEventListener('click', (event)=> {
-	if (podkategoriya.value==='3') {
-		podpodkategoriya.innerHTML = ''
-		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii3) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podpodkategoriya.append(option)
-		}
-	}
-})
-
-
-const podpodkategotii4 = ['Настольные компьютеры','Моноблоки']
-
-podkategoriya.addEventListener('click', (event)=> {
-	if (podkategoriya.value==='4') {
-		podpodkategoriya.innerHTML = ''
-		podpodkategoriya.removeAttribute('disabled')
-		for (let i of podpodkategotii4) {
-			let option = document.createElement('option')
-			option.value = i
-			option.innerText = i
-			podpodkategoriya.append(option)
-		}
-	}
-})
-
 
 
