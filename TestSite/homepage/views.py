@@ -340,14 +340,26 @@ class EmailVerify(View):
 
 
 def crud_favorites(request):
-    print("asjkdghalhbsdlygyugauidgyasgil")
-    r = request.GET.get("heart", None)
-    # ebat = auth.get_user(request)
-    # ebat.favorite_posts.add(Tovar.objects.get(id=1))
+    r = request.GET.get("favorite", None)
+    r = int(r)
+    fav_user = auth.get_user(request)
+
+    response = {
+    }
+
+    if r in [i.id for i in list(fav_user.user_favorite.all())]:
+        fav_user.user_favorite.remove(Tovar.objects.get(id=r))
+        response["is_favorite"] = False
+    else:
+        fav_user.user_favorite.add(Tovar.objects.get(id=r))
+        response["is_favorite"] = True
+
+    return JsonResponse(response)
+
     # ebat.favorite_posts.remove(Tovar.objects.get(id=1))
     # ebat.favorite_posts.all()
 
-    # goods = Tovar.objects.all()
+    # goods = User.objects.all()
     # goods_json = serializers.serialize('json', goods)
     #
     # return HttpResponse(goods_json, content_type='application/json')

@@ -50,7 +50,6 @@ class Tovar(models.Model):
     properties = models.JSONField(verbose_name="Характеристики в подподкатегории")
 
     created_by = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Кем добавлено")
-    users_favorite = models.ManyToManyField("User", related_name='favorite_tovari')
 
     def __str__(self):
         return self.title
@@ -142,6 +141,7 @@ class User(AbstractUser):
     city = models.CharField(max_length=50, verbose_name="Город", blank=True)
     place = models.CharField(max_length=255, verbose_name="Место", blank=True)
     block_number = models.CharField(max_length=50, verbose_name="Номер блока", blank=True)
+    user_favorite = models.ManyToManyField("Tovar", related_name='favorite_tovari')
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
