@@ -284,6 +284,7 @@
                 <br>
 
                 {{ form.properties }}
+                {{ form.properties.errors }}
 
                 <br>
                <button onclick="addTovar()" type="submit">Добавить товар</button>
@@ -292,52 +293,54 @@
         </div>
     </div>
     <script>
-            const kategoriya = document.querySelector('#kategoriya')
-            const podkategoriya = document.querySelector('#podkategoriya')
-            const podpodkategoriya = document.querySelector('#podpodkategoriya')
+        const kategoriya = document.querySelector('#kategoriya')
+        const podkategoriya = document.querySelector('#podkategoriya')
+        const podpodkategoriya = document.querySelector('#podpodkategoriya')
 
-        {% for c in cat %}
+        {% for c in cat %}const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}['{{ i.name }}', {{ i.id }}],{% endif %}{% endfor %}];{% endfor %}
+        {% for pc in podcat %}const podpodkategotii{{ pc.id }} = [{% for i in podpodcat %}{% if pc.id == i.mainpodcat.id %}['{{ i.name }}', {{ i.id }}],{% endif %}{% endfor %}];{% endfor %}
 
-            const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}'{{ i.name }}',{% endif %}{% endfor %}]
-            kategoriya.addEventListener('blur', (event)=> {
-                console.log(kategoriya.value)
-                if (kategoriya.value==='{{ c.name }}') {
+        kategoriya.addEventListener('blur', (event)=> {
+            console.log(kategoriya.value)
+            {% for c in cat %}
+                if (kategoriya.value==='{{ c.id }}') {
                     podkategoriya.innerHTML = ''
                     podkategoriya.removeAttribute('disabled')
                     for (let i of podkategotii{{ c.id }}) {
                         let option = document.createElement('option')
-                        option.value = i
-                        option.innerText = i
+                        option.value = i[1]
+                        option.innerText = i[0]
                         podkategoriya.append(option)
                     }
-                }
-            })
-        {% endfor %}
+                } else
+            {% endfor %}{}
+        })
 
-        {% for pc in podcat %}
-            {#const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']#}
-            const podpodkategotii{{ pc.id }} = [{% for i in podpodcat %}{% if pc.id == i.mainpodcat.id %}'{{ i.name }}',{% endif %}{% endfor %}]
-
-            podkategoriya.addEventListener('blur', (event)=> {
-                if (podkategoriya.value==='{{ pc.pk }}') {
+        podkategoriya.addEventListener('blur', (event)=> {
+            {% for pc in podcat %}
+                if (podkategoriya.value==='{{ pc.id }}') {
                     podpodkategoriya.innerHTML = ''
                     podpodkategoriya.removeAttribute('disabled')
                     for (let i of podpodkategotii{{ pc.id }}) {
                         let option = document.createElement('option')
-                        option.value = i
-                        option.innerText = i
+                        option.value = i[1]
+                        option.innerText = i[0]
                         podpodkategoriya.append(option)
                     }
-                }
-            })
-        {% endfor %}
+                } else
+            {% endfor %}{}
+        })
 
+<<<<<<< HEAD
         const xarakteristika = ['Состояние товара','Производитель','Линейка','Платформа','Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
 
+=======
+        const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
+>>>>>>> f9fd330409a9fb6472ffe515b0e3c06293ab5227
         podpodkategoriya.addEventListener('click', (event)=> {
             let inputPlace = document.querySelector('form .inputs')
             inputPlace.innerHTML = ''
-            if (podpodkategoriya.value === 'Смартфоны') {
+            if (podpodkategoriya.value === '1') {
                 for (let i of xarakteristika) {
                     let input = document.createElement('input')
                     let label = document.createElement("label")
@@ -349,6 +352,21 @@
                 }
             }
         })
+<<<<<<< HEAD
+=======
+
+        let textarea = document.querySelector('#id_properties')
+            function addTovar() {
+                let jsonius = {}
+                let inputs = document.querySelectorAll('form .inputs input')
+                for (let input of inputs) {
+                    jsonius[input.id] = input.value
+                }
+                let a = JSON.stringify(jsonius)
+                textarea.innerText = a
+                console.log(a)
+            }
+>>>>>>> f9fd330409a9fb6472ffe515b0e3c06293ab5227
 
         let textarea = document.querySelector('#id_properties')
         function addTovar() {
@@ -364,6 +382,5 @@
     </script>
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'homepage/js/script.js' %}"></script>
-
 </body>
 </html>

@@ -50,6 +50,7 @@ class Tovar(models.Model):
     properties = models.JSONField(verbose_name="Характеристики в подподкатегории")
 
     created_by = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Кем добавлено")
+    users_favorite = models.ManyToManyField("User", related_name='favorite_tovari')
 
     def __str__(self):
         return self.title
