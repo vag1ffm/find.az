@@ -78,8 +78,8 @@
 								{% for tovar in c %}
 
 									<div class="qlavniy-tovar">
-									<a href="">
-										<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                                        <div class="izbranniy-tovar"><i class="fa-solid fa-heart {{ tovar.pk }}" id="heart"></i></div>
+                                        <a href="{{ tovar.get_absolute_url }}">
 										<div class="qlavniy-tovar-img"><img src="{{ tovar.photo_main.url }}" alt=""></div>
 										<div class="chena">{{ tovar.price }} ₼</div>
 										<div class="reyting">
@@ -118,3 +118,53 @@
 	</div>
 
 {% endblock content %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+        // отслеживаем событие отправки формы
+        $('#heart').click(function () {
+            // создаем AJAX-вызов
+            console.log("ajdsfhsadgfbhjdsaflghgyu")
+            $.ajax({
+                data: $(this).serialize(), // получаяем данные формы
+                url: "{% url 'crud_favorites' %}",
+                // если успешно, то
+                success: function (response) {
+                    let email= document.getElementById('id_email')
+                    let a = document.getElementById('error-of-email')
+
+                    if (response.is_email === true && id_email.value.length) {
+                        $('#id_email').removeClass('is-valid').addClass('is-invalid');
+                        email.style.border = '2px red solid'
+                        $('#emailError').remove();
+                        $('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
+                    }
+                    else {
+                        $('#id_username').removeClass('is-invalid').addClass('is-valid');
+                        $('#emailError').remove();
+
+
+                        if (email.value.length===0) {
+                            a.innerHTML = ' '
+                        }else if (email.value.indexOf('@')===-1) {
+                            a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This email is no email!</div>'
+                            email.style.border = '2px red solid'
+                        } else {
+                            a.innerHTML = ' '
+                            email.style.border ='2px green solid'
+                        }
+                    }
+
+                },
+                // если ошибка, то
+                error: function (response) {
+                    // предупредим об ошибке
+                    console.log(response.responseJSON.errors)
+                }
+            });
+            return false;
+            });
+        })
+    </script>
+{% endblock js %}

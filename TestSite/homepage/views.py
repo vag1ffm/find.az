@@ -1,6 +1,8 @@
+from django.contrib import auth
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
+from django.core import serializers
 from django.core.checks import messages
 from django.http import HttpResponse, HttpResponseNotFound, Http404, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
@@ -137,28 +139,29 @@ def addtovar(request):
     return render(request, 'homepage/adding-tovar.html', data)
 
 
-class ShowTovar(DataMixin, DetailView):
-    model = Tovar
-    template_name = 'homepage/show_tovar.html'
-    slug_url_kwarg = "tovarslug"
-    context_object_name = "tovar"
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title=context['tovar'], cat_selected=context['tovar'].cat_id)
-        return dict(list(context.items()) + list(c_def.items()))
-
-
-# def show_tovar(request, tovarslug):
-#     tovar = get_object_or_404(Tovar, slug=tovarslug)
+# class ShowTovar(DataMixin, DetailView):
+#     model = Tovar
+#     template_name = 'homepage/show-tovar.html'
+#     slug_url_kwarg = "tovarslug"
+#     context_object_name = "tovar"
 #
-#     context = {
-#         'tovar': tovar,
-#         'menu': menu,
-#         'title': tovar.title,
-#         'cat_selected': tovar.cat_id,
-#     }
-#     return render(request, 'homepage/show_tovar.html', context=context)
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         c_def = self.get_user_context(title=context['tovar'], cat_selected=context['tovar'].cat_id)
+#         return dict(list(context.items()) + list(c_def.items()))
+
+
+def show_tovar(request, tovarslug):
+
+    tovar = get_object_or_404(Tovar, slug=tovarslug)
+    store = get_object_or_404(User, email=tovar.created_by)
+
+    context = {
+        'tovar': tovar,
+        'title': tovar.title,
+        'store': store
+    }
+    return render(request, 'homepage/show-tovar.html', context=context)
 
 
 class HomeCategory(DataMixin, ListView):
@@ -173,7 +176,7 @@ class HomeCategory(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
-        return Tovar.objects.filter(cat__slug=self.kwargs['catslug'], is_published=True)
+        return Tovar.objects.filter(cat__slug=self.kwargs['catslug'])
 
 # def show_category(request, catid):
 #     tovari = Tovar.objects.filter(cat_id=catid)
@@ -334,3 +337,17 @@ class EmailVerify(View):
         ):
             user = None
         return user
+
+
+def crud_favorites(request):
+    print("asjkdghalhbsdlygyugauidgyasgil")
+    r = request.GET.get("heart", None)
+    # ebat = auth.get_user(request)
+    # ebat.favorite_posts.add(Tovar.objects.get(id=1))
+    # ebat.favorite_posts.remove(Tovar.objects.get(id=1))
+    # ebat.favorite_posts.all()
+
+    # goods = Tovar.objects.all()
+    # goods_json = serializers.serialize('json', goods)
+    #
+    # return HttpResponse(goods_json, content_type='application/json')
