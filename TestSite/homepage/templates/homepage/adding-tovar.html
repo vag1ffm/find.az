@@ -181,7 +181,7 @@
                     <div class="main-img">
                         <div class="img">
                             <label for="forfile"><i class="fas fa-plus"></i></label>
-{#                          <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
+{#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_main }}
                             {{ form.photo_main.errors }}
                         </div>
@@ -287,7 +287,7 @@
                 {{ form.properties.errors }}
 
                 <br>
-               <button onclick="addTovar()" type="submit">Добавить товар</button>
+               <button type="submit">Добавить товар</button>
             </form>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
@@ -331,12 +331,7 @@
             {% endfor %}{}
         })
 
-<<<<<<< HEAD
-        const xarakteristika = ['Состояние товара','Производитель','Линейка','Платформа','Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
-
-=======
         const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
->>>>>>> f9fd330409a9fb6472ffe515b0e3c06293ab5227
         podpodkategoriya.addEventListener('click', (event)=> {
             let inputPlace = document.querySelector('form .inputs')
             inputPlace.innerHTML = ''
@@ -346,14 +341,11 @@
                     let label = document.createElement("label")
                     label.innerText = i
                     input.type = 'text'
-                    input.id = i
                     inputPlace.append(label)
                     inputPlace.append(input)
                 }
             }
         })
-<<<<<<< HEAD
-=======
 
         let textarea = document.querySelector('#id_properties')
             function addTovar() {
@@ -366,19 +358,7 @@
                 textarea.innerText = a
                 console.log(a)
             }
->>>>>>> f9fd330409a9fb6472ffe515b0e3c06293ab5227
 
-        let textarea = document.querySelector('#id_properties')
-        function addTovar() {
-                let jsonius = {}
-            let inputs = document.querySelectorAll('form .inputs input')
-            for (let input of inputs) {
-                jsonius[input.id] = input.value
-            }
-            let a = JSON.stringify(jsonius)
-            textarea.innerText = a
-            console.log(a)
-        }
     </script>
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'homepage/js/script.js' %}"></script>
