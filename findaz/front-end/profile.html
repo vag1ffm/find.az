@@ -13,6 +13,9 @@
     <title>Интернет магазин Vaga</title>
 </head>
 <body>
+    <div class="preloader">
+        <div class="loading-spinner"></div>
+    </div>
     <header class="desktop-header">
         <div class="pervaya-stupen">
             <div class="logo">
@@ -25,10 +28,11 @@
                     <div class="katalog-text">Каталог</div>
                 </div>
                 <div class="poiskovik">
-                    <label>
+                    <form>
                         <input type="text" placeholder="Искать товары">
-                        <input type="button" value="Найти">
-                    </label>
+                        <input type="submit" value="Найти">
+                    </form>
+
                 </div>
             </div>
             <div class="knopochniy-div">
@@ -50,12 +54,36 @@
                         <div class="korzina-text">Корзина</div>
                     </a>
                 </div>
-                <div  class="voyti">
-                    <a href="login.html">
-                        <div class="voyti-knopka">
-                            <div class="voyti-text">Войти</div>
-                        </div>
-                    </a>
+                <!--				<div  class="voyti">-->
+                <!--					<a href="login.html">-->
+                <!--						<div class="voyti-knopka">-->
+                <!--							<div class="voyti-text">Войти</div>-->
+                <!--						</div>-->
+                <!--					</a>-->
+                <!--				</div>-->
+
+            </div>
+            <!--							<div  class="voyti">-->
+            <!--								<a href="login.html">-->
+            <!--									<div class="voyti-knopka">-->
+            <!--										<div class="voyti-text">Войти</div>-->
+            <!--									</div>-->
+            <!--								</a>-->
+            <!--							</div>-->
+
+            <div  class="logo-of-profile-in-mainpg">
+                <div class="img">
+
+                </div>
+                <div class="perexodi-iz-mainpg">
+                    <h4><a href="">vagamed2002</a></h4>
+                    <ul>
+                        <li><a href="">Профиль</a></li>
+                        <li><a href="">Настройки</a></li>
+                        <li><a href="">Добавить товар</a></li>
+                        <li><a href="">Выход</a></li>
+
+                    </ul>
                 </div>
             </div>
         </div>
@@ -363,7 +391,6 @@
                         </div>
                     </li>
                 </ul>
-
             </div>
             <div class="infa-list-katalogax">
 
@@ -868,185 +895,6 @@
 
         </div>
         <div class="profile-content">
-            <div class="provile-fdiv">
-                <h2>Товары со скидкой</h2>
-                <div class="qlavniye-tovari">
-                <div class="name-razdela-tovarov"></div>
-                <div class="ryad-tovarov">
-                    <button onclick="moveqlavniytovarright()" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
-                    <div class="slayd-tovarov">
-                        <div class="slayd">
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/5938397/picb8c9a4904b019c60ad460996476aeffe/200x200" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4257989/pic86dad514972d684c45194b0ca29e5101/200x200" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5215925/img_id7978832059363239034.jpeg/5hq" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-mpic/5238586/img_id4461247949910274349.jpeg/5hq" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-                            <div class="qlavniy-tovar">
-                                <a href="">
-                                    <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                    <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                    <div class="chena">	142 000p</div>
-                                    <div class="reyting">
-                                        <div class="zvezda">звезды</div>
-                                        <div class="chislo-ochenik">50</div>
-                                    </div>
-                                    <div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-                                    <div class="rekomenduyemost">86% рекомендуют</div>
-                                </a>
-                                <div class="button"><button>В корзину</button></div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <button onclick="moveqlavniytovarleft()" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
-                </div>
-            </div>
-            </div>
             <div class="profile-sdiv">
                 <h2>Все товары</h2>
                 <div class="profile-tdiv">
@@ -1061,145 +909,171 @@
                         </ul>
                     </div>
 
-                <div class="profile-tovari">
-                    <div class="filter-tovar">
-                        <a href="">
-                            <div class="photo">
-                                <div class="img"></div>
-                            </div>
-                            <div class="opisaniye">
-                                <h4>Iphone 15 pro max pox chik chik</h4>
-                                <div class="ochenka">
-                                    <div class="rating">4.8</div>
-                                    <div class="otzivi">388 отзивов</div>
-                                </div>
-                                <div class="opisaniye-tovara">
-                                    <ul>
-                                        <li>13 часов работы</li>
-                                        <li>25 чаосов зарятки</li>
-                                        <li>Найдет илона маска</li>
-                                        <!--                                        <li>Умеет летать на марс</li>-->
-                                        <!--                                        <li>Умеет летать на луту</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="prise">
-                                <div class="contaner">
-                                    <div class="chena">99,999,999rub</div>
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="prise">
-                            <div class="button">
-                                <button>В корзину</button>
-                            </div>
+
+                </div>
+            </div>
+            <div class="provile-fdiv">
+                <h2>Товары со скидкой</h2>
+                <div class="qlavniye-tovari">
+                <div class="name-razdela-tovarov">
+                    <div class="tovari">
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
                         </div>
-                    </div>
-                    <div class="filter-tovar">
-                        <a href="">
-                            <div class="photo">
-                                <div class="img"></div>
-                            </div>
-                            <div class="opisaniye">
-                                <h4>Iphone 15 pro max pox chik chik</h4>
-                                <div class="ochenka">
-                                    <div class="rating">4.8</div>
-                                    <div class="otzivi">388 отзивов</div>
-                                </div>
-                                <div class="opisaniye-tovara">
-                                    <ul>
-                                        <li>13 часов работы</li>
-                                        <li>25 чаосов зарятки</li>
-                                        <li>Найдет илона маска</li>
-                                        <!--                                        <li>Умеет летать на марс</li>-->
-                                        <!--                                        <li>Умеет летать на луту</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="prise">
-                                <div class="contaner">
-                                    <div class="chena">99,999,999rub</div>
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="prise">
-                            <div class="button">
-                                <button>В корзину</button>
-                            </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
                         </div>
-                    </div>
-                    <div class="filter-tovar">
-                        <a href="">
-                            <div class="photo">
-                                <div class="img"></div>
-                            </div>
-                            <div class="opisaniye">
-                                <h4>Iphone 15 pro max pox chik chik</h4>
-                                <div class="ochenka">
-                                    <div class="rating">4.8</div>
-                                    <div class="otzivi">388 отзивов</div>
-                                </div>
-                                <div class="opisaniye-tovara">
-                                    <ul>
-                                        <li>13 часов работы</li>
-                                        <li>25 чаосов зарятки</li>
-                                        <li>Найдет илона маска</li>
-                                        <!--                                        <li>Умеет летать на марс</li>-->
-                                        <!--                                        <li>Умеет летать на луту</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="prise">
-                                <div class="contaner">
-                                    <div class="chena">99,999,999rub</div>
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="prise">
-                            <div class="button">
-                                <button>В корзину</button>
-                            </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
                         </div>
-                    </div>
-                    <div class="filter-tovar">
-                        <a href="">
-                            <div class="photo">
-                                <div class="img"></div>
-                            </div>
-                            <div class="opisaniye">
-                                <h4>Iphone 15 pro max pox chik chik</h4>
-                                <div class="ochenka">
-                                    <div class="rating">4.8</div>
-                                    <div class="otzivi">388 отзивов</div>
-                                </div>
-                                <div class="opisaniye-tovara">
-                                    <ul>
-                                        <li>13 часов работы</li>
-                                        <li>25 чаосов зарятки</li>
-                                        <li>Найдет илона маска</li>
-                                        <!--                                        <li>Умеет летать на марс</li>-->
-                                        <!--                                        <li>Умеет летать на луту</li>-->
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="prise">
-                                <div class="contaner">
-                                    <div class="chena">99,999,999rub</div>
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </a>
-                        <div class="prise">
-                            <div class="button">
-                                <button>В корзину</button>
-                            </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
+                        </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
+                        </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
+                        </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
+                        </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
+                        </div>
+                        <div class="qlavniy-tovar">
+                            <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                            <a href="">
+                                <div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
+                                <span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+                            </a>
+                            <div class="button"><button>В корзину</button></div>
                         </div>
                     </div>
                 </div>
-                </div>
+
+            </div>
             </div>
 
         </div>

@@ -1,3 +1,13 @@
+document.body.onload = function () {
+	setTimeout(()=>{
+		let preloader = document.querySelector('.preloader')
+		if (!preloader.classList.contains('done-of-load')) {
+			preloader.classList.add('done-of-load')
+		}
+	},1000)
+}
+
+
 function movekatalog() {
 	let a = document.querySelector('.katalogi')
 	if (a.style.top === '62px') {
@@ -31,29 +41,6 @@ function showkatalog(i) {
 let width = 203;
 let count = 1;
 let position = 0;
-
-
-let btnMoveLefts = document.querySelectorAll('.v-slayder-tovarov')
-btnMoveLefts.forEach(btnMoveLeft => btnMoveLeft.addEventListener("click", (event)=>{
-	let a = event.target
-	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
-	let listElems = list.querySelectorAll('.qlavniy-tovar')
-	position = list.style.marginLeft.split('px').join('')
-	position -= width * count;
-	position = Math.max(position, -width * (listElems.length-4 - count));
-	list.style.marginLeft = position + 'px';
-}))
-
-let btnMoveRights = document.querySelectorAll('.p-slayder-tovarov')
-btnMoveRights.forEach(btnMoveRight => btnMoveRight.addEventListener("click", (event)=>{
-	let a = event.target
-	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
-	position = list.style.marginLeft.split('px').join('')
-	position =+position+ width * count;
-	position = Math.min(position, 0)
-	list.style.marginLeft = position +'px';
-
-}))
 
 
 function showleftbar() {
