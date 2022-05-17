@@ -1,11 +1,11 @@
-document.body.onload = function () {
-	setTimeout(()=>{
-		let preloader = document.querySelector('.preloader')
-		if (!preloader.classList.contains('done-of-load')) {
-			preloader.classList.add('done-of-load')
-		}
-	},1000)
-}
+// document.body.onload = function () {
+// 	setTimeout(()=>{
+// 		let preloader = document.querySelector('.preloader')
+// 		if (!preloader.classList.contains('done-of-load')) {
+// 			preloader.classList.add('done-of-load')
+// 		}
+// 	},1000)
+// }
 
 
 function movekatalog() {
@@ -269,43 +269,42 @@ function showAddBar() {
 		}
 	})
 }
+function showAddBarm() {
+	let leftAddBar = document.querySelector('.add-left-bar')
+	let divTexts = document.querySelectorAll('.add-left-bar>ul>li>.left>div')
+	let leftIconOfAngels = document.querySelectorAll('.add-left-bar>ul>li>i')
+	divTexts.forEach(divText => {
 
+			divText.style.display = 'block';
+			divText.style.opacity = '1';
 
+	})
+	leftIconOfAngels.forEach(leftIconOfAngel => {
 
-// function previewFile() {
-// 	var preview = document.querySelector('img');
-// 	var files = document.querySelector('input[type=file]').files[0];
-// 	var reader = new FileReader();
-// 	console.log(reader.readAsDataURL(files))
-// 	// files.forEach(file => {
-// 	// 	let img = document.createElement('img')
-// 	// 	img.src = reader.result
-// 	// 	img.append('.tovar-imgs')
-// 	// 	if (file) {
-// 	// 			reader.readAsDataURL(file);
-// 	// 		} else {
-// 	// 			preview.src = "";
-// 	// 		}
-// 	// })
-// 	// reader.onloadend = function () {
-// 	// 	preview.src = reader.result;
-// 	// }
-// 	//
-// 	// if (file) {
-// 	// 	reader.readAsDataURL(file);
-// 	// } else {
-// 	// 	preview.src = "";
-// 	// }
-// }
+			leftIconOfAngel.style.display = 'block';
+			leftIconOfAngel.style.opacity = '1';
+			leftAddBar.style.width = '213px';
+
+	})
+}
+function hideAddBarm() {
+	let leftAddBar = document.querySelector('.add-left-bar')
+	let divTexts = document.querySelectorAll('.add-left-bar>ul>li>.left>div')
+	let leftIconOfAngels = document.querySelectorAll('.add-left-bar>ul>li>i')
+	divTexts.forEach(divText => {
+		divText.style.display = 'none';
+		divText.style.opacity = '0';
+	})
+	leftIconOfAngels.forEach(leftIconOfAngel => {
+		leftIconOfAngel.style.display = 'none';
+		leftAddBar.style.width = '55px';
+	})
+}
 
 function previewFile(file) {
-	// var preview = document.querySelector('img');
-	// var files = document.querySelector('.input[type=file]');
-	// let mainImg = document.querySelectorAll('.main-img img')
-	console.log(file.parentElement)
 	let img = file.parentElement
 	try {
-		img.querySelector('i').remove()
+		img.querySelector('label').remove()
 	} catch  {
 	}
 
@@ -315,131 +314,24 @@ function previewFile(file) {
 		img.style.backgroundImage = `url("${reader.result}")`
 		img.style.border = 'none'
 	}
+	let delIco = '<div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>'
+	file.parentElement.innerHTML += delIco
 
-	// for (let i of files) {
-	// 	if (mainImg.length === 0) {
-	// 		let reader = new FileReader();
-	// 		reader.readAsDataURL(i);
-	// 		reader.onload = function () {
-	// 			let img = document.createElement('img');
-	// 			img.src = reader.result
-	// 			document.querySelector('.main-img').append(img)
-	// 		}
-	// 	} else {
-	// 		let reader = new FileReader();
-	// 		reader.readAsDataURL(i);
-	// 		reader.onload = function () {
-	// 			let img = document.createElement('img');
-	// 			img.src = reader.result
-	// 			document.querySelector('.tovar-imgs .imgs').append(img)
-	// 		}
-	//
-	// 	}
-	// }
+
 }
 
+function delPhoto(i) {
+	let input = i.parentElement.querySelector('input')
+	let img =  i.parentElement
+	let n = img.classList[1]
+	let delIco = i
+	delIco.remove()
+	input.value = ''
+	img.style.backgroundImage = ''
+	img.style.border = '2px #000 solid'
+	let label = `<label for='forfile${n}'><i class="fas fa-plus"></i></label>`
+	img.innerHTML += label
+}
 
-
-	//
-	// files.forEach(file => {
-	// 	var reader  = new FileReader();
-	// 	reader.readAsDataURL(file);
-	// 	console.log(file)
-	// })
-
-
-
-	// reader.onloadend = function () {
-	// 	let img = document.createElement('img');
-	// 	img.src = reader.result
-	// 	console.log()
-	// 	document.querySelector('.tovar-imgs').append(img)
-	// }
-	// let img = document.createElement('img');
-	// img.src = reader.result
-	// document.querySelector('.tovar-imgs').append(img)
-
-	// if (file) {
-	// 	reader.readAsDataURL(file);
-	// } else {
-	// 	preview.src = "";
-	// }
-
-
-
-
-
-
-// window.addEventListener('click', (event)=>{
-// 	console.log(event.view.innerWidth)
-// 	if (event.view.innerWidth <=700) {
-// 		showAddBar()
-// 	}
-// 	console.log(event.view.innerWidth)
-// })
-//
-
-//
-// const kategorii = ['Электроника', 'Компьютеры', 'Бытовая техника', 'Одежда и обувь', "Красота и гигиена"]
-// const kategoriya = document.querySelector('#kategoriya')
-// for (let i of kategorii) {
-// 	let option = document.createElement('option')
-// 	option.value = i
-// 	option.innerText = i
-// 	kategoriya.append(option)
-// }
-//
-// const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
-// const podkategoriya = document.querySelector('#podkategoriya')
-// kategoriya.addEventListener('click', (event)=> {
-// 	if (kategoriya.value==='Электроника') {
-// 		podkategoriya.innerHTML = ''
-// 		podkategoriya.removeAttribute('disabled')
-// 		for (let i of podkategotii) {
-// 			let option = document.createElement('option')
-// 			option.value = i
-// 			option.innerText = i
-// 			podkategoriya.append(option)
-// 		}
-// 	} else {
-// 		podkategoriya.setAttribute('disabled', '')
-// 	}
-// })
-//
-// const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']
-// const podpodkategoriya = document.querySelector('#podpodkategoriya')
-//
-// podkategoriya.addEventListener('click', (event)=> {
-// 	if (podkategoriya.value==='Смартфоны и гаджеты') {
-// 		podpodkategoriya.innerHTML = ''
-// 		podpodkategoriya.removeAttribute('disabled')
-// 		for (let i of podpodkategotii) {
-// 			let option = document.createElement('option')
-// 			option.value = i
-// 			option.innerText = i
-// 			podpodkategoriya.append(option)
-// 		}
-// 	} else {
-// 		podpodkategoriya.setAttribute('disabled', '')
-// 	}
-// })
-//
-//
-// const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
-//
-// podpodkategoriya.addEventListener('click', (event)=> {
-// 	let inputPlace = document.querySelector('form .inputs')
-// 	inputPlace.innerHTML = ''
-// 	if (podpodkategoriya.value === 'Смартфоны') {
-// 		for (let i of xarakteristika) {
-// 			let input = document.createElement('input')
-// 			let label = document.createElement("label")
-// 			label.innerText = i
-// 			input.type = 'text'
-// 			inputPlace.append(label)
-// 			inputPlace.append(input)
-// 		}
-// 	}
-// })
 
 

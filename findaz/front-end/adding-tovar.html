@@ -22,7 +22,7 @@
         </div>
     </header>
     <div class="add-main">
-        <div class="add-left-bar" style="width: 55px;">
+        <div class="add-left-bar" onmouseleave="hideAddBarm()" onmouseenter="showAddBarm()" style="width: 55px;">
             <ul>
                 <li><div class="left"><i class="fas fa-box"></i> <div style="display: none;">Товары</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
                 <li><div class="left"><i class="fab fa-opencart"></i> <div style="display: none;">Заказы</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
@@ -124,55 +124,49 @@
                     <li>чёткие цветные фотографии</li>
                     <li>отрисованные макеты</li>
                     <li>видео</li>
-                    <li>3D-модели</li>
                 </ul>
                 <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
                 <br>
-                <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
                 <div class="tovar-imgs">
-                    <div class="main-img">
-                        <div class="img">
-                            <label for="forfile"><i class="fas fa-plus"></i></label>
-                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">
-                        </div>
-
-
-                    </div>
                     <div class="imgs">
-                        <div class="img">
-                            <label for="forfile1"><i class="fas fa-plus"></i></label>
-                            <input id="forfile1"  type="file" multiple onchange="previewFile(this)">
+                        <div class="main-img">
+                            <div class="img 1">
+                                <label for="forfile1"><i class="fas fa-plus"></i></label>
+                                <input id="forfile1"  type="file"  onchange="previewFile(this)">
+                            </div>
                         </div>
-                        <div class="img">
+                        <div class="img 2">
                             <label for="forfile2"><i class="fas fa-plus"></i></label>
-                            <input id="forfile2"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile2"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 3">
                             <label for="forfile3"><i class="fas fa-plus"></i></label>
-                            <input id="forfile3"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile3"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 4">
                             <label for="forfile4"><i class="fas fa-plus"></i></label>
-                            <input id="forfile4"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile4"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 5">
                             <label for="forfile5"><i class="fas fa-plus"></i></label>
-                            <input id="forfile5"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile5"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 6">
                             <label for="forfile6"><i class="fas fa-plus"></i></label>
-                            <input id="forfile6"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile6"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 7">
                             <label for="forfile7"><i class="fas fa-plus"></i></label>
-                            <input id="forfile7"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile7"  type="file"  onchange="previewFile(this)">
                         </div>
-                        <div class="img">
+                        <div class="img 8">
                             <label for="forfile8"><i class="fas fa-plus"></i></label>
-                            <input id="forfile8"  type="file" multiple onchange="previewFile(this)">
+                            <input id="forfile8"  type="file"  onchange="previewFile(this)">
                         </div>
-
-
+                        <div class="img 9">
+                            <label for="forfile9"><i class="fas fa-plus"></i></label>
+                            <input id="forfile9"  type="file"  onchange="previewFile(this)">
+                        </div>
                     </div>
                 </div>
 <!--                <div class="main-input">-->
@@ -185,22 +179,7 @@
                 <h2>Характеристики в категории</h2>
                 <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
                 <div class="dobavleniye-xarakteristiki">
-                    <div class="row">
-                        <div>
-                            <label>Название</label>
-                            <input class="nazvaniye-dovaleniye-tovara" type="text">
-                        </div>
-                        <div>
-                            <label>Значение</label>
-                            <input class="znacheniye-dovaleniye-tovara" type="text">
-                        </div>
-                        <div>
-                            <label>Единицы измерения</label>
-                            <input class="edin-izmereniye-dovaleniye-tovara" type="text">
-                        </div>
 
-                        <div onclick="delRow()" class="icon"><i class="fas fa-times"></i></div>
-                    </div>
                 </div>
                 <div class="button">
                     <button onclick="btnAddXarakter()" class="btn-add-xarakret">
