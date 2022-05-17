@@ -178,24 +178,25 @@
                 <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
 {#                <input type="file" accept="/image" >#}
                 <div class="tovar-imgs">
-                    <div class="main-img">
-                        <div class="img">
-                            <label for="forfile"><i class="fas fa-plus"></i></label>
-{#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
-                            {{ form.photo_main }}
-                            {{ form.photo_main.errors }}
-                        </div>
-
-
-                    </div>
                     <div class="imgs">
+                        <div class="main-img">
+                            <div class="img">
+                                <div style="display: none" class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <label for="forfile"><i class="fas fa-plus"></i></label>
+                                {#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
+                                {{ form.photo_main }}
+                                {{ form.photo_main.errors }}
+                            </div>
+                        </div>
                         <div class="img">
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
                             <label for="forfile1"><i class="fas fa-plus"></i></label>
 {#                            <input id="forfile1"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_1 }}
                             {{ form.photo_1.errors }}
                         </div>
                         <div class="img">
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
                             <label for="forfile2"><i class="fas fa-plus"></i></label>
 {#                            <input id="forfile2"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_2 }}
@@ -339,10 +340,14 @@
                 for (let i of xarakteristika) {
                     let input = document.createElement('input')
                     let label = document.createElement("label")
-                    label.innerText = i
+                    let div = document.createElement('div')
                     input.type = 'text'
-                    inputPlace.append(label)
-                    inputPlace.append(input)
+                    label.innerText = i
+                    // inputPlace.append(label)
+                    // inputPlace.append(input)
+                    div.append(label)
+                    div.append(input)
+                    inputPlace.append(div)
                 }
             }
         })

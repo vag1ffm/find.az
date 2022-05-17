@@ -1,3 +1,13 @@
+// document.body.onload = function () {
+// 	setTimeout(()=>{
+// 		let preloader = document.querySelector('.preloader')
+// 		if (!preloader.classList.contains('done-of-load')) {
+// 			preloader.classList.add('done-of-load')
+// 		}
+// 	},1000)
+// }
+
+
 function movekatalog() {
 	let a = document.querySelector('.katalogi')
 	if (a.style.top === '62px') {
@@ -31,29 +41,6 @@ function showkatalog(i) {
 let width = 203;
 let count = 1;
 let position = 0;
-
-
-let btnMoveLefts = document.querySelectorAll('.v-slayder-tovarov')
-btnMoveLefts.forEach(btnMoveLeft => btnMoveLeft.addEventListener("click", (event)=>{
-	let a = event.target
-	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
-	let listElems = list.querySelectorAll('.qlavniy-tovar')
-	position = list.style.marginLeft.split('px').join('')
-	position -= width * count;
-	position = Math.max(position, -width * (listElems.length-4 - count));
-	list.style.marginLeft = position + 'px';
-}))
-
-let btnMoveRights = document.querySelectorAll('.p-slayder-tovarov')
-btnMoveRights.forEach(btnMoveRight => btnMoveRight.addEventListener("click", (event)=>{
-	let a = event.target
-	let list = a.closest('.ryad-tovarov').querySelector('.slayd')
-	position = list.style.marginLeft.split('px').join('')
-	position =+position+ width * count;
-	position = Math.min(position, 0)
-	list.style.marginLeft = position +'px';
-
-}))
 
 
 function showleftbar() {
@@ -282,167 +269,70 @@ function showAddBar() {
 		}
 	})
 }
+function showAddBarm() {
+	let leftAddBar = document.querySelector('.add-left-bar')
+	let divTexts = document.querySelectorAll('.add-left-bar>ul>li>.left>div')
+	let leftIconOfAngels = document.querySelectorAll('.add-left-bar>ul>li>i')
+	divTexts.forEach(divText => {
 
+			divText.style.display = 'block';
+			divText.style.opacity = '1';
 
+	})
+	leftIconOfAngels.forEach(leftIconOfAngel => {
 
-// function previewFile() {
-// 	var preview = document.querySelector('img');
-// 	var files = document.querySelector('input[type=file]').files[0];
-// 	var reader = new FileReader();
-// 	console.log(reader.readAsDataURL(files))
-// 	// files.forEach(file => {
-// 	// 	let img = document.createElement('img')
-// 	// 	img.src = reader.result
-// 	// 	img.append('.tovar-imgs')
-// 	// 	if (file) {
-// 	// 			reader.readAsDataURL(file);
-// 	// 		} else {
-// 	// 			preview.src = "";
-// 	// 		}
-// 	// })
-// 	// reader.onloadend = function () {
-// 	// 	preview.src = reader.result;
-// 	// }
-// 	//
-// 	// if (file) {
-// 	// 	reader.readAsDataURL(file);
-// 	// } else {
-// 	// 	preview.src = "";
-// 	// }
-// }
+			leftIconOfAngel.style.display = 'block';
+			leftIconOfAngel.style.opacity = '1';
+			leftAddBar.style.width = '213px';
+
+	})
+}
+function hideAddBarm() {
+	let leftAddBar = document.querySelector('.add-left-bar')
+	let divTexts = document.querySelectorAll('.add-left-bar>ul>li>.left>div')
+	let leftIconOfAngels = document.querySelectorAll('.add-left-bar>ul>li>i')
+	divTexts.forEach(divText => {
+		divText.style.display = 'none';
+		divText.style.opacity = '0';
+	})
+	leftIconOfAngels.forEach(leftIconOfAngel => {
+		leftIconOfAngel.style.display = 'none';
+		leftAddBar.style.width = '55px';
+	})
+}
 
 function previewFile(file) {
-	// var preview = document.querySelector('img');
-	// var files = document.querySelector('.input[type=file]');
-	// let mainImg = document.querySelectorAll('.main-img img')
-	console.log(file.parentElement)
+	console.log(this)
 	let img = file.parentElement
 	try {
-		img.querySelector('i').remove()
+		img.querySelector('label').remove()
 	} catch  {
 	}
-
 	let reader = new FileReader();
+
 	reader.readAsDataURL(file.files[0]);
 	reader.onload = function () {
 		img.style.backgroundImage = `url("${reader.result}")`
 		img.style.border = 'none'
 	}
+	let a = document.querySelector('.del-img')
+	a.style.display = 'flex'
 
-	// for (let i of files) {
-	// 	if (mainImg.length === 0) {
-	// 		let reader = new FileReader();
-	// 		reader.readAsDataURL(i);
-	// 		reader.onload = function () {
-	// 			let img = document.createElement('img');
-	// 			img.src = reader.result
-	// 			document.querySelector('.main-img').append(img)
-	// 		}
-	// 	} else {
-	// 		let reader = new FileReader();
-	// 		reader.readAsDataURL(i);
-	// 		reader.onload = function () {
-	// 			let img = document.createElement('img');
-	// 			img.src = reader.result
-	// 			document.querySelector('.tovar-imgs .imgs').append(img)
-	// 		}
-	//
-	// 	}
-	// }
+
+}
+
+function delPhoto(i) {
+	let input = i.parentElement.querySelector('input')
+	let img =  i.parentElement
+	let n = img.classList[1]
+	let delIco = i
+	delIco.remove()
+	input.value = ''
+	img.style.backgroundImage = ''
+	img.style.border = '2px #000 solid'
+	let label = `<label for='forfile${n}'><i class="fas fa-plus"></i></label>`
+	img.innerHTML += label
 }
 
 
-
-	//
-	// files.forEach(file => {
-	// 	var reader  = new FileReader();
-	// 	reader.readAsDataURL(file);
-	// 	console.log(file)
-	// })
-
-
-
-	// reader.onloadend = function () {
-	// 	let img = document.createElement('img');
-	// 	img.src = reader.result
-	// 	console.log()
-	// 	document.querySelector('.tovar-imgs').append(img)
-	// }
-	// let img = document.createElement('img');
-	// img.src = reader.result
-	// document.querySelector('.tovar-imgs').append(img)
-
-	// if (file) {
-	// 	reader.readAsDataURL(file);
-	// } else {
-	// 	preview.src = "";
-	// }
-
-
-
-
-
-
-// window.addEventListener('click', (event)=>{
-// 	console.log(event.view.innerWidth)
-// 	if (event.view.innerWidth <=700) {
-// 		showAddBar()
-// 	}
-// 	console.log(event.view.innerWidth)
-// })
-//
-
-
-
-// const kategoriya = document.querySelector('#kategoriya')
-//
-// const podkategotii = ['Смартфоны и гаджеты','Телевизоры и аксессуары','Видеотехника','Сетевое оборудование и связь']
-// const podkategoriya = document.querySelector('#podkategoriya')
-// kategoriya.addEventListener('click', (event)=> {
-// 	if (kategoriya.value==='1') {
-// 		podkategoriya.innerHTML = ''
-// 		podkategoriya.removeAttribute('disabled')
-// 		for (let i of podkategotii) {
-// 			let option = document.createElement('option')
-// 			option.value = i
-// 			option.innerText = i
-// 			podkategoriya.append(option)
-// 		}
-// 	} else {
-// 		podkategoriya.setAttribute('disabled', '')
-// 	}
-// })
-//
-// const podpodkategotii = ['Смартфоны','Уцененные и б/у смартфоны','Кнопочные телефоны','Умные часы и браслеты']
-// const podpodkategoriya = document.querySelector('#podpodkategoriya')
-//
-// podkategoriya.addEventListener('click', (event)=> {
-// 	if (podkategoriya.value==='Смартфоны и гаджеты') {
-// 		podpodkategoriya.innerHTML = ''
-// 		podpodkategoriya.removeAttribute('disabled')
-// 		for (let i of podpodkategotii) {
-// 			let option = document.createElement('option')
-// 			option.value = i
-// 			option.innerText = i
-// 			podpodkategoriya.append(option)
-// 		}
-// 	} else {
-// 		podpodkategoriya.setAttribute('disabled', '')
-// 	}
-// })
-
-// podpodkategoriya.addEventListener('click', (event)=> {
-// 	if (podkategoriya.value==='Смартфоны') {
-// 		podpodkategoriya.innerHTML = ''
-// 		podpodkategoriya.removeAttribute('disabled')
-// 		for (let i of podpodkategotii) {
-// 			let option = document.createElement('option')
-// 			option.value = i
-// 			option.innerText = i
-// 			podpodkategoriya.append(option)
-// 		}
-// 	} else {
-// 		podpodkategoriya.setAttribute('disabled', '')
-// 	}
-// })
 
