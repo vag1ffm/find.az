@@ -41,7 +41,6 @@
             <form class="add-form" action="{% url 'addtovar' %}" method="post" enctype="multipart/form-data">
                 <div class="first-form">
 
-
                 {% csrf_token %}
                 <label>Название товара</label>
 {#                <input class="name-of-tovar" placeholder="Название товара" type="text">#}
@@ -65,6 +64,7 @@
                     {{ form.for_adult }}
                     {{ form.for_adult.errors }}
                 </div>
+
 
 {#                <datalist id="katalogs">#}
 {#                    <option value="Электроника">#}
@@ -151,10 +151,12 @@
 {#                <input class="srok-qarantii" type="text">#}
                 {{ form.guarantee_period }}
                 {{ form.guarantee_period.errors }}
+                <br>
+                    <div class="button"> <div class="my-btn" onclick="showSecondForm(this)">Далее</div></div>
+                    <hr>
                 </div>
+
                 <div class="second-form" style="display: none">
-
-
                 <h2>Изображения</h2>
                 <p>Добавьте хотя бы одно изображение товара, а лучше несколько. Тогда мы сможем быстро проверить товар и создать карточку, если её ещё нет на Маркете. Изображения должны соответствовать требованиям.</p>
                 <strong>Мы принимаем:</strong>
@@ -171,60 +173,66 @@
                 <div class="tovar-imgs">
                     <div class="imgs">
                         <div class="main-img">
-                            <div class="img">
-                                <div style="display: none" class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-                                <label for="forfile"><i class="fas fa-plus"></i></label>
-                                {#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
+                            <div class="img 1">
+                                <label for="forfile1"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+    {#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
                                 {{ form.photo_main }}
                                 {{ form.photo_main.errors }}
                             </div>
                         </div>
-                        <div class="img">
+                        <div class="img 2">
+                            <label for="forfile2"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-                            <label for="forfile1"><i class="fas fa-plus"></i></label>
 {#                            <input id="forfile1"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_1 }}
                             {{ form.photo_1.errors }}
                         </div>
-                        <div class="img">
+                        <div class="img 3">
+                            <label for="forfile3"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-                            <label for="forfile2"><i class="fas fa-plus"></i></label>
 {#                            <input id="forfile2"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_2 }}
                             {{ form.photo_2.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile3"><i class="fas fa-plus"></i></label>
+                        <div class="img 4">
+                            <label for="forfile4"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile3"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_3 }}
                             {{ form.photo_3.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile4"><i class="fas fa-plus"></i></label>
+                        <div class="img 5">
+                            <label for="forfile5"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile4"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_4 }}
                             {{ form.photo_4.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile5"><i class="fas fa-plus"></i></label>
+                        <div class="img 6">
+                            <label for="forfile6"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile5"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_5 }}
                             {{ form.photo_5.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile6"><i class="fas fa-plus"></i></label>
+                        <div class="img 7">
+                            <label for="forfile7"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile6"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_6 }}
                             {{ form.photo_6.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile7"><i class="fas fa-plus"></i></label>
+                        <div class="img 8">
+                            <label for="forfile8"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile7"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_7 }}
                             {{ form.photo_7.errors }}
                         </div>
-                        <div class="img">
-                            <label for="forfile8"><i class="fas fa-plus"></i></label>
+                        <div class="img 9">
+                            <label for="forfile9"><i class="fas fa-plus"></i></label>
+                            <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
 {#                            <input id="forfile8"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_8 }}
                             {{ form.photo_8.errors }}
@@ -236,28 +244,26 @@
 
                 <h2>Характеристики в категории</h2>
                 <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
-                <div class="dobavleniye-xarakteristiki">
-                    <label>Категория товара</label>
-                    {#                <input class="vibor-kataloga" type="text" list="katalogs">#}
-                    {{ form.cat }}
-                    {{ form.cat.errors }}
+                <label>Категория товара</label>
+{#                <input class="vibor-kataloga" type="text" list="katalogs">#}
+                {{ form.cat }}
+                {{ form.cat.errors }}
 
-                    {{ form.podcat }}
-                    {{ form.podcat.errors }}
+                {{ form.podcat }}
+                {{ form.podcat.errors }}
 
-                    {{ form.podpodcat }}
-                    {{ form.podpodcat.errors }}
+                {{ form.podpodcat }}
+                {{ form.podpodcat.errors }}
 
-                    <div class="inputs">
-
-                    </div>
-{#
-                </div>
+                <div class="inputs">
 
                 </div>
+                <div class="button"> <div class="my-btn" onclick="showThirdForm(this)">Схоранить</div></div>
+
+                </div>
+
                 <div class="third-form" style="display: none">
                 <h2>Размещение в магазинах</h2>
-                <p>Для каждого магазина передайте цену, доступный остаток и другие параметры, которые нужны для организации поставки на склад или доставки покупателю.</p>
                 <label>Цена</label>
 {#                <input class="chena" type="text">#}
                 {{ form.price }}
@@ -274,7 +280,7 @@
 
                 <br>
                <button type="submit">Добавить товар</button>
-                </div>
+               </div>
             </form>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
@@ -327,10 +333,9 @@
                     let input = document.createElement('input')
                     let label = document.createElement("label")
                     let div = document.createElement('div')
-                    input.type = 'text'
                     label.innerText = i
-                    // inputPlace.append(label)
-                    // inputPlace.append(input)
+                    input.id = i
+                    input.type = 'text'
                     div.append(label)
                     div.append(input)
                     inputPlace.append(div)
@@ -338,20 +343,67 @@
             }
         })
 
+        function translit(word){
+            let answer = '';
+            let converter = {
+                'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
+                'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
+                'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
+                'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
+                'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
+                'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
+                'э': 'e',    'ю': 'yu',   'я': 'ya',
+
+                'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
+                'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
+                'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
+                'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
+                'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
+                'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
+                'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya', ' ': ''
+            };
+
+            for (let i = 0; i < word.length; ++i ) {
+                if (converter[word[i]] == undefined){
+                    answer += word[i];
+                } else {
+                    answer += converter[word[i]];
+                }
+            }
+
+            return answer;
+        }
+
         let textarea = document.querySelector('#id_properties')
             function addTovar() {
                 let jsonius = {}
                 let inputs = document.querySelectorAll('form .inputs input')
                 for (let input of inputs) {
-                    jsonius[input.id] = input.value
+                    if (input.value === '') {
+                        jsonius[translit(input.id).toLowerCase()] = [input.id, null]
+                    } else {
+                        jsonius[translit(input.id).toLowerCase()] = [input.id, input.value]
+
+                    }
                 }
                 let a = JSON.stringify(jsonius)
                 textarea.innerText = a
                 console.log(a)
             }
 
+        function showThirdForm() {
+            let secondForm = document.querySelector('.third-form')
+            secondForm.style.display = 'block'
+            addTovar()
+        }
+        let property = {'url': ['vaga','amir']}
+        for (let i of Object.keys(property)) {
+            console.log(i)
+        }
+
     </script>
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'homepage/js/script.js' %}"></script>
 </body>
 </html>
+
