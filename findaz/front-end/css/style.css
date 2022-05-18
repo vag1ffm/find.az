@@ -588,7 +588,7 @@ main .tovari {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .complekt-tovarov h1{
@@ -883,6 +883,7 @@ footer{
     left: 0;
     background: #111;
     z-index: 2;
+    margin-top: 50px;
 }
 footer .content{
     width: 95%;
@@ -1496,6 +1497,9 @@ input {
   width: 80%;
 }
 
+.izbranniy-content h2 {
+    margin-bottom: 30px;
+}
 .izbranniye-tovari {
   margin-top: 50px;
   display: -webkit-box;
