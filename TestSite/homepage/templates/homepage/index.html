@@ -1,15 +1,30 @@
 {% extends 'homepage/layout.html' %}
 {% load static %}
 
+{% block ogmeta %}
+    <meta name="description" content="FindAz - cамый лучший интернет магазин в Азербайджане, в котором есть всё! Вы можете найти любой товар который вам нужен и узнать о нём все что нужно, чтобы сходить в магазин и купить его или же заказть его через нас">
+    <meta name="Keywords" content="FindAz, Интернет магазин, FindAz - cамый лучший интернет магазин в котором есть всё!, категори, каталоги">
+    <meta property="og:title" content="FindAz - лучший интернет магазин в Азербайджане">
+    <meta property="og:image" content="<img class='redactor-autoparser-object'=''='' src='{% static 'homepage/img/icon-of-site.webp' %}' >'='">
+    <meta property="og:url" content="https://findaz.pythonanywhere.com/">
+    <meta property="og:description" content="FindAz - cамый лучший интернет магазин в Азербайджане, в котором есть всё! Вы можете найти любой товар который вам нужен и узнать о нём все что нужно, чтобы сходить в магазин и купить его или же заказть его через нас">
+{% endblock ogmeta %}
+
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
+    <div class="preloader">
+		<div class="loading-spinner"></div>
+	</div>
 
 	<div class="slayder">
 		<img src="{% static 'homepage/img/reklama1.jpg' %}" alt="">
 	</div>
+
 	<div class="content">
+
 		<main>
+
 			<div class="razdel-razdela">
 				<h2>Компьютеры и комплектующие AMD</h2>
 				<div class="razdel-razdel-tovari">
@@ -64,53 +79,54 @@
 				</div>
 			</div>
 
-			{% for c in categorii %}
+			{% for pc in podcats %}
+			<div class="complekt-tovarov">
+				<h1>{{ pc.0.podpodcat }}</h1>
+				<div class="tovari">
+                    {% for tovar in pc %}
+					<div class="qlavniy-tovar">
 
-				<div class="qlavniye-tovari">
-					<div class="name-razdela-tovarov"><p>{{ c.0.cat }}</p> <p><a href="{{ c.0.cat.get_absolute_url }}">Еще товары</a></p></div>
-					<div class="ryad-tovarov">
+                        {% if forloop.last and not forloop.first %}
+                            <div class="space">
+                                <a href="{{ tovar.podpodcat.get_absolute_url }}">
+                                    <div>Ещё</div>
+                                    <div><i class="fas fa-angle-right"></i></div>
+                                </a>
+                            </div>
+                        {% endif %}
 
-						<button id="btnMoveRight" class="p-slayder-tovarov"><i class="fas fa-angle-left"></i></button>
+						<div class="izbranniy-tovar">
+                            {% if request.user.is_authenticated %}
+                                    <label for="{{ tovar.pk }}" class="{% if tovar in fav_tovari %}red{% endif %}">
+                                        <i class="fa-solid fa-heart {{ tovar.pk }}"></i>
+                                    </label>
+                                    <input name="favorite" style="display: none" class='heart' type="checkbox" id="{{ tovar.pk }}">
+                            {% else %}
+{#                                                <a href="{% url 'login' %}">#}
+                                    <i class="fa-solid fa-heart"></i>
+{#                                                </a>#}
+                            {% endif %}
+                        </div>
 
-						<div class="slayd-tovarov">
-							<div class="slayd">
+						<a href="{{ tovar.get_absolute_url }}">
+							<div class="qlavniy-tovar-img"><img src="{{ tovar.photo_main.url }}" alt=""></div>
+							<span class="tovar-info">
+                                <div class="chena">{{ tovar.price }} ₼</div>
+                                <div class="reyting">
+                                    <div class="zvezda">звезды</div>
+                                    <div class="chislo-ochenik">50</div>
+                                </div>
+                                <div class="tovar-name">{{ tovar.title|truncatewords:10 }}</div>
+                                <div class="rekomenduyemost">86% рекомендуют</div>
+						    </span>
 
-								{% for tovar in c %}
-
-									<div class="qlavniy-tovar">
-
-                                        <div class="izbranniy-tovar">
-                                            <label for="{{ tovar.pk }}">
-												<i class="fa-solid fa-heart {{ tovar.pk }}"></i>
-											</label>
-											<input name="favorite" style="display: none" class='heart' type="checkbox" id="{{ tovar.pk }}">
-                                        </div>
-
-                                        <a href="{{ tovar.get_absolute_url }}">
-										<div class="qlavniy-tovar-img"><img src="{{ tovar.photo_main.url }}" alt=""></div>
-										<div class="chena">{{ tovar.price }} ₼</div>
-										<div class="reyting">
-											<div class="zvezda">звезды</div>
-											<div class="chislo-ochenik">50</div>
-										</div>
-										<div class="tovar-name">{{ tovar.title|truncatewords:10 }}</div>
-										<div class="rekomenduyemost">86% рекомендуют</div>
-									</a>
-									<div class="button"><button>В корзину</button></div>
-
-								</div>
-
-								{% endfor %}
-
-							</div>
-						</div>
-
-						<button id="btnMoveLeft" class="v-slayder-tovarov"><i class="fas fa-angle-right"></i></button>
-
+						</a>
+						<div class="button"><button>В корзину</button></div>
 					</div>
+                    {% endfor %}
 				</div>
-
-			{% endfor %}
+			</div>
+            {% endfor %}
 
 		</main>
 
@@ -122,7 +138,7 @@
 				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">
 			</div>
 		</div>
-	</div>
+    </div>
 
 {% endblock content %}
 
@@ -144,32 +160,14 @@
 							url: "{% url 'crud_favorites' %}",
 							// если успешно, то
 							success: function (response) {
-                                console.log(response)
-								let email= document.getElementById('id_email')
-								let a = document.getElementById('error-of-email')
+                                let a = event.target.parentElement.querySelector("label")
 
-								if (response.is_email === true && id_email.value.length) {
-									$('#id_email').removeClass('is-valid').addClass('is-invalid');
-									email.style.border = '2px red solid'
-									$('#emailError').remove();
-									$('#error-of-email').append('<div class="invalid-feedback d-block" id="emailError">This email is not available!</div>')
+								if (response.is_favorite) {
+                                    a.classList.add("red")
 								}
 								else {
-									$('#id_username').removeClass('is-invalid').addClass('is-valid');
-									$('#emailError').remove();
-
-
-									if (email.value.length===0) {
-										a.innerHTML = ' '
-									}else if (email.value.indexOf('@')===-1) {
-										a.innerHTML = '<div class="invalid-feedback d-block" id="usernameError">This email is no email!</div>'
-										email.style.border = '2px red solid'
-									} else {
-										a.innerHTML = ' '
-										email.style.border ='2px green solid'
-									}
+									a.classList.remove("red")
 								}
-
 							},
 							// если ошибка, то
 							error: function (response) {

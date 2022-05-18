@@ -1291,6 +1291,7 @@ input {
 }
 
 .filter-content-header {
+
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1308,11 +1309,173 @@ input {
   display: -ms-flexbox;
   display: flex;
     justify-content: space-between;
+
     width: 100%;
 
 }
 .filter-content-header ul li {
   cursor: pointer;
+}
+
+.filter-tovari {
+    width: 100%;
+
+
+    margin-left: 20px;
+}
+.filter-tovar {
+    float: left;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 5px;
+  border: 2px #03ce97 solid;
+  margin: 10px 5px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+    flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 275px;
+    min-width: 265px;
+    width: 25%;
+
+}
+.filter-tovar a {
+    width: 100%;
+}
+.filter-tovar .photo {
+  width: 100%;
+
+  padding: 10px ;
+}
+.filter-tovar .photo .img {
+  width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.filter-tovar .photo .img img{
+    width: 100%;
+}
+.filter-tovar .opisaniye {
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+    margin: 0 20px;
+  padding: 20px 0;
+}
+.filter-tovar .opisaniye h4 {
+  font-size: 18px;
+}
+.filter-tovar .opisaniye .ochenka {
+  margin-top: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 120px;
+  margin-bottom: 12px;
+}
+.filter-tovar .opisaniye .ochenka .rating {
+  background-color: #00ff08;
+    border-radius: 5px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-tovar .opisaniye .ochenka .otzivi {
+  font-size: 12.8px;
+  margin-left: 8px;
+}
+.filter-tovar .opisaniye .opisaniye-topvara ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.filter-tovar .opisaniye .opisaniye-topvara ul li {
+  font-size: 13px;
+}
+.filter-tovar .prise {
+
+  width:100%;
+    padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.filter-tovar .prise .contaner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.filter-tovar .prise .contaner i {
+  opacity: 1;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+    position: relative;
+    /*top: -455px;*/
+}
+.filter-tovar .prise .chena {
+  font-size: 18px;
+    font-weight: bold;
+}
+.filter-tovar .prise .button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filter-tovar .prise .button button {
+  width: 100%;
+  height: 36px;
+  background-color: #03ce97;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.filter-tovar:hover {
+  background-color: #f3f3f3;
+}
+
+.filter-tovar:hover .contaner > i {
+  opacity: 1;
 }
 
 .izbranniy-main {

@@ -50,6 +50,7 @@ class Tovar(models.Model):
     properties = models.JSONField(verbose_name="Характеристики в подподкатегории")
 
     created_by = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Кем добавлено")
+    open_times = models.SmallIntegerField(default=0, verbose_name="Сколько раз открыто")
 
     def __str__(self):
         return self.title
@@ -140,8 +141,13 @@ class User(AbstractUser):
     address_type = models.CharField(max_length=255, verbose_name="Тип адреса", blank=True)
     city = models.CharField(max_length=50, verbose_name="Город", blank=True)
     place = models.CharField(max_length=255, verbose_name="Место", blank=True)
+    place_slug = models.SlugField(max_length=255, null=True, blank=True, verbose_name="URL")
     block_number = models.CharField(max_length=50, verbose_name="Номер блока", blank=True)
     user_favorite = models.ManyToManyField("Tovar", related_name='favorite_tovari')
+    user_cart = models.ManyToManyField("Tovar", related_name="cart_tovari")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
+
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={"place_slug": self.place_slug})

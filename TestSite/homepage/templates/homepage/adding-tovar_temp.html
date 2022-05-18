@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <header class="add-header">
+        <div class="add-left">
+            <div onclick="showAddBar()" class="add-bar"><i class="fas fa-bars"></i></div>
+            <div class="logo-market">Find.Az</div>
+        </div>
+        <div class="add-right">
+            <div class="logo-profile"><div class="img"></div></div>
+        </div>
+    </header>
+    <div class="add-main">
+        <div class="add-left-bar" onmouseleave="hideAddBarm()" onmouseenter="showAddBarm()" style="width: 55px;">
+            <ul>
+                <li><div class="left"><i class="fas fa-box"></i> <div style="display: none;">Товары</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fab fa-opencart"></i> <div style="display: none;">Заказы</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-angle-double-up"></i><div style="display: none;">Продвижение</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="far fa-list-alt"></i><div style="display: none;">Отчеты</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fas fa-comment-dots"></i><div style="display: none;">Поддержка</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+                <li><div class="left"><i class="fa-solid fa-gear"></i><div style="display: none;">Настройки</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
+            </ul>
+        </div>
+        <div class="adding-of-tovar">
+            <h2>Главное отоваре</h2>
+            <h3>Основная информация</h3>
+            <form class="add-form">
+                <div class="first-form">
+                    <label>Название товара</label>
+                    <input class="name-of-tovar" placeholder="Название товара" type="text">
+                    <label>Штрихкод</label>
+                    <input class="shtrixkod" type="text">
+                    <label>Бренд или производитель</label>
+                    <input class="brend-tovara" type="text">
+                    <label>Описание товара, до 3 000 символов</label>
+                    <textarea class="opisaniye-add-tovara"></textarea>
+                    <div class="tovar-dla-vzros-qalochka">
+                        <p>Товар для взрослых</p>
+                        <input class="tovar-dla-vzros" type="checkbox" id="id_for_adult">
+                    </div>
+
+                    <label>Категория в вашем магазине</label>
+                    <input class="vibor-kataloga" type="text" list="katalogs">
+                    <datalist id="katalogs">
+                        <option value="Электроника">
+                        <option value="Компьютеры">
+                        <option value="Бытовая техника">
+                        <option value="Одежда и обувь">
+                        <option value="Красота и гигиена">
+                        <option value="Детские товары">
+                        <option value="Дом">
+                        <option value="Дача и сад">
+                        <option value="Строительство и ремонт">
+                        <option value="Мебель">
+                        <option value="Продукты питание">
+                        <option value="Аптека">
+                        <option value="Зоотовары">
+                        <option value="Бытовая химия">
+                        <option value="Спорт и отдах">
+                        <option value="Авто">
+                        <option value="Хобби и творчество">
+                        <option value="Книги">
+                        <option value="Для школы и офиса">
+                        <option value="Ювелирные украшения">
+                        <option value="Цветы">
+                        <option value="Товары для взослых">
+                        <option value="Цифровые товары">
+                        <option value="Оборудование">
+                    </datalist>
+                    <hr>
+                    <h2>Вес и габариты с упаковкой</h2>
+                    <p>Заполните эти поля, чтобы мы могли правильно рассчитать условия хранения или доставки.</p>
+                    <label>Товар занимает больше одного места</label>
+                    <div class="ves-i-gabariti">
+                        <div>
+                            <label>Вес, кг</label>
+                            <input class="ves-tovara" type="text">
+                        </div>
+                        <div>
+                            <label>Ширина, см</label>
+                            <input class="shirina-tovara" type="text">
+                        </div>
+                        <div>
+                            <label>Высота, см</label>
+                            <input class="visota-tovara" type="text">
+                        </div>
+                        <div>
+                            <label>Длина, см</label>
+                            <input class="dlina-tovara" type="text">
+                        </div>
+                    </div>
+                    <hr>
+                    <h2>Дополнительная информация</h2>
+                    <p>Чем больше полей вы заполните, тем легче покупателям будет найти ваш товар.</p>
+                    <label>Страна производства</label>
+                    <input class="strana-izqotovleniye-tovara" type="text">
+                    <label>Изготовитель</label>
+                    <input class="izqotovitel-tovara" type="text">
+                    <label>С какого возраста пользоваться</label>
+                    <input class="vozrostnoye-oqranicheniye" type="text">
+                    <label>Срок годности</label>
+                    <input class="srok-qodnosti-tovara" type="text">
+                    <p>Обязательно заполните, если у товара есть срок годности</p>
+                    <br>
+                    <label>Срок службы</label>
+                    <input class="srok-slujbi-tovara" type="text">
+                    <label>Срок гарантии</label>
+                    <input class="srok-qarantii" type="text">
+                    <br>
+                    <div class="button"> <div class="my-btn" onclick="showSecondForm(this)">Далее</div></div>
+                    <hr>
+                </div>
+
+                <div class="second-form" style="display: none">
+                    <h2>Изображения</h2>
+                    <p>Добавьте хотя бы одно изображение товара, а лучше несколько. Тогда мы сможем быстро проверить товар и создать карточку, если её ещё нет на Маркете. Изображения должны соответствовать требованиям.</p>
+                    <strong>Мы принимаем:</strong>
+                    <ul>
+                        <li>чёткие цветные фотографии</li>
+                        <li>отрисованные макеты</li>
+                        <li>видео</li>
+                    </ul>
+                    <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
+                    <br>
+                    <div class="tovar-imgs">
+                        <div class="imgs">
+                            <div class="main-img">
+                                <div class="img 1">
+                                    <label for="forfile1"><i class="fas fa-plus"></i></label>
+                                    <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                    <input id="forfile1"  type="file"  onchange="previewFile(this)">
+                                </div>
+                            </div>
+                            <div class="img 2">
+                                <label for="forfile2"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile2"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 3">
+                                <label for="forfile3"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile3"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 4">
+                                <label for="forfile4"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile4"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 5">
+                                <label for="forfile5"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile5"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 6">
+                                <label for="forfile6"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile6"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 7">
+                                <label for="forfile7"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile7"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 8">
+                                <label for="forfile8"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile8"  type="file"  onchange="previewFile(this)">
+                            </div>
+                            <div class="img 9">
+                                <label for="forfile9"><i class="fas fa-plus"></i></label>
+                                <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
+                                <input id="forfile9"  type="file"  onchange="previewFile(this)">
+                            </div>
+                        </div>
+                    </div>
+    <!--                <div class="main-input">-->
+    <!--                    <label for="forfile">Добавить фото</label>-->
+    <!--                    <input id="forfile"  type="file" multiple onchange="previewFile()">-->
+    <!--                </div>-->
+                    <br>
+
+
+                    <h2>Характеристики в категории</h2>
+                    <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
+
+
+                    <select id="kategoriya"></select>
+                    <select disabled id="podkategoriya"></select>
+                    <select disabled id="podpodkategoriya"></select>
+                    <div class="inputs">
+
+                    </div>
+                    <div class="button"> <div class="my-btn" onclick="showThirdForm(this)">Далее</div></div>
+
+                </div>
+                <div class="third-form" style="display: none">
+
+                    <h2>Размещение в магазинах</h2>
+                    <p>Для каждого магазина передайте цену, доступный остаток и другие параметры, которые нужны для организации поставки на склад или доставки покупателю.</p>
+                    <label>Цена</label>
+                    <input class="chena" type="text">
+                    <label>Цена до скидки</label>
+                    <input class="chena-so-skidkoy" type="text">
+                    <label>Валюта</label>
+                    <input class="valyuta" type="text" list="valyuta">
+                    <datalist id="valyuta">
+                        <option value="Манат">
+                        <option value="Рубль">
+                        <option value="Доллар">
+                    </datalist>
+
+                    <div class="button"><button>Добавить товар</button></div>
+                </div>
+
+
+                <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+            </form>
+
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

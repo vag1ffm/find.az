@@ -63,35 +63,35 @@ class AddTovarForm(forms.ModelForm):
         # self.fields["podpodcat"].empty_label = "ПодПодКатегория не выбрана"
 
     photo_1 = forms.ImageField(required=False, label="Фото1", widget=forms.FileInput(attrs={
-        "id": "forfile1",
-        "onchange": "previewFile(this)"
-    }))
-    photo_2 = forms.ImageField(required=False, label="Фото2", widget=forms.FileInput(attrs={
         "id": "forfile2",
         "onchange": "previewFile(this)"
     }))
-    photo_3 = forms.ImageField(required=False, label="Фото3", widget=forms.FileInput(attrs={
+    photo_2 = forms.ImageField(required=False, label="Фото2", widget=forms.FileInput(attrs={
         "id": "forfile3",
         "onchange": "previewFile(this)"
     }))
-    photo_4 = forms.ImageField(required=False, label="Фото4", widget=forms.FileInput(attrs={
+    photo_3 = forms.ImageField(required=False, label="Фото3", widget=forms.FileInput(attrs={
         "id": "forfile4",
         "onchange": "previewFile(this)"
     }))
-    photo_5 = forms.ImageField(required=False, label="Фото5", widget=forms.FileInput(attrs={
+    photo_4 = forms.ImageField(required=False, label="Фото4", widget=forms.FileInput(attrs={
         "id": "forfile5",
         "onchange": "previewFile(this)"
     }))
-    photo_6 = forms.ImageField(required=False, label="Фото6", widget=forms.FileInput(attrs={
+    photo_5 = forms.ImageField(required=False, label="Фото5", widget=forms.FileInput(attrs={
         "id": "forfile6",
         "onchange": "previewFile(this)"
     }))
-    photo_7 = forms.ImageField(required=False, label="Фото7", widget=forms.FileInput(attrs={
+    photo_6 = forms.ImageField(required=False, label="Фото6", widget=forms.FileInput(attrs={
         "id": "forfile7",
         "onchange": "previewFile(this)"
     }))
-    photo_8 = forms.ImageField(required=False, label="Фото8", widget=forms.FileInput(attrs={
+    photo_7 = forms.ImageField(required=False, label="Фото7", widget=forms.FileInput(attrs={
         "id": "forfile8",
+        "onchange": "previewFile(this)"
+    }))
+    photo_8 = forms.ImageField(required=False, label="Фото8", widget=forms.FileInput(attrs={
+        "id": "forfile9",
         "onchange": "previewFile(this)"
     }))
 
@@ -139,7 +139,7 @@ class AddTovarForm(forms.ModelForm):
                 "required": False
             }),
             "photo_main": forms.FileInput(attrs={
-                "id": "forfile",
+                "id": "forfile1",
                 "onchange": "previewFile(this)"
             })
         }

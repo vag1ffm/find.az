@@ -10,21 +10,22 @@
             <h1>{{ tovar.title }}</h1>
         </div>
         <div class="tovar-ochenka">
+            <div>Просмотрено {{ tovar.open_times }} раз</div>
             <div class="rating">4.8</div>
             <div class="otzivi">450 отзывов</div>
         </div>
         <div class="tovar-first-row">
             <div class="tovar-photos">
                 <div class="tovari-left-photos">
-                    {% if tovar.photo_main != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_main.url }}"></div>{% endif %}
-                    {% if tovar.photo_1 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_1.url }}"></div>{% endif %}
-                    {% if tovar.photo_2 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_2.url }}"></div>{% endif %}
-                    {% if tovar.photo_3 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_3.url }}"></div>{% endif %}
-                    {% if tovar.photo_4 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_4.url }}"></div>{% endif %}
-                    {% if tovar.photo_5 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_5.url }}"></div>{% endif %}
-                    {% if tovar.photo_6 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_6.url }}"></div>{% endif %}
-                    {% if tovar.photo_7 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_7.url }}"></div>{% endif %}
-                    {% if tovar.photo_8 != "" %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_8.url }}"></div>{% endif %}
+                    {% if tovar.photo_main %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_main.url }}"></div>{% endif %}
+                    {% if tovar.photo_1 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_1.url }}"></div>{% endif %}
+                    {% if tovar.photo_2 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_2.url }}"></div>{% endif %}
+                    {% if tovar.photo_3 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_3.url }}"></div>{% endif %}
+                    {% if tovar.photo_4 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_4.url }}"></div>{% endif %}
+                    {% if tovar.photo_5 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_5.url }}"></div>{% endif %}
+                    {% if tovar.photo_6 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_6.url }}"></div>{% endif %}
+                    {% if tovar.photo_7 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_7.url }}"></div>{% endif %}
+                    {% if tovar.photo_8 %}<div class="photo tovar-photo-change"><img src="{{ tovar.photo_8.url }}"></div>{% endif %}
                 </div>
                 <div class="tovar-right-photo">
                     <div class="main-photo"><img src="{{ tovar.photo_main.url }}" alt=""></div>
@@ -62,7 +63,7 @@
                     <div class="karta"><a href="">на карте</a></div>
                     <div class="button"> <button>Добавить в корзину</button></div>
                     <div class="maqazin-prodovcha-infa">
-                        <div class="name"><a href="">Pro-store</a></div>
+                        <div class="name"><a href="{{ tovar.created_by.get_absolute_url }}">{{ tovar.created_by.occupation }}</a></div>
                         <div class="rating-and-otziv">
                             <div class="rating"><i class="fas fa-star"></i>4.9 /</div>
                             <div class="otzivi">2862отзыва</div>
