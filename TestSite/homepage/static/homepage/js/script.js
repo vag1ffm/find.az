@@ -335,4 +335,8 @@ function delPhoto(i) {
 }
 
 
-
+function showSecondForm(i) {
+	i.remove()
+	let secondForm = document.querySelector('.second-form')
+	secondForm.style.display = 'block'
+}
