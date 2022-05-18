@@ -1,11 +1,11 @@
-// document.body.onload = function () {
-// 	setTimeout(()=>{
-// 		let preloader = document.querySelector('.preloader')
-// 		if (!preloader.classList.contains('done-of-load')) {
-// 			preloader.classList.add('done-of-load')
-// 		}
-// 	},1000)
-// }
+document.body.onload = function () {
+	setTimeout(()=>{
+		let preloader = document.querySelector('.preloader')
+		if (!preloader.classList.contains('done-of-load')) {
+			preloader.classList.add('done-of-load')
+		}
+	},1000)
+}
 
 
 function movekatalog() {
@@ -302,20 +302,21 @@ function hideAddBarm() {
 }
 
 function previewFile(file) {
+	console.log(this)
 	let img = file.parentElement
 	try {
 		img.querySelector('label').remove()
 	} catch  {
 	}
-
 	let reader = new FileReader();
+
 	reader.readAsDataURL(file.files[0]);
 	reader.onload = function () {
 		img.style.backgroundImage = `url("${reader.result}")`
 		img.style.border = 'none'
 	}
-	let delIco = '<div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>'
-	file.parentElement.innerHTML += delIco
+	let a = document.querySelector('.del-img')
+	a.style.display = 'flex'
 
 
 }
@@ -334,4 +335,13 @@ function delPhoto(i) {
 }
 
 
-
+function showSecondForm(i) {
+	i.remove()
+	let secondForm = document.querySelector('.second-form')
+	secondForm.style.display = 'block'
+}
+function showThirdForm(i) {
+	i.remove()
+	let secondForm = document.querySelector('.third-form')
+	secondForm.style.display = 'block'
+}
