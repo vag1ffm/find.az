@@ -2207,8 +2207,11 @@ form .buttons button , .backBtn{
     background: transparent;
     text-align: left;
     border: 2px #d3d3d3 solid;
+    width: 100%;
 }
-
+#id_for_adult {
+    width: 50px;
+}
 .add-form  input[type=text] {
     padding: 8px 12px;
     border-radius: 5px;
@@ -2221,10 +2224,12 @@ form .buttons button , .backBtn{
 .add-form input:focus {
     border: 2px #03ce97 solid;
 }
-.add-form textarea {
+.add-form .first-form textarea {
     min-height: 116px;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
+    background-color: red;
 }
 .add-form textarea  :focus {
     border: 2px #03ce97 solid;

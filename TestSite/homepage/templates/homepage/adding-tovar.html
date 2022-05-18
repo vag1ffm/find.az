@@ -39,6 +39,8 @@
             <h3>Основная информация</h3>
 
             <form class="add-form" action="{% url 'addtovar' %}" method="post" enctype="multipart/form-data">
+                <div class="first-form">
+
 
                 {% csrf_token %}
                 <label>Название товара</label>
@@ -64,20 +66,6 @@
                     {{ form.for_adult.errors }}
                 </div>
 
-                <label>Категория товара</label>
-{#                <input class="vibor-kataloga" type="text" list="katalogs">#}
-                {{ form.cat }}
-                {{ form.cat.errors }}
-
-                {{ form.podcat }}
-                {{ form.podcat.errors }}
-
-                {{ form.podpodcat }}
-                {{ form.podpodcat.errors }}
-
-                <div class="inputs">
-
-                </div>
 {#                <datalist id="katalogs">#}
 {#                    <option value="Электроника">#}
 {#                    <option value="Компьютеры">#}
@@ -163,7 +151,10 @@
 {#                <input class="srok-qarantii" type="text">#}
                 {{ form.guarantee_period }}
                 {{ form.guarantee_period.errors }}
-                <hr>
+                </div>
+                <div class="second-form" style="display: none">
+
+
                 <h2>Изображения</h2>
                 <p>Добавьте хотя бы одно изображение товара, а лучше несколько. Тогда мы сможем быстро проверить товар и создать карточку, если её ещё нет на Маркете. Изображения должны соответствовать требованиям.</p>
                 <strong>Мы принимаем:</strong>
@@ -246,31 +237,25 @@
                 <h2>Характеристики в категории</h2>
                 <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
                 <div class="dobavleniye-xarakteristiki">
-                    <div class="row">
+                    <label>Категория товара</label>
+                    {#                <input class="vibor-kataloga" type="text" list="katalogs">#}
+                    {{ form.cat }}
+                    {{ form.cat.errors }}
 
-                        <div>
-                            <label>Название</label>
-{#                            <input class="nazvaniye-dovaleniye-tovara" type="text">#}<p>В разработке</p>
-                        </div>
-                        <div>
-                            <label>Значение</label>
-{#                            <input class="znacheniye-dovaleniye-tovara" type="text">#}<p>В разработке</p>
-                        </div>
-                        <div>
-                            <label>Единицы измерения</label>
-{#                            <input class="edin-izmereniye-dovaleniye-tovara" type="text">#}<p>В разработке</p>
-                        </div>
+                    {{ form.podcat }}
+                    {{ form.podcat.errors }}
+
+                    {{ form.podpodcat }}
+                    {{ form.podpodcat.errors }}
+
+                    <div class="inputs">
 
                     </div>
-{#                    <div onclick="delRow()" class="icon"><i class="fas fa-times"></i></div>#}<p>В разработке</p>
-                </div>
-                <div class="button">
-{#                    <button onclick="btnAddXarakter()" class="btn-add-xarakret">#}
-{#                        <span class="icon"><i class="fas fa-plus"></i></span>#}
-{#                        <span class="text-brn-add-xarakter">Добавить характеристику</span>#}
-{#                    </button>#}<p>В разработке</p>
+{#
                 </div>
 
+                </div>
+                <div class="third-form" style="display: none">
                 <h2>Размещение в магазинах</h2>
                 <p>Для каждого магазина передайте цену, доступный остаток и другие параметры, которые нужны для организации поставки на склад или доставки покупателю.</p>
                 <label>Цена</label>
@@ -289,6 +274,7 @@
 
                 <br>
                <button type="submit">Добавить товар</button>
+                </div>
             </form>
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
