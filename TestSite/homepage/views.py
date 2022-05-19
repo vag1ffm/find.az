@@ -15,6 +15,7 @@ from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.db.models.query_utils import Q
+# from django.db.models import Q
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
@@ -251,21 +252,28 @@ class HomeCategory(DataMixin, ListView):
 
 def filter_of_tovar(request):
     r = request.GET.get("property", None)
-    r = json.loads(r)
-    # print(r, type(r))
-    for i in r:
-        for el in r[i]:
-            tovari = eval(f"Tovar.objects.filter(properties__{i.lower()}__1='{el}')")
 
-    print(tovari)
+    try:
+        r = json.loads(r)
+        tovari = "Tovar.objects.filter("
 
-    # response = {
-    #     "tovari": tovari
-    # }
+        for i in r:
+            for el in r[i]:
+                if i.lower() in tovari:
+                    tovari += f" | Q(properties__{i.lower()}__1='{el}')"
+                else:
+                    tovari += f" , Q(properties__{i.lower()}__1='{el}')"
+        tovari += ")"
+        tovari = tovari[:21] + tovari[24:]
+        print(tovari)
+        tovari = eval(tovari)
+        print(tovari)
+    except:
+        tovari = Tovar.objects.filter(podpodcat__slug=r)
+
     goods_json = serializers.serialize('json', tovari)
 
     return HttpResponse(goods_json, content_type='application/json')
-    # return JsonResponse(response)
 
 
 # def show_category(request, catid):

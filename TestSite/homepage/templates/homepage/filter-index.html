@@ -164,25 +164,28 @@
             document.querySelector('.filter-filter').append(div1)
             // console.log(properties[i])
         }
+
         function artOfTovar(respose) {
             for (let i of response) {
                 let tovar = i.fieldset
-                let htmltovar = ```<div class="qlavniy-tovar">
-                         <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                         <a href="/post-tovar/'${tovar.slug}'">
-                         <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                         <span class="tovar-info">
-                         <div class="chena"></div>
-                         <div class="reyting">
-                         <div class="zvezda"></div>
-                         <div class="chislo-ochenik"></div>
-                         </div>
-                         <div class="tovar-name"></div>
-                         <div class="rekomenduyemost">86% рекомендуют</div>
-                         </span>
-                         </a>
-                         <div class="button"><button>В корзину</button></div>
-                         </div>```
+                let htmltovar =```
+                                 <div class="qlavniy-tovar">
+                                 <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+                                 <a href="/post-tovar/'${tovar.slug}'">
+                                 <div class="qlavniy-tovar-img"><img src="" alt=""></div>
+                                 <span class="tovar-info">
+                                 <div class="chena"></div>
+                                 <div class="reyting">
+                                 <div class="zvezda"></div>
+                                 <div class="chislo-ochenik"></div>
+                                 </div>
+                                 <div class="tovar-name"></div>
+                                 <div class="rekomenduyemost">86% рекомендуют</div>
+                                 </span>
+                                 </a>
+                                 <div class="button"><button>В корзину</button></div>
+                                 </div>```
+
             }
         }
 
@@ -221,7 +224,7 @@
                     console.log(dic)
                     $(document).ready(function () {
                         $.ajax({
-                            data: {"property": {{ tovari.0.slug }}},
+                            data: {"property": '{{ tovari.0.podpodcat.slug }}'},
                             url: "{% url 'filter_of_tovar' %}",
                             success: function (response) {
                                 console.log(response)
@@ -236,7 +239,5 @@
 
             })
         })
-
-
     </script>
 {% endblock js %}
