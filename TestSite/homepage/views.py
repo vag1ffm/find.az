@@ -235,10 +235,10 @@ class HomeCategory(DataMixin, ListView):
         list_of_properties_temp = {}
 
         for property in goods[0]:
-            list_of_properties_temp[goods[0][property][0]] = [good[property][1] for good in goods]
+            list_of_properties_temp[goods[0][property][0]] = list(set([good[property][1] for good in goods if good[property][1]!=None]))
 
         context["list_of_properties"] = list_of_properties_temp
-        print(list_of_properties_temp)
+
 
         c_def = self.get_user_context(title="FindAz - Категория - " + str(context['tovari'][0].podpodcat), cat_selected=context["tovari"][0].cat_id)
         return dict(list(context.items()) + list(c_def.items()))
@@ -248,6 +248,9 @@ class HomeCategory(DataMixin, ListView):
 
 
 def filter_of_tovar(request):
+    r = request.GET
+    for i in r:
+        print(i, r[i])
     response = {
         "work": True
     }

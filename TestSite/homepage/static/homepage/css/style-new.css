@@ -1275,7 +1275,13 @@ input {
   border: 2px #03ce97 solid;
   margin-top: 60px;
 }
-
+.filter-filter div>div {
+    display: flex;
+    align-items: center;
+}
+.filter-filter div input {
+    margin-right: 10px;
+}
 .filter-main-content {
   display: -webkit-box;
   display: -ms-flexbox;
