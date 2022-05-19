@@ -83,7 +83,7 @@
 					{#console.log(event.target.id)#}
 						$.ajax({
 							data: {
-                                "favorite": event.target.id,
+                                "favorite": event.target.id
                             }, // получаяем данные формы
 							url: "{% url 'crud_favorites' %}",
 							// если успешно, то
@@ -141,6 +141,7 @@
         }
 
 
+
         let properties = {% autoescape off %}{{ list_of_properties }}{% endautoescape %}
         for (let i of Object.keys(properties)){
             let div1 = document.createElement('div')
@@ -161,13 +162,14 @@
             }
             console.log()
             document.querySelector('.filter-filter').append(div1)
+            // console.log(properties[i])
         }
 
 
 
         let chekboxes = document.querySelectorAll('.filter-filter input[type=checkbox]')
-		chekboxes.forEach(chekbox => {
-			chekbox.addEventListener('click', (event)=>{
+        chekboxes.forEach(chekbox => {
+            chekbox.addEventListener('click', (event)=>{
                 let chekboxes2 = document.querySelectorAll('.filter-filter input[type=checkbox]')
                 var dic = {}
                 for (let i of chekboxes2) {
@@ -181,68 +183,20 @@
                     }
                 }
                 console.log(dic)
-				$(document).ready(function () {
+                $(document).ready(function () {
                     $.ajax({
-                        data: JSON.stringify(dic),
+                        data: {"property": JSON.stringify(dic)},
                         url: "{% url 'filter_of_tovar' %}",
-
                         success: function (response) {
+                            console.log(response)
                         },
-
                         error: function (response) {
                             console.log(response.responseJSON.errors)
                         }
                     });
-
-
                     return false;
-
-
-
-				})
-			})
-		})
-        //
-        // let chekboxes = document.querySelectorAll('.filter-filter input[type=checkbox]')
-        // chekboxes.forEach(chekbox => {
-        //     let chekboxes2 = document.querySelectorAll('.filter-filter input[type=checkbox]')
-        //     var listik = []
-        //     for (let i of chekboxes2) {
-        //
-        //     }
-        //
-        //     chekbox.addEventListener('click', (event)=>{
-        //         $(document).ready(function () {
-        //             if (event.target.checked === true) {
-        //
-        //                 $.ajax({
-        //                     data: {
-        //                         "property" : [],
-        //                     },
-        //                     url: "{% url 'filter_of_tovar' %}",
-        //
-        //                     success: function (response) {
-        //                         console.log('uraaaaa')
-        //                     },
-        //
-        //                     error: function (response) {
-        //                         console.log(response.responseJSON.errors)
-        //                     }
-        //                 });
-        //
-        //
-        //                 return false;
-        //             }
-        //
-        //
-        //         })
-        //     })
-        // })
-        //
-        //
-
-
-
-
+                })
+            })
+        })
     </script>
 {% endblock js %}

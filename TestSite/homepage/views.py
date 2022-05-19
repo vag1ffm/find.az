@@ -30,6 +30,8 @@ from .forms import *
 from .models import *
 from .utils import *
 
+import json
+
 
 az_to_en_for_slug = {
     'ə': 'e',
@@ -238,7 +240,7 @@ class HomeCategory(DataMixin, ListView):
             list_of_properties_temp[goods[0][property][0]] = list(set([good[property][1] for good in goods if good[property][1]!=None]))
 
         context["list_of_properties"] = list_of_properties_temp
-
+        # print(list_of_properties_temp)
 
         c_def = self.get_user_context(title="FindAz - Категория - " + str(context['tovari'][0].podpodcat), cat_selected=context["tovari"][0].cat_id)
         return dict(list(context.items()) + list(c_def.items()))
@@ -248,13 +250,22 @@ class HomeCategory(DataMixin, ListView):
 
 
 def filter_of_tovar(request):
-    r = request.GET
+    r = request.GET.get("property", None)
+    r = json.loads(r)
+    # print(r, type(r))
     for i in r:
-        print(i, r[i])
-    response = {
-        "work": True
-    }
-    return JsonResponse(response)
+        for el in r[i]:
+            tovari = eval(f"Tovar.objects.filter(properties__{i.lower()}__1='{el}')")
+
+    print(tovari)
+
+    # response = {
+    #     "tovari": tovari
+    # }
+    goods_json = serializers.serialize('json', tovari)
+
+    return HttpResponse(goods_json, content_type='application/json')
+    # return JsonResponse(response)
 
 
 # def show_category(request, catid):
