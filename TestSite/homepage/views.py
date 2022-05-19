@@ -461,9 +461,11 @@ def crud_favorites(request):
     if r in [i.id for i in list(fav_user.user_favorite.all())]:
         fav_user.user_favorite.remove(Tovar.objects.get(id=r))
         response["is_favorite"] = False
+        response['fav_tovari'] = [i.id for i in fav_user.user_favorite.all()]
     else:
         fav_user.user_favorite.add(Tovar.objects.get(id=r))
         response["is_favorite"] = True
+        response['fav_tovari'] = [i.id for i in fav_user.user_favorite.all()]
 
     return JsonResponse(response)
 

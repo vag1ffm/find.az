@@ -33,6 +33,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow-x: hidden;
+    min-height: 1080px!important;
 
 }
 
@@ -672,9 +673,9 @@ main .tovari {
   transition: all 0.3s linear;
 }
 
-.izbranniy-tovar i:hover {
-  color: red;
-}
+/*.izbranniy-tovar i:hover {*/
+/*  color: red;*/
+/*}*/
 .qlavniy-tovar a {
     display: flex;
     flex-direction: column;
@@ -878,9 +879,9 @@ main .tovari {
 /*}*/
 
 footer{
+    position: relative;
     width: 100%;
     bottom: 0;
-    left: 0;
     background: #111;
     z-index: 2;
     margin-top: 50px;
