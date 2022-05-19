@@ -229,6 +229,7 @@ class HomeCategory(DataMixin, ListView):
             fav_tovari = fav_user.user_favorite.all()
             context["salesman"] = fav_tovari
             context["fav_tovari"] = fav_tovari
+            context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
         except:
             context["salesman"] = ""
             context["fav_tovari"] = []
