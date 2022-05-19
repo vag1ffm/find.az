@@ -165,27 +165,32 @@
             // console.log(properties[i])
         }
 
-        function artOfTovar(respose) {
+        function artOfTovar(response) {
             for (let i of response) {
-                let tovar = i.fieldset
-                let htmltovar =```
-                                 <div class="qlavniy-tovar">
-                                 <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-                                 <a href="/post-tovar/'${tovar.slug}'">
-                                 <div class="qlavniy-tovar-img"><img src="" alt=""></div>
-                                 <span class="tovar-info">
-                                 <div class="chena"></div>
-                                 <div class="reyting">
-                                 <div class="zvezda"></div>
-                                 <div class="chislo-ochenik"></div>
-                                 </div>
-                                 <div class="tovar-name"></div>
-                                 <div class="rekomenduyemost">86% рекомендуют</div>
-                                 </span>
-                                 </a>
-                                 <div class="button"><button>В корзину</button></div>
-                                 </div>```
-
+                // console.log(i.fields)
+                // console.log(i.fields.title)
+                // console.log(i.fields.price)
+                // console.log(i.fields.slug)
+                // console.log(i.pk)
+                let tovar = i.fields
+                let htmltovar =`\
+                                 <div class="qlavniy-tovar">\
+                                     <div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>\
+                                     <a href="/post-tovar/`${tovar.slug}`">\
+                                         <div class="qlavniy-tovar-img"><img src="" alt=""></div>\
+                                         <span class="tovar-info">\
+                                             <div class="chena">`${tovar.price}`</div>\
+                                             <div class="reyting">\
+                                                 <div class="zvezda"></div>\
+                                                 <div class="chislo-ochenik"></div>\
+                                             </div>\
+                                             <div class="tovar-name">${tovar.title}</div>\
+                                             <div class="rekomenduyemost">86% рекомендуют</div>\
+                                         </span>\
+                                     </a>\
+                                     <div class="button"><button>В корзину</button></div>\
+                                 </div>`
+            return htmltovar
             }
         }
 
@@ -212,7 +217,10 @@
                             data: {"property": JSON.stringify(dic)},
                             url: "{% url 'filter_of_tovar' %}",
                             success: function (response) {
-                                console.log(response)
+                                console.log(artOfTovar(response))
+
+                                // let a = artOfTovar(response)
+                                // document.querySelector('.filter-main-content .tovari').append(a)
                             },
                             error: function (response) {
                                 console.log(response.responseJSON.errors)
