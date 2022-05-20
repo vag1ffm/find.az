@@ -30,49 +30,31 @@
 				<div class="razdel-razdel-tovari">
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/prochesor.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Процессоры</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/videocart.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Видеокарты</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/noutbuki.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Ноутбуки</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/pc.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Настольные Компьютеры</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/pamyat.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Модули памяти</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="{% static 'homepage/img/ssd.webp' %}" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Внутренние твердотельные</h4>
 						</a>
 					</div>
@@ -145,6 +127,33 @@
 {% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+
+        let poiskoviki = document.querySelectorAll('.poisk-tovarov')
+        poiskoviki.forEach(poiskovik => {
+            poiskovik.addEventListener('input', ()=> {
+                let a = document.querySelector('.varianti-poiska')
+                if (poiskovik.value == '') {
+                    a.style.display = 'none'
+                } else {
+                    $(document).ready(function () {
+                        let poisk = poiskovik.value
+                        $.ajax({
+                            data: { 'value':poisk },
+                            url: "{% url 'find' %}",
+                            success: function (response) {
+                                let a = document.querySelector('.varianti-poiska')
+                                a.style.display = 'block'
+                            },
+                            error: function (response) {
+                                console.log(response.responseJSON.errors)
+                            }
+                        });
+                        return false;
+                    })
+                }
+            })
+        })
+
 		let chekboxik = document.querySelectorAll('.heart')
 		chekboxik.forEach(chekbox => {
 			chekbox.addEventListener('click', (event)=>{

@@ -206,3 +206,6 @@ class LoginUserForm(AuthenticationForm):
     username = forms.CharField(label="Имя Пользователя", widget=forms.TextInput(attrs={"placeholder": "Log in"}))
     password = forms.CharField(label="Пароль", widget=forms.PasswordInput(attrs={"placeholder": "Password"}))
 
+
+class Poisk(forms.ModelForm):
+    ...

@@ -12,9 +12,9 @@
         <h2>{{ tovari.0.podpodcat.name }}</h2>
         <div class="filter-and-content">
             <div class="filter-filter">
-
-
-
+                {% for el in list_pc %}
+                    <a href="{{ el.get_absolute_url }}"><p>{{ el.name }}</p></a>
+                {% endfor %}
             </div>
             <div class="filter-main-content">
                 <div class="filter-content-header">

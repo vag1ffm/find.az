@@ -27,9 +27,23 @@
 				</div>
 				<div class="poiskovik">
 					<form>
-						<input type="text" placeholder="Искать товары">
+						<input type="text" placeholder="Искать товары" class="poisk-tovarov">
 						<input type="button" value="Найти">
 					</form>
+                    <div  class="varianti-poiska" style="display: none;">
+                        <div class="varian-poiska">
+                            sssssssss
+                        </div>
+                        <div class="varian-poiska">
+                            sssssssss
+                        </div>
+                        <div class="varian-poiska">
+                            sssssssss
+                        </div>
+                        <div class="varian-poiska">
+                            sssssssss
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<div class="knopochniy-div">
@@ -90,35 +104,66 @@
 		<div class="katalogi">
 			<div class="listi-kategori">
 				<ul>
-
 					{% for c in cats %}
-						{% if c.id == cats.0.id %}
-							<li onmouseenter="showkatalog('{{ c.topic }}')">
-								<div class="list-katalog-left ">
-									<div class="list-katalog-left-icon"><i class="fas {{ c.icon }}"></i></div>
-									<div class="list-katalog-left-text">{{ c.name }}</div>
-								</div>
-								<div class="list-katalog-right">
-									<div class="list-katalog-right-icon"><i class="fa-solid fa-angle-right"></i></div>
-								</div>
-								<div class="list-katalog-list {{ c.topic }} show" >
-									{{ c.name }}
-								</div>
-							</li>
-						{% else %}
-							<li onmouseenter="showkatalog('{{ c.topic }}')">
-								<div class="list-katalog-left ">
-									<div class="list-katalog-left-icon"><i class="fas {{ c.icon }}"></i></div>
-									<div class="list-katalog-left-text">{{ c.name }}</div>
-								</div>
-								<div class="list-katalog-right">
-									<div class="list-katalog-right-icon"><i class="fa-solid fa-angle-right"></i></div>
-								</div>
-								<div class="list-katalog-list {{ c.topic }}" >
-									{{ c.name }}
-								</div>
-							</li>
-						{% endif %}
+                        {% if c.id == cats.0.id %}
+                            <li onmouseenter="showkatalog('{{ c.topic }}')">
+                                <div class="list-katalog-left ">
+                                    <div class="list-katalog-left-icon"><i class="fas {{ c.icon }}"></i></div>
+                                    <div class="list-katalog-left-text">{{ c.name }}</div>
+                                </div>
+                                <div class="list-katalog-right">
+                                    <div class="list-katalog-right-icon"><i class="fa-solid fa-angle-right"></i></div>
+                                </div>
+                                <div class="list-katalog-list {{ c.topic }} show" >
+                                    <h1>{{ c.name }}</h1>
+                                    <div class="pod-kategorii">
+                                        {% for pc in pcats %}
+                                            {% if pc.maincat.name == c.name %}
+                                                <div class="pod-kategoriya">
+                                                    <h3><a href="{{ pc.get_absolute_url }}">{{ pc.name }}</a></h3>
+                                                    <ul>
+                                                        {% for ppc in ppcats %}
+                                                            {% if ppc.mainpodcat.name == pc.name %}
+                                                                <li><a href="{{ ppc.get_absolute_url }}">{{ ppc.name }}</a></li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                        {% else %}
+                            <li onmouseenter="showkatalog('{{ c.topic }}')">
+                                <div class="list-katalog-left ">
+                                    <div class="list-katalog-left-icon"><i class="fas {{ c.icon }}"></i></div>
+                                    <div class="list-katalog-left-text">{{ c.name }}</div>
+                                </div>
+                                <div class="list-katalog-right">
+                                    <div class="list-katalog-right-icon"><i class="fa-solid fa-angle-right"></i></div>
+                                </div>
+                                <div class="list-katalog-list {{ c.topic }}" >
+                                    <h1>{{ c.name }}</h1>
+                                    <div class="pod-kategorii">
+                                        {% for pc in pcats %}
+                                            {% if pc.maincat.name == c.name %}
+                                                <div class="pod-kategoriya">
+                                                    <h3><a href="{{ pc.get_absolute_url }}">{{ pc.name }}</a></h3>
+                                                    <ul>
+                                                        {% for ppc in ppcats %}
+                                                            {% if ppc.mainpodcat.name == pc.name %}
+                                                                <li><a href="{{ ppc.get_absolute_url }}">{{ ppc.name }}</a></li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                        {% endif %}
 					{% endfor %}
 				</ul>
 
@@ -221,7 +266,7 @@
 			<div class="mobile-poiskovik">
 				<div class="poiskovik">
 					<form>
-						<input type="text" placeholder="Искать товары">
+						<input type="text" placeholder="Искать товары" class="poisk-tovarov">
 						<button type="button">Найти</button>
 					</form>
 				</div>

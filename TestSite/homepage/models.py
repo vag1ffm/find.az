@@ -11,6 +11,7 @@ def content_file_name(instance, filename):
 
 class Tovar(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название Товара")
+    title_small = models.CharField(max_length=255, null=True, verbose_name="Название товара для поиска")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
     for_adult = models.BooleanField(default=False, verbose_name="Товар для взрослых")
     barcode = models.CharField(max_length=255, verbose_name="Штрих код")
@@ -26,6 +27,7 @@ class Tovar(models.Model):
     expiration_date_for_gadgets = models.CharField(max_length=255, verbose_name="Срок службы")
     guarantee_period = models.CharField(max_length=255, verbose_name="Гарантийный период")
     content = models.TextField(verbose_name="Описание Товара")
+    content_small = models.TextField(null=True, verbose_name="Описание Товара")
 
     # photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
     photo_main = models.ImageField(upload_to=content_file_name, verbose_name="Фото главное")

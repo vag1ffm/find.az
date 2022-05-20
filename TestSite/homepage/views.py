@@ -69,6 +69,7 @@ az_to_en_for_slug = {
 def mainhome(request):
 
     categorii = Category.objects.all()
+    podcats = PodCat.objects.all()
     podpodcats = PodPodCat.objects.all()
     spisok = [i.tovar_set.all()[:10] for i in podpodcats]
 
@@ -85,6 +86,8 @@ def mainhome(request):
         'podcats': spisok,
         'categorii': categorii,
         'cats': categorii,
+        'pcats': podcats,
+        'ppcats': podpodcats,
         'fav_tovari': fav_tovari,
         'salesman': fav_user,
         'title': 'FindAz - Главная страница'
@@ -93,20 +96,24 @@ def mainhome(request):
 
 
 def show_profile(request, place_slug):
-    salesman = auth.get_user(request)
-    cats = Category.objects.all()
-    # salesman = User.objects.get(id=seller.id)
+    # salesman = auth.get_user(request)
+    salesman = User.objects.get(place_slug=place_slug)
     tovari = Tovar.objects.filter(created_by=salesman.id)
-    podpodcats = [i.podpodcat for i in tovari]
+    cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    ppodcats = PodPodCat.objects.all()
+    podpodcats = list(set([i.podpodcat for i in tovari]))
     ppc_tovars = PodPodCat.objects.all()
     spisok = [i.tovar_set.filter(created_by=salesman.id) for i in ppc_tovars if i.tovar_set.filter(created_by=salesman.id)]
 
     data = {
         "salesman": salesman,
         "tovari": tovari,
+        "cats": cats,
+        "pcats": podcats,
+        "ppcats": ppodcats,
         "podpodcats": podpodcats,
         "spisok": spisok,
-        "cats": cats,
         "title": salesman.occupation,
     }
     return render(request, "homepage/profile.html", data)
@@ -165,6 +172,8 @@ def addtovar(request):
 
                 form.instance.slug = defaultfilters.slugify(temp_slug2)
                 form.instance.created_by = request.user
+                form.instance.title_small = str(form.instance.title).lower()
+                form.instance.content_small = str(form.instance.content).lower()
 
                 form.save()
                 return redirect("home")
@@ -197,6 +206,8 @@ def addtovar(request):
 
 def show_tovar(request, tovarslug):
     cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
     try:
         salesman = auth.get_user(request)
     except:
@@ -211,6 +222,8 @@ def show_tovar(request, tovarslug):
         'title': tovar.title,
         'store': store,
         'cats': cats,
+        'pcats': podcats,
+        'ppcats': podpodcats,
         'salesman': salesman,
     }
     return render(request, 'homepage/show-tovar.html', context=context)
@@ -220,16 +233,20 @@ class HomeCategory(DataMixin, ListView):
     model = Tovar
     template_name = "homepage/filter-index.html"
     context_object_name = "tovari"
-    allow_empty = False
+    allow_empty = True
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        podcats = PodCat.objects.all()
+        podpodcats = PodPodCat.objects.all()
+
         try:
             fav_user = auth.get_user(self.request)
             fav_tovari = fav_user.user_favorite.all()
-            context["salesman"] = fav_tovari
+            context["salesman"] = fav_user
             context["fav_tovari"] = fav_tovari
-            context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
+            # context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
         except:
             context["salesman"] = ""
             context["fav_tovari"] = []
@@ -242,13 +259,75 @@ class HomeCategory(DataMixin, ListView):
             list_of_properties_temp[goods[0][property][0]] = list(set([good[property][1] for good in goods if good[property][1]!=None]))
 
         context["list_of_properties"] = list_of_properties_temp
-        # print(list_of_properties_temp)
+        context["pcats"] = podcats
+        context["ppcats"] = podpodcats
 
         c_def = self.get_user_context(title="FindAz - Категория - " + str(context['tovari'][0].podpodcat), cat_selected=context["tovari"][0].cat_id)
         return dict(list(context.items()) + list(c_def.items()))
 
     def get_queryset(self):
         return Tovar.objects.filter(podpodcat__slug=self.kwargs['podpodcatslug'])
+
+
+def in_between(request, catslug):
+    cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
+
+    cat = Category.objects.get(slug=catslug)
+    list_pc = cat.podcat_set.all()
+    tovari = cat.tovar_set.all()
+
+    data = {
+        "title": f"FindAz - {cat.name}",
+        "cats": cats,
+        "pcats": podcats,
+        "ppcats": podpodcats,
+        "list_pc": list_pc,
+        "tovari": tovari
+    }
+
+    try:
+        fav_user = auth.get_user(request)
+        fav_tovari = fav_user.user_favorite.all()
+        data["salesman"] = fav_user
+        data["fav_tovari"] = fav_tovari
+    except:
+        data["salesman"] = ""
+        data["fav_tovari"] = []
+
+    return render(request, "homepage/filter-index.html", data)
+
+
+def p_in_between(request, podcatslug):
+    cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
+
+    pcat = PodCat.objects.get(slug=podcatslug)
+    list_pc = pcat.podpodcat_set.all()
+
+    tovari = pcat.tovar_set.all()
+
+    data = {
+        "title": f"FindAz - {pcat.name}",
+        "cats": cats,
+        "pcats": podcats,
+        "ppcats": podpodcats,
+        "list_pc": list_pc,
+        "tovari": tovari
+    }
+
+    try:
+        fav_user = auth.get_user(request)
+        fav_tovari = fav_user.user_favorite.all()
+        data["salesman"] = fav_user
+        data["fav_tovari"] = fav_tovari
+    except:
+        data["salesman"] = ""
+        data["fav_tovari"] = []
+
+    return render(request, "homepage/filter-index.html", data)
 
 
 def filter_of_tovar(request):
@@ -266,9 +345,7 @@ def filter_of_tovar(request):
                     tovari += f" , Q(properties__{i.lower()}__1='{el}')"
         tovari += ")"
         tovari = tovari[:21] + tovari[24:]
-        print(tovari)
         tovari = eval(tovari)
-        print(tovari)
     except:
         tovari = Tovar.objects.filter(podpodcat__slug=r)
 
@@ -461,11 +538,11 @@ def crud_favorites(request):
     if r in [i.id for i in list(fav_user.user_favorite.all())]:
         fav_user.user_favorite.remove(Tovar.objects.get(id=r))
         response["is_favorite"] = False
-        response['fav_tovari'] = [i.id for i in fav_user.user_favorite.all()]
+        response["fav_tovari"] = [i.id for i in fav_user.user_favorite.all()]
     else:
         fav_user.user_favorite.add(Tovar.objects.get(id=r))
         response["is_favorite"] = True
-        response['fav_tovari'] = [i.id for i in fav_user.user_favorite.all()]
+        response["fav_tovari"] = [i.id for i in fav_user.user_favorite.all()]
 
     return JsonResponse(response)
 
@@ -481,14 +558,46 @@ def crud_favorites(request):
 @login_required(redirect_field_name="login")
 def show_favorites(request):
     cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
     fav_user = auth.get_user(request)
     tovari = fav_user.user_favorite.all()
 
     data = {
         "tovari": tovari,
         "cats": cats,
+        "pcats": podcats,
+        "ppcats": podpodcats,
         "salesman": fav_user,
         "title": "FindAz - Избранные"
     }
 
     return render(request, 'homepage/izbranniy.html', data)
+
+
+def find(request):
+    r = request.GET.get("value", None).split()
+    # finder_list_title = Tovar.objects.filter(title_small__contains=r)
+    # finder_list_content = Tovar.objects.filter(content_small__contains=r)
+
+    finder_list_title = "Tovar.objects.filter("
+    for i in r:
+        finder_list_title += f" , Q(title_small__contains='{i.lower()}')"
+    finder_list_title += ")"
+    finder_list_title = finder_list_title[:21] + finder_list_title[24:]
+    finder_list_title = eval(finder_list_title)
+
+
+
+    finder_list_content = "Tovar.objects.filter("
+    for i in r:
+        finder_list_content += f" , Q(content_small__contains='{i.lower()}')"
+    finder_list_content += ")"
+    finder_list_content = finder_list_content[:21] + finder_list_content[24:]
+    finder_list_content = eval(finder_list_content)
+
+    response = {
+        "list_title": [i.title for i in finder_list_title],
+        "list_content": [i.title for i in finder_list_content]
+    }
+    return JsonResponse(response)

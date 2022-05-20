@@ -40,8 +40,8 @@
                     <div class="div-of-ul">
                         <h4>Категории</h4>
                         <ul>
-                            {% for ppc in podpodcats %}
-                                <li>{{ ppc }}</li>
+                            {% for ppcat in podpodcats %}
+                                <li>{{ ppcat }}</li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -51,15 +51,15 @@
             </div>
             <div class="provile-fdiv">
 
-                {% for ppc in spisok %}
+                {% for ppcat in spisok %}
 
-                    <h2>{{ ppc.0.podpodcat }}</h2>
+                    <h2>{{ ppcat.0.podpodcat }}</h2>
 
                     <div class="qlavniye-tovari">
                         <div class="name-razdela-tovarov">
                             <div class="tovari">
 
-                                {% for tovar in ppc %}
+                                {% for tovar in ppcat %}
 
 					                <div class="qlavniy-tovar">
 
