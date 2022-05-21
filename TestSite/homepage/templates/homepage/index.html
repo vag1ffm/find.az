@@ -128,31 +128,71 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        let poiskoviki = document.querySelectorAll('.poisk-tovarov')
-        poiskoviki.forEach(poiskovik => {
-            poiskovik.addEventListener('input', ()=> {
-                let a = document.querySelector('.varianti-poiska')
-                if (poiskovik.value == '') {
-                    a.style.display = 'none'
+        const poiskoviki = document.querySelectorAll('.poisk-tovarov')
+		const placeOfVariants = document.querySelector('.varianti-poiska')
+
+		poiskoviki.forEach(poiskovik => {
+			poiskovik.addEventListener('input', ()=> {
+                if (poiskovik.value === '') {
+					placeOfVariants.style.display = 'none'
                 } else {
                     $(document).ready(function () {
-                        let poisk = poiskovik.value
+						placeOfVariants.style.display = 'block'
+						let variantOfSearches = document.querySelectorAll('.variant-poiska')
+						variantOfSearches.forEach(variantOfSearch => {variantOfSearch.style.display = 'none'})
+
+						let searchWord = poiskovik.value
+
+						let maindiv = document.createElement('div')
+						let a = document.createElement('a')
+						maindiv.classList.add('variant-poiska')
+						a.innerText = searchWord
+						a.href = `/find/?name=${searchWord}`
+						maindiv.append(a)
+						placeOfVariants.append(maindiv)
+						console.log(maindiv)
+
                         $.ajax({
-                            data: { 'value':poisk },
+                            data: { 'value':searchWord },
                             url: "{% url 'find' %}",
                             success: function (response) {
-                                let a = document.querySelector('.varianti-poiska')
-                                a.style.display = 'block'
+									for(let i of response.list_title) {
+										let div = document.createElement('div')
+										div.classList.add('variant-poiska')
+										let a = document.createElement('a')
+										a.innerText = i
+										a.href = `/find/?name=${i}`
+										div.append(a)
+										placeOfVariants.append(div)
+										console.log(response)
+									}
+
+
                             },
                             error: function (response) {
                                 console.log(response.responseJSON.errors)
                             }
-                        });
+                        }).then(()=>{
+							let variants = document.querySelectorAll('.variant-poiska')
+							variants.forEach(variant => {
+								variant.addEventListener('click', (event)=>{
+									poiskovik.value = event.target.innerText
+									let a = document.querySelector('.dform-of-poisk')
+								})
+							})
+						})
+
+
+
+
                         return false;
                     })
                 }
+
             })
         })
+
+
 
 		let chekboxik = document.querySelectorAll('.heart')
 		chekboxik.forEach(chekbox => {

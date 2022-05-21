@@ -596,8 +596,11 @@ def find(request):
     finder_list_content = finder_list_content[:21] + finder_list_content[24:]
     finder_list_content = eval(finder_list_content)
 
+    finder_list_title = [i.title for i in finder_list_title]
+    finder_list_content = [i.title for i in finder_list_content if i.title not in finder_list_title]
+
     response = {
-        "list_title": [i.title for i in finder_list_title],
-        "list_content": [i.title for i in finder_list_content]
+        "list_title": finder_list_title,
+        "list_content": finder_list_content
     }
     return JsonResponse(response)
