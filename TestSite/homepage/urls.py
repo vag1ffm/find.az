@@ -24,5 +24,7 @@ urlpatterns = [
     path('confirm_email/', TemplateView.as_view(template_name='homepage/confirm_email.html'), name='confirm_email'),
     path('verify_email/<uidb64>/<token>/', EmailVerify.as_view(), name='verify_email'),
     path('invalid_verify/', TemplateView.as_view(template_name='homepage/invalid_verify.html'), name='invalid_verify'),
-    path('find/', find, name="find")
+    path('find_tovari/', find, name="find_tovari"),
+    path('find/', find_page, name="find"),
+    path('add_tovar_cats/', add_tovar_cats, name="add_tovar_cats"),
 ]

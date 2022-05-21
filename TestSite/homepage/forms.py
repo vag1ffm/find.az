@@ -208,4 +208,4 @@ class LoginUserForm(AuthenticationForm):
 
 
 class Poisk(forms.ModelForm):
-    ...
+    poisk = forms.CharField(label="Поиск", widget=forms.TextInput(attrs={"placeholder": "Искать товары", "maxlength": "150", "class": "poisk-tovarov"}))

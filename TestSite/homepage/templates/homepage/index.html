@@ -154,7 +154,7 @@
 
                         $.ajax({
                             data: { 'value':searchWord },
-                            url: "{% url 'find' %}",
+                            url: "{% url 'find_tovari' %}",
                             success: function (response) {
 									for(let i of response.list_title) {
 										let div = document.createElement('div')

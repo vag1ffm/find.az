@@ -192,6 +192,41 @@ def addtovar(request):
         return redirect('login')
 
 
+def add_tovar_cats(request):
+    cat = request.GET.get("cat", None)
+    podcat = request.GET.get("podcat", None)
+    podpodcat = request.GET.get("podpodcat", None)
+
+    if cat:
+        cat = Category.objects.get(name=cat)
+        podcats = cat.podcat_set.all()
+        podcats = [i.name for i in podcats]
+    else:
+        podcats = []
+
+    if podcat:
+        podcat = PodCat.objects.get(name=podcat)
+        podpodcats = podcat.podpodcat_set.all()
+        podpodcats = [i.name for i in podpodcats]
+    else:
+        podpodcats = []
+
+    if podpodcat:
+        podpodcat = Tovar.objects.get(podpodcat_name=podpodcat)
+        properties = podpodcat.properties
+        properties = [properties[i][0] for i in properties]
+    else:
+        properties = []
+
+    response = {
+        "podcats": podcats,
+        "podpodcats": podpodcats,
+        "properties": properties,
+    }
+
+    return JsonResponse(response)
+
+
 # class ShowTovar(DataMixin, DetailView):
 #     model = Tovar
 #     template_name = 'homepage/show-tovar.html'
@@ -227,6 +262,47 @@ def show_tovar(request, tovarslug):
         'salesman': salesman,
     }
     return render(request, 'homepage/show-tovar.html', context=context)
+
+
+def find_page(request):
+    r = request.GET.get("name", None).split()
+
+    cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
+    try:
+        salesman = auth.get_user(request)
+    except:
+        salesman = ""
+
+    finder_list_title = "Tovar.objects.filter("
+    for i in r:
+        finder_list_title += f" , Q(title_small__contains='{i.lower()}')"
+    finder_list_title += ")"
+    finder_list_title = finder_list_title[:21] + finder_list_title[24:]
+    finder_list_title = eval(finder_list_title)
+
+    finder_list_content = "Tovar.objects.filter("
+    for i in r:
+        finder_list_content += f" , Q(content_small__contains='{i.lower()}')"
+    finder_list_content += ")"
+    finder_list_content = finder_list_content[:21] + finder_list_content[24:]
+    finder_list_content = eval(finder_list_content)
+
+    finder_list_content = [i for i in finder_list_content if i not in finder_list_title]
+
+    context = {
+        "list_title": finder_list_title,
+        "list_content": finder_list_content,
+        'cats': cats,
+        'pcats': podcats,
+        'ppcats': podpodcats,
+        'salesman': salesman,
+        'r': "".join(r),
+        'title': f"FindAz - {''.join(r)}",
+    }
+
+    return render(request, "homepage/find_page.html", context)
 
 
 class HomeCategory(DataMixin, ListView):
@@ -577,8 +653,6 @@ def show_favorites(request):
 
 def find(request):
     r = request.GET.get("value", None).split()
-    # finder_list_title = Tovar.objects.filter(title_small__contains=r)
-    # finder_list_content = Tovar.objects.filter(content_small__contains=r)
 
     finder_list_title = "Tovar.objects.filter("
     for i in r:
@@ -587,20 +661,10 @@ def find(request):
     finder_list_title = finder_list_title[:21] + finder_list_title[24:]
     finder_list_title = eval(finder_list_title)
 
-
-
-    finder_list_content = "Tovar.objects.filter("
-    for i in r:
-        finder_list_content += f" , Q(content_small__contains='{i.lower()}')"
-    finder_list_content += ")"
-    finder_list_content = finder_list_content[:21] + finder_list_content[24:]
-    finder_list_content = eval(finder_list_content)
-
     finder_list_title = [i.title for i in finder_list_title]
-    finder_list_content = [i.title for i in finder_list_content if i.title not in finder_list_title]
 
     response = {
         "list_title": finder_list_title,
-        "list_content": finder_list_content
     }
+
     return JsonResponse(response)
