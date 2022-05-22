@@ -1,23 +1,37 @@
-{% extends "homepage/layout.html" %}
+{% extends 'homepage/layout.html' %}
+{% load static %}
 
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <main class="izbranniy-main">
-        <div class="izbranniy-content">
-            <h2>Избранные товары</h2>
-            <div class="tovari">
-                {% if tovari %}
+    <div class="filter-content">
+        <h2>{{ list_pc.0.mainpodcat.name }}</h2>
+        <div class="filter-and-content">
+            <div class="filter-filter">
+                {% for el in list_pc %}
+                    <a href="{{ el.get_absolute_url }}"><p>{{ el.name }}</p></a>
+                {% endfor %}
+            </div>
+            <div class="filter-main-content">
+                <div class="filter-content-header">
+                    <ul>
+                        <li>По популярности</li>
+                        <li>по цене</li>
+                        <li>по рейтингу</li>
+                        <li>по скидке</li>
+                    </ul>
+                </div>
+                <div class="tovari">
                     {% for tovar in tovari %}
                     <div class="qlavniy-tovar">
 						<div class="izbranniy-tovar">
                             {% if request.user.is_authenticated %}
-                                <label for="{{ tovar.pk }}" class="{% if tovar in tovari %}red{% endif %}">
+                                <label for="{{ tovar.pk }}" class="{% if tovar in fav_tovari %}red{% endif %}">
                                     <i class="fa-solid fa-heart {{ tovar.pk }}"></i>
                                 </label>
                                 <input name="favorite" style="display: none" class='heart' type="checkbox" id="{{ tovar.pk }}">
                             {% else %}
-                                <i class="fa-solid fa-heart"></i>
+                                    <i class="fa-solid fa-heart"></i>
                             {% endif %}
                         </div>
 						<a href="{{ tovar.get_absolute_url }}">
@@ -35,22 +49,12 @@
 						<div class="button"><button>В корзину</button></div>
 					</div>
                     {% endfor %}
-                {% else %}
-                    Избранных нет :(
-                {% endif %}
+                </div>
             </div>
         </div>
-    </main>
+    </div>
 
 {% endblock content %}
 
 {% block js %}
-    <script>
-		{% block js_crud_fav %}
-            a.parentElement.parentElement.style.opacity = 0
-            setTimeout(()=>{
-                a.parentElement.parentElement.remove()
-            }, 300)
-        {% endblock js_crud_fav %}
-    </script>
 {% endblock js %}

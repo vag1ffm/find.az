@@ -67,7 +67,6 @@ az_to_en_for_slug = {
 
 
 def mainhome(request):
-
     categorii = Category.objects.all()
     podcats = PodCat.objects.all()
     podpodcats = PodPodCat.objects.all()
@@ -181,15 +180,17 @@ def addtovar(request):
             form = AddTovarForm()
         data = {
             'form': form,
+            # 'cat': Category.objects.all(),
             'cat': [i.name for i in Category.objects.all()],
             'podcat': PodCat.objects.all(),
             'podpodcat': PodPodCat.objects.all(),
-            "title": "Добавление статьи"
+            "title": "Добавление товара"
         }
 
         return render(request, 'homepage/adding-tovar.html', data)
     else:
         return redirect('login')
+
 
 def add_tovar_cats(request):
     cat = request.GET.get("cat", None)
@@ -228,6 +229,7 @@ def add_tovar_cats(request):
     }
 
     return JsonResponse(response)
+
 
 # class ShowTovar(DataMixin, DetailView):
 #     model = Tovar
@@ -301,8 +303,17 @@ def find_page(request):
         'ppcats': podpodcats,
         'salesman': salesman,
         'r': " ".join(r),
-        'title': f"FindAz - {''.join(r)}",
+        'title': f"FindAz - {' '.join(r)}",
     }
+
+    try:
+        fav_user = auth.get_user(request)
+        fav_tovari = fav_user.user_favorite.all()
+        context["salesman"] = fav_user
+        context["fav_tovari"] = fav_tovari
+    except:
+        context["salesman"] = ""
+        context["fav_tovari"] = []
 
     return render(request, "homepage/find_page.html", context)
 
@@ -374,7 +385,7 @@ def in_between(request, catslug):
         data["salesman"] = ""
         data["fav_tovari"] = []
 
-    return render(request, "homepage/filter-index.html", data)
+    return render(request, "homepage/between_page.html", data)
 
 
 def p_in_between(request, podcatslug):
@@ -405,7 +416,7 @@ def p_in_between(request, podcatslug):
         data["salesman"] = ""
         data["fav_tovari"] = []
 
-    return render(request, "homepage/filter-index.html", data)
+    return render(request, "homepage/p_between_page.html", data)
 
 
 def filter_of_tovar(request):
@@ -651,6 +662,48 @@ def show_favorites(request):
     }
 
     return render(request, 'homepage/izbranniy.html', data)
+
+
+@login_required(redirect_field_name="login")
+def crud_cart(request):
+    r = request.GET.get("cart", None)
+    r = int(r)
+    cart_user = auth.get_user(request)
+
+    response = {}
+
+    if r in [i.id for i in list(cart_user.user_cart.all())]:
+        cart_user.user_cart.remove(Tovar.objects.get(id=r))
+        response["is_in_cart"] = False
+        response["cart_tovari"] = [i.id for i in cart_user.user_cart.all()]
+    else:
+        cart_user.user_cart.add(Tovar.objects.get(id=r))
+        response["is_in_cart"] = True
+        response["cart_tovari"] = [i.id for i in cart_user.user_cart.all()]
+
+    return JsonResponse(response)
+
+
+@login_required(redirect_field_name="login")
+def show_cart(request):
+    cats = Category.objects.all()
+    podcats = PodCat.objects.all()
+    podpodcats = PodPodCat.objects.all()
+    cart_user = auth.get_user(request)
+    tovari = cart_user.user_cart.all()
+    fav_tovari = cart_user.user_favorite.all()
+
+    data = {
+        "tovari": tovari,
+        "fav_tovari": fav_tovari,
+        "cats": cats,
+        "pcats": podcats,
+        "ppcats": podpodcats,
+        "salesman": cart_user,
+        "title": "FindAz - Корзина"
+    }
+
+    return render(request, 'homepage/cart.html', data)
 
 
 def find(request):
