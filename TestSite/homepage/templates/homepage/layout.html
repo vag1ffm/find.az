@@ -484,8 +484,9 @@
 				document.location.href = `/find/?name=${searchWord}`;
 			}
 		})
-
-		let likes = {% autoescape off %}{{ fav_tovari_id_list }}{% endautoescape %}
+        {% if  fav_tovari_id_list %}
+		let likes = {{ fav_tovari_id_list }}
+        {% endif %}
         function setLikes() {
             let chekboxik = document.querySelectorAll('.heart')
             chekboxik.forEach(chekbox => {
