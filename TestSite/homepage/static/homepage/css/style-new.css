@@ -816,6 +816,26 @@ main .tovari {
           transform: scale(0.95);
 }
 
+.korzina-content .button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.korzina-content .button button {
+    width: 30%;
+}
+.korzina-content .button input[type=number] {
+    appearance: textfield;
+    height: 80%;
+    width: 30%;
+    border: none;
+    font-size: 20px;
+    padding: 0 0 0 15px;
+}
+.button input[type="number"]::-webkit-outer-spin-button,
+.button input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
 .reklami {
   margin: 65px 0 0 0;
   width: 22%;
@@ -1379,16 +1399,28 @@ input {
     width: 70%;
 }
 .chek-tovarov {
-    width: 25% ;
+    width: 30% ;
     height: auto;
     border: 2px #03ce97 dotted;
     border-radius: 5px;
+    padding: 10px;
 }
 .chek-tovarov  h2{
-    margin: 10px;
 }
 
+.chek-tovarov li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+}
+.chek-tovarov ul li{
+
+}
+.chek-tovarov li div {
+    display: flex;
+    justify-content: end;
+}
 
 .voyti-footer {
   position: absolute;
