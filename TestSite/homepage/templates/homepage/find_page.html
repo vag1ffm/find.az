@@ -4,10 +4,6 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <div class="preloader">
-		<div class="loading-spinner"></div>
-	</div>
-
     <div class="filter-content">
         <h2>{{ r }}</h2>
         <div class="filter-and-content">
@@ -50,7 +46,11 @@
                                     <div class="rekomenduyemost">86% рекомендуют</div>
                                 </span>
                             </a>
-                            <div class="button"><button>В корзину</button></div>
+                            {% if tovar in cart_tovari %}
+                                <div class="button"><input type="button" value="В корзине" style="background-color: #e1b70c"></div>
+                            {% else %}
+                                <div class="button"><input type="button" value="Добавить в корзину"></div>
+                            {% endif %}
                         </div>
                     {% endfor %}
                     {% for tovar in list_content %}
@@ -77,7 +77,11 @@
                                         <div class="rekomenduyemost">86% рекомендуют</div>
                                     </span>
                                 </a>
-                                <div class="button"><button>В корзину</button></div>
+                                {% if tovar in cart_tovari %}
+                                    <div class="button"><input type="button" value="В корзине" style="background-color: #e1b70c"></div>
+                                {% else %}
+                                    <div class="button"><input type="button" value="Добавить в корзину"></div>
+                                {% endif %}
                             </div>
                         {% endfor %}
                 </div>
@@ -88,205 +92,4 @@
 {% endblock content %}
 
 {% block js %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        let likes = []
-        function setLikes() {
-            let chekboxik = document.querySelectorAll('.heart')
-            chekboxik.forEach(chekbox => {
-                chekbox.addEventListener('click', (event) => {
-                    $(document).ready(function () {
-                        // отслеживаем событие отправки формы
-
-                        // создаем AJAX-вызов
-
-                        $.ajax({
-                            data: {
-                                "favorite": event.target.id
-                            }, // получаяем данные формы
-                            url: "{% url 'crud_favorites' %}",
-                            // если успешно, то
-                            success: function (response) {
-                                let a = event.target.parentElement.querySelector("label")
-                                likes = response.fav_tovari
-                                if (response.is_favorite) {
-                                    a.classList.add("red")
-                                } else {
-                                    a.classList.remove("red")
-                                }
-                            },
-                            // если ошибка, то
-                            error: function (response) {
-                                // предупредим об ошибке
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-
-                    })
-                })
-            })
-        }
-        setLikes()
-
-        function translit(word){
-            let answer = '';
-            let converter = {
-                'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
-                'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
-                'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
-                'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
-                'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
-                'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
-                'э': 'e',    'ю': 'yu',   'я': 'ya',
-
-                'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
-                'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
-                'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
-                'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
-                'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
-                'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
-                'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya', ' ': ''
-            };
-
-            for (let i = 0; i < word.length; ++i ) {
-                if (converter[word[i]] == undefined){
-                    answer += word[i];
-                } else {
-                    answer += converter[word[i]];
-                }
-            }
-
-            return answer;
-        }
-
-
-
-        let properties = {% autoescape off %}{{ list_of_properties }}{% endautoescape %}
-        for (let i of Object.keys(properties)){
-            let div1 = document.createElement('div')
-            let p = document.createElement('p')
-            p.innerText = i
-            div1.append(p)
-            for (let j of properties[i]) {
-                let div2 = document.createElement('div')
-                let input = document.createElement('input')
-                let label = document.createElement('label')
-                input.id = `${translit(i)}${translit(j)}`
-                input.type = 'checkbox'
-                label.setAttribute('for', `${translit(i)}${translit(j)}`)
-                label.innerText = j
-                div2.append(input)
-                div2.append(label)
-                div1.append(div2)
-            }
-            console.log()
-            document.querySelector('.filter-filter').append(div1)
-            // console.log(properties[i])
-        }
-
-        // let likes = {% autoescape off %}{{ fav_tovari_id_list }}{% endautoescape %}
-        // let likes = [{% for i in fav_tovari_id_list %}{{i}}, {% endfor %}]
-        console.log(typeof likes)
-        function artOfTovar(response) {
-            for (let i of response) {
-                let tovar = i.fields
-                let red =''
-                console.log(typeof i.pk)
-                if (likes.includes(i.pk)) {
-                    red = 'red'
-                } else {
-                    red = ''
-                }
-                console.log(red)
-                let htmltovar =`<div class="qlavniy-tovar">
-                                     <div class="izbranniy-tovar">
-                                        <label for="${i.pk}" class="${red}">
-                                            <i class="fa-solid fa-heart ${i.pk}"></i>
-                                        </label>
-                                        <input type="checkbox" name="favorite" id="${i.pk}" style="display: none" class="heart">
-                                     </div>
-                                     <a href="/post-tovar/${tovar.slug}">
-                                         <div class="qlavniy-tovar-img"><img src="/media/${tovar.photo_main}" alt=""></div>
-                                         <span class="tovar-info">
-                                             <div class="chena">${tovar.price}</div>
-                                                 <div class="reyting">
-                                                 <div class="zvezda"></div>
-                                                 <div class="chislo-ochenik"></div>
-                                             </div>
-                                             <div class="tovar-name">${tovar.title}</div>
-                                             <div class="rekomenduyemost">86% рекомендуют</div>
-                                         </span>
-                                     </a>
-                                     <div class="button"><button>В корзину</button></div>
-                                 </div>`
-
-
-                console.log(htmltovar)
-                document.querySelector('.filter-main-content .tovari').innerHTML += htmltovar
-                setLikes()
-
-            }
-        }
-
-
-        let chekboxes = document.querySelectorAll('.filter-filter input[type=checkbox]')
-        chekboxes.forEach(chekbox => {
-            chekbox.addEventListener('click', (event)=>{
-                let chekboxes2 = document.querySelectorAll('.filter-filter input[type=checkbox]')
-                var dic = {}
-                for (let i of chekboxes2) {
-                    if (i.checked === true) {
-                        let papa = translit(i.parentElement.parentElement.querySelector('p').innerText)
-                        if (papa in dic) {
-                            dic[papa].push(i.parentElement.querySelector('label').innerText)
-                        } else {
-                            dic[papa] = [i.parentElement.querySelector('label').innerText]
-                        }
-                    }
-                }
-                if (Object.keys(dic).length) {
-                    console.log(dic)
-                    $(document).ready(function () {
-                        $.ajax({
-                            data: {"property": JSON.stringify(dic)},
-                            url: "{% url 'filter_of_tovar' %}",
-                            success: function (response) {
-                                let tovariInFilter = document.querySelectorAll('.filter-main-content .qlavniy-tovar')
-                                for (let i of tovariInFilter) {
-                                    i.remove()
-                                }
-                                artOfTovar(response)
-                            },
-                            error: function (response) {
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-                    })
-                } else {
-                    console.log(dic)
-                    $(document).ready(function () {
-                        $.ajax({
-                            data: {"property": '{{ tovari.0.podpodcat.slug }}'},
-                            url: "{% url 'filter_of_tovar' %}",
-                            success: function (response) {
-                                let tovariInFilter = document.querySelectorAll('.filter-main-content .qlavniy-tovar')
-                                for (let i of tovariInFilter) {
-                                    i.remove()
-                                }
-                                artOfTovar(response)
-                            },
-                            error: function (response) {
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-                    })
-                }
-
-            })
-        })
-    </script>
 {% endblock js %}

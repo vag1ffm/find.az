@@ -1,13 +1,3 @@
-document.body.onload = function () {
-	setTimeout(()=>{
-		let preloader = document.querySelector('.preloader')
-		if (!preloader.classList.contains('done-of-load')) {
-			preloader.classList.add('done-of-load')
-		}
-	},1000)
-}
-
-
 function movekatalog() {
 	let a = document.querySelector('.katalogi')
 	if (a.style.top === '62px') {

@@ -291,8 +291,7 @@
 			<div class="left box">
 				<div class="upper">
 					<div class="topic">About us</div>
-					<p>CodingLab is a channel where you can learn HTML,
-						CSS, and also JavaScript along with creative CSS Animations and Effects.</p>
+					<p>Этот сайт разработан для покупателей, которые смогут находить товары, и так же для продавцов, для размещения товаров через данный им кабинет.</p>
 				</div>
 				<div class="footer-social-link">
 				<h3>Follow us</h3>
@@ -327,26 +326,25 @@
 			</div>
 			<div class="middle box">
 				<div class="topic">Our Services</div>
-				<div><a href="#">Web Design, Development</a></div>
-				<div><a href="#">Web UX Design, Reasearch</a></div>
-				<div><a href="#">Web User Interface Design</a></div>
-				<div><a href="#">Theme Development, Design</a></div>
-				<div><a href="#">Mobile Application Design</a></div>
-				<div><a href="#">Wire raming & Prototyping</a></div>
+				<div><a href="{% if user.is_seller == True %}{% url "addtovar" %}{% else %}{% url 'login' %}{% endif %}">Кабинет продавца</a></div>
+				<div><a href="{% url "home" %}">Главная страница</a></div>
+				<div><a href="{% url "home" %}">Фильтр</a></div>
+				<div><a href="{% if user.is_seller == True %}{{ user.get_absolute_url }}{% else %}{% url 'login' %}{% endif %}">Профиль</a></div>
+				<div><a href="{% url "register" %}">Зарегистрироваться</a></div>
 			</div>
 			<div class="right box">
 
 				<div class="topic">Contact us</div>
 				<div class="phone">
-					<a href="#"><i class="fas fa-phone-volume"></i>+007 9089 6767</a>
+					<a href="#"><i class="fas fa-phone-volume"></i>+994 xx xxx xx xx</a>
 				</div>
 				<div class="email">
-					<a href="#"><i class="fas fa-envelope"></i>abc@gmail.com</a>
+					<a href="#"><i class="fas fa-envelope"></i>find.az.team@gmail.com</a>
 				</div>
 			</div>
 		</div>
 		<div class="bottom">
-			<p>Copyright © 2020 <a href="#">CodingLab</a> All rights reserved</p>
+			<p>Copyright © 23.02.2022 <a href="#">FindAz</a> All rights reserved</p>
 		</div>
 	</footer>
 
@@ -419,7 +417,6 @@
 				document.location.href = `/find/?name=${searchWord}`;
 			}
 		})
-
 		const mpoiskoviki = document.querySelector('.mobile-header .poisk-tovarov')
 		const mplaceOfVariants = document.querySelector('.mobile-header .varianti-poiska')
 		mpoiskoviki.addEventListener('input', ()=> {
@@ -488,6 +485,7 @@
         {% if  fav_tovari_id_list %}
 		let likes = {{ fav_tovari_id_list }}
         {% endif %}
+
         function setLikes() {
             let chekboxik = document.querySelectorAll('.heart')
             chekboxik.forEach(chekbox => {
@@ -520,41 +518,54 @@
         }
         setLikes()
 
-		function setCards() {
-			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
-			vKorzitus.forEach(vKorzitu => {
-				vKorzitu.addEventListener('click', (event)=>{
-					let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
-					$(document).ready(function () {
-						$.ajax({
-							data: {"id": id},
-							url: "{% url 'crud_cart' %}",
-							success: function (response) {
-								let input = event.target
-								if (response.is_in_cart) {
-									input.value = 'В корзине'
-									input.style.backgroundColor = '#e1b70c'
-								} else {
-									input.value = 'Добавить в корзину'
-									input.style.backgroundColor = '#03ce97'
-								}
+        {% if  cart_tovari_id_list %}
+		let cart_list = {{ cart_tovari_id_list }}
+        {% endif %}
+        function setCards() {
+            const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
+            vKorzitus.forEach(vKorzitu => {
+                vKorzitu.addEventListener('click', (event)=>{
+                    let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
+                    $(document).ready(function () {
+                        $.ajax({
+                            data: {"id": id},
+                            url: "{% url 'crud_cart' %}",
+                            success: function (response) {
+                                let input = event.target
+                                if (response.is_in_cart) {
+                                    input.value = 'В корзине'
+                                    input.style.backgroundColor = '#e1b70c'
+                                } else {
+                                    input.value = 'Добавить в корзину'
+                                    input.style.backgroundColor = '#03ce97'
+                                }
 
-								console.log(event.target)
-							},
-							error: function (response) {
-								console.log(response.responseJSON.errors)
-							}
-						});
-						return false;
-					})
-				})
-			})
-		}
-		setCards()
-    </script>
+                                console.log(event.target)
+                            },
+                            error: function (response) {
+                                console.log(response.responseJSON.errors)
+                            }
+                        });
+                        return false;
+                    })
+                })
+            })
+        }
+        setCards()
+
+        document.body.onload = function () {
+            setTimeout(()=>{
+                let preloader = document.querySelector('.preloader')
+                if (!preloader.classList.contains('done-of-load')) {
+                    preloader.classList.add('done-of-load')
+                }
+            },1000)
+        }
 
     {% block js %}
     {% endblock js %}
+    </script>
+
 
 </body>
 </html>

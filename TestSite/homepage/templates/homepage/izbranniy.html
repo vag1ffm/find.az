@@ -32,7 +32,11 @@
                                 <div class="rekomenduyemost">86% рекомендуют</div>
 						    </span>
 						</a>
-						<div class="button"><button>В корзину</button></div>
+						{% if tovar in cart_tovari %}
+						    <div class="button"><input type="button" value="В корзине" style="background-color: #e1b70c"></div>
+                        {% else %}
+						    <div class="button"><input type="button" value="Добавить в корзину"></div>
+                        {% endif %}
 					</div>
                     {% endfor %}
                 {% else %}
@@ -45,12 +49,10 @@
 {% endblock content %}
 
 {% block js %}
-    <script>
-		{% block js_crud_fav %}
-            a.parentElement.parentElement.style.opacity = 0
-            setTimeout(()=>{
-                a.parentElement.parentElement.remove()
-            }, 300)
-        {% endblock js_crud_fav %}
-    </script>
+    {% block js_crud_fav %}
+        a.parentElement.parentElement.style.opacity = 0
+        setTimeout(()=>{
+            a.parentElement.parentElement.remove()
+        }, 300)
+    {% endblock js_crud_fav %}
 {% endblock js %}

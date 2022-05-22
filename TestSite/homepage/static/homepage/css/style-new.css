@@ -804,7 +804,7 @@ main .tovari {
   color: #ffffff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .button button:hover, .button input[type=button]:hover {
@@ -922,9 +922,7 @@ footer .content .topic{
     margin-bottom: 16px;
 
 }
-footer .content p{
-    text-align: justify;
-}
+
 footer .content .lower .topic{
     margin: 24px 0 5px 0;
 }

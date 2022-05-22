@@ -75,9 +75,11 @@ def mainhome(request):
     try:
         fav_user = auth.get_user(request)
         fav_tovari = fav_user.user_favorite.all()
+        cart_tovari = fav_user.user_cart.all()
     except:
         fav_user = ""
         fav_tovari = []
+        cart_tovari = []
     # for i in podcats:
     #     t = i.tovar_set.all()
     #     spisok.append(t)
@@ -88,6 +90,7 @@ def mainhome(request):
         'pcats': podcats,
         'ppcats': podpodcats,
         'fav_tovari': fav_tovari,
+        'cart_tovari': cart_tovari,
         'salesman': fav_user,
         'title': 'FindAz - Главная страница'
     }
@@ -105,6 +108,15 @@ def show_profile(request, place_slug):
     ppc_tovars = PodPodCat.objects.all()
     spisok = [i.tovar_set.filter(created_by=salesman.id) for i in ppc_tovars if i.tovar_set.filter(created_by=salesman.id)]
 
+    try:
+        fav_user = auth.get_user(request)
+        fav_tovari = fav_user.user_favorite.all()
+        cart_tovari = fav_user.user_cart.all()
+    except:
+        fav_user = ""
+        fav_tovari = []
+        cart_tovari = []
+
     data = {
         "salesman": salesman,
         "tovari": tovari,
@@ -114,6 +126,8 @@ def show_profile(request, place_slug):
         "podpodcats": podpodcats,
         "spisok": spisok,
         "title": salesman.occupation,
+        'fav_tovari': fav_tovari,
+        'cart_tovari': cart_tovari,
     }
     return render(request, "homepage/profile.html", data)
 
@@ -311,9 +325,11 @@ def find_page(request):
         fav_tovari = fav_user.user_favorite.all()
         context["salesman"] = fav_user
         context["fav_tovari"] = fav_tovari
+        context["cart_tovari"] = fav_user.user_cart.all()
     except:
         context["salesman"] = ""
         context["fav_tovari"] = []
+        context["cart_tovari"] = []
 
     return render(request, "homepage/find_page.html", context)
 
@@ -333,12 +349,16 @@ class HomeCategory(DataMixin, ListView):
         try:
             fav_user = auth.get_user(self.request)
             fav_tovari = fav_user.user_favorite.all()
+            cart_tovari = fav_user.user_cart.all()
             context["salesman"] = fav_user
             context["fav_tovari"] = fav_tovari
+            context["cart_tovari"] = cart_tovari
             context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
+            context["cart_tovari_id_list"] = [i.id for i in cart_tovari]
         except:
             context["salesman"] = ""
             context["fav_tovari"] = []
+            context["cart_tovari"] = []
 
         list_of_properties = Tovar.objects.filter(podpodcat__slug=self.kwargs['podpodcatslug'])
         goods = [i.properties for i in list_of_properties]
@@ -379,11 +399,14 @@ def in_between(request, catslug):
     try:
         fav_user = auth.get_user(request)
         fav_tovari = fav_user.user_favorite.all()
+        cart_tovari = fav_user.user_cart.all()
         data["salesman"] = fav_user
         data["fav_tovari"] = fav_tovari
+        data["cart_tovari"] = cart_tovari
     except:
         data["salesman"] = ""
         data["fav_tovari"] = []
+        data["cart_tovari"] = []
 
     return render(request, "homepage/between_page.html", data)
 
@@ -410,11 +433,14 @@ def p_in_between(request, podcatslug):
     try:
         fav_user = auth.get_user(request)
         fav_tovari = fav_user.user_favorite.all()
+        cart_tovari = fav_user.user_cart.all()
         data["salesman"] = fav_user
         data["fav_tovari"] = fav_tovari
+        data["cart_tovari"] = cart_tovari
     except:
         data["salesman"] = ""
         data["fav_tovari"] = []
+        data["cart_tovari"] = []
 
     return render(request, "homepage/p_between_page.html", data)
 
@@ -651,9 +677,11 @@ def show_favorites(request):
     podpodcats = PodPodCat.objects.all()
     fav_user = auth.get_user(request)
     tovari = fav_user.user_favorite.all()
+    cart_tovari = fav_user.user_cart.all()
 
     data = {
         "tovari": tovari,
+        "cart_tovari": cart_tovari,
         "cats": cats,
         "pcats": podcats,
         "ppcats": podpodcats,
