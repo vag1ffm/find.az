@@ -1328,26 +1328,26 @@ input {
   cursor: pointer;
 }
 
-.izbranniy-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  margin-top: 50px;
+.izbranniy-main, .korzina-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
 }
 
 .izbranniy-main h2 {
-  font-size: 30px;
+    font-size: 30px;
 }
 
-.izbranniy-content {
-  width: 80%;
+.izbranniy-content, .korzina-content {
+    width: 80%;
 }
 
-.izbranniy-content h2 {
+.izbranniy-content h2, .korzina-content h2 {
     margin-bottom: 30px;
 }
 .izbranniye-tovari {
