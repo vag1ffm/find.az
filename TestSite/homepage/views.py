@@ -181,7 +181,7 @@ def addtovar(request):
             form = AddTovarForm()
         data = {
             'form': form,
-            'cat': Category.objects.all(),
+            'cat': [i.name for i in Category.objects.all()],
             'podcat': PodCat.objects.all(),
             'podpodcat': PodPodCat.objects.all(),
             "title": "Добавление статьи"
@@ -191,41 +191,43 @@ def addtovar(request):
     else:
         return redirect('login')
 
-
 def add_tovar_cats(request):
     cat = request.GET.get("cat", None)
     podcat = request.GET.get("podcat", None)
     podpodcat = request.GET.get("podpodcat", None)
 
     if cat:
-        cat = Category.objects.get(name=cat)
+        cat = Category.objects.get(id=int(cat))
         podcats = cat.podcat_set.all()
-        podcats = [i.name for i in podcats]
+        podcats_list = []
+        for i in podcats:
+            podcats_list.append([i.id, i.name])
     else:
-        podcats = []
+        podcats_list = []
 
     if podcat:
-        podcat = PodCat.objects.get(name=podcat)
+        podcat = PodCat.objects.get(id=int(podcat))
         podpodcats = podcat.podpodcat_set.all()
-        podpodcats = [i.name for i in podpodcats]
+        podpodcats_list = []
+        for i in podpodcats:
+            podpodcats_list.append([i.id, i.name])
     else:
-        podpodcats = []
+        podpodcats_list = []
 
     if podpodcat:
-        podpodcat = Tovar.objects.get(podpodcat_name=podpodcat)
-        properties = podpodcat.properties
+        podpodcat = Tovar.objects.filter(podpodcat_id=int(podpodcat))
+        properties = podpodcat[0].properties
         properties = [properties[i][0] for i in properties]
     else:
         properties = []
 
     response = {
-        "podcats": podcats,
-        "podpodcats": podpodcats,
+        "podcats": podcats_list,
+        "podpodcats": podpodcats_list,
         "properties": properties,
     }
 
     return JsonResponse(response)
-
 
 # class ShowTovar(DataMixin, DetailView):
 #     model = Tovar
@@ -298,7 +300,7 @@ def find_page(request):
         'pcats': podcats,
         'ppcats': podpodcats,
         'salesman': salesman,
-        'r': "".join(r),
+        'r': " ".join(r),
         'title': f"FindAz - {''.join(r)}",
     }
 
@@ -322,7 +324,7 @@ class HomeCategory(DataMixin, ListView):
             fav_tovari = fav_user.user_favorite.all()
             context["salesman"] = fav_user
             context["fav_tovari"] = fav_tovari
-            # context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
+            context["fav_tovari_id_list"] = [i.id for i in fav_tovari]
         except:
             context["salesman"] = ""
             context["fav_tovari"] = []

@@ -14,6 +14,9 @@
     <title>{% block title %}{{ title }}{% endblock title %}</title>
 </head>
 <body>
+<div class="preloader">
+    <div class="loading-spinner"></div>
+</div>
     <header class="add-header">
         <div class="add-left">
             <div onclick="showAddBar()" class="add-bar"><i class="fas fa-bars"></i></div>
@@ -24,7 +27,7 @@
         </div>
     </header>
     <div class="add-main">
-        <div class="add-left-bar" style="width: 55px;">
+        <div class="add-left-bar" onmouseleave="hideAddBarm()" onmouseenter="showAddBarm()"  style="width: 55px;">
             <ul>
                 <li><div class="left"><i class="fas fa-box"></i> <div style="display: none;">Товары</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
                 <li><div class="left"><i class="fab fa-opencart"></i> <div style="display: none;">Заказы</div></div><i style="display: none;" class="fas fa-angle-right"></i></li>
@@ -169,14 +172,12 @@
                 <p>Фото и макеты вы можете добавлять сами. Если загрузите их здесь, а потом передадите нам файл с обновлённой информацией о товаре, мы будем использовать изображения из файла</p>
                 <br>
                 <p>Чтобы добавить видео или 3D-модель, отправьте запрос через форму.</p>
-{#                <input type="file" accept="/image" >#}
                 <div class="tovar-imgs">
                     <div class="imgs">
                         <div class="main-img">
                             <div class="img 1">
                                 <label for="forfile1"><i class="fas fa-plus"></i></label>
                                 <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-    {#                            <input id="forfile"  type="file" multiple onchange="previewFile(this)">#}
                                 {{ form.photo_main }}
                                 {{ form.photo_main.errors }}
                             </div>
@@ -184,56 +185,48 @@
                         <div class="img 2">
                             <label for="forfile2"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile1"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_1 }}
                             {{ form.photo_1.errors }}
                         </div>
                         <div class="img 3">
                             <label for="forfile3"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile2"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_2 }}
                             {{ form.photo_2.errors }}
                         </div>
                         <div class="img 4">
                             <label for="forfile4"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile3"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_3 }}
                             {{ form.photo_3.errors }}
                         </div>
                         <div class="img 5">
                             <label for="forfile5"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile4"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_4 }}
                             {{ form.photo_4.errors }}
                         </div>
                         <div class="img 6">
                             <label for="forfile6"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile5"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_5 }}
                             {{ form.photo_5.errors }}
                         </div>
                         <div class="img 7">
                             <label for="forfile7"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile6"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_6 }}
                             {{ form.photo_6.errors }}
                         </div>
                         <div class="img 8">
                             <label for="forfile8"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile7"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_7 }}
                             {{ form.photo_7.errors }}
                         </div>
                         <div class="img 9">
                             <label for="forfile9"><i class="fas fa-plus"></i></label>
                             <div class="del-img" onclick="delPhoto(this)"><i class="fa-solid fa-x"></i></div>
-{#                            <input id="forfile8"  type="file" multiple onchange="previewFile(this)">#}
                             {{ form.photo_8 }}
                             {{ form.photo_8.errors }}
                         </div>
@@ -245,15 +238,22 @@
                 <h2>Характеристики в категории</h2>
                 <p>При поиске товара покупатели используют фильтры. Чем больше характеристик вы передадите, тем выше вероятность, что при фильтрации товар найдут.</p>
                 <label>Категория товара</label>
-{#                <input class="vibor-kataloga" type="text" list="katalogs">#}
-                {{ form.cat }}
-                {{ form.cat.errors }}
+                    <div class="add-tovar-kategorii">
 
-                {{ form.podcat }}
-                {{ form.podcat.errors }}
+                        <div class="cat">
+                            {{ form.cat }}
+                            {{ form.cat.errors }}
+                        </div>
+                        <div class="podcat">
+                            {{ form.podcat }}
+                            {{ form.podcat.errors }}
+                        </div>
+                        <div class="podpodcat">
+                            {{ form.podpodcat }}
+                            {{ form.podpodcat.errors }}
+                        </div>
+                    </div>
 
-                {{ form.podpodcat }}
-                {{ form.podpodcat.errors }}
 
                 <div class="inputs">
 
@@ -282,66 +282,163 @@
                <button type="submit">Добавить товар</button>
                </div>
             </form>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         const kategoriya = document.querySelector('#kategoriya')
         const podkategoriya = document.querySelector('#podkategoriya')
         const podpodkategoriya = document.querySelector('#podpodkategoriya')
+        console.log(podpodkategoriya.value)
+        // let maincat = {% autoescape off %}{{ cat }}{% endautoescape %}
 
-        {% for c in cat %}const podkategotii{{ c.id }} = [{% for i in podcat %}{% if c.id == i.maincat.id %}['{{ i.name }}', {{ i.id }}],{% endif %}{% endfor %}];{% endfor %}
-        {% for pc in podcat %}const podpodkategotii{{ pc.id }} = [{% for i in podpodcat %}{% if pc.id == i.mainpodcat.id %}['{{ i.name }}', {{ i.id }}],{% endif %}{% endfor %}];{% endfor %}
+        let options = document.querySelectorAll('.add-tovar-kategorii')
 
-        kategoriya.addEventListener('blur', (event)=> {
-            console.log(kategoriya.value)
-            {% for c in cat %}
-                if (kategoriya.value==='{{ c.id }}') {
-                    podkategoriya.innerHTML = ''
-                    podkategoriya.removeAttribute('disabled')
-                    for (let i of podkategotii{{ c.id }}) {
-                        let option = document.createElement('option')
-                        option.value = i[1]
-                        option.innerText = i[0]
-                        podkategoriya.append(option)
+
+        kategoriya.addEventListener('change', () => {
+                $(document).ready(function () {
+                    $.ajax({
+                        data: {
+                            "cat" : kategoriya.value ,
+                            "podcat" : podkategoriya.value,
+                            "podpodcat" : podpodkategoriya.value,
+                        },
+                        url: "{% url 'add_tovar_cats' %}",
+                        success: function (response) {
+                            console.log(1, response.podcats)
+                            try {
+                                let deldivs = document.querySelectorAll('.inputs div')
+                                deldivs.forEach(deldiv => {
+                                    deldiv.remove()
+                                })
+                            } catch {
+                            }
+                            let delPodcats = document.querySelectorAll('#podkategoriya option')
+                            delPodcats.forEach(delPodcat =>{
+                                delPodcat.remove()
+                            })
+                            let delPodPodcats = document.querySelectorAll('#podpodkategoriya option')
+                            delPodPodcats.forEach(delPodPodcat =>{
+                                delPodPodcat.remove()
+                            })
+                            if (response.podcats.length) {
+                                let createOption = document.createElement('option')
+                                createOption.innerText = ''
+                                podkategoriya.append(createOption)
+                                for (let i of response.podcats) {
+                                    let createOption = document.createElement('option')
+                                    createOption.innerText = i[1]
+                                    createOption.value = i[0]
+                                    podkategoriya.append(createOption)
+                                }
+                            }
+                        },
+                        error: function (response) {
+                            console.log(response.responseJSON.errors)
+                        }
+                    });
+                    return false;
+                })
+            })
+        podkategoriya.addEventListener('change', () => {
+            $(document).ready(function () {
+                $.ajax({
+                    data: {
+                        "cat" : kategoriya.value ,
+                        "podcat" : podkategoriya.value,
+                        "podpodcat" : podpodkategoriya.value,
+                    },
+                    url: "{% url 'add_tovar_cats' %}",
+                    success: function (response) {
+                        console.log(2, response.podpodcats)
+                            try {
+                                let deldivs = document.querySelectorAll('.inputs div')
+                                deldivs.forEach(deldiv => {
+                                    deldiv.remove()
+                                })
+                            } catch {
+                            }
+                            let delPodPodcats = document.querySelectorAll('#podpodkategoriya option')
+                            delPodPodcats.forEach(delPodPodcat =>{
+                                delPodPodcat.remove()
+                            })
+                            if (response.podpodcats.length) {
+                                let createOption = document.createElement('option')
+                                createOption.innerText = ''
+                                podpodkategoriya.append(createOption)
+                                for (let i of response.podpodcats) {
+                                    let createOption = document.createElement('option')
+                                    createOption.innerText = i[1]
+                                    createOption.value = i[0]
+                                    podpodkategoriya.append(createOption)
+                                }
+                            }
+                    },
+                    error: function (response) {
+                        console.log(response.responseJSON.errors)
                     }
-                } else
-            {% endfor %}{}
+                });
+                return false;
+            })
         })
-
-        podkategoriya.addEventListener('blur', (event)=> {
-            {% for pc in podcat %}
-                if (podkategoriya.value==='{{ pc.id }}') {
-                    podpodkategoriya.innerHTML = ''
-                    podpodkategoriya.removeAttribute('disabled')
-                    for (let i of podpodkategotii{{ pc.id }}) {
-                        let option = document.createElement('option')
-                        option.value = i[1]
-                        option.innerText = i[0]
-                        podpodkategoriya.append(option)
+        podpodkategoriya.addEventListener('change', () => {
+            $(document).ready(function () {
+                $.ajax({
+                    data: {
+                        "cat" : kategoriya.value ,
+                        "podcat" : podkategoriya.value,
+                        "podpodcat" : podpodkategoriya.value,
+                    },
+                    url: "{% url 'add_tovar_cats' %}",
+                    success: function (response) {
+                        console.log(3, response)
+                            let deldivs = document.querySelectorAll('.inputs div')
+                            deldivs.forEach(deldiv => {
+                                deldiv.remove()
+                            })
+                            for (let i of response.properties) {
+                                let input = document.createElement('input')
+                                let label = document.createElement("label")
+                                let div = document.createElement('div')
+                                label.innerText = i
+                                input.id = i
+                                input.type = 'text'
+                                div.append(label)
+                                div.append(input)
+                                document.querySelector('.inputs').append(div)
+                            }
+                    },
+                    error: function (response) {
+                        console.log(response.responseJSON.errors)
                     }
-                } else
-            {% endfor %}{}
+                });
+                return false;
+            })
         })
 
-        const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
-        podpodkategoriya.addEventListener('click', (event)=> {
-            let inputPlace = document.querySelector('form .inputs')
-            inputPlace.innerHTML = ''
-            if (podpodkategoriya.value === '1') {
-                for (let i of xarakteristika) {
-                    let input = document.createElement('input')
-                    let label = document.createElement("label")
-                    let div = document.createElement('div')
-                    label.innerText = i
-                    input.id = i
-                    input.type = 'text'
-                    div.append(label)
-                    div.append(input)
-                    inputPlace.append(div)
-                }
-            }
-        })
+
+
+        //
+        // const xarakteristika = ['Состояние товара','Производитель','Линейка',' Платформа',' Диагональ экрана','Формат разрешения экрана','Операционная система','Разрешение экрана','Частота обновления экрана','Встроенная память','Оперативная память','Стандарт связи','Разрешение основной камеры','Количество основных камер','Соотношение сторон экрана','Разрешение фронтальной камеры, Мпикс','Количество SIM-карт','Емкость аккумулятора','Процессор','Степень защиты от влаги','Количество ядер процессора','Тип матрицы экрана','Производитель процессора','Время работы','Выход на наушники','Тип разъема для зарядки','Функции зарядки','Разрешение при видеосъемке, макс','Частота кадров при записи видео, макс']
+        // podpodkategoriya.addEventListener('click', (event)=> {
+        //     let inputPlace = document.querySelector('form .inputs')
+        //     inputPlace.innerHTML = ''
+        //     if (podpodkategoriya.value === '1') {
+        //         for (let i of xarakteristika) {
+        //             let input = document.createElement('input')
+        //             let label = document.createElement("label")
+        //             let div = document.createElement('div')
+        //             label.innerText = i
+        //             input.id = i
+        //             input.type = 'text'
+        //             div.append(label)
+        //             div.append(input)
+        //             inputPlace.append(div)
+        //         }
+        //     }
+        // })
 
         function translit(word){
             let answer = '';
@@ -375,27 +472,32 @@
         }
 
         let textarea = document.querySelector('#id_properties')
-            function addTovar() {
-                let jsonius = {}
-                let inputs = document.querySelectorAll('form .inputs input')
-                for (let input of inputs) {
-                    if (input.value === '') {
-                        jsonius[translit(input.id).toLowerCase()] = [input.id, null]
-                    } else {
-                        jsonius[translit(input.id).toLowerCase()] = [input.id, input.value]
+        function addTovar() {
+            let jsonius = {}
+            let inputs = document.querySelectorAll('form .inputs input')
+            inputs.forEach(input=> {
+                input.style.border = '2px green solid'
+            })
+            for (let input of inputs) {
+                if (input.value === '') {
+                    jsonius[translit(input.id).toLowerCase()] = [input.id, null]
+                } else {
+                    jsonius[translit(input.id).toLowerCase()] = [input.id, input.value]
 
-                    }
                 }
-                let a = JSON.stringify(jsonius)
-                textarea.innerText = a
-                console.log(a)
             }
+            let a = JSON.stringify(jsonius)
+            textarea.innerText = a
+            console.log(a)
+        }
 
         function showThirdForm() {
             let secondForm = document.querySelector('.third-form')
             secondForm.style.display = 'block'
             addTovar()
         }
+
+
 
     </script>
     <script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>

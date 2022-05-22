@@ -64,7 +64,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        let likes = []
+        let likes = {{ fav_tovari_id_list }}
+
         function setLikes() {
             let chekboxik = document.querySelectorAll('.heart')
             chekboxik.forEach(chekbox => {
@@ -83,7 +84,9 @@
                             success: function (response) {
                                 let a = event.target.parentElement.querySelector("label")
                                 likes = response.fav_tovari
+
                                 if (response.is_favorite) {
+                                    console.log(likes)
                                     a.classList.add("red")
                                 } else {
                                     a.classList.remove("red")
@@ -154,19 +157,18 @@
                 div2.append(label)
                 div1.append(div2)
             }
-            console.log()
             document.querySelector('.filter-filter').append(div1)
             // console.log(properties[i])
         }
 
         // let likes = {% autoescape off %}{{ fav_tovari_id_list }}{% endautoescape %}
         // let likes = [{% for i in fav_tovari_id_list %}{{i}}, {% endfor %}]
-        console.log(typeof likes)
+
         function artOfTovar(response) {
             for (let i of response) {
                 let tovar = i.fields
                 let red =''
-                console.log(typeof i.pk)
+                console.log(likes)
                 if (likes.includes(i.pk)) {
                     red = 'red'
                 } else {
@@ -196,7 +198,6 @@
                                  </div>`
 
 
-                console.log(htmltovar)
                 document.querySelector('.filter-main-content .tovari').innerHTML += htmltovar
                 setLikes()
 

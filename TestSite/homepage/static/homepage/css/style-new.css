@@ -248,15 +248,16 @@ body {
 }
 
 .poiskovik {
-    position: relative;
-  width: 80%;
+
 }
-.poiskovik form {
+.poiskovik {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 32px 0 0;
   width: 100%;
+    position: relative;
+
 }
 .poiskovik input:first-child {
   max-width: 688px;
@@ -268,10 +269,13 @@ body {
 }
 
 .poiskovik input:first-child[type=text] {
-  padding: 0 36px 0 12px;
+  padding: 0 15px 0 12px;
+    color: black;
 }
-
-.poiskovik input:last-child {
+.desktop-header .variant-poiska a {
+    cursor: pointer;
+}
+.poiskovik input[type=button] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,8 +292,11 @@ body {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   color: #FFF;
+    transition: .3s;
 }
-
+.poiskovik input[type=button]:active {
+    background-color: #e1b70c;
+}
 .varianti-poiska {
     background-color: #FFFFFF;
     top: 50px;
@@ -649,7 +656,7 @@ main .tovari {
   -webkit-transition: 300ms;
   transition: 300ms;
     width: 19%;
-    min-width: 180px;
+    min-width: 170px;
     position: relative;
     border: 1px #e3e3e3 dashed;
     border-radius: 10px ;
@@ -891,7 +898,9 @@ footer .content{
     margin: auto;
     padding: 20px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    flex-direction: row;
     justify-content: space-between;
 }
 footer .content p,footer .content a{
@@ -3049,8 +3058,9 @@ form ul li {
     display: block;
   }
 
-  .poiskovik {
-    width: 100%;
+    .mobile-poiskovik .poiskovik {
+    width: 99%;
+        margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3062,20 +3072,18 @@ form ul li {
             justify-content: center;
   }
 
-  .poiskovik form {
-    margin: 0;
-    width: 98%;
-  }
 
-  .poiskovik button {
+
+    .mobile-poiskovik .poiskovik input[type=button] {
     width: 90px;
     background-color: #03ce97;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border: 0 #000000 solid;
+        height: 44px ;
   }
 
-  .poiskovik button:active {
+    .mobile-poiskovik .poiskovik button:active {
     background-color: #e1b75c;
   }
 

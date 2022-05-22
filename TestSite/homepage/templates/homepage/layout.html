@@ -26,10 +26,8 @@
 					<div class="katalog-text">Каталог</div>
 				</div>
 				<div class="poiskovik">
-					<form class="dform-of-poisk">
-                        <input type="text" placeholder="Искать товары" class="poisk-tovarov">
-                        <input type="button" value="Найти">
-                    </form>
+					<input type="text" placeholder="Искать товары" class="poisk-tovarov">
+					<input type="button" onclick="find(this)" value="Найти">
                     <div  class="varianti-poiska" style="display: none;">
                     </div>
 				</div>
@@ -251,12 +249,13 @@
 			<div class="mobile-katalog-tovarov" onclick="mobileshowkatalog()">
 				<p>Каталог товаров</p> <i class="fa-solid fa-angle-down"></i>
 			</div>
-			<div class="mobile-poiskovik">
-				<div class="poiskovik">
-					<form>
-						<input type="text" placeholder="Искать товары" class="poisk-tovarov">
-						<button type="button">Найти</button>
-					</form>
+
+		</div>
+		<div class="mobile-poiskovik">
+			<div class="poiskovik">
+				<input type="text" placeholder="Искать товары" class="poisk-tovarov">
+				<input type="button" value="Найти">
+				<div  class="varianti-poiska" style="display: none;">
 				</div>
 			</div>
 		</div>

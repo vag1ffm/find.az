@@ -128,69 +128,143 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
-        const poiskoviki = document.querySelectorAll('.poisk-tovarov')
-		const placeOfVariants = document.querySelector('.varianti-poiska')
-
-		poiskoviki.forEach(poiskovik => {
-			poiskovik.addEventListener('input', ()=> {
-                if (poiskovik.value === '') {
-					placeOfVariants.style.display = 'none'
+        const dpoiskoviki = document.querySelector('.desktop-header .poisk-tovarov')
+		const dplaceOfVariants = document.querySelector('.desktop-header .varianti-poiska')
+		dpoiskoviki.addEventListener('input', ()=> {
+			mpoiskoviki.value = dpoiskoviki.value
+			dpoiskoviki.value = mpoiskoviki.value
+                if (dpoiskoviki.value === '') {
+						dplaceOfVariants.style.display = 'none'
                 } else {
                     $(document).ready(function () {
-						placeOfVariants.style.display = 'block'
-						let variantOfSearches = document.querySelectorAll('.variant-poiska')
-						variantOfSearches.forEach(variantOfSearch => {variantOfSearch.style.display = 'none'})
-
-						let searchWord = poiskovik.value
-
+							dplaceOfVariants.style.display = 'block'
+						let variantOfSearches = document.querySelectorAll('.desktop-header .variant-poiska')
+						variantOfSearches.forEach(variantOfSearch => {
+							variantOfSearch.style.display = 'none'
+						})
+						let searchWord = dpoiskoviki.value
+						console.log(searchWord)
 						let maindiv = document.createElement('div')
 						let a = document.createElement('a')
 						maindiv.classList.add('variant-poiska')
 						a.innerText = searchWord
 						a.href = `/find/?name=${searchWord}`
 						maindiv.append(a)
-						placeOfVariants.append(maindiv)
-						console.log(maindiv)
+						dplaceOfVariants.append(maindiv)
 
                         $.ajax({
-                            data: { 'value':searchWord },
+                            data: { 'value': searchWord },
                             url: "{% url 'find_tovari' %}",
                             success: function (response) {
-									for(let i of response.list_title) {
+									for (let i of response.list_title) {
 										let div = document.createElement('div')
 										div.classList.add('variant-poiska')
 										let a = document.createElement('a')
 										a.innerText = i
 										a.href = `/find/?name=${i}`
 										div.append(a)
-										placeOfVariants.append(div)
+										dplaceOfVariants.append(div)
 										console.log(response)
 									}
-
-
                             },
                             error: function (response) {
                                 console.log(response.responseJSON.errors)
                             }
                         }).then(()=>{
-							let variants = document.querySelectorAll('.variant-poiska')
+							let variants = document.querySelectorAll('.desktop-header .variant-poiska')
 							variants.forEach(variant => {
 								variant.addEventListener('click', (event)=>{
-									poiskovik.value = event.target.innerText
-									let a = document.querySelector('.dform-of-poisk')
+									dpoiskoviki.value = event.target.innerText
 								})
 							})
 						})
-
-
-
-
                         return false;
                     })
                 }
-
             })
-        })
+
+		function find(i) {
+			let a = i.parentElement.querySelector('input').value
+			document.location.href = `/find/?name=${a}`;
+		}
+		dpoiskoviki.addEventListener('keydown', (e)=> {
+			if (e.keyCode === 13) {
+				let searchWord = dpoiskoviki.value
+				document.location.href = `/find/?name=${searchWord}`;
+			}
+		})
+		const mpoiskoviki = document.querySelector('.mobile-header .poisk-tovarov')
+		const mplaceOfVariants = document.querySelector('.mobile-header .varianti-poiska')
+		mpoiskoviki.addEventListener('input', ()=> {
+			dpoiskoviki.value = mpoiskoviki.value
+			mpoiskoviki.value = dpoiskoviki.value
+			if (mpoiskoviki.value === '') {
+				mplaceOfVariants.style.display = 'none'
+			} else {
+				$(document).ready(function () {
+					mplaceOfVariants.style.display = 'block'
+					let variantOfSearches = document.querySelectorAll('.mobile-header .variant-poiska')
+					variantOfSearches.forEach(variantOfSearch => {
+						variantOfSearch.style.display = 'none'
+					})
+					let searchWord = mpoiskoviki.value
+					console.log(searchWord)
+					let maindiv = document.createElement('div')
+					let a = document.createElement('a')
+					maindiv.classList.add('variant-poiska')
+					a.innerText = searchWord
+					a.href = `/find/?name=${searchWord}`
+					maindiv.append(a)
+					mplaceOfVariants.append(maindiv)
+
+					$.ajax({
+						data: { 'value': searchWord },
+						url: "{% url 'find_tovari' %}",
+						success: function (response) {
+							for (let i of response.list_title) {
+								let div = document.createElement('div')
+								div.classList.add('variant-poiska')
+								let a = document.createElement('a')
+								a.innerText = i
+								a.href = `/find/?name=${i}`
+								div.append(a)
+								mplaceOfVariants.append(div)
+								console.log(response)
+							}
+						},
+						error: function (response) {
+							console.log(response.responseJSON.errors)
+						}
+					}).then(()=>{
+						let variants = document.querySelectorAll('.mobile-header .variant-poiska')
+						variants.forEach(variant => {
+							variant.addEventListener('click', (event)=>{
+								mpoiskoviki.value = event.target.innerText
+							})
+						})
+					})
+					return false;
+				})
+			}
+		})
+
+		function find(i) {
+			let a = i.parentElement.querySelector('input').value
+			document.location.href = `/find/?name=${a}`;
+		}
+		mpoiskoviki.addEventListener('keydown', (e)=> {
+			if (e.keyCode === 13) {
+				let searchWord = mpoiskoviki.value
+				document.location.href = `/find/?name=${searchWord}`;
+			}
+		})
+
+
+
+
+
+
+
 
 
 
