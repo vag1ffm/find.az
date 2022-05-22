@@ -419,6 +419,7 @@
 				document.location.href = `/find/?name=${searchWord}`;
 			}
 		})
+
 		const mpoiskoviki = document.querySelector('.mobile-header .poisk-tovarov')
 		const mplaceOfVariants = document.querySelector('.mobile-header .varianti-poiska')
 		mpoiskoviki.addEventListener('input', ()=> {
@@ -518,6 +519,38 @@
             })
         }
         setLikes()
+
+		function setCards() {
+			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
+			vKorzitus.forEach(vKorzitu => {
+				vKorzitu.addEventListener('click', (event)=>{
+					let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
+					$(document).ready(function () {
+						$.ajax({
+							data: {"id": id},
+							url: "{% url 'crud_cart' %}",
+							success: function (response) {
+								let input = event.target
+								if (response.is_in_cart) {
+									input.value = 'В корзине'
+									input.style.backgroundColor = '#e1b70c'
+								} else {
+									input.value = 'Добавить в корзину'
+									input.style.backgroundColor = '#03ce97'
+								}
+
+								console.log(event.target)
+							},
+							error: function (response) {
+								console.log(response.responseJSON.errors)
+							}
+						});
+						return false;
+					})
+				})
+			})
+		}
+		setCards()
     </script>
 
     {% block js %}

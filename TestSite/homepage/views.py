@@ -666,7 +666,7 @@ def show_favorites(request):
 
 @login_required(redirect_field_name="login")
 def crud_cart(request):
-    r = request.GET.get("cart", None)
+    r = request.GET.get("id", None)
     r = int(r)
     cart_user = auth.get_user(request)
 

@@ -784,7 +784,7 @@ main .tovari {
   width: 90%;
 }
 
-.button button, .btn-primary {
+.button button, .btn-primary, .button input[type=button] {
   width: 100%;
   background-color: #03ce97;
   height: 40px;
@@ -804,13 +804,14 @@ main .tovari {
   color: #ffffff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+    cursor: pointer;
 }
 
-.button button:hover {
+.button button:hover, .button input[type=button]:hover {
   background-color: #e1b70c;
 }
 
-.button button:active {
+.button button:active, .button input[type=button]:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
@@ -1370,6 +1371,24 @@ input {
 
 
 
+.cart-with-check {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cart-with-check .tovari {
+    width: 70%;
+}
+.chek-tovarov {
+    width: 25% ;
+    height: auto;
+    border: 2px #03ce97 dotted;
+    border-radius: 5px;
+}
+.chek-tovarov  h2{
+    margin: 10px;
+}
 
 
 
