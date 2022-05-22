@@ -1,6 +1,6 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from .views import *
 
 urlpatterns = [
@@ -27,4 +27,6 @@ urlpatterns = [
     path('find_tovari/', find, name="find_tovari"),
     path('find/', find_page, name="find"),
     path('add_tovar_cats/', add_tovar_cats, name="add_tovar_cats"),
+    path('cart/', show_cart, name="show_cart"),
+    path('crud_cart/', crud_cart, name="crud_cart")
 ]

@@ -13,10 +13,6 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <div class="preloader">
-		<div class="loading-spinner"></div>
-	</div>
-
 	<div class="slayder">
 		<img src="{% static 'homepage/img/reklama1.jpg' %}" alt="">
 	</div>
@@ -84,9 +80,7 @@
                                     </label>
                                     <input name="favorite" style="display: none" class='heart' type="checkbox" id="{{ tovar.pk }}">
                             {% else %}
-{#                                                <a href="{% url 'login' %}">#}
-                                    <i class="fa-solid fa-heart"></i>
-{#                                                </a>#}
+                                <i class="fa-solid fa-heart"></i>
                             {% endif %}
                         </div>
 
@@ -103,7 +97,7 @@
 						    </span>
 
 						</a>
-						<div class="button"><button>В корзину</button></div>
+						<div class="button"><input type="button" value="В корзину"></div>
 					</div>
                     {% endfor %}
 				</div>
@@ -125,184 +119,4 @@
 {% endblock content %}
 
 {% block js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-
-        const dpoiskoviki = document.querySelector('.desktop-header .poisk-tovarov')
-		const dplaceOfVariants = document.querySelector('.desktop-header .varianti-poiska')
-		dpoiskoviki.addEventListener('input', ()=> {
-			mpoiskoviki.value = dpoiskoviki.value
-			dpoiskoviki.value = mpoiskoviki.value
-                if (dpoiskoviki.value === '') {
-						dplaceOfVariants.style.display = 'none'
-                } else {
-                    $(document).ready(function () {
-							dplaceOfVariants.style.display = 'block'
-						let variantOfSearches = document.querySelectorAll('.desktop-header .variant-poiska')
-						variantOfSearches.forEach(variantOfSearch => {
-							variantOfSearch.style.display = 'none'
-						})
-						let searchWord = dpoiskoviki.value
-						console.log(searchWord)
-						let maindiv = document.createElement('div')
-						let a = document.createElement('a')
-						maindiv.classList.add('variant-poiska')
-						a.innerText = searchWord
-						a.href = `/find/?name=${searchWord}`
-						maindiv.append(a)
-						dplaceOfVariants.append(maindiv)
-
-                        $.ajax({
-                            data: { 'value': searchWord },
-                            url: "{% url 'find_tovari' %}",
-                            success: function (response) {
-									for (let i of response.list_title) {
-										let div = document.createElement('div')
-										div.classList.add('variant-poiska')
-										let a = document.createElement('a')
-										a.innerText = i
-										a.href = `/find/?name=${i}`
-										div.append(a)
-										dplaceOfVariants.append(div)
-										console.log(response)
-									}
-                            },
-                            error: function (response) {
-                                console.log(response.responseJSON.errors)
-                            }
-                        }).then(()=>{
-							let variants = document.querySelectorAll('.desktop-header .variant-poiska')
-							variants.forEach(variant => {
-								variant.addEventListener('click', (event)=>{
-									dpoiskoviki.value = event.target.innerText
-								})
-							})
-						})
-                        return false;
-                    })
-                }
-            })
-
-		function find(i) {
-			let a = i.parentElement.querySelector('input').value
-			document.location.href = `/find/?name=${a}`;
-		}
-		dpoiskoviki.addEventListener('keydown', (e)=> {
-			if (e.keyCode === 13) {
-				let searchWord = dpoiskoviki.value
-				document.location.href = `/find/?name=${searchWord}`;
-			}
-		})
-		const mpoiskoviki = document.querySelector('.mobile-header .poisk-tovarov')
-		const mplaceOfVariants = document.querySelector('.mobile-header .varianti-poiska')
-		mpoiskoviki.addEventListener('input', ()=> {
-			dpoiskoviki.value = mpoiskoviki.value
-			mpoiskoviki.value = dpoiskoviki.value
-			if (mpoiskoviki.value === '') {
-				mplaceOfVariants.style.display = 'none'
-			} else {
-				$(document).ready(function () {
-					mplaceOfVariants.style.display = 'block'
-					let variantOfSearches = document.querySelectorAll('.mobile-header .variant-poiska')
-					variantOfSearches.forEach(variantOfSearch => {
-						variantOfSearch.style.display = 'none'
-					})
-					let searchWord = mpoiskoviki.value
-					console.log(searchWord)
-					let maindiv = document.createElement('div')
-					let a = document.createElement('a')
-					maindiv.classList.add('variant-poiska')
-					a.innerText = searchWord
-					a.href = `/find/?name=${searchWord}`
-					maindiv.append(a)
-					mplaceOfVariants.append(maindiv)
-
-					$.ajax({
-						data: { 'value': searchWord },
-						url: "{% url 'find_tovari' %}",
-						success: function (response) {
-							for (let i of response.list_title) {
-								let div = document.createElement('div')
-								div.classList.add('variant-poiska')
-								let a = document.createElement('a')
-								a.innerText = i
-								a.href = `/find/?name=${i}`
-								div.append(a)
-								mplaceOfVariants.append(div)
-								console.log(response)
-							}
-						},
-						error: function (response) {
-							console.log(response.responseJSON.errors)
-						}
-					}).then(()=>{
-						let variants = document.querySelectorAll('.mobile-header .variant-poiska')
-						variants.forEach(variant => {
-							variant.addEventListener('click', (event)=>{
-								mpoiskoviki.value = event.target.innerText
-							})
-						})
-					})
-					return false;
-				})
-			}
-		})
-
-		function find(i) {
-			let a = i.parentElement.querySelector('input').value
-			document.location.href = `/find/?name=${a}`;
-		}
-		mpoiskoviki.addEventListener('keydown', (e)=> {
-			if (e.keyCode === 13) {
-				let searchWord = mpoiskoviki.value
-				document.location.href = `/find/?name=${searchWord}`;
-			}
-		})
-
-
-
-
-
-
-
-
-
-
-		let chekboxik = document.querySelectorAll('.heart')
-		chekboxik.forEach(chekbox => {
-			chekbox.addEventListener('click', (event)=>{
-				$(document).ready(function () {
-					// отслеживаем событие отправки формы
-
-						// создаем AJAX-вызов
-					{#console.log(event.target.id)#}
-						$.ajax({
-							data: {
-                                "favorite": event.target.id,
-                            }, // получаяем данные формы
-							url: "{% url 'crud_favorites' %}",
-							// если успешно, то
-							success: function (response) {
-                                let a = event.target.parentElement.querySelector("label")
-
-								if (response.is_favorite) {
-                                    a.classList.add("red")
-								}
-								else {
-									a.classList.remove("red")
-								}
-							},
-							// если ошибка, то
-							error: function (response) {
-								// предупредим об ошибке
-								console.log(response.responseJSON.errors)
-							}
-						});
-						return false;
-
-				})
-			})
-		})
-
-    </script>
 {% endblock js %}

@@ -4,11 +4,6 @@
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-
-    <div class="preloader">
-		<div class="loading-spinner"></div>
-	</div>
-
     <main class="main-of-profile">
         <div class="header-of-profile">
             <div class="profile-infa">
@@ -75,7 +70,6 @@
                 {#                                                </a>#}
                                             {% endif %}
                                         </div>
-
                                         <a href="{{ tovar.get_absolute_url }}">
                                             <div class="qlavniy-tovar-img"><img src="{{ tovar.photo_main.url }}" alt=""></div>
                                             <span class="tovar-info">
@@ -87,63 +81,18 @@
                                                 <div class="tovar-name">{{ tovar.title|truncatewords:10 }}</div>
                                                 <div class="rekomenduyemost">86% рекомендуют</div>
                                             </span>
-
                                         </a>
                                         <div class="button"><button>В корзину</button></div>
                                     </div>
-
                                 {% endfor %}
-
                             </div>
                         </div>
-
                     </div>
-
                 {% endfor %}
             </div>
-
         </div>
     </main>
 {% endblock content %}
 
 {% block js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-		let chekboxik = document.querySelectorAll('.heart')
-		chekboxik.forEach(chekbox => {
-			chekbox.addEventListener('click', (event)=>{
-				$(document).ready(function () {
-					// отслеживаем событие отправки формы
-
-						// создаем AJAX-вызов
-					{#console.log(event.target.id)#}
-						$.ajax({
-							data: {
-                                "favorite": event.target.id,
-                            }, // получаяем данные формы
-							url: "{% url 'crud_favorites' %}",
-							// если успешно, то
-							success: function (response) {
-                                let a = event.target.parentElement.querySelector("label")
-
-								if (response.is_favorite) {
-                                    a.classList.add("red")
-								}
-								else {
-									a.classList.remove("red")
-								}
-							},
-							// если ошибка, то
-							error: function (response) {
-								// предупредим об ошибке
-								console.log(response.responseJSON.errors)
-							}
-						});
-						return false;
-
-				})
-			})
-		})
-
-    </script>
 {% endblock js %}

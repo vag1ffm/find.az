@@ -1,13 +1,9 @@
 {% extends 'homepage/layout.html' %}
 {% load static %}
 
-{% block title %}{{ r }}{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
-    <div class="preloader">
-		<div class="loading-spinner"></div>
-	</div>
-
     <div class="filter-content">
         <h2>{{ tovari.0.podpodcat.name }}</h2>
         <div class="filter-and-content">
@@ -61,51 +57,7 @@
 {% endblock content %}
 
 {% block js %}
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        let likes = {{ fav_tovari_id_list }}
-
-        function setLikes() {
-            let chekboxik = document.querySelectorAll('.heart')
-            chekboxik.forEach(chekbox => {
-                chekbox.addEventListener('click', (event) => {
-                    $(document).ready(function () {
-                        // отслеживаем событие отправки формы
-
-                        // создаем AJAX-вызов
-
-                        $.ajax({
-                            data: {
-                                "favorite": event.target.id
-                            }, // получаяем данные формы
-                            url: "{% url 'crud_favorites' %}",
-                            // если успешно, то
-                            success: function (response) {
-                                let a = event.target.parentElement.querySelector("label")
-                                likes = response.fav_tovari
-
-                                if (response.is_favorite) {
-                                    console.log(likes)
-                                    a.classList.add("red")
-                                } else {
-                                    a.classList.remove("red")
-                                }
-                            },
-                            // если ошибка, то
-                            error: function (response) {
-                                // предупредим об ошибке
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-
-                    })
-                })
-            })
-        }
-        setLikes()
-
         function translit(word){
             let answer = '';
             let converter = {
@@ -123,7 +75,7 @@
                 'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
                 'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
                 'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
-                'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya', ' ': ''
+                'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya',   ' ': ''
             };
 
             for (let i = 0; i < word.length; ++i ) {
@@ -136,9 +88,6 @@
 
             return answer;
         }
-
-
-
         let properties = {% autoescape off %}{{ list_of_properties }}{% endautoescape %}
         for (let i of Object.keys(properties)){
             let div1 = document.createElement('div')
@@ -157,18 +106,14 @@
                 div2.append(label)
                 div1.append(div2)
             }
+            console.log()
             document.querySelector('.filter-filter').append(div1)
-            // console.log(properties[i])
         }
-
-        // let likes = {% autoescape off %}{{ fav_tovari_id_list }}{% endautoescape %}
-        // let likes = [{% for i in fav_tovari_id_list %}{{i}}, {% endfor %}]
-
         function artOfTovar(response) {
             for (let i of response) {
                 let tovar = i.fields
                 let red =''
-                console.log(likes)
+                console.log(typeof i.pk)
                 if (likes.includes(i.pk)) {
                     red = 'red'
                 } else {
@@ -185,10 +130,10 @@
                                      <a href="/post-tovar/${tovar.slug}">
                                          <div class="qlavniy-tovar-img"><img src="/media/${tovar.photo_main}" alt=""></div>
                                          <span class="tovar-info">
-                                             <div class="chena">${tovar.price}</div>
-                                                 <div class="reyting">
-                                                 <div class="zvezda"></div>
-                                                 <div class="chislo-ochenik"></div>
+                                             <div class="chena">${tovar.price} ₼</div>
+                                             <div class="reyting">
+                                                <div class="zvezda">звезды</div>
+                                                <div class="chislo-ochenik">50</div>
                                              </div>
                                              <div class="tovar-name">${tovar.title}</div>
                                              <div class="rekomenduyemost">86% рекомендуют</div>
@@ -196,14 +141,11 @@
                                      </a>
                                      <div class="button"><button>В корзину</button></div>
                                  </div>`
-
-
+                console.log(htmltovar)
                 document.querySelector('.filter-main-content .tovari').innerHTML += htmltovar
                 setLikes()
-
             }
         }
-
 
         let chekboxes = document.querySelectorAll('.filter-filter input[type=checkbox]')
         chekboxes.forEach(chekbox => {
@@ -259,7 +201,6 @@
                         return false;
                     })
                 }
-
             })
         })
     </script>
