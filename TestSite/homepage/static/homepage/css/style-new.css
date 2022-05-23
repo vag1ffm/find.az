@@ -1321,7 +1321,9 @@ input {
           align-items: center;
   width: 79%;
 }
-
+.filter-main-content .tovari {
+    width: 100%;
+}
 .filter-content-header {
   width: 95%;
   display: -webkit-box;
@@ -1343,6 +1345,13 @@ input {
     width: 100%;
 
 }
+.button .vkorzine {
+    background-color: #e1b70c!important;
+}
+/*input[type=checkbox]:checked {*/
+/*    color: #03ce97;*/
+/*}*/
+
 .filter-content-header ul li {
   cursor: pointer;
 }
@@ -1392,20 +1401,36 @@ input {
 .cart-with-check {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     width: 100%;
 }
 
 .cart-with-check .tovari {
-    width: 70%;
+    width: 100%;
 }
 .chek-tovarov {
-    width: 30% ;
+    width: 100% ;
     height: auto;
     border: 2px #03ce97 dotted;
     border-radius: 5px;
     padding: 10px;
 }
-.chek-tovarov  h2{
+.chek-tovarov table {
+    width: 100%;
+
+}
+.chek-tovarov table tr {
+    display: flex;
+    width: 100%;
+}
+.chek-tovarov table th {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+}
+.chek-tovarov table td {
+    width: 33%;
+
 }
 
 .chek-tovarov li {

@@ -7,7 +7,16 @@
         <div class="korzina-content">
             <h2>Корзина товаров</h2>
             <div class="cart-with-check">
+                <div class="chek-tovarov">
+                    <h2>Ваш Чек: </h2>
+                    <table class="table-check">
+                        <tr class="first"><th >Название товара</th><th>Количество</th><th>Цена</th></tr>
 
+                    </table>
+                    <table class="for-price">
+
+                    </table>
+                </div>
                 <div class="tovari">
                     {% if tovari %}
                         {% for tovar in tovari %}
@@ -34,17 +43,12 @@
                                         <div class="rekomenduyemost">86% рекомендуют</div>
                                     </span>
                                 </a>
-                                <div class="button"><button onclick="cart{{ tovar.pk }}.value--">-</button> <input  id="cart{{ tovar.pk }}" type="number" min="0" value="1"> <button onclick="cart{{ tovar.pk }}.value++">+</button></div>
+                                <div class="button" onclick="check()"><button onclick="if (cart{{ tovar.pk }}.value<=1){} else {cart{{ tovar.pk }}.value--}">-</button> <input  id="cart{{ tovar.pk }}" type="number" min="0" value="1"> <button onclick="{cart{{ tovar.pk }}.value++}">+</button></div>
                             </div>
                         {% endfor %}
                     {% endif %}
                 </div>
-                <div class="chek-tovarov">
-                    <h2>Ваш Чек: </h2>
-                    <ul>
-                        <li><a href=""></a></li>
-                    </ul>
-                </div>
+
             </div>
 
         </div>
@@ -52,6 +56,14 @@
 
 <script>
     function check() {
+        let tableCheckes = document.querySelectorAll('.table-check tr')
+        tableCheckes.forEach(tableCheck => {
+            tableCheck.remove()
+        })
+        let foPricehtmles = document.querySelectorAll('.for-price tr')
+        foPricehtmles.forEach(foPricehtml => {
+            foPricehtml.remove()
+        })
         let listCheck = []
         let tovari = document.querySelectorAll('.qlavniy-tovar')
         tovari.forEach(tovar => {
@@ -60,14 +72,25 @@
             let count = tovar.querySelector('.button input[type=number]').value
             listCheck.push([name, chena, count])
         })
+        let summaTovarov = 0;
+        listCheck.forEach(tovarInCheck=> {
+            summaTovarov += (+tovarInCheck[1].replace(',','.').slice(0,-2) * tovarInCheck[2])
+        })
+        console.log(summaTovarov)
+
+        let summa = `<tr><td><b>Сумма</b></td><td></td><td><b>${summaTovarov} ₼</b></td></tr>`
         console.log(listCheck)
         listCheck.forEach(tovarInCheck=> {
-            let ckeckHtml = `<li> <div style="width: 45%; white-space: nowrap; overflow: hidden; justify-content: start">${tovarInCheck[0]}</div> <div style="width: 30%;">${tovarInCheck[1].slice(0,-2)} X ${tovarInCheck[2]}</div> <div style="width: 30%;">${tovarInCheck[1].replace(',','.').slice(0,-2)* +tovarInCheck[2]} ₼</div></li>`
-            let ul = document.querySelector('.chek-tovarov ul')
-            ul.innerHTML += ckeckHtml
+            let ckeckHtml = `<tr><td>${tovarInCheck[0]}</td><td>${tovarInCheck[1].slice(0,-2)} X ${tovarInCheck[2]}</td><td>${tovarInCheck[1].replace(',','.').slice(0,-2)* +tovarInCheck[2]} ₼</td></tr>`
+
+            let table = document.querySelector('.chek-tovarov table')
+            let forPrice = document.querySelector('.chek-tovarov .for-price')
+            table.innerHTML += ckeckHtml
+            forPrice.innerHTML += summa
         })
     }
     check()
+
 </script>
 {% endblock content %}
 

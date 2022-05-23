@@ -9,7 +9,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="manifest" href="manifest.json">
+<!--		<link rel="manifest" href="manifest.json">-->
         {% block ogmeta %}{% endblock ogmeta %}
 		<title>{% block title %}{% endblock title %}</title>
 	</head>
@@ -520,42 +520,48 @@
         }
         setLikes()
 
-        {% if  cart_tovari_id_list %}
-		let cart_list = {{ cart_tovari_id_list }}
-        {% else %}
-        let cart_list = []
-        {% endif %}
-        function setCards() {
-            const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
-            vKorzitus.forEach(vKorzitu => {
-                vKorzitu.addEventListener('click', (event)=>{
-                    let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
-                    $(document).ready(function () {
-                        $.ajax({
-                            data: {"id": id},
-                            url: "{% url 'crud_cart' %}",
-                            success: function (response) {
-                                let input = event.target
-                                if (response.is_in_cart) {
-                                    input.value = 'В корзине'
-                                    input.style.backgroundColor = '#e1b70c'
-                                } else {
-                                    input.value = 'Добавить в корзину'
-                                    input.style.backgroundColor = '#03ce97'
-                                }
 
-                                console.log(event.target)
-                            },
-                            error: function (response) {
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-                    })
-                })
-            })
-        }
-        setCards()
+
+		{% if  cart_tovari_id_list %}
+		let cart_list = {{ cart_tovari_id_list }}
+		{% else %}
+		let cart_list = []
+		{% endif %}
+		console.log(cart_list)
+		function setCards() {
+			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
+			vKorzitus.forEach(vKorzitu => {
+				vKorzitu.addEventListener('click', (event)=>{
+					let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
+					$(document).ready(function () {
+						$.ajax({
+							data: {"id": id},
+							url: "{% url 'crud_cart' %}",
+							success: function (response) {
+								let input = event.target
+								cart_list = response.cart_tovari
+								console.log(cart_list)
+
+								if (response.is_in_cart) {
+									input.value = 'В корзине'
+									input.classList.add('vkorzine')
+								} else {
+									input.value = 'Добавить в корзину'
+									input.classList.remove('vkorzine')
+								}
+
+							},
+							error: function (response) {
+								console.log(response.responseJSON.errors)
+							}
+						});
+						return false;
+					})
+				})
+			})
+		}
+		setCards()
+
 
         document.body.onload = function () {
             setTimeout(()=>{

@@ -47,7 +47,7 @@
 						    </span>
 						</a>
 						{% if tovar in cart_tovari %}
-						    <div class="button"><input type="button" value="В корзине" style="background-color: #e1b70c"></div>
+						    <div class="button"><input type="button" value="В корзине" class="vkorzine"></div>
                         {% else %}
 						    <div class="button"><input type="button" value="Добавить в корзину"></div>
                         {% endif %}
@@ -61,6 +61,7 @@
 {% endblock content %}
 
 {% block js %}
+
         function translit(word){
             let answer = '';
             let converter = {
@@ -116,12 +117,24 @@
             for (let i of response) {
                 let tovar = i.fields
                 let red =''
-                console.log(typeof i.pk)
+                let vkorzine;
+                let word
                 if (likes.includes(i.pk)) {
                     red = 'red'
                 } else {
                     red = ''
                 }
+
+                    console.log(cart_list)
+                if (cart_list.includes(i.pk)){
+                    vkorzine = 'vkorzine'
+                    word ='В корзине'
+                } else {
+                    vkorzine = ''
+                    word ='Добавить в корзину'
+
+                }
+                console.log(vkorzine)
                 console.log(red)
                 let htmltovar =`<div class="qlavniy-tovar">
                                      <div class="izbranniy-tovar">
@@ -142,9 +155,9 @@
                                              <div class="rekomenduyemost">86% рекомендуют</div>
                                          </span>
                                      </a>
-                                     <div class="button"><button>В корзину</button></div>
+                                     <div class="button "><input type="button" class="${vkorzine}" value="${word}"></div>
                                  </div>`
-                console.log(htmltovar)
+
                 document.querySelector('.filter-main-content .tovari').innerHTML += htmltovar
                 setLikes()
             }
@@ -208,4 +221,8 @@
                 }
             })
         })
+
+
+
+
 {% endblock js %}
