@@ -721,11 +721,11 @@ def cart_count(request):
     try:
         tovar = MyCart.objects.get(product_id=int(id), user_id=cart_user.id)
         tovar.count = int(count)
-        print(count, tovar)
+        # print(count, tovar)
         tovar.save()
     except:
         pass
-    return JsonResponse({'ganja': 'amir/vaga'})
+    return JsonResponse({"ganja": "amir/vaga"})
 
 
 @login_required(redirect_field_name="login")
@@ -768,6 +768,35 @@ def find(request):
 
     response = {
         "list_title": finder_list_title,
+    }
+
+    return JsonResponse(response)
+
+
+def crud_rating_comments(request):
+    rating = request.GET.get("rating", None)
+    id_tovar = request.GET.get("id", None)
+    comment = request.GET.get("comment", None)
+    user = auth.get_user(request)
+    tovar = Tovar.objects.get(id=int(id_tovar))
+
+    user.user_rating_and_comment_for_tovar.add(tovar)
+
+    try:
+        tovar_rating = tovar.rating_andcomments_set.all()
+        tovar_rating = round(sum([i.rating for i in tovar_rating])/len(tovar_rating), 1)
+        tovar.rating = tovar_rating
+        tovar.save()
+    except:
+        pass
+
+    row = Rating_andComments.objects.get(user_id=user.id, product_id=int(id_tovar))
+    row.comment = comment
+    row.rating = float(rating)
+    row.save()
+
+    response = {
+        "added": True
     }
 
     return JsonResponse(response)

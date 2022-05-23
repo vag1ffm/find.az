@@ -54,6 +54,10 @@ class Tovar(models.Model):
     created_by = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Кем добавлено")
     open_times = models.SmallIntegerField(default=0, verbose_name="Сколько раз открыто")
 
+    rating = models.FloatField(default=0)
+
+    rating_from_user = models.ManyToManyField("User", related_name="rating_user", through="Rating_andComments")
+
     def __str__(self):
         return self.title
 
@@ -151,8 +155,11 @@ class User(AbstractUser):
     place_slug = models.SlugField(max_length=255, null=True, blank=True, verbose_name="URL")
     block_number = models.CharField(max_length=50, verbose_name="Номер блока", blank=True)
 
+    store_rating = models.FloatField(default=0)
+
     user_favorite = models.ManyToManyField("Tovar", related_name='favorite_tovari')
     user_cart = models.ManyToManyField("Tovar", related_name="cart_tovari", through='MyCart')
+    user_rating_and_comment_for_tovar = models.ManyToManyField("Tovar", related_name="rating_tovar", through="Rating_andComments")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
@@ -163,5 +170,12 @@ class User(AbstractUser):
 
 class MyCart(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Пользователь")
-    count = models.SmallIntegerField(default=1,verbose_name="Кол-во продукта")
+    count = models.SmallIntegerField(default=1, verbose_name="Кол-во продукта")
     product = models.ForeignKey("Tovar", on_delete=models.CASCADE, verbose_name="Товар")
+
+
+class Rating_andComments(models.Model):
+    user = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Пользователь")
+    product = models.ForeignKey("Tovar", on_delete=models.CASCADE, verbose_name="Товар")
+    rating = models.FloatField(default=0, verbose_name="Рейтинг")
+    comment = models.TextField(null=True, verbose_name="Комментарий")
