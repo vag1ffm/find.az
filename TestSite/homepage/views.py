@@ -725,6 +725,7 @@ def cart_count(request):
         tovar.save()
     except:
         pass
+    return JsonResponse({'ganja': 'amir/vaga'})
 
 
 @login_required(redirect_field_name="login")
