@@ -635,7 +635,7 @@ class EmailVerify(View):
             user = User.objects.get(pk=uid)
         except (
             TypeError,
-            ValueError,\
+            ValueError,
             OverflowError,
             User.DoesNotExist,
             ValidationError,
@@ -714,13 +714,30 @@ def crud_cart(request):
     return JsonResponse(response)
 
 
+def cart_count(request):
+    id = request.GET.get("id", None)
+    count = request.GET.get("count", None)
+    cart_user = auth.get_user(request)
+    try:
+        tovar = MyCart.objects.get(product_id=int(id), user_id=cart_user.id)
+        tovar.count = int(count)
+        print(count, tovar)
+        tovar.save()
+    except:
+        pass
+
+
 @login_required(redirect_field_name="login")
 def show_cart(request):
     cats = Category.objects.all()
     podcats = PodCat.objects.all()
     podpodcats = PodPodCat.objects.all()
     cart_user = auth.get_user(request)
-    tovari = cart_user.user_cart.all()
+    # tovari = cart_user.user_cart.all()
+    tovari_temp = MyCart.objects.filter(user_id=cart_user.id)
+    tovari = []
+    for i in tovari_temp:
+        tovari.append([i.product, i.count])
     fav_tovari = cart_user.user_favorite.all()
 
     data = {

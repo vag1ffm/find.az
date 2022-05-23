@@ -28,5 +28,6 @@ urlpatterns = [
     path('find/', find_page, name="find"),
     path('add_tovar_cats/', add_tovar_cats, name="add_tovar_cats"),
     path('cart/', show_cart, name="show_cart"),
-    path('crud_cart/', crud_cart, name="crud_cart")
+    path('crud_cart/', crud_cart, name="crud_cart"),
+    path('cart_count/', cart_count, name="cart_count"),
 ]
