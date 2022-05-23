@@ -447,7 +447,7 @@ def p_in_between(request, podcatslug):
 
 def filter_of_tovar(request):
     r = request.GET.get("property", None)
-
+    # print(f"\n\n{r}\n\n")
     try:
         r = json.loads(r)
         tovari = "Tovar.objects.filter("
@@ -464,7 +464,9 @@ def filter_of_tovar(request):
     except:
         tovari = Tovar.objects.filter(podpodcat__slug=r)
 
+    # print(f"\n\n{tovari}\n\n")
     goods_json = serializers.serialize('json', tovari)
+    # print(f"\n\n{goods_json}\n\n")
 
     return HttpResponse(goods_json, content_type='application/json')
 

@@ -134,9 +134,14 @@ class User(AbstractUser):
     email = models.EmailField(_("email address"), unique=True)
     email_verify = models.BooleanField(default=False, verbose_name="Подтверждение аккаунта")
     conditions = models.BooleanField(default=False, verbose_name="Условия конфиденциальности")
+
     is_seller = models.BooleanField(default=False, verbose_name="Продавец или покупатель")
+
     birth_day = models.DateField(null=True, blank=True)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,14}$', message="Номер телефона должен быть в формате: '+994 XX XXX XX XX'.")
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,14}$',
+        message="Номер телефона должен быть в формате: '+994 XX XXX XX XX'."
+    )
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True, verbose_name="Номер телефона")
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default=DEFAULT, verbose_name="Пол")
     occupation = models.CharField(max_length=50, verbose_name="Занятие", blank=True)
@@ -145,11 +150,18 @@ class User(AbstractUser):
     place = models.CharField(max_length=255, verbose_name="Место", blank=True)
     place_slug = models.SlugField(max_length=255, null=True, blank=True, verbose_name="URL")
     block_number = models.CharField(max_length=50, verbose_name="Номер блока", blank=True)
+
     user_favorite = models.ManyToManyField("Tovar", related_name='favorite_tovari')
-    user_cart = models.ManyToManyField("Tovar", related_name="cart_tovari")
+    user_cart = models.ManyToManyField("Tovar", related_name="cart_tovari", through='MyCart')
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
     def get_absolute_url(self):
         return reverse('profile', kwargs={"place_slug": self.place_slug})
+
+
+class MyCart(models.Model):
+    user = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Пользователь")
+    count = models.SmallIntegerField(default=1,verbose_name="Кол-во продукта")
+    product = models.ForeignKey("Tovar", on_delete=models.CASCADE, verbose_name="Товар")

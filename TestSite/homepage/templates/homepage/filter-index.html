@@ -172,6 +172,7 @@
                             data: {"property": JSON.stringify(dic)},
                             url: "{% url 'filter_of_tovar' %}",
                             success: function (response) {
+                                console.log(response)
                                 let tovariInFilter = document.querySelectorAll('.filter-main-content .qlavniy-tovar')
                                 for (let i of tovariInFilter) {
                                     i.remove()
@@ -191,6 +192,7 @@
                             data: {"property": '{{ tovari.0.podpodcat.slug }}'},
                             url: "{% url 'filter_of_tovar' %}",
                             success: function (response) {
+                                console.log(response)
                                 let tovariInFilter = document.querySelectorAll('.filter-main-content .qlavniy-tovar')
                                 for (let i of tovariInFilter) {
                                     i.remove()
