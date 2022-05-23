@@ -484,6 +484,8 @@
 		})
         {% if  fav_tovari_id_list %}
 		let likes = {{ fav_tovari_id_list }}
+        {% else %}
+        let likes = []
         {% endif %}
 
         function setLikes() {
@@ -520,6 +522,8 @@
 
         {% if  cart_tovari_id_list %}
 		let cart_list = {{ cart_tovari_id_list }}
+        {% else %}
+        let cart_list = []
         {% endif %}
         function setCards() {
             const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
