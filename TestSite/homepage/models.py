@@ -178,4 +178,7 @@ class Rating_andComments(models.Model):
     user = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Пользователь")
     product = models.ForeignKey("Tovar", on_delete=models.CASCADE, verbose_name="Товар")
     rating = models.FloatField(default=0, verbose_name="Рейтинг")
+    plus = models.CharField(max_length=255, null=True, verbose_name="Плюсы товара")
+    minus = models.CharField(max_length=255, null=True, verbose_name="Минусы товара")
     comment = models.TextField(null=True, verbose_name="Комментарий")
+    time_cr = models.DateTimeField(null=True, auto_now_add=True, verbose_name="Время создания")

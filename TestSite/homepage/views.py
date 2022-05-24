@@ -777,6 +777,8 @@ def crud_rating_comments(request):
     rating = request.GET.get("rating", None)
     id_tovar = request.GET.get("id", None)
     comment = request.GET.get("comment", None)
+    plus = request.GET.get("plus", None)
+    minus = request.GET.get("minus", None)
     user = auth.get_user(request)
     tovar = Tovar.objects.get(id=int(id_tovar))
 
@@ -793,6 +795,14 @@ def crud_rating_comments(request):
     row = Rating_andComments.objects.get(user_id=user.id, product_id=int(id_tovar))
     row.comment = comment
     row.rating = float(rating)
+    try:
+        row.plus = plus
+    except:
+        pass
+    try:
+        row.minus = minus
+    except:
+        pass
     row.save()
 
     response = {

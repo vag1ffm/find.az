@@ -1969,9 +1969,11 @@ form .buttons button , .backBtn{
     overflow: hidden;
 }
 
-
-
-
+.main-of-tovar {
+    width: 90%;
+    max-width: ;
+    margin: 20px 0;
+}
 
 .tovar-nazvaniye-tovara h1{
     font-size: 28px;
@@ -2001,13 +2003,26 @@ form .buttons button , .backBtn{
     width: 100%;
     margin-top: 35px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-information {
+    width: 72%;
+}
+.photo-infa {
+    width: 100%;
+    display: flex;
+
 }
 .tovar-photos {
     display: flex;
     justify-content: start;
     align-items: start;
-    max-width: 629px ;
-    max-height: 319px;
+    width: 50%;
+    min-width: 400px;
+
+
 }
 .tovari-left-photos {
     display: flex;
@@ -2046,13 +2061,14 @@ form .buttons button , .backBtn{
     width: 100%;
     max-height: 319px;
 }
+
 .tovar-infa {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    margin-left: 16px;
-    width: 356px;
+    width: 50%;
+
 }
 .vid-tovarov {
     width: 100%;
@@ -2068,7 +2084,6 @@ form .buttons button , .backBtn{
 .vid-tovarov h4 p {
     margin-left: 5px;
 }
-
 .vid-tovarov .photos {
     display: flex;
     align-items: center;
@@ -2095,9 +2110,8 @@ form .buttons button , .backBtn{
     justify-content: start;
     align-items: start;
     flex-direction: column;
-    margin-top: 20px;
-}
 
+}
 .korotko-o-tovare ul li {
     display: flex;
     width: 100%;
@@ -2105,7 +2119,6 @@ form .buttons button , .backBtn{
     align-items: end;
     border-bottom: 1px #d9d9d9 dashed;
 }
-
 .korotko-o-tovare li div:first-child {
     padding: 6px 24px 0 0;
     font-size: 13px;
@@ -2114,12 +2127,12 @@ form .buttons button , .backBtn{
     font-size: 13px;
     width: 140px;
 }
-
-.mesta-prodaji {
-    margin-left: 48px;
-    width: 390px;
+.main-of-tovar .kharakteristika {
+    margin: 50px 30px 50px 0;
 }
-
+.mesta-prodaji {
+    width: 28%;
+}
 .mesto-prodaji-infa {
     display: flex;
     flex-direction: column;
@@ -2130,14 +2143,12 @@ form .buttons button , .backBtn{
     padding: 16px;
 
 }
-
 .skidka {
     display: flex;
     align-items: center;
     justify-content: start;
     width: 100%;
 }
-
 .skidka-chena {
     font-size: 14px;
     color: #878787;
@@ -2151,12 +2162,10 @@ form .buttons button , .backBtn{
     align-items: end;
     border-radius: 10px;
 }
-
 .mesto-prodaji-infa .chena {
     font-size: 32px;
     margin: 7px 0;
 }
-
 .adress, .karta {
     font-size: 15px;
     margin: 5px 0;
@@ -2166,6 +2175,7 @@ form .buttons button , .backBtn{
 }
 .maqazin-prodovcha-infa {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 .name {
@@ -2174,21 +2184,67 @@ form .buttons button , .backBtn{
 .rating-and-otziv {
     display: flex;
 }
-
 .rating-and-otziv .rating {
     margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .rating .fa-star {
     font-size: 14px;
 }
-
 .mesto-prodaji-infa button{
     margin: 10px 0;
 }
+
+
+
+
+@media (max-width:1400px) {
+    .main-of-tovar {
+        width: 95%;
+    }
+}
+@media (max-width:1245px) {
+    .main-of-tovar .main-information {
+        width: 100%;
+    }
+    .main-of-tovar .photo-infa {
+        justify-content: space-between;
+    }
+    .main-of-tovar .tovar-photos {
+        width: 45%;
+    }
+
+    .main-of-tovar .tovar-infa {
+        width: 45%;
+
+    }
+
+    .main-of-tovar .mesta-prodaji {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media (max-width:1045px) {
+    .tovar-nazvaniye-tovara h1 {
+        font-size: 25px;
+    }
+}
+@media (max-width:945px) {
+    .main-of-tovar .photo-infa {
+        flex-direction: ;
+    }
+}
+
+
+
+
+
+
+
+
 
 .add-header {
     background-color: #fff;
