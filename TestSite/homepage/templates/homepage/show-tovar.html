@@ -152,37 +152,37 @@
                     </div>
                 </form>
                 <div class="conmets-of-users">
-                    <div class="comment">
-                        <div class="user-logo"></div>
-                        <div class="comment-comtent">
-                            <div class="user-infa">
-                                <div class="name">AMir</div>
-                                <div class="stars">5stars</div>
-                            </div>
-                            <div class="comment-data">
-                                <div class="comment">
-                                    <div class="all-in-one">
-                                        <div class="pluses">
-                                            <h4>Плюсы</h4>
-                                            <p>Рот открывается, можно кончить и помыть</p>
-                                        </div>
-                                        <div class="minuses">
-                                            <h4>Минусы</h4>
-                                            <p>Минусов нет</p>
-                                        </div>
-                                        <div class="comment">
-                                            <h4>Коментарий</h4>
-                                            <p>Я очень доволент товаром Ху тау. Весь день ей в рот даю и кончаю</p>
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="user-logo"></div>
+                            <div class="comment-comtent">
+                                <div class="user-infa">
+                                    <div class="name">{% if comment.user.first_name == '' and comment.user.last_name == '' %}Admin{% else %}{{ comment.user.first_name }} {{ comment.user.last_name }}{% endif %}</div>
+                                    <div class="stars">{{ comment.rating }}</div>
+                                </div>
+                                <div class="comment-data">
+                                    <div class="comment">
+                                        <div class="all-in-one">
+                                            <div class="pluses">
+                                                <h4>Плюсы</h4>
+                                                <p>{{ comment.plus }}</p>
+                                            </div>
+                                            <div class="minuses">
+                                                <h4>Минусы</h4>
+                                                <p>{{ comment.minus }}</p>
+                                            </div>
+                                            <div class="comment">
+                                                <h4>Коментарий</h4>
+                                                <p>{{ comment.comment }}</p>
+                                            </div>
                                         </div>
                                     </div>
-
+                                    <div class="data-of-comment">{{ comment.time_cr }}</div>
                                 </div>
-                                <div class="data-of-comment">12,05,2002</div>
+                                <div class="likes"></div>
                             </div>
-                            <div class="likes"></div>
                         </div>
-
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -198,9 +198,12 @@
                 }
             }
             let id = {{ tovar.pk }};
-            let comment = document.querySelector('.comments-text').value
-            let plus = document.querySelector('.pluses-text').value
-            let minus = document.querySelector('.minuses-text').value
+            let comment = document.querySelector('form .comments-text').value
+            let plus = document.querySelector('form .pluses-text').value
+            let minus = document.querySelector('form .minuses-text').value
+            console.log(comment)
+            console.log(plus)
+            console.log(minus)
             $(document).ready(function () {
                 $.ajax({
                     data: {

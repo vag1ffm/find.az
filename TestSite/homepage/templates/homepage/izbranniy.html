@@ -48,10 +48,11 @@
 
 {% endblock content %}
 
-    {% block js_crud_fav %}
-        a.parentElement.parentElement.style.opacity = 0
-        setTimeout(()=>{
-            a.parentElement.parentElement.remove()
-        }, 300)
-    {% endblock js_crud_fav %}
+
+{% block js_crud_fav %}
+    a.parentElement.parentElement.style.opacity = 0
+    setTimeout(()=>{
+        a.parentElement.parentElement.remove()
+    }, 300)
+{% endblock js_crud_fav %}
 

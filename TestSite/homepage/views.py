@@ -270,6 +270,8 @@ def show_tovar(request, tovarslug):
     tovar.open_times += 1
     tovar.save()
 
+    comments = Rating_andComments.objects.filter(product_id=tovar.id)
+
     context = {
         'tovar': tovar,
         'title': tovar.title,
@@ -278,7 +280,9 @@ def show_tovar(request, tovarslug):
         'pcats': podcats,
         'ppcats': podpodcats,
         'salesman': salesman,
+        'comments': comments
     }
+
     return render(request, 'homepage/show-tovar.html', context=context)
 
 
@@ -784,14 +788,6 @@ def crud_rating_comments(request):
 
     user.user_rating_and_comment_for_tovar.add(tovar)
 
-    try:
-        tovar_rating = tovar.rating_andcomments_set.all()
-        tovar_rating = round(sum([i.rating for i in tovar_rating])/len(tovar_rating), 1)
-        tovar.rating = tovar_rating
-        tovar.save()
-    except:
-        pass
-
     row = Rating_andComments.objects.get(user_id=user.id, product_id=int(id_tovar))
     row.comment = comment
     row.rating = float(rating)
@@ -804,6 +800,14 @@ def crud_rating_comments(request):
     except:
         pass
     row.save()
+
+    try:
+        tovar_rating = tovar.rating_andcomments_set.all()
+        tovar_rating = round(sum([i.rating for i in tovar_rating])/len(tovar_rating), 1)
+        tovar.rating = tovar_rating
+        tovar.save()
+    except:
+        pass
 
     response = {
         "added": True

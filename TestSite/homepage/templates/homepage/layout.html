@@ -375,7 +375,6 @@
 						a.href = `/find/?name=${searchWord}`
 						maindiv.append(a)
 						dplaceOfVariants.append(maindiv)
-
                         $.ajax({
                             data: { 'value': searchWord },
                             url: "{% url 'find_tovari' %}",
@@ -406,7 +405,6 @@
                     })
                 }
             })
-
 		function find(i) {
 			let a = i.parentElement.querySelector('input').value
 			document.location.href = `/find/?name=${a}`;
@@ -440,7 +438,6 @@
 					a.href = `/find/?name=${searchWord}`
 					maindiv.append(a)
 					mplaceOfVariants.append(maindiv)
-
 					$.ajax({
 						data: { 'value': searchWord },
 						url: "{% url 'find_tovari' %}",
@@ -471,7 +468,6 @@
 				})
 			}
 		})
-
 		function find(i) {
 			let a = i.parentElement.querySelector('input').value
 			document.location.href = `/find/?name=${a}`;
@@ -483,11 +479,10 @@
 			}
 		})
         {% if  fav_tovari_id_list %}
-		let likes = {{ fav_tovari_id_list }}
+		let likes = {{ fav_tovari_id_list }};
         {% else %}
-        let likes = []
+        let likes = [];
         {% endif %}
-
         function setLikes() {
             let chekboxik = document.querySelectorAll('.heart')
             chekboxik.forEach(chekbox => {
@@ -519,15 +514,11 @@
             })
         }
         setLikes()
-
-
-
 		{% if  cart_tovari_id_list %}
-		let cart_list = {{ cart_tovari_id_list }}
+		let cart_list = {{ cart_tovari_id_list }};
 		{% else %}
-		let cart_list = []
+		let cart_list = [];
 		{% endif %}
-		console.log(cart_list)
 		function setCards() {
 			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
 			vKorzitus.forEach(vKorzitu => {
@@ -541,7 +532,6 @@
 								let input = event.target
 								cart_list = response.cart_tovari
 								console.log(cart_list)
-
 								if (response.is_in_cart) {
 									input.value = 'В корзине'
 									input.classList.add('vkorzine')
@@ -549,7 +539,6 @@
 									input.value = 'Добавить в корзину'
 									input.classList.remove('vkorzine')
 								}
-
 							},
 							error: function (response) {
 								console.log(response.responseJSON.errors)
@@ -561,8 +550,6 @@
 			})
 		}
 		setCards()
-
-
         document.body.onload = function () {
             setTimeout(()=>{
                 let preloader = document.querySelector('.preloader')
@@ -571,11 +558,8 @@
                 }
             },1000)
         }
-
     {% block js %}
     {% endblock js %}
     </script>
-
-
 </body>
 </html>
