@@ -112,52 +112,117 @@
         </div>
             <div class="rating">
                 <div class="star-widget">
-                    <input type="radio" name="rate" id="rate-5">
-                    <label for="rate-5">5</label>
-                    <input type="radio" name="rate" id="rate-4">
-                    <label for="rate-4">4</label>
-                    <input type="radio" name="rate" id="rate-3">
-                    <label for="rate-3">3</label>
-                    <input type="radio" name="rate" id="rate-2">
-                    <label for="rate-2">2</label>
-                    <input type="radio" name="rate" id="rate-1">
-                    <label for="rate-1" >1</label>
+                    <div>
+                        <input type="radio" name="rate" id="rate-5">
+                        <label for="rate-5">5</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="rate" id="rate-4">
+                        <label for="rate-4">4</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="rate" id="rate-3">
+                        <label for="rate-3">3</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="rate" id="rate-2">
+                        <label for="rate-2">2</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="rate" id="rate-1">
+                        <label for="rate-1" >1</label>
+                    </div>
+
+                </div>
+                <form>
+                    <div class="pluses">
+                        <p>Плюсы</p>
+                        <textarea class="pluses-text"></textarea>
+                    </div>
+                    <div class="minuses">
+                        <p>Минусы</p>
+                        <textarea class="minuses-text"></textarea>
+                    </div>
+                    <div class="comments">
+                        <p>Коммент</p>
+                        <textarea class="comments-text"></textarea>
+                    </div>
+                    <div class="otpravit-rating">
+                        <div class="button" onclick="SendComment()"><input type="button" value="Отправить"></div>
+                    </div>
+                </form>
+                <div class="conmets-of-users">
+                    <div class="comment">
+                        <div class="user-logo"></div>
+                        <div class="comment-comtent">
+                            <div class="user-infa">
+                                <div class="name">AMir</div>
+                                <div class="stars">5stars</div>
+                            </div>
+                            <div class="comment-data">
+                                <div class="comment">
+                                    <div class="all-in-one">
+                                        <div class="pluses">
+                                            <h4>Плюсы</h4>
+                                            <p>Рот открывается, можно кончить и помыть</p>
+                                        </div>
+                                        <div class="minuses">
+                                            <h4>Минусы</h4>
+                                            <p>Минусов нет</p>
+                                        </div>
+                                        <div class="comment">
+                                            <h4>Коментарий</h4>
+                                            <p>Я очень доволент товаром Ху тау. Весь день ей в рот даю и кончаю</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="data-of-comment">12,05,2002</div>
+                            </div>
+                            <div class="likes"></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
     <script>
-        let stars = document.querySelectorAll('.rating label')
-        stars.forEach(star => {
-            star.addEventListener('click', (event)=> {
-                let id = {{ tovar.pk }};
-                let rating = event.target.innerText
-                let comment = "юнис сел на кактус"
-                let plus = "кактус со смазкой"
-                let minus = "кактус большой"
-
-                $(document).ready(function () {
-                    $.ajax({
-                        data: {
-                            "id": id,
-                            "rating": rating,
-                            "comment": comment,
-                            "plus": plus,
-                            "minus": minus
-                        },
-                        url: "{% url 'crud_rating_comments' %}",
-                        success: function (response) {
-                            console.log(response.added)
-                        },
-                        error: function (response) {
-                            console.log(response.responseJSON.errors)
-                        }
-                    });
-                    return false;
-                })
+        function SendComment() {
+            let rating;
+            let stars = document.querySelectorAll('.rating input')
+            for (let i of stars) {
+                if (i.checked === true) {
+                    rating = i.parentElement.querySelector('label').innerText
+                }
+            }
+            let id = {{ tovar.pk }};
+            let comment = document.querySelector('.comments-text').value
+            let plus = document.querySelector('.pluses-text').value
+            let minus = document.querySelector('.minuses-text').value
+            $(document).ready(function () {
+                $.ajax({
+                    data: {
+                        "id": id,
+                        "rating": rating,
+                        "comment": comment,
+                        "plus": plus,
+                        "minus": minus
+                    },
+                    url: "{% url 'crud_rating_comments' %}",
+                    success: function (response) {
+                        console.log(response.added)
+                    },
+                    error: function (response) {
+                        console.log(response.responseJSON.errors)
+                    }
+                });
+                return false;
             })
-        })
+
+        }
+
 
     </script>
 {% endblock %}
