@@ -405,16 +405,19 @@
                     })
                 }
             })
+
 		function find(i) {
 			let a = i.parentElement.querySelector('input').value
 			document.location.href = `/find/?name=${a}`;
 		}
+
 		dpoiskoviki.addEventListener('keydown', (e)=> {
 			if (e.keyCode === 13) {
 				let searchWord = dpoiskoviki.value
 				document.location.href = `/find/?name=${searchWord}`;
 			}
 		})
+
 		const mpoiskoviki = document.querySelector('.mobile-header .poisk-tovarov')
 		const mplaceOfVariants = document.querySelector('.mobile-header .varianti-poiska')
 		mpoiskoviki.addEventListener('input', ()=> {
@@ -468,87 +471,110 @@
 				})
 			}
 		})
+
 		function find(i) {
 			let a = i.parentElement.querySelector('input').value
 			document.location.href = `/find/?name=${a}`;
 		}
+
 		mpoiskoviki.addEventListener('keydown', (e)=> {
 			if (e.keyCode === 13) {
 				let searchWord = mpoiskoviki.value
 				document.location.href = `/find/?name=${searchWord}`;
 			}
 		})
+
         {% if  fav_tovari_id_list %}
 		let likes = {{ fav_tovari_id_list }};
         {% else %}
         let likes = [];
         {% endif %}
+
+		function EventLikes(event) {
+			$(document).ready(function () {
+				$.ajax({
+					data: {
+						"favorite": event.target.id
+					},
+					url: "{% url 'crud_favorites' %}",
+					success: function (response) {
+						let a = event.target.parentElement.querySelector("label")
+						likes = response.fav_tovari
+						if (response.is_favorite) {
+							a.classList.add("red")
+						} else {
+							a.classList.remove("red")
+							{% block js_crud_fav %}
+							{% endblock js_crud_fav %}
+						}
+					},
+					error: function (response) {
+						console.log(response.responseJSON.errors)
+					}
+				});
+				return false;
+			})
+		}
+		function delLikes() {
+			let chekboxik = document.querySelectorAll('.heart')
+			chekboxik.forEach(chekbox => {
+				chekbox.removeEventListener('click', EventLikes)
+			})
+		}
+
         function setLikes() {
             let chekboxik = document.querySelectorAll('.heart')
             chekboxik.forEach(chekbox => {
-                chekbox.addEventListener('click', (event) => {
-                    $(document).ready(function () {
-                        $.ajax({
-                            data: {
-                                "favorite": event.target.id
-                            },
-                            url: "{% url 'crud_favorites' %}",
-                            success: function (response) {
-                                let a = event.target.parentElement.querySelector("label")
-                                likes = response.fav_tovari
-                                if (response.is_favorite) {
-                                    a.classList.add("red")
-                                } else {
-                                    a.classList.remove("red")
-                                    {% block js_crud_fav %}
-                                    {% endblock js_crud_fav %}
-                                }
-                            },
-                            error: function (response) {
-                                console.log(response.responseJSON.errors)
-                            }
-                        });
-                        return false;
-                    })
-                })
+                chekbox.addEventListener('click', EventLikes)
             })
         }
         setLikes()
+
+
 		{% if  cart_tovari_id_list %}
 		let cart_list = {{ cart_tovari_id_list }};
 		{% else %}
 		let cart_list = [];
 		{% endif %}
+
+		function EventCarts(event) {
+			let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
+			$(document).ready(function () {
+				$.ajax({
+					data: {"id": id},
+					url: "{% url 'crud_cart' %}",
+					success: function (response) {
+						let input = event.target
+						cart_list = response.cart_tovari
+						if (response.is_in_cart) {
+							input.value = 'В корзине'
+							input.classList.add('vkorzine')
+						} else {
+							input.value = 'Добавить в корзину'
+							input.classList.remove('vkorzine')
+						}
+					},
+					error: function (response) {
+						console.log(response.responseJSON.errors)
+					}
+				});
+				return false;
+			})
+		}
+		function DelCards() {
+			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
+			vKorzitus.forEach(vKorzitu => {
+				vKorzitu.removeEventListener('click', EventCarts)
+			})
+		}
+
 		function setCards() {
 			const vKorzitus = document.querySelectorAll('.qlavniy-tovar .button input[type=button]')
 			vKorzitus.forEach(vKorzitu => {
-				vKorzitu.addEventListener('click', (event)=>{
-					let id = event.target.closest('.qlavniy-tovar').querySelector('.izbranniy-tovar input').id
-					$(document).ready(function () {
-						$.ajax({
-							data: {"id": id},
-							url: "{% url 'crud_cart' %}",
-							success: function (response) {
-								let input = event.target
-								cart_list = response.cart_tovari
-								console.log(cart_list)
-								if (response.is_in_cart) {
-									input.value = 'В корзине'
-									input.classList.add('vkorzine')
-								} else {
-									input.value = 'Добавить в корзину'
-									input.classList.remove('vkorzine')
-								}
-							},
-							error: function (response) {
-								console.log(response.responseJSON.errors)
-							}
-						});
-						return false;
-					})
-				})
+				vKorzitu.addEventListener('click', EventCarts)
 			})
 		}
+
 		setCards()
         document.body.onload = function () {
             setTimeout(()=>{

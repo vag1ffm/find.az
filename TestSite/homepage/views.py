@@ -76,7 +76,7 @@ def is_ajax(request):
 def mainhome(request):
     podpodcats = PodPodCat.objects.all()
     spisok = [i.tovar_set.all()[:10] for i in podpodcats]
-    random.shuffle(spisok)
+    #random.shuffle(spisok)
 
     paginator = Paginator(spisok, 3)
 
@@ -84,7 +84,7 @@ def mainhome(request):
         page = request.GET.get('page', None)
 
         try:
-            tovari = paginator.page(page)
+            tovari = paginator.page(int(page))
         except PageNotAnInteger:
             tovari = paginator.page(1)
         except InvalidPage:
@@ -110,6 +110,8 @@ def mainhome(request):
         podcats = PodCat.objects.all()
 
         tovari = paginator.page(1)
+        tovari_li = tovari.object_list
+        random.shuffle(tovari_li)
 
         try:
             fav_user = auth.get_user(request)
@@ -121,13 +123,15 @@ def mainhome(request):
             cart_tovari = []
 
         context = {
-            'podcats': tovari.object_list,
+            'podcats': tovari_li,
             'categorii': categorii,
             'cats': categorii,
             'pcats': podcats,
             'ppcats': podpodcats,
             'fav_tovari': fav_tovari,
+            'fav_tovari_id_list': [i.id for i in fav_tovari],
             'cart_tovari': cart_tovari,
+            'cart_tovari_id_list': [i.id for i in cart_tovari],
             'salesman': fav_user,
             'title': 'FindAz - Главная страница'
         }

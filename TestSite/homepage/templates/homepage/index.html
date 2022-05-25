@@ -71,7 +71,7 @@
                                 </span>
                             </a>
                             {% if tovar in cart_tovari %}
-                                <div class="button"><input type="button" value="В корзине" style="background-color: #e1b70c"></div>
+                                <div class="button"><input type="button" value="В корзине" class="vkorzine"></div>
                             {% else %}
                                 <div class="button"><input type="button" value="Добавить в корзину"></div>
                             {% endif %}
@@ -81,44 +81,136 @@
                 </div>
             {% endfor %}
 		</main>
-		<div class="reklami">
-			<div class="reklama">
-				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">
-			</div>
-			<div class="reklama">
-				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">
-			</div>
-		</div>
+<!--		<div class="reklami">-->
+<!--			<div class="reklama">-->
+<!--				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">-->
+<!--			</div>-->
+<!--			<div class="reklama">-->
+<!--				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">-->
+<!--			</div>-->
+<!--		</div>-->
     </div>
 
 {% endblock content %}
 
 {% block js %}
+    let line = document.querySelector('footer')
+    // console.log(line)
+    var page = 1;
+    var nextPage = true
+    var oneTime;
+    document.addEventListener('scroll',() => {
+        if(document.documentElement.scrollTop > (line.offsetTop - window.innerHeight + 100 )) {
+            clearTimeout(oneTime)
+            oneTime = setTimeout(()=> {
+                if (nextPage) {
+                    $(document).ready(function () {
+                        page += 1
+                        $.ajax({
+                            data: {
+                                "page": page
+                            },
+                            url: "{% url 'home' %}",
+                            success: function (response) {
+                                console.log('респонс',response)
+                                if (nextPage) {
+                                    console.log("Название Категорий", response.tovari)
+
+                                    for (let i in response.tovari) { ///Название Категорий
+                                        let complektTovarov = document.createElement('div')
+                                        complektTovarov.className = 'complekt-tovarov'
+                                        let h1 = document.createElement('h1')
+                                        h1.innerText = i;
+                                        complektTovarov.append(h1)
+                                        let tovari = document.createElement('div')
+                                        tovari.className = 'tovari'
+                                        complektTovarov.append(tovari)
+                                        console.log("ТОвары в категории",response.tovari[i])
+                                        for (let j of response.tovari[i]) { /// ТОвары в категории
+                                            let tovar = j.fields
+                                            console.log(tovar)
+                                            let red =''
+                                            let vkorzine;
+                                            let word;
+                                            if (likes.includes(j.pk)) {
+                                                red = 'red'
+                                            } else {
+                                                red = ''
+                                            }
+
+                                            if (cart_list.includes(j.pk)){
+                                                vkorzine = 'vkorzine'
+                                                word ='В корзине'
+                                            } else {
+                                                vkorzine = ''
+                                                word ='Добавить в корзину'
+
+                                            }
+                                            let a = `<div class="qlavniy-tovar">
+                                                         <div class="izbranniy-tovar">
+                                                            <label for="${j.pk}" class="${red}">
+                                                                <i class="fa-solid fa-heart ${j.pk}"></i>
+                                                            </label>
+                                                            <input type="checkbox" name="favorite" id="${j.pk}" style="display: none" class="heart">
+                                                         </div>
+                                                         <a href="/post-tovar/${tovar.slug}">
+                                                             <div class="qlavniy-tovar-img"><img src="/media/${tovar.photo_main}" alt=""></div>
+                                                             <span class="tovar-info">
+                                                                 <div class="chena">${tovar.price} ₼</div>
+                                                                 <div class="reyting">
+                                                                    <div class="zvezda">звезды</div>
+                                                                    <div class="chislo-ochenik">50</div>
+                                                                 </div>
+                                                                 <div class="tovar-name">${tovar.title}</div>
+                                                                 <div class="rekomenduyemost">86% рекомендуют</div>
+                                                             </span>
+                                                         </a>
+                                                         <div class="button "><input type="button" class="${vkorzine}" value="${word}"></div>
+                                                     </div>`
+                                            tovari.innerHTML += a
+                                            // console.log("ТОвары ",j)
+                                            // console.log(j.fields)
+                                        }
+
+                                        document.querySelector('.content main').append(complektTovarov)
+                                        console.log('index')
+                                        nextPage = response.has_next
+                                    }
+                                }
+                                // let tovari = document.createElement('div')
+                                // tovari.className = 'tovari'
+                                // let qlavniyTovar = document.createElement('div')
+                                // qlavniyTovar.className = 'qlavniy-tovar'
+                                // complektTovarov.append(h1)
+                                // let space = document.createElement('div')
+                                // let izbranniTtovar = document.createElement('div')
+                                // let a = document.createElement('a')
+                                // let button = document.createElement('div')
+                                // complektTovarov.className = 'complekt-tovarov'
+
+                                // space.className = 'space'
+                                // qlavniyTovar.className = 'qlavniy-tovar'
+                                // izbranniTtovar.className = 'izbranniy-tovar'
+                                // a.href = ''
+                                // button.className = 'button'
+
+delLikes()
+setLikes()
+DelCards()
+setCards()
+                            },
+                            error: function (response) {
+                                console.log(response.responseJSON.errors)
+                            }
+                        });
+                        return false;
+                    })
+                }
+            }, 1000)
+        }
+    });
+
 {% endblock js %}
 
 {% block new_script %}
-    <script>
-        var page = 1
-        $(window).scroll(function(){
-            if  ($(window).scrollTop() >= $(document).height() - 1150){
-                alert(2)
-                $(document).ready(function () {
-                    page += 1
-                    $.ajax({
-                        data: {
-                            "page": page
-                        },
-                        url: "{% url 'home' %}",
-                        success: function (response) {
-                            console.log(response)
-                        },
-                        error: function (response) {
-                            console.log(response.responseJSON.errors)
-                        }
-                    });
-                    return false;
-                })
-            }
-        });
-    </script>
 {% endblock new_script %}
