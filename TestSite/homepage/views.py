@@ -1,3 +1,5 @@
+import random
+
 from django.contrib import auth
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -19,6 +21,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.core.paginator import Paginator, PageNotAnInteger, InvalidPage
 
 from django.contrib.auth.decorators import login_required
 from unidecode import unidecode
@@ -67,34 +70,57 @@ az_to_en_for_slug = {
 
 
 def mainhome(request):
-    categorii = Category.objects.all()
-    podcats = PodCat.objects.all()
     podpodcats = PodPodCat.objects.all()
     spisok = [i.tovar_set.all()[:10] for i in podpodcats]
+    random.shuffle(spisok)
 
-    try:
-        fav_user = auth.get_user(request)
-        fav_tovari = fav_user.user_favorite.all()
-        cart_tovari = fav_user.user_cart.all()
-    except:
-        fav_user = ""
-        fav_tovari = []
-        cart_tovari = []
-    # for i in podcats:
-    #     t = i.tovar_set.all()
-    #     spisok.append(t)
-    context = {
-        'podcats': spisok,
-        'categorii': categorii,
-        'cats': categorii,
-        'pcats': podcats,
-        'ppcats': podpodcats,
-        'fav_tovari': fav_tovari,
-        'cart_tovari': cart_tovari,
-        'salesman': fav_user,
-        'title': 'FindAz - Главная страница'
-    }
-    return render(request, 'homepage/index.html', context=context)
+    paginator = Paginator(spisok, 3)
+
+    if request.method == 'GET':
+        categorii = Category.objects.all()
+        podcats = PodCat.objects.all()
+
+        tovari = paginator.page(1)
+
+        try:
+            fav_user = auth.get_user(request)
+            fav_tovari = fav_user.user_favorite.all()
+            cart_tovari = fav_user.user_cart.all()
+        except:
+            fav_user = ""
+            fav_tovari = []
+            cart_tovari = []
+
+        context = {
+            'podcats': tovari.object_list,
+            'categorii': categorii,
+            'cats': categorii,
+            'pcats': podcats,
+            'ppcats': podpodcats,
+            'fav_tovari': fav_tovari,
+            'cart_tovari': cart_tovari,
+            'salesman': fav_user,
+            'title': 'FindAz - Главная страница'
+        }
+        return render(request, 'homepage/index.html', context=context)
+
+    if request.is_ajax():
+        page = request.GET.get('page', None)
+        try:
+            tovari = paginator.page(page)
+        except PageNotAnInteger:
+            tovari = paginator.page(1)
+        except InvalidPage:
+            tovari = paginator.page(paginator.num_pages)
+        # tovari_li = list(tovari.object_list.values())
+        tovari_li = tovari.object_list
+        response = {
+            'has_previous': tovari.has_previous(),
+            'has_next': tovari.has_next(),
+            'num_pages': tovari.paginator.num_pages,
+            'user_li': tovari_li
+        }
+        return JsonResponse(response)
 
 
 def show_profile(request, place_slug):

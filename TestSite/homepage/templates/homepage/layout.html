@@ -9,7 +9,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--		<link rel="manifest" href="manifest.json">-->
+        <link rel="manifest" href="manifest.json">
         {% block ogmeta %}{% endblock ogmeta %}
 		<title>{% block title %}{% endblock title %}</title>
 	</head>
@@ -290,11 +290,11 @@
 		<div class="content">
 			<div class="left box">
 				<div class="upper">
-					<div class="topic">About us</div>
+					<div class="topic">Про нас</div>
 					<p>Этот сайт разработан для покупателей, которые смогут находить товары, и так же для продавцов, для размещения товаров через данный им кабинет.</p>
 				</div>
 				<div class="footer-social-link">
-				<h3>Follow us</h3>
+				<h3>Следите за нами</h3>
 				<ul>
 					<li>
 						<a href="#">
@@ -325,7 +325,7 @@
 			</div>
 			</div>
 			<div class="middle box">
-				<div class="topic">Our Services</div>
+				<div class="topic">Наши сервисы</div>
 				<div><a href="{% if user.is_seller == True %}{% url "addtovar" %}{% else %}{% url 'login' %}{% endif %}">Кабинет продавца</a></div>
 				<div><a href="{% url "home" %}">Главная страница</a></div>
 				<div><a href="{% url "home" %}">Фильтр</a></div>
@@ -334,7 +334,7 @@
 			</div>
 			<div class="right box">
 
-				<div class="topic">Contact us</div>
+				<div class="topic">Свяжитесь с нами</div>
 				<div class="phone">
 					<a href="#"><i class="fas fa-phone-volume"></i>+994 xx xxx xx xx</a>
 				</div>
@@ -561,5 +561,8 @@
     {% block js %}
     {% endblock js %}
     </script>
+
+    {% block new_script %}
+    {% endblock new_script %}
 </body>
 </html>
