@@ -81,14 +81,14 @@
                 </div>
             {% endfor %}
 		</main>
-<!--		<div class="reklami">-->
-<!--			<div class="reklama">-->
-<!--				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">-->
-<!--			</div>-->
-<!--			<div class="reklama">-->
-<!--				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">-->
-<!--			</div>-->
-<!--		</div>-->
+		<div class="reklami">
+			<div class="reklama">
+				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">
+			</div>
+			<div class="reklama">
+				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">
+			</div>
+		</div>
     </div>
 
 {% endblock content %}
@@ -100,11 +100,14 @@
     <script>
         var page = 1
         $(window).scroll(function(){
-            if  ($(window).scrollTop() === $(document).height() - 1150){
+            if  ($(window).scrollTop() >= $(document).height() - 1150){
+                alert(2)
                 $(document).ready(function () {
                     page += 1
                     $.ajax({
-                        data: {"page": page},
+                        data: {
+                            "page": page
+                        },
                         url: "{% url 'home' %}",
                         success: function (response) {
                             console.log(response)
@@ -115,7 +118,6 @@
                     });
                     return false;
                 })
-
             }
         });
     </script>

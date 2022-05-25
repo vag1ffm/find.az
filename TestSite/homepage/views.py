@@ -48,6 +48,10 @@ az_to_en_for_slug = {
 }
 
 
+def is_ajax(request):
+    return request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+
+
 # class MainHome(DataMixin, ListView):
 #     model = Category
 #     template_name = "homepage/index.html"
@@ -76,6 +80,31 @@ def mainhome(request):
 
     paginator = Paginator(spisok, 3)
 
+    if is_ajax(request=request):
+        page = request.GET.get('page', None)
+
+        try:
+            tovari = paginator.page(page)
+        except PageNotAnInteger:
+            tovari = paginator.page(1)
+        except InvalidPage:
+            tovari = paginator.page(paginator.num_pages)
+        temp = {}
+        tovari_li = tovari.object_list
+        for i in tovari_li:
+            a = serializers.serialize('json', i)
+            a = json.loads(a)
+            temp[i[0].podpodcat.name] = a
+
+        response = {
+            'has_previous': tovari.has_previous(),
+            'has_next': tovari.has_next(),
+            'num_pages': tovari.paginator.num_pages,
+            'tovari': temp
+        }
+
+        return JsonResponse(response)
+
     if request.method == 'GET':
         categorii = Category.objects.all()
         podcats = PodCat.objects.all()
@@ -103,25 +132,6 @@ def mainhome(request):
             'title': 'FindAz - Главная страница'
         }
         return render(request, 'homepage/index.html', context=context)
-
-    if request.is_ajax():
-        page = request.GET.get('page', None)
-        try:
-            tovari = paginator.page(page)
-        except PageNotAnInteger:
-            tovari = paginator.page(1)
-        except InvalidPage:
-            tovari = paginator.page(paginator.num_pages)
-        # tovari_li = list(tovari.object_list.values())
-        tovari_li = tovari
-        print(tovar_li)
-        response = {
-            'has_previous': tovari.has_previous(),
-            'has_next': tovari.has_next(),
-            'num_pages': tovari.paginator.num_pages,
-            'user_li': tovari_li
-        }
-        return JsonResponse(response)
 
 
 def show_profile(request, place_slug):
