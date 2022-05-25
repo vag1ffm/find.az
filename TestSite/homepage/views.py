@@ -113,7 +113,8 @@ def mainhome(request):
         except InvalidPage:
             tovari = paginator.page(paginator.num_pages)
         # tovari_li = list(tovari.object_list.values())
-        tovari_li = tovari.object_list
+        tovari_li = tovari
+        print(tovar_li)
         response = {
             'has_previous': tovari.has_previous(),
             'has_next': tovari.has_next(),
