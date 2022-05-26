@@ -248,17 +248,17 @@ body {
 }
 
 .poiskovik {
-  width: 80%;
-}
 
-.poiskovik form {
+}
+.poiskovik {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 32px 0 0;
   width: 100%;
-}
+    position: relative;
 
+}
 .poiskovik input:first-child {
   max-width: 688px;
   width: 100%;
@@ -269,10 +269,13 @@ body {
 }
 
 .poiskovik input:first-child[type=text] {
-  padding: 0 36px 0 12px;
+  padding: 0 15px 0 12px;
+    color: black;
 }
-
-.poiskovik input:last-child {
+.desktop-header .variant-poiska a {
+    cursor: pointer;
+}
+.poiskovik input[type=button] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,8 +292,48 @@ body {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   color: #FFF;
+    transition: .3s;
 }
-
+.poiskovik input[type=button]:active {
+    background-color: #e1b70c;
+}
+.varianti-poiska {
+    background-color: #FFFFFF;
+    top: 50px;
+    position:absolute;
+    width: 100%;
+    border: 2px #03ce97 solid;
+    border-radius: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s all;
+    padding: 1px;
+}
+.variant-poiska {
+    width: 99%;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 10px 2px 10px;
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.variant-poiska a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.variant-poiska:hover {
+    background-color: #03ce97;
+}
 .zakazi a, .izbrannoe a, .korzina a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -467,19 +510,50 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+    justify-content: center;
   font-size: 100px;
   background-position: center;
-  color: #000;
+    align-content: center;
+    background-color: #fffffff;
+    padding: 100px;
+    overflow: hidden;
 }
 .slayder img {
-    width: 100%;
 }
+
+.btn-shine {
+    padding: 12px 48px;
+    color: #03ce79;
+    background: linear-gradient(to right, #ffffff 0, #03ce79 10%, #ffffff 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    font-weight: 600;
+    font-size: 80px;
+    letter-spacing: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+
+    60% {
+        background-position: 300px;
+    }
+
+    100% {
+        background-position: 0px;
+    }
+}
+
+
 .content {
   max-width: 1440px;
   width: 95%;
@@ -513,7 +587,17 @@ main {
   width: 100%;
 
 }
+.razdel-razdel-tovar {
+    width: 15.3%;
 
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 10px 7px;
+    float: left;
+    border: 2px #03ce97 dotted;
+
+    transition: all .3s;
+}
 
 .razdel-razdel-tovar a {
   display: -webkit-box;
@@ -521,40 +605,34 @@ main {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+    justify-content: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-line-pack: center;
+
       align-content: center;
-  width: 93%;
-    min-height: 225px;
-  max-height: 230px;
-  height: 13vw;
-  background-color: #ffffff;
-  border-radius: 10px;
-  margin: 10px 7px;
-  float: left;
-    border: 2px #03ce97 solid;
-    transition: all .3s;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+
 }
 
 .razdel-razdel-tovar a:hover {
-  color: #03ce97;
+    color: #03ce97;
     transform: scale(1.03);
 }
 
 .img img {
-  width: 55%;
+  width: 50%;
   padding-top: 10px;
 }
 
 .razdel-razdel-name {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .name-razdela-tovarov {
@@ -609,13 +687,13 @@ main .tovari {
   -webkit-transition: 300ms;
   transition: 300ms;
     width: 19%;
-    min-width: 180px;
+    min-width: 170px;
     position: relative;
     border: 1px #e3e3e3 dashed;
     border-radius: 10px ;
     float: left;
     margin: 5px 5px;
-
+    max-height: 430px;
 }
 .qlavniy-tovar .space{
     position: absolute;
@@ -664,23 +742,28 @@ main .tovari {
     position: absolute;
     right: 10px;
     top: 10px;
+    height: 30px;
+    width: 30px;
 }
 
 .izbranniy-tovar i {
   width: 16px;
+    font-size: 20px;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
 
 .izbranniy-tovar i:hover {
-  color: red;
+  transform: scale(1.2);
 }
 .qlavniy-tovar a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 .tovar-info {
+    width: 85%;
     margin: 10px;
 }
 .qlavniy-tovar-img {
@@ -689,9 +772,13 @@ main .tovari {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 160px;
+    overflow: hidden;
+    margin-top: 10px ;
 }
 .qlavniy-tovar-img img {
     width: 100%;
+    border-radius: 5px;
 }
 .qlavniy-tovar .chena {
   font-weight: 700;
@@ -718,7 +805,6 @@ main .tovari {
   font-size: 14px;
   color: #212121;
   margin: 5px 0;
-  height: 55px;
   overflow: hidden;
 }
 
@@ -732,7 +818,7 @@ main .tovari {
   width: 90%;
 }
 
-.button button, .btn-primary {
+.button button, .btn-primary, .button input[type=button] {
   width: 100%;
   background-color: #03ce97;
   height: 40px;
@@ -748,21 +834,42 @@ main .tovari {
   font-weight: 700;
   border: none;
   border-radius: 5px;
-  margin: 20px 0 5px 0;
-  color: #FFF;
+  margin: 5px 0 5px 0;
+  color: #ffffff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  cursor: pointer;
 }
 
-.button button:hover {
+.button button:hover, .button input[type=button]:hover {
   background-color: #e1b70c;
 }
 
-.button button:active {
+.button button:active, .button input[type=button]:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
 
+.korzina-content .button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.korzina-content .button button {
+    width: 30%;
+}
+.korzina-content .button input[type=number] {
+    appearance: textfield;
+    height: 80%;
+    width: 30%;
+    border: none;
+    font-size: 20px;
+    padding: 0 0 0 15px;
+}
+.button input[type="number"]::-webkit-outer-spin-button,
+.button input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
 .reklami {
   margin: 65px 0 0 0;
   width: 22%;
@@ -800,41 +907,7 @@ main .tovari {
 .reklama img {
     width: 100%;
 }
-/*footer {*/
-/*  margin-top: 150px;*/
-/*  height: 500px;*/
-/*  background-color: #000;*/
-/*  width: 100%;*/
-/*  display: -webkit-box;*/
-/*  display: -ms-flexbox;*/
-/*  display: flex;*/
-/*  -webkit-box-align: center;*/
-/*      -ms-flex-align: center;*/
-/*          align-items: center;*/
-/*  -webkit-box-pack: center;*/
-/*      -ms-flex-pack: center;*/
-/*          justify-content: center;*/
-/*  color: white;*/
-/*}*/
-/*.footer-content {*/
-/*    width: 75%;*/
-/*    height: 100%;*/
-/*}*/
-/*footer .first-content {*/
-/*    display: flex;*/
-/*    width: 100%;*/
-/*    height: 85%;*/
-/*}*/
-/*.footer-social-link {*/
-/*    background-color: #202020;*/
-/*    width: 33%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: start;*/
-/*    padding-left: 50px;*/
-/*    height: 200px;*/
-/*}*/
+
 .footer-social-link h3 {
     color: #fff;
     font-size: 24px;
@@ -866,16 +939,6 @@ main .tovari {
     background-color: #0976B4; }
 .footer-social-link a i.fa-instagram {
     background-color: #B7242A; }
-/*footer .support {*/
-/*    background-color: #202020;*/
-/*    margin-top: 150px;*/
-/*    height: 90px;*/
-/*}*/
-
-/*footer .second-content {*/
-/*    height: 15%;*/
-/*    background-color: #202020;*/
-/*}*/
 
 footer{
     width: 100%;
@@ -890,7 +953,9 @@ footer .content{
     margin: auto;
     padding: 20px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    flex-direction: row;
     justify-content: space-between;
 }
 footer .content p,footer .content a{
@@ -911,9 +976,7 @@ footer .content .topic{
     margin-bottom: 16px;
 
 }
-footer .content p{
-    text-align: justify;
-}
+
 footer .content .lower .topic{
     margin: 24px 0 5px 0;
 }
@@ -1275,7 +1338,10 @@ input {
   border: 2px #03ce97 solid;
   margin-top: 60px;
 }
-
+.filter-filter div> div {
+    display: flex;
+    align-items: center;
+}
 .filter-main-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1289,9 +1355,10 @@ input {
           align-items: center;
   width: 79%;
 }
-
+.filter-main-content .tovari {
+    width: 100%;
+}
 .filter-content-header {
-
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1309,195 +1376,40 @@ input {
   display: -ms-flexbox;
   display: flex;
     justify-content: space-between;
-
     width: 100%;
 
 }
+.button .vkorzine {
+    background-color: #e1b70c!important;
+}
+/*input[type=checkbox]:checked {*/
+/*    color: #03ce97;*/
+/*}*/
+
 .filter-content-header ul li {
   cursor: pointer;
 }
 
-.filter-tovari {
-    width: 100%;
-
-
-    margin-left: 20px;
-}
-.filter-tovar {
-    float: left;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  border-radius: 5px;
-  border: 2px #03ce97 solid;
-  margin: 10px 5px;
-  background-color: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-    flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: 275px;
-    min-width: 265px;
-    width: 25%;
-
-}
-.filter-tovar a {
-    width: 100%;
-}
-.filter-tovar .photo {
-  width: 100%;
-
-  padding: 10px ;
-}
-.filter-tovar .photo .img {
-  width: 100%;
-
+.izbranniy-main, .korzina-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-
-}
-.filter-tovar .photo .img img{
     width: 100%;
-}
-.filter-tovar .opisaniye {
-
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-    margin: 0 20px;
-  padding: 20px 0;
-}
-.filter-tovar .opisaniye h4 {
-  font-size: 18px;
-}
-.filter-tovar .opisaniye .ochenka {
-  margin-top: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 120px;
-  margin-bottom: 12px;
-}
-.filter-tovar .opisaniye .ochenka .rating {
-  background-color: #00ff08;
-    border-radius: 5px;
-    padding: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.filter-tovar .opisaniye .ochenka .otzivi {
-  font-size: 12.8px;
-  margin-left: 8px;
-}
-.filter-tovar .opisaniye .opisaniye-topvara ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.filter-tovar .opisaniye .opisaniye-topvara ul li {
-  font-size: 13px;
-}
-.filter-tovar .prise {
-
-  width:100%;
-    padding: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.filter-tovar .prise .contaner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.filter-tovar .prise .contaner i {
-  opacity: 1;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-    position: relative;
-    /*top: -455px;*/
-}
-.filter-tovar .prise .chena {
-  font-size: 18px;
-    font-weight: bold;
-}
-.filter-tovar .prise .button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.filter-tovar .prise .button button {
-  width: 100%;
-  height: 36px;
-  background-color: #03ce97;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.filter-tovar:hover {
-  background-color: #f3f3f3;
-}
-
-.filter-tovar:hover .contaner > i {
-  opacity: 1;
-}
-
-.izbranniy-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .izbranniy-main h2 {
-  font-size: 30px;
+    font-size: 30px;
 }
 
-.izbranniy-content {
-  width: 80%;
+.izbranniy-content, .korzina-content {
+    width: 80%;
 }
 
-.izbranniy-content h2 {
+.izbranniy-content h2, .korzina-content h2 {
     margin-bottom: 30px;
 }
 .izbranniye-tovari {
@@ -1520,8 +1432,54 @@ input {
 
 
 
+.cart-with-check {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+}
 
+.cart-with-check .tovari {
+    width: 100%;
+}
+.chek-tovarov {
+    width: 100% ;
+    height: auto;
+    border: 2px #03ce97 dotted;
+    border-radius: 5px;
+    padding: 10px;
+}
+.chek-tovarov table {
+    width: 100%;
 
+}
+.chek-tovarov table tr {
+    display: flex;
+    width: 100%;
+}
+.chek-tovarov table th {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+}
+.chek-tovarov table td {
+    width: 33%;
+
+}
+
+.chek-tovarov li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.chek-tovarov ul li{
+
+}
+.chek-tovarov li div {
+    display: flex;
+    justify-content: end;
+}
 
 .voyti-footer {
   position: absolute;
@@ -1665,6 +1623,7 @@ input {
 .filter-filter input[type='checkbox'] {
     width: 16px;
     height: 16px;
+    margin-right: 5px;
 }
 
 .filter-filter span {
@@ -2044,9 +2003,10 @@ form .buttons button , .backBtn{
     overflow: hidden;
 }
 
-
-
-
+.main-of-tovar {
+    width: 90%;
+    margin: 20px 0;
+}
 
 .tovar-nazvaniye-tovara h1{
     font-size: 28px;
@@ -2067,7 +2027,7 @@ form .buttons button , .backBtn{
     align-items: center;
     justify-content: center;
 }
-.tovar-ochenka .otzivi{
+.tovar-ochenka .otzivi {
     font-size: 13px;
     margin-left: 5px;
 }
@@ -2076,13 +2036,26 @@ form .buttons button , .backBtn{
     width: 100%;
     margin-top: 35px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.main-information {
+    width: 72%;
+}
+.photo-infa {
+    width: 100%;
+    display: flex;
+
 }
 .tovar-photos {
     display: flex;
     justify-content: start;
     align-items: start;
-    max-width: 629px ;
-    max-height: 319px;
+    width: 50%;
+    min-width: 300px;
+
+
 }
 .tovari-left-photos {
     display: flex;
@@ -2090,6 +2063,7 @@ form .buttons button , .backBtn{
     flex-direction: column;
     align-items: center;
     margin-right: 10px;
+    width: 10%;
 }
 .tovari-left-photos  .photo{
     width: 38px;
@@ -2108,8 +2082,7 @@ form .buttons button , .backBtn{
     width: 100%;
 }
 .tovar-right-photo {
-    width: 563px;
-    height: 319px;
+    width: 90%;
 }
 .tovar-right-photo .main-photo {
     width: 100%;
@@ -2121,13 +2094,14 @@ form .buttons button , .backBtn{
     width: 100%;
     max-height: 319px;
 }
+
 .tovar-infa {
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    margin-left: 16px;
-    width: 356px;
+    width: 50%;
+
 }
 .vid-tovarov {
     width: 100%;
@@ -2143,7 +2117,6 @@ form .buttons button , .backBtn{
 .vid-tovarov h4 p {
     margin-left: 5px;
 }
-
 .vid-tovarov .photos {
     display: flex;
     align-items: center;
@@ -2170,9 +2143,8 @@ form .buttons button , .backBtn{
     justify-content: start;
     align-items: start;
     flex-direction: column;
-    margin-top: 20px;
+    margin: 0 0 50px 0;
 }
-
 .korotko-o-tovare ul li {
     display: flex;
     width: 100%;
@@ -2180,7 +2152,6 @@ form .buttons button , .backBtn{
     align-items: end;
     border-bottom: 1px #d9d9d9 dashed;
 }
-
 .korotko-o-tovare li div:first-child {
     padding: 6px 24px 0 0;
     font-size: 13px;
@@ -2189,12 +2160,12 @@ form .buttons button , .backBtn{
     font-size: 13px;
     width: 140px;
 }
-
-.mesta-prodaji {
-    margin-left: 48px;
-    width: 390px;
+.main-of-tovar .kharakteristika {
+    margin: 50px 30px 50px 0;
 }
-
+.mesta-prodaji {
+    width: 28%;
+}
 .mesto-prodaji-infa {
     display: flex;
     flex-direction: column;
@@ -2205,14 +2176,12 @@ form .buttons button , .backBtn{
     padding: 16px;
 
 }
-
 .skidka {
     display: flex;
     align-items: center;
     justify-content: start;
     width: 100%;
 }
-
 .skidka-chena {
     font-size: 14px;
     color: #878787;
@@ -2226,12 +2195,10 @@ form .buttons button , .backBtn{
     align-items: end;
     border-radius: 10px;
 }
-
 .mesto-prodaji-infa .chena {
     font-size: 32px;
     margin: 7px 0;
 }
-
 .adress, .karta {
     font-size: 15px;
     margin: 5px 0;
@@ -2241,6 +2208,7 @@ form .buttons button , .backBtn{
 }
 .maqazin-prodovcha-infa {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 .name {
@@ -2249,21 +2217,282 @@ form .buttons button , .backBtn{
 .rating-and-otziv {
     display: flex;
 }
-
 .rating-and-otziv .rating {
     margin: 0 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .rating .fa-star {
     font-size: 14px;
 }
-
 .mesto-prodaji-infa button{
     margin: 10px 0;
 }
+
+.profile-of-tovar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.profile-of-tovar .tovari {
+    width: 70%;
+    margin: 0;
+}
+
+.kharakteristika {
+    width: 70%;
+}
+
+::-moz-selection{
+    background-color:#03ce97;
+    color:#FFFFFF;
+}
+
+::selection{
+    background-color:#03ce97;
+    color:#FFFFFF;
+}
+
+.mesta-prodaji .main-tovar {
+    border: 3px #03ce97 solid;
+}
+
+.main-information {
+    margin-bottom: 50px;
+}
+
+.next-infa .otzivi {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+
+}
+.koments {
+    margin-top: 72px;
+    width: 70%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.koment {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 5px;
+}
+.koment  .ava {
+    width: 50px;
+    height: 50px;
+    background-color: #03ce97;
+    border-radius: 40px;
+}
+.koment .user-infa {
+    margin: 0;
+}
+.kommet .infa {
+    margin: 0 10px;
+}
+.leave-koment {
+    width: 30%;
+}
+.tovar-first-row .mobile {
+    display: none;
+}
+.leave-koment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.leave-koment .button {
+    margin: 0 0 20px 0;
+}
+
+.leave-koment .comment-place {
+    border: 2px #bebebe dotted;
+    border-radius: 5px;
+    flex-direction: column;
+    width: 90%;
+    transition: 0.3s all;
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+}
+.comment-place .photo, .comment-place .photo img{
+    padding: 10px;
+    width: 100%;
+}
+.comment-place p {
+    padding: 20px;
+    font-weight: 700;
+}
+.show-comment-place {
+
+}
+.comment-place .tema {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+}
+.comment-place .tema label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+}
+.comment-place textarea {
+    height: 80px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.comment-place textarea:focus {
+    /*border: none;*/
+    outline: 2px #03ce97 solid;
+    outline-offset: 0;
+}
+.comment-place .button button {
+    border: 2px #FFFFFF solid;
+    margin: 0 20px;
+}
+
+@media (max-width:1400px) {
+    .main-of-tovar {
+        width: 95%;
+    }
+}
+@media (max-width:1245px) {
+    .main-of-tovar .main-information {
+        width: 100%;
+    }
+    .main-of-tovar .photo-infa {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .main-of-tovar .tovar-photos {
+        width: 45%;
+    }
+
+    .main-of-tovar .tovar-infa {
+        width: 45%;
+    }
+    .main-of-tovar .mesta-prodaji {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .profile-of-tovar .tovari {
+        width: 100%;
+    }
+    .kharakteristika {
+        width: 100%;
+        margin-right: 0;
+    }
+    .kharakteristika p {
+        width: 100%;
+    }
+    .next-infa .otzivi {
+        flex-direction: column;
+    }
+    .leave-koment {
+        margin-top: 20px;
+        width: 50%;
+        align-items: flex-start;
+    }
+    .comment-place {
+        max-width: 500px;
+    }
+}
+@media (max-width:1045px) {
+    .tovar-nazvaniye-tovara h1 {
+        font-size: 25px;
+    }
+    .leave-koment {
+        width: 75%;
+    }
+
+}
+@media (max-width:680px) {
+    .photo-infa {
+        display: flex;
+        flex-direction: column;
+    }
+    .photo-infa {
+        width: 100%;
+        align-items: center;
+    }
+    .main-of-tovar .tovar-photos {
+        width: 100%;
+    }
+    .main-of-tovar  .desktop {
+       display: none;
+    }
+    .main-of-tovar .mobile {
+        display: flex;
+        margin-top: 50px;
+        width: 100%;
+    }
+    .korotko-o-tovare {
+        width: 100%;
+    }
+    .korotko-o-tovare ul {
+        width: 100%;
+    }
+    .koments {
+        width: 100%;
+    }
+    .leave-koment {
+        width: 100%;
+        align-items: center;
+    }
+    .main-photo {
+        min-width: 50px;
+    }
+
+
+}
+@media (max-width:945px) {
+
+}
+.conmets-of-users {
+    background-color: #dcdcdc;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.comment {
+    display: flex;
+    justify-content: flex-start;
+
+
+}
+
+.user-logo  {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    background-color: red;
+
+}
+.comment-comtent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.user-infa {
+    display: flex;
+    margin: 20px;
+}
+.comment-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 
 .add-header {
     background-color: #fff;
@@ -2843,9 +3072,7 @@ form ul li {
 }
 /* tablet */
 @media (max-width: 1240px) {
-  .razdel-razdel-tovar:last-child {
-    display: none;
-  }
+
 
   .priqlasheniye {
     display: none;
@@ -2868,7 +3095,7 @@ form ul li {
   }
 
   .slayder {
-    font-size: 90px;
+
   }
 
   .razdel-razdel-name {
@@ -2900,7 +3127,7 @@ form ul li {
         /*top: -435px;*/
     }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1084px) {
   .voyti {
     margin-left: 10px;
   }
@@ -2959,27 +3186,21 @@ form ul li {
   }
 
   .razdel-razdel-tovari {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     width: 99%;
+      flex-wrap: wrap;
   }
 
   .razdel-razdel-tovar {
-    width: 33.333333333%;
-    height: 50%;
+    width: 20%;
   }
 
-  .razdel-razdel-tovar:last-child {
-    display: block;
-  }
 
   .razdel-razdel-tovar a {
-    height: 25vw;
-    padding: 10px;
+
   }
 
   .razdel-razdel-name {
-    font-size: 2vw;
+    font-size: 14px;
   }
 
   .reklami {
@@ -3215,8 +3436,9 @@ form ul li {
     display: block;
   }
 
-  .poiskovik {
-    width: 100%;
+    .mobile-poiskovik .poiskovik {
+    width: 99%;
+        margin: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3228,20 +3450,18 @@ form ul li {
             justify-content: center;
   }
 
-  .poiskovik form {
-    margin: 0;
-    width: 98%;
-  }
 
-  .poiskovik button {
+
+    .mobile-poiskovik .poiskovik input[type=button] {
     width: 90px;
     background-color: #03ce97;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border: 0 #000000 solid;
+        height: 44px ;
   }
 
-  .poiskovik button:active {
+    .mobile-poiskovik .poiskovik button:active {
     background-color: #e1b75c;
   }
 
@@ -3375,10 +3595,7 @@ form ul li {
     border-radius: 5px;
   }
 
-  .razdel-razdel-tovar:first-child,
-.razdel-razdel-tovar:last-child {
-    display: none;
-  }
+
 
   .reklami {
     display: -webkit-box;
@@ -3397,26 +3614,28 @@ form ul li {
   }
 
   .razdel-razdel-tovari {
-    height: 50%;
   }
 
   .razdel-razdel-tovar {
-    width: 50%;
+    width: 30%;
+      flex-wrap: nowrap;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+
   }
   .razdel-razdel-tovar h4 {
     font-size: 13px;
   }
   .razdel-razdel-tovar a {
-    min-height: 150px;
+      padding: 15px;
   }
 
   .o-nas {
@@ -3549,6 +3768,14 @@ form ul li {
 
     }
 @media (max-width: 550px ) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .razdel-razdel-tovar {
+        width: 45%;
+    }
     .filter-content-header {
         display: none;
     }
@@ -3640,3 +3867,17 @@ form ul li {
 @keyframes hide-katalog {}
 
 
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(225,225,225,0.1);
+
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #03ce97;
+    border-radius: 100px;
+}

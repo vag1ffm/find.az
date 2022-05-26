@@ -1,11 +1,3 @@
-document.body.onload = function () {
-	setTimeout(()=>{
-		let preloader = document.querySelector('.preloader')
-		if (!preloader.classList.contains('done-of-load')) {
-			preloader.classList.add('done-of-load')
-		}
-	},1000)
-}
 
 
 function movekatalog() {
@@ -14,7 +6,7 @@ function movekatalog() {
 		a.style.top = '-130%'
 		// a.style.border = '1px rgba(225,225,225,0.3) solid';
 		// a.style.borderTop= '0.1px rgba(0,0,0,0.3) solid';
-		// a.style.borderBottom = '1px rgba(0,0,0,0.3) solid';
+	// a.style.borderBottom = '1px rgba(0,0,0,0.3) solid';
 	} else {
 		a.style.top = '62px'
 		// a.style.border = '240px #FFF solid';

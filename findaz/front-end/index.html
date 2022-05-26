@@ -20,9 +20,7 @@
 		<title>Find.az</title>
 	</head>
 	<body>
-	<div class="preloader">
-		<div class="loading-spinner"></div>
-	</div>
+
 
 	<header class="desktop-header">
 		<div class="pervaya-stupen">
@@ -35,12 +33,14 @@
 					<div class="katalog-icon"><i class="fa-solid fa-bars"></i></div>
 					<div class="katalog-text">Каталог</div>
 				</div>
-				<div class="poiskovik">
+				<div style="position:relative;" class="poiskovik">
 					<form>
-						<input type="text" placeholder="Искать товары">
+						<input class="poisk-tovarov" type="text" placeholder="Искать товары">
 						<input type="submit" value="Найти">
 					</form>
+					<div  class="varianti-poiska">
 
+					</div>
 				</div>
 			</div>
 			<div class="knopochniy-div">
@@ -81,7 +81,6 @@
 
 			<div  class="logo-of-profile-in-mainpg">
 				<div class="img">
-
 				</div>
 				<div class="perexodi-iz-mainpg">
 					<h4><a href="">vagamed2002</a></h4>
@@ -199,46 +198,7 @@
 										<li><a href="">Под под категория</a></li>
 									</ul>
 								</div>
-								<div class="pod-kategoriya">
-									<h3>Под категория</h3>
-									<ul>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-									</ul>
-								</div>
-								<div class="pod-kategoriya">
-									<h3>Под категория</h3>
-									<ul>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-									</ul>
-								</div>
-								<div class="pod-kategoriya">
-									<h3>Под категория</h3>
-									<ul>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-									</ul>
-								</div>
-								<div class="pod-kategoriya">
-									<h3>Под категория</h3>
-									<ul>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-										<li><a href="">Под под категория</a></li>
-									</ul>
-								</div>
+
 							</div>
 
 						</div>
@@ -618,7 +578,7 @@
 			<div class="mobile-poiskovik">
 				<div class="poiskovik">
 					<form>
-						<input type="text" placeholder="Искать товары">
+						<input class="poisk-tovarov" type="text" placeholder="Искать товары">
 						<button type="button">Найти</button>
 					</form>
 				</div>
@@ -1015,7 +975,7 @@
 
 	</header>
 	<div class="slayder">
-		<img src="img/reklama1.jpg" alt="">
+		<p class="btn-shine" target="_blank">FindAz</p>
 	</div>
 	<div class="content">
 		<main>
@@ -1024,49 +984,31 @@
 				<div class="razdel-razdel-tovari">
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/prochesor.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Процессоры</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/videocart.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Видеокарты</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/noutbuki.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Ноутбуки</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/pc.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Настольные Компьютеры</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/pamyat.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Модули памяти</h4>
 						</a>
 					</div>
 					<div class="razdel-razdel-tovar">
 						<a href="">
-							<div class="img">
-								<img src="img/ssd.webp" alt="">
-							</div>
 							<h4 class="razdel-razdel-name">Внутренние твердотельные</h4>
 						</a>
 					</div>
@@ -1085,7 +1027,41 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+						</a>
+						<div class="button"><button>В корзину</button></div>
+					</div>
+					<div class="qlavniy-tovar">
+						<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+						<a href="">
+							<div class="qlavniy-tovar-img"><img src="https://bistrogift.ru/image/catalog/OA/460aec18e90d6386.jpg" alt=""></div>
+							<span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
+							<div class="rekomenduyemost">86% рекомендуют</div>
+						</span>
+
+						</a>
+						<div class="button"><button>В корзину</button></div>
+					</div>
+					<div class="qlavniy-tovar">
+						<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
+						<a href="">
+							<div class="qlavniy-tovar-img"><img src="https://javasea.ru/uploads/posts/2021-08/1628166754_shikarnaja-blondinka-v-chernom-plate.jpg" alt=""></div>
+							<span class="tovar-info">
+							<div class="chena">	142 000p</div>
+							<div class="reyting">
+								<div class="zvezda">звезды</div>
+								<div class="chislo-ochenik">50</div>
+							</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1102,7 +1078,7 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1119,7 +1095,7 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1136,7 +1112,7 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1153,7 +1129,7 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1170,7 +1146,7 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
@@ -1187,80 +1163,22 @@
 								<div class="zvezda">звезды</div>
 								<div class="chislo-ochenik">50</div>
 							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
+							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB</div>
 							<div class="rekomenduyemost">86% рекомендуют</div>
 						</span>
 
 						</a>
-						<div class="button"><button>В корзину</button></div>
-					</div>
-					<div class="qlavniy-tovar">
-						<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-						<a href="">
-							<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
-							<span class="tovar-info">
-							<div class="chena">	142 000p</div>
-							<div class="reyting">
-								<div class="zvezda">звезды</div>
-								<div class="chislo-ochenik">50</div>
-							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-							<div class="rekomenduyemost">86% рекомендуют</div>
-						</span>
-
-						</a>
-						<div class="button"><button>В корзину</button></div>
-					</div>
-					<div class="qlavniy-tovar">
-						<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-						<a href="">
-							<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
-							<span class="tovar-info">
-							<div class="chena">	142 000p</div>
-							<div class="reyting">
-								<div class="zvezda">звезды</div>
-								<div class="chislo-ochenik">50</div>
-							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-							<div class="rekomenduyemost">86% рекомендуют</div>
-						</span>
-
-						</a>
-						<div class="button"><button>В корзину</button></div>
-					</div>
-					<div class="qlavniy-tovar">
-						<div class="space">
-							<a href="">
-								<div>Ещё</div>
-								<div><i class="fas fa-angle-right"></i></div>
-							</a>
-						</div>
-						<div class="izbranniy-tovar"><i class="fa-solid fa-heart"></i></div>
-
-							<div class="qlavniy-tovar-img"><img src="https://avatars.mds.yandex.net/get-marketpic/4444542/picf9121702c8e6b43052a9df41b321b663/200x200" alt=""></div>
-							<span class="tovar-info">
-							<div class="chena">	142 000p</div>
-							<div class="reyting">
-								<div class="zvezda">звезды</div>
-								<div class="chislo-ochenik">50</div>
-							</div>
-							<div class="tovar-name">Видеокарта Palit GeForce RTX 3070 GamingPro 8GB (NE63070019P2-1041A), Retail</div>
-							<div class="rekomenduyemost">86% рекомендуют</div>
-						</span>
-
-
 						<div class="button"><button>В корзину</button></div>
 					</div>
 				</div>
 			</div>
-
 		</main>
 		<div class="reklami">
 			<div class="reklama">
-				<img src="https://avatars.mds.yandex.net/get-adfox-content/2765366/220415_market_1878578_5195915_1.b4846eb40d021e44e9306f4dcef4d9b4.jpg/optimize.webp" alt="">
+				<img src="img/4kBsuIEuNhfrNhgzdlvhXTW_kWYSkEeRsPypfOkalJ8.gif" alt="">
 			</div>
 			<div class="reklama">
-				<img src="https://avatars.mds.yandex.net/get-adfox-content/2367573/220415_market_1878627_5196067_1.c082788be90caac8388026c23bcf713b.jpg/optimize.webp" alt="">
+				<img src="img/4kBsuIEuNhfrNhgzdlvhXTW_kWYSkEeRsPypfOkalJ8.gif" alt="">
 			</div>
 		</div>
 	</div>
@@ -1335,7 +1253,34 @@
 
 	<script src="https://kit.fontawesome.com/3cb2bc27fe.js" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		let poiskoviki = document.querySelectorAll('.poisk-tovarov')
+		poiskoviki.forEach(poiskovik => {
+			poiskovik.addEventListener('input', ()=> {
+				let a = document.querySelector('.varianti-poiska')
+				if (poiskovik.value == '') {
+					a.style.display = 'none'
+				} else {
+					$(document).ready(function () {
+						let poisk = poiskovik.value
+						$.ajax({
+							data: { 'value':poisk },
+							url: "{% url 'find' %}",
+							success: function (response) {
+								a.sty
+							},
+							error: function (response) {
+								console.log(response.responseJSON.errors)
+							}
+						});
+						return false;
+					})
+				}
 
+			})
+		})
+	</script>
 
 </body>
 </html>
